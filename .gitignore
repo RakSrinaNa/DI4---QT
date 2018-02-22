@@ -1,3 +1,6 @@
 STL/.idea/.name
 STL/cmake-build-debug/
 STL/.idea/
+*.pro.user
+*.pro.user.*
+QT/TP1/build-Introduction-Desktop-Debug
