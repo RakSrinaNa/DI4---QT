@@ -15,7 +15,6 @@ NewPatientDialog::NewPatientDialog(QWidget *parent) :
 
     for(int i = 0; i < 10; i++)
         new StaffItem ("Text", nullptr, ui->resourcesListWidget);
-
 }
 
 NewPatientDialog::~NewPatientDialog()

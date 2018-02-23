@@ -1,5 +1,4 @@
 #include <QApplication>
-#include "main.h"
 #include "mainwindow.h"
 #include "login.h"
 #include "c_init_bd.h"

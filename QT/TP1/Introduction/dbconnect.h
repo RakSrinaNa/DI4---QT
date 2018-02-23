@@ -8,7 +8,7 @@
 #include <QSqlError>
 #include <QDebug>
 #include <QFile>
-#include <Exception>
+#include <exception>
 
 #include "patient.h"
 #include "staff.h"

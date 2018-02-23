@@ -3,7 +3,7 @@
 
 #include <QListWidgetItem>
 
-#include <staff.h>
+#include "staff.h"
 
 class StaffItem : public QListWidgetItem
 {
