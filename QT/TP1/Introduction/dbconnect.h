@@ -26,5 +26,3 @@ private:
 };
 
 #endif // DBCONNECT_H
-
-extern DBConnect db;

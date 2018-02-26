@@ -1,6 +1,8 @@
 #include "newstaffdialog.h"
 #include "ui_newstaffdialog.h"
 
+extern DBConnect db;
+
 NewStaffDialog::NewStaffDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::NewStaffDialog)
