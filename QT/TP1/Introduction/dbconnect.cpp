@@ -45,7 +45,11 @@ Patient * DBConnect::getPatient(int id)
                   "INNER JOIN TRessource ON TRessource.id = TRdv.TRdv.IdRessource "
                   "WHERE TClient.Id = :id");
     query.bindValue(":id", id);
-    query.exec();
+    if(!query.exec())
+    {
+        printf("Error getting patient's ressources %d! %s\n", id, query.lastError().text().toStdString().c_str());
+        return NULL;
+    }
 
     while(query.next()){
         resources->push_back(getStaff(query.value("TRessource.Id").toInt()));
@@ -54,7 +58,11 @@ Patient * DBConnect::getPatient(int id)
     //Get the rest of the patient
     query.prepare("SELECT * FROM TClient WHERE `Id` = :id");
     query.bindValue(":id", id);
-    query.exec();
+    if(!query.exec())
+    {
+        printf("Error getting patient %d! %s\n", id, query.lastError().text().toStdString().c_str());
+        return NULL;
+    }
 
     if(query.next())
         patient = new Patient(id, query.value("Nom").toString(), query.value("Prénom").toString(), query.value("Adresse").toString(), query.value("Ville").toString(), query.value("CP").toString(), QDate::fromString(query.value("DateRdv").toString(), "yyyy-MM-dd"), QTime::fromString(query.value("DureeRdv").toString()), query.value("Priorite").toString(), resources, query.value("Commentaire").toString(), query.value("Tel").toString());
@@ -81,7 +89,11 @@ Staff * DBConnect::getStaff(int id, bool logPass)
                       "WHERE `Id` = :id");
 
     query.bindValue(":id", id);
-    query.exec();
+    if(!query.exec())
+    {
+        printf("Error getting staff %d, %s! %s\n", id, logPass ? "true" : "false", query.lastError().text().toStdString().c_str());
+        return NULL;
+    }
 
     if(query.next()){
         if(logPass)
@@ -93,7 +105,19 @@ Staff * DBConnect::getStaff(int id, bool logPass)
     return staff;
 }
 
-QStringList DBConnect::getTypes()
+QStringList * DBConnect::getTypes()
 {
-    return QStringList();
+    QStringList * list = new QStringList();
+    QSqlQuery query;
+    if(!query.exec("SELECT Label FROM TType;"))
+    {
+        printf("Error getting types! %s\n", query.lastError().text().toStdString().c_str());
+        return NULL;
+    }
+
+    while(query.next())
+    {
+        (*list) << query.value(0).toString();
+    }
+    return list;
 }
