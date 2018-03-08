@@ -127,7 +127,7 @@ QStringList * DBConnect::getTypes()
     return list;
 }
 
-bool  DBConnect::logUser(QString user, QString pass)
+bool  DBConnect::logUser(QString &user, QString &pass)
 {
     QSqlQuery query;
     query.prepare("SELECT * FROM TCompte WHERE Login = :login AND MdP = :mdp");

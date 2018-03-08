@@ -21,6 +21,7 @@ public:
     Patient *getPatient(int id);
     Staff *getStaff(int id, bool logPass = false);
     QStringList * getTypes();
+    bool logUser(QString &user, QString &pass);
 
 private:
     QSqlDatabase db;

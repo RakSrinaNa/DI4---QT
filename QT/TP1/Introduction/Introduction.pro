@@ -23,7 +23,9 @@ SOURCES += main.cpp\
     staff.cpp \
     staffitem.cpp \
     c_init_bd.cpp \
-    dbconnect.cpp
+    dbconnect.cpp \
+    ressourcetype.cpp \
+    ressourceitem.cpp
 
 HEADERS  += mainwindow.h \
     login.h \
@@ -34,7 +36,9 @@ HEADERS  += mainwindow.h \
     staff.h \
     staffitem.h \
     c_init_bd.h \
-    dbconnect.h
+    dbconnect.h \
+    ressourcetype.h \
+    ressourceitem.h
 
 FORMS    += mainwindow.ui \
     login.ui \

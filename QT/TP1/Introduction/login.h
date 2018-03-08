@@ -2,6 +2,9 @@
 #define LOGIN_H
 
 #include <QDialog>
+#include <QMessageBox>
+
+#include "dbconnect.h"
 
 namespace Ui {
 class Login;
@@ -20,7 +23,6 @@ private slots:
 
 private:
     Ui::Login *ui;
-    bool checkLogin(QString *login, QString *password);
 };
 
 #endif // LOGIN_H

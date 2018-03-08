@@ -1,7 +1,7 @@
 #include "login.h"
 #include "ui_login.h"
 
-#include <QMessageBox>
+extern DBConnect * db;
 
 Login::Login(QWidget *parent) :
     QDialog(parent),
@@ -21,15 +21,11 @@ void Login::on_okButton_clicked()
     QString login = ui->loginEdit->text();
     QString password = ui->passwordEdit->text();
 
-    if(checkLogin(&login, &password))
+    if(db->logUser(login, password))
         accept();
     else{
         ui->passwordEdit->setText("");
         QMessageBox::warning(this, "Error", "Wrong password or login");
     }
 
-}
-
-bool Login::checkLogin(QString *login, QString *password){
-    return *login == "Thomas" && *password == "Couchoud";
 }

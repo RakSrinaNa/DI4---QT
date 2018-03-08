@@ -8,6 +8,7 @@
 #include "patient.h"
 #include "staff.h"
 #include "staffitem.h"
+#include "dbconnect.h"
 
 using namespace std;
 
