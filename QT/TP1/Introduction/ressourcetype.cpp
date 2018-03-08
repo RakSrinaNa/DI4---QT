@@ -9,7 +9,7 @@ int RessourceType::getId()
     return id;
 }
 
-QString RessourceType::getType()
+QString RessourceType::getName()
 {
     return name;
 }
