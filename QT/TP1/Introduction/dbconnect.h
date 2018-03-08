@@ -12,6 +12,7 @@
 
 #include "patient.h"
 #include "staff.h"
+#include "ressourcetype.h"
 
 class DBConnect
 {
@@ -20,8 +21,9 @@ public:
     ~DBConnect();
     Patient *getPatient(int id);
     Staff *getStaff(int id, bool logPass = false);
-    QStringList * getTypes();
     bool logUser(QString &user, QString &pass);
+    QList<RessourceType> * getTypes();
+
 
 private:
     QSqlDatabase db;
