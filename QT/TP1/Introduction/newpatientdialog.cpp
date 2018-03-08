@@ -15,7 +15,9 @@ NewPatientDialog::NewPatientDialog(QWidget *parent) :
     ui->postalCodeLineEdit->setValidator(new QIntValidator(1, 99999, this));
     ui->phoneLineEdit->setValidator(new QIntValidator(0, 999999999, this));
 
-    ui->resourcesListWidget->addItems(*(db->getTypes()));
+    QList<RessourceType *> * ressources = db->getTypes();
+    for(RessourceType * r : *ressources)
+        RessourceItem(r, ui->resourcesListWidget);
 }
 
 NewPatientDialog::~NewPatientDialog()

@@ -41,7 +41,7 @@ Patient * DBConnect::getPatient(int id)
 {
     QSqlQuery query;
     Patient * patient = nullptr;
-    vector<Staff *> * resources = new vector<Staff *>;
+    QList<RessourceType *> * resources = new QList<RessourceType *>();
 
     //Get the resources of the patient
     query.prepare("SELECT TRessource.Id "
@@ -57,7 +57,7 @@ Patient * DBConnect::getPatient(int id)
     }
 
     while(query.next()){
-        resources->push_back(getStaff(query.value("TRessource.Id").toInt()));
+        (*resources) << (getStaff(query.value("TRessource.Id").toInt()));
     }
 
     //Get the rest of the patient

@@ -1,7 +1,7 @@
 #include "ressourceitem.h"
 
-RessourceItem::RessourceItem(RessourceType *ressource, QWidget *parent) :
-    QWidget(parent), ressource(ressource)
+RessourceItem::RessourceItem(RessourceType *ressource, QListWidget *parent) :
+    QListWidgetItem(parent), ressource(ressource)
 {
     setText(ressource->getName());
 }
