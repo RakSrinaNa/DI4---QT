@@ -110,7 +110,7 @@ Staff * DBConnect::getStaff(int id, bool logPass)
     return staff;
 }
 
-QList<RessourceType> * DBConnect::getTypes()
+QList<RessourceType *> * DBConnect::getTypes()
 {
     QList<RessourceType *> * list = new QList<RessourceType *>();
     QSqlQuery query;

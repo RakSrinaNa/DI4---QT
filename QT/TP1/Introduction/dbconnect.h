@@ -22,7 +22,7 @@ public:
     Patient *getPatient(int id);
     Staff *getStaff(int id, bool logPass = false);
     bool logUser(QString &user, QString &pass);
-    QList<RessourceType> * getTypes();
+    QList<RessourceType *> *getTypes();
 
 
 private:

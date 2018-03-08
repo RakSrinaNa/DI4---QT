@@ -9,6 +9,8 @@
 #include "staff.h"
 #include "staffitem.h"
 #include "dbconnect.h"
+#include "ressourcetype.h"
+#include "ressourceitem.h"
 
 using namespace std;
 

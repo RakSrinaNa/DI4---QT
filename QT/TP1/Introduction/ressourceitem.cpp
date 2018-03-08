@@ -6,7 +6,7 @@ RessourceItem::RessourceItem(RessourceType *ressource, QWidget *parent) :
     setText(ressource->getName());
 }
 
-~RessourceItem()
+RessourceItem::~RessourceItem()
 {
     delete ressource;
 }

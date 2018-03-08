@@ -5,6 +5,8 @@
 
 #include "staff.h"
 #include "dbconnect.h"
+#include "ressourcetype.h"
+#include "ressourceitem.h"
 
 namespace Ui {
 class NewStaffDialog;

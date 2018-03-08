@@ -1,6 +1,8 @@
 #ifndef RESSOURCETYPE_H
 #define RESSOURCETYPE_H
 
+#include <QString>
+
 class RessourceType
 {
 public:
