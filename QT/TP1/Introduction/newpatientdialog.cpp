@@ -17,7 +17,7 @@ NewPatientDialog::NewPatientDialog(QWidget *parent) :
 
     QList<RessourceType *> * ressources = db->getTypes();
     for(RessourceType * r : *ressources)
-        new RessourceItem(r, ui->resourcesListWidget);
+        RessourceItem(r, ui->resourcesListWidget);
 }
 
 NewPatientDialog::~NewPatientDialog()

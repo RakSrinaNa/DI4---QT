@@ -7,9 +7,9 @@
 
 class RessourceItem : public QListWidgetItem
 {
-    Q_OBJECT
+
 public:
-    RessourceItem(RessourceType * ressource, QWidget *parent = 0);
+    RessourceItem(RessourceType * ressource, QListWidget *parent = 0);
     ~RessourceItem();
 
 private:
