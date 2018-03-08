@@ -127,6 +127,24 @@ QList<RessourceType *> * DBConnect::getTypes()
     return list;
 }
 
+RessourceType * DBConnect::getType(int id)
+{
+    QSqlQuery query;
+    query.prepare("SELECT Id, Label FROM TType WHERE Id = :id;");
+    query.bindValue(":id", id);
+    if(!query.exec())
+    {
+        printf("Error getting types! %s\n", query.lastError().text().toStdString().c_str());
+        return NULL;
+    }
+
+    if(query.next())
+    {
+        return new RessourceType(query.value("Id").toInt(), query.value("Label").toString());
+    }
+    return nullptr;
+}
+
 bool  DBConnect::logUser(QString &user, QString &pass)
 {
     QSqlQuery query;
