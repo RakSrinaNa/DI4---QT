@@ -132,6 +132,15 @@ void NewPatientDialog::on_okButton_clicked()
     {
         ui->durationTimeEdit->setStyleSheet("background-color:white;");
     }
+    if(ui->resourcesListWidget->selectedItems().size() <= 0)
+    {
+        valid = false;
+        ui->resourcesListWidget->setStyleSheet("background-color:red;");
+    }
+    else
+    {
+        ui->resourcesListWidget->setStyleSheet("background-color:white;");
+    }
 
     if(valid)
         accept();
