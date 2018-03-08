@@ -34,6 +34,7 @@ DBConnect::DBConnect()
 
 DBConnect::~DBConnect(){
     db.close();
+    db.removeDatabase("QSQLITE");
 }
 
 Patient * DBConnect::getPatient(int id)
@@ -113,7 +114,7 @@ QStringList * DBConnect::getTypes()
 {
     QStringList * list = new QStringList();
     QSqlQuery query;
-    if(!query.exec("SELECT Label FROM TType;"))
+    if(!query.exec("SELECT Label FROM TType ORDER BY Label;"))
     {
         printf("Error getting types! %s\n", query.lastError().text().toStdString().c_str());
         return NULL;

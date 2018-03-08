@@ -1,14 +1,14 @@
 #include "newstaffdialog.h"
 #include "ui_newstaffdialog.h"
 
-extern DBConnect db;
+extern DBConnect * db;
 
 NewStaffDialog::NewStaffDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::NewStaffDialog)
 {
     ui->setupUi(this);
-    ui->typeComboBox->addItems(db.getTypes());
+    ui->typeComboBox->addItems(*(db->getTypes()));
 }
 
 NewStaffDialog::~NewStaffDialog()
@@ -44,11 +44,15 @@ void NewStaffDialog::on_typeComboBox_currentIndexChanged(const QString &arg1)
     if(arg1 == "Informaticien"){
         ui->loginLineEdit->setDisabled(false);
         ui->passwordLineEdit->setDisabled(false);
+        ui->loginLineEdit->setStyleSheet("background-color:white;");
+        ui->passwordLineEdit->setStyleSheet("background-color:white;");
     } else {
         ui->loginLineEdit->setText("");
         ui->passwordLineEdit->setText("");
         ui->loginLineEdit->setDisabled(true);
         ui->passwordLineEdit->setDisabled(true);
+        ui->loginLineEdit->setStyleSheet("background-color:whitesmoke;");
+        ui->passwordLineEdit->setStyleSheet("background-color:whitesmoke;");
     }
 }
 

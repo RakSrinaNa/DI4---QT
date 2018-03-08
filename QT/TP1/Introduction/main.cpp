@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-DBConnect db;
+DBConnect * db;
 
 int main(int argc, char *argv[])
 {
@@ -14,14 +14,16 @@ int main(int argc, char *argv[])
 
     std::cout << C_INIT_BD::Creation_BD() << std::endl;
 
-    db = DBConnect();
+    db = new DBConnect();
 
     MainWindow w;
     Login login(&w);
+    int result = 0;
     if(login.exec() == QDialog::Accepted)
     {
         w.show();
-        return a.exec();
+        result = a.exec();
     }
-    return 0;
+    delete db;
+    return result;
 }

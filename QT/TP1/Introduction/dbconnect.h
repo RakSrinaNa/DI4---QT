@@ -17,6 +17,7 @@ class DBConnect
 {
 public:
     DBConnect();
+    ~DBConnect();
     Patient *getPatient(int id);
     Staff *getStaff(int id, bool logPass = false);
     QStringList * getTypes();
