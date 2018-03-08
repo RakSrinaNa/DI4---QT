@@ -2,8 +2,7 @@
 #define NEWPATIENTDIALOG_H
 
 #include <QDialog>
-
-#include <vector>
+#include <QList>
 
 #include "patient.h"
 #include "staff.h"
@@ -23,7 +22,7 @@ class NewPatientDialog : public QDialog
 public:
     NewPatientDialog(QWidget *parent = 0);
     ~NewPatientDialog();
-    vector<Staff *> * getResources();
+    QList<Staff *> * getResources();
     Patient * getPatient();
 
 private slots:
