@@ -12,6 +12,7 @@
 
 #include "patient.h"
 #include "staff.h"
+#include "ressourcetype.h"
 
 class DBConnect
 {
