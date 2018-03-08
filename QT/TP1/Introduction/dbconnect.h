@@ -20,7 +20,7 @@ public:
     ~DBConnect();
     Patient *getPatient(int id);
     Staff *getStaff(int id, bool logPass = false);
-    QStringList * getTypes();
+    QList<RessourceType> * getTypes();
 
 private:
     QSqlDatabase db;

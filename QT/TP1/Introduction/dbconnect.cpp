@@ -110,11 +110,11 @@ Staff * DBConnect::getStaff(int id, bool logPass)
     return staff;
 }
 
-QStringList * DBConnect::getTypes()
+QList<RessourceType> * DBConnect::getTypes()
 {
-    QStringList * list = new QStringList();
+    QList<RessourceType *> * list = new QList<RessourceType *>();
     QSqlQuery query;
-    if(!query.exec("SELECT Label FROM TType ORDER BY Label;"))
+    if(!query.exec("SELECT Id, Label FROM TType ORDER BY Label;"))
     {
         printf("Error getting types! %s\n", query.lastError().text().toStdString().c_str());
         return NULL;
@@ -122,7 +122,7 @@ QStringList * DBConnect::getTypes()
 
     while(query.next())
     {
-        (*list) << query.value(0).toString();
+        (*list) << new RessourceType(query.value("Id").toInt(), query.value("Label").toString());
     }
     return list;
 }
