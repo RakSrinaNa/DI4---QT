@@ -30,12 +30,12 @@ Patient * NewPatientDialog::getPatient()
     return new Patient(ui->lastNameLineEdit->text(), ui->firstNameLineEdit->text(), ui->addressLineEdit->text(), ui->cityLineEdit->text(), ui->postalCodeLineEdit->text(), ui->dayOfConsultationDateEdit->date(), ui->durationTimeEdit->time(), ui->priorityComboBox->currentText(), getResources(), ui->commentLineEdit->text(), ui->phoneLineEdit->text());
 }
 
-vector<Staff *> * NewPatientDialog::getResources()
+QList<RessourceType *> * NewPatientDialog::getResources()
 {
-    vector<Staff *> * vec = new vector<Staff *>;
-    for(int i = 0; i < ui->resourcesListWidget->selectedItems().size(); i++)
-        vec->push_back(dynamic_cast<StaffItem *>(ui->resourcesListWidget->selectedItems().at(i))->getStaff());
-    return vec;
+    QList<RessourceType *> * list = new QList<RessourceType *>;
+    for(QListWidgetItem * item : ui->resourcesListWidget->selectedItems())
+        *(list) << dynamic_cast<RessourceType *>(item);
+    return list;
 }
 
 void NewPatientDialog::upperCase_textEdited(const QString &arg1)
