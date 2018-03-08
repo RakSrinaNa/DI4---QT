@@ -54,7 +54,7 @@
     <item row="0" column="1">
      <widget class="QLineEdit" name="loginEdit">
       <property name="text">
-       <string>Thomas</string>
+       <string>Admin</string>
       </property>
      </widget>
     </item>
@@ -68,7 +68,7 @@
     <item row="1" column="1">
      <widget class="QLineEdit" name="passwordEdit">
       <property name="text">
-       <string>Couchoud</string>
+       <string>Password</string>
       </property>
      </widget>
     </item>
