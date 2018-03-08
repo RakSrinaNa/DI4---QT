@@ -32,6 +32,10 @@ DBConnect::DBConnect()
 
 }
 
+DBConnect::~DBConnect(){
+    db.close();
+}
+
 Patient * DBConnect::getPatient(int id)
 {
     QSqlQuery query;
