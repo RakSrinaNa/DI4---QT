@@ -15,9 +15,7 @@ NewPatientDialog::NewPatientDialog(QWidget *parent) :
     ui->postalCodeLineEdit->setValidator(new QIntValidator(1, 99999, this));
     ui->phoneLineEdit->setValidator(new QIntValidator(0, 999999999, this));
 
-    QList<RessourceType *> * ressources = db->getTypes();
-    for(RessourceType * r : *ressources)
-        new RessourceItem(r, ui->resourcesListWidget);
+    ui->resourcesListWidget->addItems(*(db->getTypes()));
 }
 
 NewPatientDialog::~NewPatientDialog()
@@ -30,12 +28,12 @@ Patient * NewPatientDialog::getPatient()
     return new Patient(ui->lastNameLineEdit->text(), ui->firstNameLineEdit->text(), ui->addressLineEdit->text(), ui->cityLineEdit->text(), ui->postalCodeLineEdit->text(), ui->dayOfConsultationDateEdit->date(), ui->durationTimeEdit->time(), ui->priorityComboBox->currentText(), getResources(), ui->commentLineEdit->text(), ui->phoneLineEdit->text());
 }
 
-QList<Staff *> * NewPatientDialog::getResources()
+QList<RessourceType *> * NewPatientDialog::getResources()
 {
-    QList<Staff *> * vec = new QList<Staff *>;
-    for(int i = 0; i < ui->resourcesListWidget->selectedItems().size(); i++)
-        vec << ui->resourcesListWidget->selectedItems().at(i)->getStaff();
-    return vec;
+    QList<RessourceType *> * list = new QList<RessourceType *>;
+    for(QListWidgetItem * item : ui->resourcesListWidget->selectedItems())
+        *(list) << dynamic_cast<RessourceType *>(item);
+    return list;
 }
 
 void NewPatientDialog::upperCase_textEdited(const QString &arg1)

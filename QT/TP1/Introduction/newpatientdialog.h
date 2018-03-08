@@ -24,7 +24,7 @@ class NewPatientDialog : public QDialog
 public:
     NewPatientDialog(QWidget *parent = 0);
     ~NewPatientDialog();
-    QList<Staff *> * getResources();
+    QList<RessourceType *> * getResources();
     Patient * getPatient();
 
 private slots:
