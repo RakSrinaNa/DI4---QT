@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    //std::cout << C_INIT_BD::Creation_BD() << std::endl;
+    std::cout << C_INIT_BD::Creation_BD() << std::endl;
 
     db = DBConnect();
 
