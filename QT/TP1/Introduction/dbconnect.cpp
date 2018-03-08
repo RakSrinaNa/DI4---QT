@@ -126,3 +126,18 @@ QStringList * DBConnect::getTypes()
     }
     return list;
 }
+
+bool  DBConnect::logUser(QString user, QString pass)
+{
+    QSqlQuery query;
+    query.prepare("SELECT * FROM TCompte WHERE Login = :login AND MdP = :mdp");
+    query.bindValue(":login", user);
+    query.bindValue(":mdp", pass);
+    if(!query.exec())
+    {
+        printf("Error getting login state! %s\n", query.lastError().text().toStdString().c_str());
+        return NULL;
+    }
+
+    return query.next();
+}
