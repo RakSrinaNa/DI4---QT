@@ -20,6 +20,8 @@ public:
     DBConnect();
     ~DBConnect();
 
+    QSqlDatabase & getDb();
+
     Patient *getPatient(int id);
     Staff *getStaff(int id, bool logPass = false);
 

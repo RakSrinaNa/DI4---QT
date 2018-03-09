@@ -180,6 +180,8 @@ bool addPatient(Patient * patient)
     query.bindValue(":date", patient->getDayOfConsultation().toString("yyyy-MM-dd"));
     query.bindValue(":dura", patient->getDurationInMin());
     query.bindValue(":prio", patient->getPriority());
+
+    return query.exec();
 }
 
 bool addStaff(Staff * staff)
