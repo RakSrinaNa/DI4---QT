@@ -5,16 +5,24 @@
 
 #include <QStringList>
 
+#include "ressourcetype.h"
+
 class Staff : public QObject
 {
     Q_OBJECT
 public:
-    Staff(QString lastName, QString firstName, QString type, QObject *parent = 0);
-    Staff(QString lastName, QString firstName, QString type, QString login, QString password, QObject *parent = 0);
-    Staff(int id, QString lastName, QString firstName, QString type, QObject *parent = 0);
-    Staff(int id, QString lastName, QString firstName, QString type, QString login, QString password, QObject *parent = 0);
+    Staff(QString lastName, QString firstName, int typeId, QString typeName, QObject *parent = 0);
+    Staff(QString lastName, QString firstName, int typeId, QString typeName, QString login, QString password, QObject *parent = 0);
+    Staff(int id, QString lastName, QString firstName, int typeId, QString typeName, QObject *parent = 0);
+    Staff(int id, QString lastName, QString firstName, int typeId, QString typeName, QString login, QString password, QObject *parent = 0);
 
+    QString getLastName();
+    QString getFirstName();
+    RessourceType getRessourceType();
     QString getType();
+    QString getLogin();
+    QString getPassword();
+
     QString getDescription();
 
 signals:
@@ -25,7 +33,7 @@ private:
     int id = 0;
     QString lastName;
     QString firstName;
-    QString type;
+    RessourceType type;
     QString login;
     QString password;
 

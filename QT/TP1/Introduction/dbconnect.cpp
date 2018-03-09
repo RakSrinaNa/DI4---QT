@@ -87,13 +87,13 @@ Staff * DBConnect::getStaff(int id, bool logPass)
 
     //Get the staff member
     if(logPass)
-        query.prepare("SELECT TRessource.Id, TRessource.Nom, TRessource.Prenom, TType.Label "
+        query.prepare("SELECT TRessource.Id, TRessource.Nom, TRessource.Prenom, TType.Id, TType.Label, TCompte.Login, TCompte.Mdp "
                       "FROM TRessource "
                       "INNER JOIN TType ON TRessource.IdType = TType.Id "
                       "INNER JOIN TCompte ON TCompte.IdRessource = TRessource.Id "
                       "WHERE `Id` = :id");
     else
-        query.prepare("SELECT TRessource.Id, TRessource.Nom, TRessource.Prenom, TType.Label "
+        query.prepare("SELECT TRessource.Id, TRessource.Nom, TRessource.Prenom, TType.id, TType.Label "
                       "FROM TRessource "
                       "INNER JOIN TType ON TRessource.IdType = TType.Id "
                       "WHERE `Id` = :id");
@@ -107,9 +107,9 @@ Staff * DBConnect::getStaff(int id, bool logPass)
 
     if(query.next()){
         if(logPass)
-            staff = new Staff(query.value(0).toInt(), query.value(1).toString(), query.value(2).toString(), query.value(3).toString(), query.value(4).toString(), query.value(5).toString());
+            staff = new Staff(query.value(0).toInt(), query.value(1).toString(), query.value(2).toString(), query.value(2).toInt(), query.value(4).toString(), query.value(5).toString(), query.value(6).toString());
         else
-            staff = new Staff(query.value(0).toInt(), query.value(1).toString(), query.value(2).toString(), query.value(3).toString());
+            staff = new Staff(query.value(0).toInt(), query.value(1).toString(), query.value(2).toString(), query.value(3).toInt(), query.value(4).toString());
     }
 
     return staff;
@@ -165,7 +165,7 @@ bool  DBConnect::logUser(QString &user, QString &pass)
     return query.next();
 }
 
-bool addPatient(Patient * patient)
+bool DBConnect::addPatient(Patient * patient)
 {
     QSqlQuery query;
     query.prepare("INSERT INTO TClient (Id, Nom, Prenom, Adresse, Ville, CP, Commentaire, Tel, DateRdv, DureeRdv, Priorite) "
@@ -184,7 +184,14 @@ bool addPatient(Patient * patient)
     return query.exec();
 }
 
-bool addStaff(Staff * staff)
+bool DBConnect::addStaff(Staff * staff)
 {
+    QSqlQuery query;
+    query.prepare("INSERT INTO TRessource (Id, Nom, Prenom, Type) "
+                  "VALUES ((SELECT max(Id) FROM TRessource), :firstName, :lastName, :type);");
+    query.bindValue(":lastName", staff->getLastName());
+    query.bindValue(":firstName", staff->getFirstName());
+    query.bindValue(":address", staff->getRessourceType().getId());
 
+    return query.exec();
 }

@@ -22,6 +22,7 @@ NewStaffDialog::~NewStaffDialog()
 
 Staff * NewStaffDialog::getStaff()
 {
+    //TODO
     return nullptr;
 }
 
