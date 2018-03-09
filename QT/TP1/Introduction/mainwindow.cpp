@@ -95,11 +95,11 @@ void MainWindow::upperCase_textEdited(const QString &arg1)
 void MainWindow::on_firstNameEdit_textEdited(const QString &arg1)
 {
     upperCase_textEdited(arg1);
-    firstNameModel->setFilterRegExp(arg1);
+    firstNameModel->setFilterRegExp(qobject_cast<QLineEdit *>(sender())->text());
 }
 
 void MainWindow::on_lastNameEdit_textEdited(const QString &arg1)
 {
     upperCase_textEdited(arg1);
-    lastNameModel->setFilterRegExp(arg1);
+    lastNameModel->setFilterRegExp(qobject_cast<QLineEdit *>(sender())->text());
 }
