@@ -60,9 +60,13 @@ void MainWindow::on_actionPatient_triggered()
 {
     NewPatientDialog newPatient;
     if(newPatient.exec() == QDialog::Accepted){
-        db->addPatient(newPatient.getPatient());
-        setStatusText("A new patient was added", 5000);
-        ui->tableView->reset();
+        if(db->addPatient(newPatient.getPatient()))
+        {
+            setStatusText("A new patient was added", 5000);
+            model->select();
+        }
+        else
+            setStatusText("Failed to add a new patient", 5000);
     }
 }
 
@@ -70,8 +74,10 @@ void MainWindow::on_actionPersonnel_de_soin_triggered()
 {
     NewStaffDialog newStaff;
     if(newStaff.exec() == QDialog::Accepted){
-        db->addStaff(newStaff.getStaff());
-        setStatusText("A new staff member was added", 5000);
+        if(db->addStaff(newStaff.getStaff()))
+            setStatusText("A new staff member was added", 5000);
+        else
+            setStatusText("Fail to add new staff member", 5000);
     }
 }
 
