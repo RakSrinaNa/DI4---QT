@@ -13,3 +13,4 @@ QString RessourceType::getName()
 {
     return name;
 }
+

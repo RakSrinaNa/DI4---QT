@@ -57,7 +57,7 @@ Patient * DBConnect::getPatient(int id)
     }
 
     while(query.next()){
-        (*resources) << (getStaff(query.value("TRessource.Id").toInt()));
+        (*resources) << (getType(query.value("TRessource.Id").toInt()));
     }
 
     //Get the rest of the patient
@@ -158,4 +158,23 @@ bool  DBConnect::logUser(QString &user, QString &pass)
     }
 
     return query.next();
+}
+
+bool addPatient(Patient * patient)
+{
+    QSqlQuery query;
+    query.prepare("INSERT INTO TClient (Id, Nom, Prenom varchar(50), "
+                  "Adresse varchar(50), "
+                  "Ville varchar(50), "
+                  "CP integer, "
+                  "Commentaire varchar(50), "
+                  "Tel integer, "
+                  "DateRdv date, "
+                  "DureeRdv integer, "
+                  "Priorite) VALUES ()");
+}
+
+bool addStaff(Staff * staff)
+{
+
 }

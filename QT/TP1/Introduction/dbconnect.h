@@ -19,10 +19,17 @@ class DBConnect
 public:
     DBConnect();
     ~DBConnect();
+
     Patient *getPatient(int id);
     Staff *getStaff(int id, bool logPass = false);
+
     bool logUser(QString &user, QString &pass);
+
     QList<RessourceType *> *getTypes();
+    RessourceType * getType(int id);
+
+    bool addPatient(Patient * patient);
+    bool addStaff(Staff * staff);
 
 
 private:

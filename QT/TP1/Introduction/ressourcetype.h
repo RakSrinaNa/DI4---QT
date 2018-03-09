@@ -14,6 +14,5 @@ private:
     int id;
     QString name;
 };
-Q_DECLARE_METATYPE(RessourceType*);
 
 #endif // RESSOURCETYPE_H
