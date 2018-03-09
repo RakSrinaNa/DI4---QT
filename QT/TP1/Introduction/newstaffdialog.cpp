@@ -22,8 +22,13 @@ NewStaffDialog::~NewStaffDialog()
 
 Staff * NewStaffDialog::getStaff()
 {
-    //TODO
-    return nullptr;
+    int index = ui->typeComboBox->currentIndex();
+    RessourceType * type = ui->typeComboBox->itemData(index).value<RessourceType *>();
+
+    if(type->getName() == "Informaticien")
+        return new Staff(ui->lastNameLineEdit->text(), ui->firstNameLineEdit->text(), type->getId(), type->getName(), ui->loginLineEdit->text(), ui->passwordLineEdit->text());
+    else
+        return new Staff(ui->lastNameLineEdit->text(), ui->firstNameLineEdit->text(), type->getId(), type->getName());
 }
 
 void NewStaffDialog::upperCase_textEdited(const QString &arg1)

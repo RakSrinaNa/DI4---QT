@@ -53,7 +53,7 @@ void MainWindow::on_actionPatient_triggered()
 {
     NewPatientDialog newPatient;
     if(newPatient.exec() == QDialog::Accepted){
-        newPatient.getPatient();
+        db->addPatient(newPatient.getPatient());
         setStatusText("A new patient was added", 5000);
     }
 }
@@ -62,7 +62,7 @@ void MainWindow::on_actionPersonnel_de_soin_triggered()
 {
     NewStaffDialog newStaff;
     if(newStaff.exec() == QDialog::Accepted){
-        newStaff.getStaff();
+        db->addStaff(newStaff.getStaff());
         setStatusText("A new staff member was added", 5000);
     }
 }

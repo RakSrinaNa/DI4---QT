@@ -159,7 +159,7 @@ bool  DBConnect::logUser(QString &user, QString &pass)
     if(!query.exec())
     {
         printf("Error getting login state! %s\n", query.lastError().text().toStdString().c_str());
-        return NULL;
+        return false;
     }
 
     return query.next();
@@ -167,6 +167,9 @@ bool  DBConnect::logUser(QString &user, QString &pass)
 
 bool DBConnect::addPatient(Patient * patient)
 {
+    if(patient == nullptr)
+        return false;
+
     QSqlQuery query;
     query.prepare("INSERT INTO TClient (Id, Nom, Prenom, Adresse, Ville, CP, Commentaire, Tel, DateRdv, DureeRdv, Priorite) "
                   "VALUES ((SELECT max(Id) FROM TClient), :firstName, :lastName, :address, :city, :postal, :comm, :tel, :date, :dura, :prio);");
@@ -186,6 +189,9 @@ bool DBConnect::addPatient(Patient * patient)
 
 bool DBConnect::addStaff(Staff * staff)
 {
+    if(patient == nullptr)
+        return false;
+
     QSqlQuery query;
     query.prepare("INSERT INTO TRessource (Id, Nom, Prenom, Type) "
                   "VALUES ((SELECT max(Id) FROM TRessource), :firstName, :lastName, :type);");
