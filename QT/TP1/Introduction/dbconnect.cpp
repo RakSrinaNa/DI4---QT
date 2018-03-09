@@ -172,7 +172,7 @@ bool DBConnect::addPatient(Patient * patient)
 
     QSqlQuery query;
     query.prepare("INSERT INTO TClient (Id, Nom, Prenom, Adresse, Ville, CP, Commentaire, Tel, DateRdv, DureeRdv, Priorite) "
-                  "VALUES ((SELECT max(Id) FROM TClient), :firstName, :lastName, :address, :city, :postal, :comm, :tel, :date, :dura, :prio);");
+                  "VALUES ((SELECT max(Id) +1 FROM TClient), :firstName, :lastName, :address, :city, :postal, :comm, :tel, :date, :dura, :prio);");
     query.bindValue(":lastName", patient->getLastName());
     query.bindValue(":firstName", patient->getFirstName());
     query.bindValue(":address", patient->getAddress());
@@ -194,7 +194,7 @@ bool DBConnect::addStaff(Staff * staff)
 
     QSqlQuery query;
     query.prepare("INSERT INTO TRessource (Id, Nom, Prenom, Type) "
-                  "VALUES ((SELECT max(Id) FROM TRessource), :firstName, :lastName, :type);");
+                  "VALUES ((SELECT max(Id) +1 FROM TRessource), :firstName, :lastName, :type);");
     query.bindValue(":lastName", staff->getLastName());
     query.bindValue(":firstName", staff->getFirstName());
     query.bindValue(":address", staff->getRessourceType().getId());
