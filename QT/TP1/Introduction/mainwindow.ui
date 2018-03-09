@@ -84,10 +84,10 @@
        <widget class="QWidget" name="verticalWidget" native="true">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>30</y>
-          <width>461</width>
-          <height>261</height>
+          <x>10</x>
+          <y>10</y>
+          <width>521</width>
+          <height>341</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -112,10 +112,18 @@
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout">
            <item>
-            <widget class="QLineEdit" name="firstNameEdit"/>
+            <widget class="QLineEdit" name="firstNameEdit">
+             <property name="placeholderText">
+              <string>First name</string>
+             </property>
+            </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lastNameEdit"/>
+            <widget class="QLineEdit" name="lastNameEdit">
+             <property name="placeholderText">
+              <string>Last name</string>
+             </property>
+            </widget>
            </item>
           </layout>
          </item>
@@ -147,7 +155,7 @@
      <x>0</x>
      <y>0</y>
      <width>545</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
