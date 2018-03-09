@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QSqlTableModel>
+#include "dbconnect.h"
 
 namespace Ui {
 class MainWindow;
@@ -18,6 +20,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QSqlTableModel * model;
 
 private slots:
     void on_actionPatient_triggered();
