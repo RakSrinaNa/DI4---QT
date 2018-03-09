@@ -189,7 +189,7 @@ bool DBConnect::addPatient(Patient * patient)
 
 bool DBConnect::addStaff(Staff * staff)
 {
-    if(patient == nullptr)
+    if(staff == nullptr)
         return false;
 
     QSqlQuery query;

@@ -23,7 +23,7 @@ NewStaffDialog::~NewStaffDialog()
 Staff * NewStaffDialog::getStaff()
 {
     int index = ui->typeComboBox->currentIndex();
-    RessourceType * type = ui->typeComboBox->itemData(index).value<RessourceType *>();
+    RessourceType * type = static_cast<RessourceType *>(ui->typeComboBox->currentData().value<void *>());
 
     if(type->getName() == "Informaticien")
         return new Staff(ui->lastNameLineEdit->text(), ui->firstNameLineEdit->text(), type->getId(), type->getName(), ui->loginLineEdit->text(), ui->passwordLineEdit->text());
