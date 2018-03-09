@@ -110,7 +110,14 @@
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
-          <widget class="QLineEdit" name="lineEdit"/>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QLineEdit" name="firstNameEdit"/>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lastNameEdit"/>
+           </item>
+          </layout>
          </item>
          <item>
           <widget class="QTableView" name="tableView">

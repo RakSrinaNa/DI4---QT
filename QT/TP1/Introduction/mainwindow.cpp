@@ -20,8 +20,8 @@ MainWindow::MainWindow(QWidget *parent) :
    model->setEditStrategy(QSqlTableModel::OnFieldChange);
    model->select();
    model->setHeaderData(0, Qt::Horizontal, tr("Id"));
-   model->setHeaderData(1, Qt::Horizontal, tr("Last name"));
-   model->setHeaderData(2, Qt::Horizontal, tr("First Name"));
+   model->setHeaderData(1, Qt::Horizontal, tr("First Name"));
+   model->setHeaderData(2, Qt::Horizontal, tr("Last name"));
    model->setHeaderData(3, Qt::Horizontal, tr("Adsress"));
    model->setHeaderData(4, Qt::Horizontal, tr("City"));
    model->setHeaderData(5, Qt::Horizontal, tr("Postal Code"));
@@ -31,8 +31,15 @@ MainWindow::MainWindow(QWidget *parent) :
    model->setHeaderData(9, Qt::Horizontal, tr("Length"));
    model->setHeaderData(10, Qt::Horizontal, tr("Priority"));
 
-   ui->tableView->setModel(model);
+   firstNameModel = new QSortFilterProxyModel(this);
+   lastNameModel = new QSortFilterProxyModel(this);
+   ui->tableView->setModel(lastNameModel);
+   firstNameModel->setSourceModel(model);
+   firstNameModel->setFilterKeyColumn(1);
+   lastNameModel->setSourceModel(firstNameModel);
+   lastNameModel->setFilterKeyColumn(2);
    ui->tableView->setColumnHidden(0, true);
+
    ui->tableView->resizeColumnsToContents();
 
    //connect(ui->submitButton, SIGNAL(clicked()), this, SLOT(submit()));
@@ -71,4 +78,24 @@ void MainWindow::on_actionA_propos_triggered()
 {
     AProposDialog APropos;
     APropos.exec();
+}
+
+void MainWindow::upperCase_textEdited(const QString &arg1)
+{
+    QString s = arg1;
+    QString cap = s.left(1).toUpper();
+    QString text = s.length() > 1 ? s.right(s.length() -1).toLower() : "";
+    qobject_cast<QLineEdit *>(sender())->setText(cap + text);
+}
+
+void MainWindow::on_firstNameEdit_textEdited(const QString &arg1)
+{
+    upperCase_textEdited(arg1);
+    firstNameModel->setFilterRegExp(arg1);
+}
+
+void MainWindow::on_lastNameEdit_textEdited(const QString &arg1)
+{
+    upperCase_textEdited(arg1);
+    lastNameModel->setFilterRegExp(arg1);
 }
