@@ -18,6 +18,19 @@ public:
     Patient(QString lastName, QString firstName, QString address, QString city, QString postalCode, QDate dayOfConsultation, QTime duration, QString priority, QList<RessourceType *> * resources, QString comment, QString phone, QObject *parent = 0);
     Patient(int id, QString lastName, QString firstName, QString address, QString city, QString postalCode, QDate dayOfConsultation, QTime duration, QString priority, QList<RessourceType *> * resources, QString comment, QString phone, QObject *parent = 0);
 
+
+    QString getLastName();
+    QString getFirstName();
+    QString getAddress();
+    QString getCity();
+    QString getPostalCode();
+    QDate getDayOfConsultation();
+    QTime getDuration();
+    int getDurationInMin();
+    QString getPriority();
+    QString getComment();
+    QString getPhone();
+
 signals:
 
 public slots:

@@ -37,6 +37,11 @@ DBConnect::~DBConnect(){
     db.removeDatabase("QSQLITE");
 }
 
+QSqlDatabase & DBConnect::getDb()
+{
+    return db;
+}
+
 Patient * DBConnect::getPatient(int id)
 {
     QSqlQuery query;
@@ -163,15 +168,18 @@ bool  DBConnect::logUser(QString &user, QString &pass)
 bool addPatient(Patient * patient)
 {
     QSqlQuery query;
-    query.prepare("INSERT INTO TClient (Id, Nom, Prenom varchar(50), "
-                  "Adresse varchar(50), "
-                  "Ville varchar(50), "
-                  "CP integer, "
-                  "Commentaire varchar(50), "
-                  "Tel integer, "
-                  "DateRdv date, "
-                  "DureeRdv integer, "
-                  "Priorite) VALUES ()");
+    query.prepare("INSERT INTO TClient (Id, Nom, Prenom, Adresse, Ville, CP, Commentaire, Tel, DateRdv, DureeRdv, Priorite) "
+                  "VALUES ((SELECT max(Id) FROM TClient), :firstName, :lastName, :address, :city, :postal, :comm, :tel, :date, :dura, :prio);");
+    query.bindValue(":lastName", patient->getLastName());
+    query.bindValue(":firstName", patient->getFirstName());
+    query.bindValue(":address", patient->getAddress());
+    query.bindValue(":city", patient->getCity());
+    query.bindValue(":postal", patient->getPostalCode());
+    query.bindValue(":comm", patient->getComment());
+    query.bindValue(":tel", patient->getPhone());
+    query.bindValue(":date", patient->getDayOfConsultation().toString("yyyy-MM-dd"));
+    query.bindValue(":dura", patient->getDurationInMin());
+    query.bindValue(":prio", patient->getPriority());
 }
 
 bool addStaff(Staff * staff)
