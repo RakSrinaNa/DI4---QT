@@ -62,6 +62,7 @@ void MainWindow::on_actionPatient_triggered()
     if(newPatient.exec() == QDialog::Accepted){
         db->addPatient(newPatient.getPatient());
         setStatusText("A new patient was added", 5000);
+        ui->tableView->reset();
     }
 }
 
