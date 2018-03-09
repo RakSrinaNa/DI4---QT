@@ -9,27 +9,30 @@ extern DBConnect * db;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
-{
+    {
     ui->setupUi(this);
     setWindowTitle("Application");
     setStatusText("You are connected");
+    ui->tabWidget->tabBar()->setExpanding(true);
 
    model = new QSqlTableModel(this, db->getDb());
-   model->setTable("Person");
+   model->setTable("TClient");
    model->setEditStrategy(QSqlTableModel::OnFieldChange);
    model->select();
    model->setHeaderData(0, Qt::Horizontal, tr("Id"));
-   model->setHeaderData(1, Qt::Horizontal, tr("Nom"));
-   model->setHeaderData(2, Qt::Horizontal, tr("Prenom"));
-   model->setHeaderData(3, Qt::Horizontal, tr("Adresse"));
-   model->setHeaderData(4, Qt::Horizontal, tr("Ville"));
-   model->setHeaderData(5, Qt::Horizontal, tr("CP"));
-   model->setHeaderData(6, Qt::Horizontal, tr("Commentaire"));
-   model->setHeaderData(7, Qt::Horizontal, tr("Tel"));
-   model->setHeaderData(8, Qt::Horizontal, tr("DateRdv"));
-   model->setHeaderData(9, Qt::Horizontal, tr("DureeRdv"));
-   model->setHeaderData(10, Qt::Horizontal, tr("Priorite"));
+   model->setHeaderData(1, Qt::Horizontal, tr("Last name"));
+   model->setHeaderData(2, Qt::Horizontal, tr("First Name"));
+   model->setHeaderData(3, Qt::Horizontal, tr("Adsress"));
+   model->setHeaderData(4, Qt::Horizontal, tr("City"));
+   model->setHeaderData(5, Qt::Horizontal, tr("Postal Code"));
+   model->setHeaderData(6, Qt::Horizontal, tr("Comment"));
+   model->setHeaderData(7, Qt::Horizontal, tr("Phone"));
+   model->setHeaderData(8, Qt::Horizontal, tr("Date"));
+   model->setHeaderData(9, Qt::Horizontal, tr("Length"));
+   model->setHeaderData(10, Qt::Horizontal, tr("Priority"));
+
    ui->tableView->setModel(model);
+   ui->tableView->setColumnHidden(0, true);
    ui->tableView->resizeColumnsToContents();
 
    //connect(ui->submitButton, SIGNAL(clicked()), this, SLOT(submit()));
