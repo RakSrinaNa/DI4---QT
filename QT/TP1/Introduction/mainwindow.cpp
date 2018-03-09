@@ -61,9 +61,12 @@ void MainWindow::on_actionPatient_triggered()
     NewPatientDialog newPatient;
     if(newPatient.exec() == QDialog::Accepted){
         if(db->addPatient(newPatient.getPatient()))
+        {
             setStatusText("A new patient was added", 5000);
+            model->select();
+        }
         else
-            setStatusText("Fail to add new patient", 5000);
+            setStatusText("Failed to add a new patient", 5000);
     }
 }
 
