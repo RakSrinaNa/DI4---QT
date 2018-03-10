@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <iostream>
+
 #include <QMainWindow>
 #include <QSqlTableModel>
 #include <QSortFilterProxyModel>
@@ -33,8 +35,9 @@ private slots:
     void on_actionA_propos_triggered();
 
     void on_firstNameEdit_textEdited(const QString &arg1);
-
     void on_lastNameEdit_textEdited(const QString &arg1);
+
+    void keyPressEvent(QKeyEvent * event);
 
 signals:
     void statusChanged(QString &status);

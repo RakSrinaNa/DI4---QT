@@ -131,6 +131,7 @@ public:
         tableView->setObjectName(QStringLiteral("tableView"));
         sizePolicy.setHeightForWidth(tableView->sizePolicy().hasHeightForWidth());
         tableView->setSizePolicy(sizePolicy);
+        tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
 
         verticalLayout_2->addWidget(tableView);
 
