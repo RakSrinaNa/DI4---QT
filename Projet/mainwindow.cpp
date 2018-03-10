@@ -15,35 +15,35 @@ MainWindow::MainWindow(QWidget *parent) :
     setStatusText("You are connected");
     ui->tabWidget->tabBar()->setExpanding(true);
 
-   model = new QSqlTableModel(this, db->getDb());
-   model->setTable("TClient");
-   model->setEditStrategy(QSqlTableModel::OnFieldChange);
-   model->select();
-   model->setHeaderData(0, Qt::Horizontal, tr("Id"));
-   model->setHeaderData(1, Qt::Horizontal, tr("First Name"));
-   model->setHeaderData(2, Qt::Horizontal, tr("Last name"));
-   model->setHeaderData(3, Qt::Horizontal, tr("Adsress"));
-   model->setHeaderData(4, Qt::Horizontal, tr("City"));
-   model->setHeaderData(5, Qt::Horizontal, tr("Postal Code"));
-   model->setHeaderData(6, Qt::Horizontal, tr("Comment"));
-   model->setHeaderData(7, Qt::Horizontal, tr("Phone"));
-   model->setHeaderData(8, Qt::Horizontal, tr("Date"));
-   model->setHeaderData(9, Qt::Horizontal, tr("Length"));
-   model->setHeaderData(10, Qt::Horizontal, tr("Priority"));
+    model = new QSqlTableModel(this, db->getDb());
+    model->setTable("TClient");
+    model->setEditStrategy(QSqlTableModel::OnFieldChange);
+    model->select();
+    model->setHeaderData(0, Qt::Horizontal, tr("Id"));
+    model->setHeaderData(1, Qt::Horizontal, tr("First Name"));
+    model->setHeaderData(2, Qt::Horizontal, tr("Last name"));
+    model->setHeaderData(3, Qt::Horizontal, tr("Adsress"));
+    model->setHeaderData(4, Qt::Horizontal, tr("City"));
+    model->setHeaderData(5, Qt::Horizontal, tr("Postal Code"));
+    model->setHeaderData(6, Qt::Horizontal, tr("Comment"));
+    model->setHeaderData(7, Qt::Horizontal, tr("Phone"));
+    model->setHeaderData(8, Qt::Horizontal, tr("Date"));
+    model->setHeaderData(9, Qt::Horizontal, tr("Length"));
+    model->setHeaderData(10, Qt::Horizontal, tr("Priority"));
 
-   firstNameModel = new QSortFilterProxyModel(this);
-   lastNameModel = new QSortFilterProxyModel(this);
-   ui->tableView->setModel(lastNameModel);
-   firstNameModel->setSourceModel(model);
-   firstNameModel->setFilterKeyColumn(1);
-   lastNameModel->setSourceModel(firstNameModel);
-   lastNameModel->setFilterKeyColumn(2);
-   ui->tableView->setColumnHidden(0, true);
+    firstNameModel = new QSortFilterProxyModel(this);
+    lastNameModel = new QSortFilterProxyModel(this);
+    ui->tableView->setModel(lastNameModel);
+    firstNameModel->setSourceModel(model);
+    firstNameModel->setFilterKeyColumn(1);
+    lastNameModel->setSourceModel(firstNameModel);
+    lastNameModel->setFilterKeyColumn(2);
+    ui->tableView->setColumnHidden(0, true);
 
-   ui->tableView->resizeColumnsToContents();
+    ui->tableView->resizeColumnsToContents();
 
-   //connect(ui->submitButton, SIGNAL(clicked()), this, SLOT(submit()));
-   //connect(ui->revertButton, SIGNAL(clicked()), model, SLOT(revertAll()));
+    //connect(ui->submitButton, SIGNAL(clicked()), this, SLOT(submit()));
+    //connect(ui->revertButton, SIGNAL(clicked()), model, SLOT(revertAll()));
 }
 
 MainWindow::~MainWindow()
@@ -105,4 +105,22 @@ void MainWindow::on_lastNameEdit_textEdited(const QString &arg1)
 {
     upperCase_textEdited(arg1);
     lastNameModel->setFilterRegExp(qobject_cast<QLineEdit *>(sender())->text());
+}
+
+void MainWindow::keyPressEvent(QKeyEvent * event)
+{
+    int current = ui->tableView->selectionModel()->currentIndex().row();
+    if(event->key() == Qt::Key_Delete && current != -1){
+        model->removeRow(current);
+        model->submitAll();
+        model->select();
+
+
+        int total = ui->tableView->model()->rowCount();
+        if(current >= total -1)
+            current = total -1;
+        ui->tableView->selectRow(current);
+
+    }
+    event->accept();
 }
