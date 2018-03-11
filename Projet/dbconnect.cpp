@@ -150,7 +150,7 @@ RessourceType * DBConnect::getType(int id)
     return nullptr;
 }
 
-bool  DBConnect::logUser(QString &user, QString &pass)
+bool DBConnect::logUser(QString &user, QString &pass)
 {
     QSqlQuery query;
     query.prepare("SELECT * FROM TCompte WHERE Login = :login AND MdP = :mdp");
@@ -184,7 +184,20 @@ bool DBConnect::addPatient(Patient * patient)
     query.bindValue(":dura", patient->getDurationInMin());
     query.bindValue(":prio", patient->getPriority());
 
-    return query.exec();
+    if(!query.exec())
+        return false;
+
+    QList<RessourceType *> * resources = patient->getResources();
+    for(int i = 0; i < resources->size(); i++){
+        QSqlQuery query2;
+        query2.prepare("INSERT INTO TRdv (Id, IdClient, IdRessource) "
+                       "VALUES ((SELECT max(Id) +1 FROM TRdv), (SELECT max(Id) FROM TClient), :idressources)");
+        query2.bindValue(":idressource", "" + resources->at(i)->getId());
+        if(!query2.exec())
+            return false;
+    }
+
+    return true;
 }
 
 bool DBConnect::addStaff(Staff * staff)

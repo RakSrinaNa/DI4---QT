@@ -28,6 +28,7 @@ public:
     QTime getDuration();
     int getDurationInMin();
     QString getPriority();
+    QList<RessourceType *> * getResources();
     QString getComment();
     QString getPhone();
 

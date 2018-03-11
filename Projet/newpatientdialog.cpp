@@ -35,7 +35,7 @@ QList<RessourceType *> * NewPatientDialog::getResources()
 {
     QList<RessourceType *> * list = new QList<RessourceType *>;
     for(QListWidgetItem * item : ui->resourcesListWidget->selectedItems())
-        *(list) << dynamic_cast<RessourceType *>(item);
+        *(list) << dynamic_cast<RessourceItem *>(item)->getRessource();
     return list;
 }
 

@@ -55,6 +55,11 @@ QString Patient::getPriority()
     return priority;
 }
 
+QList<RessourceType *> * Patient::getResources()
+{
+    return resources;
+}
+
 QString Patient::getComment()
 
 {

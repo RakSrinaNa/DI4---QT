@@ -109,18 +109,21 @@ void MainWindow::on_lastNameEdit_textEdited(const QString &arg1)
 
 void MainWindow::keyPressEvent(QKeyEvent * event)
 {
-    int current = ui->tableView->selectionModel()->currentIndex().row();
-    if(event->key() == Qt::Key_Delete && current != -1){
-        model->removeRow(current);
-        model->submitAll();
-        model->select();
+    switch (event->key()){
+    case Qt::Key_Delete:
+        int current = ui->tableView->selectionModel()->currentIndex().row();
+        if(current != -1){
+            model->removeRow(current);
+            model->submitAll();
+            model->select();
 
+            int total = ui->tableView->model()->rowCount();
+            if(current >= total -1)
+                current = total -1;
+            ui->tableView->selectRow(current);
 
-        int total = ui->tableView->model()->rowCount();
-        if(current >= total -1)
-            current = total -1;
-        ui->tableView->selectRow(current);
-
+        }
+        break;
     }
     event->accept();
 }

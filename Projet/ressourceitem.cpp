@@ -10,3 +10,8 @@ RessourceItem::~RessourceItem()
 {
     delete ressource;
 }
+
+RessourceType * RessourceItem::getRessource()
+{
+    return ressource;
+}

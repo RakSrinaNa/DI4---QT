@@ -11,6 +11,7 @@ class RessourceItem : public QListWidgetItem
 public:
     RessourceItem(RessourceType * ressource, QListWidget *parent = 0);
     ~RessourceItem();
+    RessourceType * getRessource();
 
 private:
     RessourceType * ressource;
