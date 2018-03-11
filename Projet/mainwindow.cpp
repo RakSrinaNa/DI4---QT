@@ -130,7 +130,8 @@ void MainWindow::on_lastNameEdit_textEdited(const QString &arg1)
 
 void MainWindow::keyPressEvent(QKeyEvent * event)
 {
-    switch (event->key()){
+    switch (event->key())
+    {
     case Qt::Key_Delete:
     {
         int current = ui->tableView->selectionModel()->currentIndex().row();
@@ -176,9 +177,27 @@ void MainWindow::on_saveLineEdit_textEdited(const QString &arg1)
 
 void MainWindow::on_savePushButton_clicked()
 {
-    if(ui->saveLineEdit->text().isEmpty())
-        ui->saveLineEdit->setStyleSheet("background-color:red;");
-    else{
+    QMessageBox message(this);
+    message.setWindowTitle("Information");
 
+    bool ok = true;
+
+    if(!(ok = !ui->saveLineEdit->text().isEmpty()))
+        ui->saveLineEdit->setStyleSheet("background-color:red;");
+    if(!(ok = !ui->planTextBrowser->toPlainText().isEmpty()))
+        ui->planTextBrowser->setStyleSheet("background-color:red;");
+
+    if(ok){
+        QFile file(ui->pathLineEdit->text() + "/" + ui->saveLineEdit->text());
+        if(file.open( QIODevice::WriteOnly)){
+            QTextStream stream(&file);
+            stream << ui->planTextBrowser->toPlainText();
+            file.close();
+            message.setText("Wrote succesfully into file.");
+        }
+        else{
+            message.setText("Failed to write into file.");
+        }
+        message.exec();
     }
 }

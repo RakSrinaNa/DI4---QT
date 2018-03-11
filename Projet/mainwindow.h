@@ -8,6 +8,7 @@
 #include <QSortFilterProxyModel>
 #include <QDir>
 #include <QFileDialog>
+#include <QMessageBox>
 
 #include "dbconnect.h"
 

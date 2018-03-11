@@ -218,7 +218,7 @@ bool DBConnect::addStaff(Staff * staff)
 void DBConnect::test()
 {
     QSqlQuery query;
-    query.prepare("SELECT * FROM TClient ORDER BY Priorite + (SELECT count(*) FROM TRdv WHERE IdClient = TClient.id);");
+    query.prepare("SELECT * FROM TClient ORDER BY Priorite *100 + (SELECT count(*) FROM TRdv WHERE IdClient = TClient.id) *10 + Duree;");
     query.exec();
 
     while(query.next())
