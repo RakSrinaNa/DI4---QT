@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     setStatusText("You are connected");
     ui->tabWidget->tabBar()->setExpanding(true);
 
+    //Initialize tab 1
     model = new QSqlTableModel(this, db->getDb());
     model->setTable("TClient");
     model->setEditStrategy(QSqlTableModel::OnFieldChange);
@@ -44,6 +45,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //connect(ui->submitButton, SIGNAL(clicked()), this, SLOT(submit()));
     //connect(ui->revertButton, SIGNAL(clicked()), model, SLOT(revertAll()));
+
+
+    //Initialize tab 2
+    ui->planDateEdit->setDate(QDate::currentDate());
+    ui->pathLineEdit->setText(QDir::currentPath());
+
 }
 
 MainWindow::~MainWindow()
@@ -95,6 +102,20 @@ void MainWindow::upperCase_textEdited(const QString &arg1)
     qobject_cast<QLineEdit *>(sender())->setText(cap + text);
 }
 
+void MainWindow::textExtension_textEdited(const QString &arg1)
+{
+    int cursor = qobject_cast<QLineEdit *>(sender())->cursorPosition();
+    QString oldText = arg1;
+    QString newText = oldText;
+    if(oldText == ".txt")
+        newText = "";
+    if(!oldText.endsWith(".txt"))
+        newText = oldText + ".txt";
+
+    qobject_cast<QLineEdit *>(sender())->setText(newText);
+    qobject_cast<QLineEdit *>(sender())->setCursorPosition(cursor);
+}
+
 void MainWindow::on_firstNameEdit_textEdited(const QString &arg1)
 {
     upperCase_textEdited(arg1);
@@ -132,4 +153,32 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
         break;
     }
     event->accept();
+}
+
+void MainWindow::on_planPushButton_clicked()
+{
+
+}
+
+void MainWindow::on_pathPushButton_clicked()
+{
+    QString oldDir = ui->pathLineEdit->text();
+    QString dir = QFileDialog::getExistingDirectory(this, tr("Open Directory"), oldDir);
+    ui->pathLineEdit->setText(dir);
+}
+
+void MainWindow::on_saveLineEdit_textEdited(const QString &arg1)
+{
+    textExtension_textEdited(arg1);
+    if(!ui->saveLineEdit->text().isEmpty())
+        ui->saveLineEdit->setStyleSheet("background-color:white;");
+}
+
+void MainWindow::on_savePushButton_clicked()
+{
+    if(ui->saveLineEdit->text().isEmpty())
+        ui->saveLineEdit->setStyleSheet("background-color:red;");
+    else{
+
+    }
 }

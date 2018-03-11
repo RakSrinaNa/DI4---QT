@@ -222,5 +222,6 @@ void DBConnect::test()
     query.exec();
 
     while(query.next())
-        std::cout << query.value("Nom").toString().toStdString() << std::endl;
+        std::cout << query.value("Nom").toString().toStdString() << " / " << query.value("Priorite").toString().toStdString() << std::endl;
+    std::cout << "----------------" << std::endl;
 }

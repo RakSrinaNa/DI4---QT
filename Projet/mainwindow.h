@@ -6,6 +6,9 @@
 #include <QMainWindow>
 #include <QSqlTableModel>
 #include <QSortFilterProxyModel>
+#include <QDir>
+#include <QFileDialog>
+
 #include "dbconnect.h"
 
 namespace Ui {
@@ -27,6 +30,7 @@ private:
     QSortFilterProxyModel * firstNameModel;
     QSortFilterProxyModel * lastNameModel;
     void upperCase_textEdited(const QString &arg1);
+    void textExtension_textEdited(const QString &arg1);
 
 private slots:
     void on_actionPatient_triggered();
@@ -38,6 +42,14 @@ private slots:
     void on_lastNameEdit_textEdited(const QString &arg1);
 
     void keyPressEvent(QKeyEvent * event);
+
+    void on_planPushButton_clicked();
+
+    void on_pathPushButton_clicked();
+
+    void on_saveLineEdit_textEdited(const QString &arg1);
+
+    void on_savePushButton_clicked();
 
 signals:
     void statusChanged(QString &status);

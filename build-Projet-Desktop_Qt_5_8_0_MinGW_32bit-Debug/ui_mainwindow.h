@@ -13,15 +13,19 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QDateEdit>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTableView>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -39,7 +43,7 @@ public:
     QVBoxLayout *verticalLayout;
     QTabWidget *tabWidget;
     QWidget *tab;
-    QVBoxLayout *verticalLayout_5;
+    QHBoxLayout *horizontalLayout_2;
     QWidget *verticalWidget;
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout;
@@ -47,6 +51,18 @@ public:
     QLineEdit *lastNameEdit;
     QTableView *tableView;
     QWidget *tab_2;
+    QVBoxLayout *verticalLayout_4;
+    QWidget *verticalWidget_2;
+    QVBoxLayout *verticalLayout_3;
+    QHBoxLayout *horizontalLayout_4;
+    QDateEdit *planDateEdit;
+    QPushButton *planPushButton;
+    QTextBrowser *planTextBrowser;
+    QGridLayout *gridLayout;
+    QPushButton *savePushButton;
+    QPushButton *pathPushButton;
+    QLineEdit *pathLineEdit;
+    QLineEdit *saveLineEdit;
     QMenuBar *menuBar;
     QMenu *menuFichier;
     QMenu *menuAjouter;
@@ -96,10 +112,10 @@ public:
         tab->setLayoutDirection(Qt::LeftToRight);
         tab->setAutoFillBackground(true);
         tab->setStyleSheet(QStringLiteral(""));
-        verticalLayout_5 = new QVBoxLayout(tab);
-        verticalLayout_5->setSpacing(6);
-        verticalLayout_5->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+        horizontalLayout_2 = new QHBoxLayout(tab);
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         verticalWidget = new QWidget(tab);
         verticalWidget->setObjectName(QStringLiteral("verticalWidget"));
         sizePolicy.setHeightForWidth(verticalWidget->sizePolicy().hasHeightForWidth());
@@ -136,11 +152,74 @@ public:
         verticalLayout_2->addWidget(tableView);
 
 
-        verticalLayout_5->addWidget(verticalWidget);
+        horizontalLayout_2->addWidget(verticalWidget);
 
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
+        verticalLayout_4 = new QVBoxLayout(tab_2);
+        verticalLayout_4->setSpacing(6);
+        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        verticalWidget_2 = new QWidget(tab_2);
+        verticalWidget_2->setObjectName(QStringLiteral("verticalWidget_2"));
+        verticalLayout_3 = new QVBoxLayout(verticalWidget_2);
+        verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setSpacing(6);
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        planDateEdit = new QDateEdit(verticalWidget_2);
+        planDateEdit->setObjectName(QStringLiteral("planDateEdit"));
+
+        horizontalLayout_4->addWidget(planDateEdit);
+
+        planPushButton = new QPushButton(verticalWidget_2);
+        planPushButton->setObjectName(QStringLiteral("planPushButton"));
+
+        horizontalLayout_4->addWidget(planPushButton);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_4);
+
+        planTextBrowser = new QTextBrowser(verticalWidget_2);
+        planTextBrowser->setObjectName(QStringLiteral("planTextBrowser"));
+        sizePolicy.setHeightForWidth(planTextBrowser->sizePolicy().hasHeightForWidth());
+        planTextBrowser->setSizePolicy(sizePolicy);
+
+        verticalLayout_3->addWidget(planTextBrowser);
+
+        gridLayout = new QGridLayout();
+        gridLayout->setSpacing(6);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        savePushButton = new QPushButton(verticalWidget_2);
+        savePushButton->setObjectName(QStringLiteral("savePushButton"));
+
+        gridLayout->addWidget(savePushButton, 1, 1, 1, 1);
+
+        pathPushButton = new QPushButton(verticalWidget_2);
+        pathPushButton->setObjectName(QStringLiteral("pathPushButton"));
+
+        gridLayout->addWidget(pathPushButton, 0, 1, 1, 1);
+
+        pathLineEdit = new QLineEdit(verticalWidget_2);
+        pathLineEdit->setObjectName(QStringLiteral("pathLineEdit"));
+        pathLineEdit->setReadOnly(true);
+
+        gridLayout->addWidget(pathLineEdit, 0, 0, 1, 1);
+
+        saveLineEdit = new QLineEdit(verticalWidget_2);
+        saveLineEdit->setObjectName(QStringLiteral("saveLineEdit"));
+
+        gridLayout->addWidget(saveLineEdit, 1, 0, 1, 1);
+
+
+        verticalLayout_3->addLayout(gridLayout);
+
+
+        verticalLayout_4->addWidget(verticalWidget_2);
+
         tabWidget->addTab(tab_2, QString());
 
         verticalLayout->addWidget(tabWidget);
@@ -175,7 +254,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -191,6 +270,9 @@ public:
         firstNameEdit->setPlaceholderText(QApplication::translate("MainWindow", "First name", Q_NULLPTR));
         lastNameEdit->setPlaceholderText(QApplication::translate("MainWindow", "Last name", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Recherche de patients", Q_NULLPTR));
+        planPushButton->setText(QApplication::translate("MainWindow", "Plan", Q_NULLPTR));
+        savePushButton->setText(QApplication::translate("MainWindow", "Save", Q_NULLPTR));
+        pathPushButton->setText(QApplication::translate("MainWindow", "Browser", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Planification", Q_NULLPTR));
         menuFichier->setTitle(QApplication::translate("MainWindow", "Fichier", Q_NULLPTR));
         menuAjouter->setTitle(QApplication::translate("MainWindow", "Ajouter", Q_NULLPTR));
