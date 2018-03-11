@@ -33,6 +33,8 @@ public:
     bool addPatient(Patient * patient);
     bool addStaff(Staff * staff);
 
+    void test();
+
 
 private:
     QSqlDatabase db;

@@ -111,6 +111,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 {
     switch (event->key()){
     case Qt::Key_Delete:
+    {
         int current = ui->tableView->selectionModel()->currentIndex().row();
         if(current != -1){
             model->removeRow(current);
@@ -123,6 +124,11 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
             ui->tableView->selectRow(current);
 
         }
+        break;
+    }
+
+    case Qt::Key_0:
+        db->test();
         break;
     }
     event->accept();

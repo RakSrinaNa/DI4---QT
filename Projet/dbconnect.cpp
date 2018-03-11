@@ -214,3 +214,13 @@ bool DBConnect::addStaff(Staff * staff)
 
     return query.exec();
 }
+
+void DBConnect::test()
+{
+    QSqlQuery query;
+    query.prepare("SELECT * FROM TClient ORDER BY Priorite + (SELECT count(*) FROM TRdv WHERE IdClient = TClient.id);");
+    query.exec();
+
+    while(query.next())
+        std::cout << query.value("Nom").toString().toStdString() << std::endl;
+}
