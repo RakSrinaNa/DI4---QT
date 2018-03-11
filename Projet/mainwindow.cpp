@@ -158,6 +158,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 
 void MainWindow::on_planPushButton_clicked()
 {
+    ui->planTextBrowser->setStyleSheet("background-color:white;");
 
 }
 
