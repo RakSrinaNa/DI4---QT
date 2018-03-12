@@ -159,6 +159,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 void MainWindow::on_planPushButton_clicked()
 {
     ui->planTextBrowser->setStyleSheet("background-color:white;");
+    ui->planTextBrowser->setText("<b>Test de text html</b>");
 
 }
 
@@ -179,7 +180,7 @@ void MainWindow::on_saveLineEdit_textEdited(const QString &arg1)
 void MainWindow::on_savePushButton_clicked()
 {
     QMessageBox message(this);
-    message.setWindowTitle("Information");
+    message.setWindowTitle("Informations");
 
     bool ok = true;
 
