@@ -211,3 +211,8 @@ void MainWindow::on_savePushButton_clicked()
         message.exec();
     }
 }
+
+void MainWindow::on_actionExit_triggered()
+{
+    close();
+}
