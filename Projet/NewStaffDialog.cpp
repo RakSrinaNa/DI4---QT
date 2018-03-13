@@ -1,15 +1,13 @@
-#include "newstaffdialog.h"
+#include "NewDtaffDialog.h"
 #include "ui_newstaffdialog.h"
 
 extern DBConnect * db;
 
-NewStaffDialog::NewStaffDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::NewStaffDialog)
+NewStaffDialog::NewStaffDialog(QWidget *parent) : QDialog(parent), ui(new Ui::NewStaffDialog)
 {
     ui->setupUi(this);
-    QList<ResourceType *> * ressources = db->getTypes();
-    for(ResourceType * r : *ressources)
+    QList<ResourceType *> * resources = db->getTypes();
+    for(ResourceType * r : *resources)
     {
         ui->typeComboBox->addItem(r->getName(), QVariant::fromValue(static_cast<void *>(r)));
     }
@@ -32,7 +30,7 @@ Staff * NewStaffDialog::getStaff()
 
 void NewStaffDialog::upperCase_textEdited(const QString &arg1)
 {
-    QString s = arg1;
+    const QString &s = arg1;
     QString cap = s.left(1).toUpper();
     QString text = s.length() > 1 ? s.right(s.length() -1).toLower() : "";
     qobject_cast<QLineEdit *>(sender())->setText(cap + text);
@@ -50,12 +48,12 @@ void NewStaffDialog::on_lastNameLineEdit_textEdited(const QString &arg1)
 
 void NewStaffDialog::on_typeComboBox_currentIndexChanged(const QString &arg1)
 {
-    if(arg1 == "Informaticien"){
+    if(arg1 == "Informaticien"){ //Enable login & password
         ui->loginLineEdit->setDisabled(false);
         ui->passwordLineEdit->setDisabled(false);
         ui->loginLineEdit->setStyleSheet("background-color:white;");
         ui->passwordLineEdit->setStyleSheet("background-color:white;");
-    } else {
+    } else { //Disable login & password
         ui->loginLineEdit->setText("");
         ui->passwordLineEdit->setText("");
         ui->loginLineEdit->setDisabled(true);
@@ -67,7 +65,7 @@ void NewStaffDialog::on_typeComboBox_currentIndexChanged(const QString &arg1)
 
 void NewStaffDialog::on_okButton_clicked()
 {
-    bool valid = true;
+    bool valid = true; //Verify fields
     if(ui->lastNameLineEdit->text().isEmpty())
     {
         valid = false;
@@ -112,7 +110,7 @@ void NewStaffDialog::on_okButton_clicked()
         }
     }
 
-    if(valid)
+    if(valid) //If all was ok, we valid the closing
         accept();
 }
 

@@ -212,7 +212,7 @@ bool DBConnect::addStaff(Staff * staff)
 	              "VALUES ((SELECT max(Id) +1 FROM TRessource), :firstName, :lastName, :type);");
 	query.bindValue(":lastName", staff->getLastName());
 	query.bindValue(":firstName", staff->getFirstName());
-	query.bindValue(":address", staff->getRessourceType().getId());
+	query.bindValue(":address", staff->getResourceType().getId());
 	
 	return query.exec();
 }

@@ -14,47 +14,47 @@ TEMPLATE = app
 CONFIG += c++11
 
 SOURCES += main.cpp\
-    newpatientdialog.cpp \
-    patient.cpp \
-    newstaffdialog.cpp \
-    staff.cpp \
-    staffitem.cpp \
     c_init_bd.cpp \
-    ressourcetype.cpp \
-    ressourceitem.cpp \
-    schedule.cpp \
-    timeline.cpp \
     AboutDialog.cpp \
     DBConnect.cpp \
     Login.cpp \
     MainWindow.cpp \
     MyDateItemDelegate.cpp \
-    MySqlTableModel.cpp
+    MySqlTableModel.cpp \
+    NewCustomerDialog.cpp \
+    NewStaffDialog.cpp \
+    Customer.cpp \
+    RessourceItem.cpp \
+    RessourceType.cpp \
+    Schedule.cpp \
+    Staff.cpp \
+    StaffItem.cpp \
+    Timeline.cpp
 
 HEADERS  += \
-    newpatientdialog.h \
-    patient.h \
-    newstaffdialog.h \
-    staff.h \
-    staffitem.h \
     c_init_bd.h \
-    ressourcetype.h \
-    ressourceitem.h \
-    schedule.h \
-    timeline.h \
     AboutDialog.h \
     DBConnect.h \
     Login.h \
     MainWindow.h \
     MyDateItemDelegate.h \
-    MySqlTableModel.h
+    MySqlTableModel.h \
+    NewCustomerDialog.h \
+    NewDtaffDialog.h \
+    Customer.h \
+    RessourceItem.h \
+    RessourceType.h \
+    Schedule.h \
+    Staff.h \
+    StaffItem.h \
+    Timeline.h
 
 FORMS    += \
-    newpatientdialog.ui \
-    newstaffdialog.ui \
     AboutDialog.ui \
     Login.ui \
-    MainWindow.ui
+    MainWindow.ui \
+    NewCustomerDialog.ui \
+    NewStaffDialog.ui
 
 RESOURCES += \
     resources.qrc

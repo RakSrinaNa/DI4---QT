@@ -1,4 +1,4 @@
-#include "staff.h"
+#include "Staff.h"
 
 Staff::Staff(QString lastName, QString firstName, int typeId, QString typeName, QObject *parent) : QObject(parent), lastName(lastName), firstName(firstName), type(ResourceType(typeId, typeName)), login(""), password("")
 {}
@@ -28,14 +28,9 @@ QString Staff::getFirstName()
     return firstName;
 }
 
-ResourceType Staff::getRessourceType()
+ResourceType Staff::getResourceType()
 {
     return type;
-}
-
-QString Staff::getType()
-{
-    return type.getName();
 }
 
 QString Staff::getLogin()

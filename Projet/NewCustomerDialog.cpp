@@ -1,11 +1,10 @@
-#include "newpatientdialog.h"
+#include <QDialog>
+#include "NewCustomerDialog.h"
 #include "ui_newpatientdialog.h"
 
 extern DBConnect * db;
 
-NewCustomerDialog::NewCustomerDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::NewCustomerDialog)
+NewCustomerDialog::NewCustomerDialog(QWidget *parent) : QDialog(parent), ui(new Ui::NewCustomerDialog)
 {
     ui->setupUi(this);
 
@@ -14,9 +13,10 @@ NewCustomerDialog::NewCustomerDialog(QWidget *parent) :
     ui->postalCodeLineEdit->setValidator(new QIntValidator(1, 99999, this));
     ui->phoneLineEdit->setValidator(new QIntValidator(0, 999999999, this));
 
-    QList<ResourceType *> * ressources = db->getTypes();
-    for(ResourceType * r : *ressources)
-        ui->resourcesListWidget->addItem(new RessourceItem(r, ui->resourcesListWidget));
+    //Add all available resources
+    QList<ResourceType *> * resources = db->getTypes();
+    for(ResourceType * r : *resources)
+        ui->resourcesListWidget->addItem(new ResourceItem(r, ui->resourcesListWidget));
 
 }
 
@@ -25,22 +25,22 @@ NewCustomerDialog::~NewCustomerDialog()
     delete ui;
 }
 
-Customer * NewCustomerDialog::getPatient()
+Customer * NewCustomerDialog::getCustomer()
 {
     return new Customer(ui->lastNameLineEdit->text(), ui->firstNameLineEdit->text(), ui->addressLineEdit->text(), ui->cityLineEdit->text(), ui->postalCodeLineEdit->text(), ui->dayOfConsultationDateEdit->date(), ui->durationTimeEdit->time(), ui->priorityComboBox->currentText(), getResources(), ui->commentLineEdit->text(), ui->phoneLineEdit->text());
 }
 
 QList<ResourceType *> * NewCustomerDialog::getResources()
 {
-    QList<ResourceType *> * list = new QList<ResourceType *>;
+    auto * list = new QList<ResourceType *>;
     for(QListWidgetItem * item : ui->resourcesListWidget->selectedItems())
-        *(list) << dynamic_cast<RessourceItem *>(item)->getRessource();
+        *(list) << dynamic_cast<ResourceItem *>(item)->getRessource();
     return list;
 }
 
 void NewCustomerDialog::upperCase_textEdited(const QString &arg1)
 {
-    QString s = arg1;
+    const QString &s = arg1;
     QString cap = s.left(1).toUpper();
     QString text = s.length() > 1 ? s.right(s.length() -1).toLower() : "";
     qobject_cast<QLineEdit *>(sender())->setText(cap + text);
@@ -63,7 +63,7 @@ void NewCustomerDialog::on_cityLineEdit_textEdited(const QString &arg1)
 
 void NewCustomerDialog::on_okButton_clicked()
 {
-    bool valid = true;
+    bool valid = true; //Verify fields
     if(ui->lastNameLineEdit->text().isEmpty())
     {
         valid = false;
@@ -143,7 +143,7 @@ void NewCustomerDialog::on_okButton_clicked()
         ui->resourcesListWidget->setStyleSheet("background-color:white;");
     }
 
-    if(valid)
+    if(valid) //If all was ok, we valid the closing
         accept();
 }
 

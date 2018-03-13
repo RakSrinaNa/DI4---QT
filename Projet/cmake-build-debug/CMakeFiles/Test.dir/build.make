@@ -57,33 +57,177 @@ include CMakeFiles/Test.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Test.dir/flags.make
 
-CMakeFiles/Test.dir/aproposdialog.cpp.o: CMakeFiles/Test.dir/flags.make
-CMakeFiles/Test.dir/aproposdialog.cpp.o: ../aproposdialog.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Test.dir/aproposdialog.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/aproposdialog.cpp.o -c "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/aproposdialog.cpp"
+CMakeFiles/Test.dir/AboutDialog.cpp.o: CMakeFiles/Test.dir/flags.make
+CMakeFiles/Test.dir/AboutDialog.cpp.o: ../AboutDialog.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Test.dir/AboutDialog.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/AboutDialog.cpp.o -c "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/AboutDialog.cpp"
 
-CMakeFiles/Test.dir/aproposdialog.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Test.dir/aproposdialog.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/aproposdialog.cpp" > CMakeFiles/Test.dir/aproposdialog.cpp.i
+CMakeFiles/Test.dir/AboutDialog.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Test.dir/AboutDialog.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/AboutDialog.cpp" > CMakeFiles/Test.dir/AboutDialog.cpp.i
 
-CMakeFiles/Test.dir/aproposdialog.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Test.dir/aproposdialog.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/aproposdialog.cpp" -o CMakeFiles/Test.dir/aproposdialog.cpp.s
+CMakeFiles/Test.dir/AboutDialog.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Test.dir/AboutDialog.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/AboutDialog.cpp" -o CMakeFiles/Test.dir/AboutDialog.cpp.s
 
-CMakeFiles/Test.dir/aproposdialog.cpp.o.requires:
+CMakeFiles/Test.dir/AboutDialog.cpp.o.requires:
 
-.PHONY : CMakeFiles/Test.dir/aproposdialog.cpp.o.requires
+.PHONY : CMakeFiles/Test.dir/AboutDialog.cpp.o.requires
 
-CMakeFiles/Test.dir/aproposdialog.cpp.o.provides: CMakeFiles/Test.dir/aproposdialog.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/aproposdialog.cpp.o.provides.build
-.PHONY : CMakeFiles/Test.dir/aproposdialog.cpp.o.provides
+CMakeFiles/Test.dir/AboutDialog.cpp.o.provides: CMakeFiles/Test.dir/AboutDialog.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/AboutDialog.cpp.o.provides.build
+.PHONY : CMakeFiles/Test.dir/AboutDialog.cpp.o.provides
 
-CMakeFiles/Test.dir/aproposdialog.cpp.o.provides.build: CMakeFiles/Test.dir/aproposdialog.cpp.o
+CMakeFiles/Test.dir/AboutDialog.cpp.o.provides.build: CMakeFiles/Test.dir/AboutDialog.cpp.o
+
+
+CMakeFiles/Test.dir/DBConnect.cpp.o: CMakeFiles/Test.dir/flags.make
+CMakeFiles/Test.dir/DBConnect.cpp.o: ../DBConnect.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Test.dir/DBConnect.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/DBConnect.cpp.o -c "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/DBConnect.cpp"
+
+CMakeFiles/Test.dir/DBConnect.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Test.dir/DBConnect.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/DBConnect.cpp" > CMakeFiles/Test.dir/DBConnect.cpp.i
+
+CMakeFiles/Test.dir/DBConnect.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Test.dir/DBConnect.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/DBConnect.cpp" -o CMakeFiles/Test.dir/DBConnect.cpp.s
+
+CMakeFiles/Test.dir/DBConnect.cpp.o.requires:
+
+.PHONY : CMakeFiles/Test.dir/DBConnect.cpp.o.requires
+
+CMakeFiles/Test.dir/DBConnect.cpp.o.provides: CMakeFiles/Test.dir/DBConnect.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/DBConnect.cpp.o.provides.build
+.PHONY : CMakeFiles/Test.dir/DBConnect.cpp.o.provides
+
+CMakeFiles/Test.dir/DBConnect.cpp.o.provides.build: CMakeFiles/Test.dir/DBConnect.cpp.o
+
+
+CMakeFiles/Test.dir/MainWindow.cpp.o: CMakeFiles/Test.dir/flags.make
+CMakeFiles/Test.dir/MainWindow.cpp.o: ../MainWindow.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Test.dir/MainWindow.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/MainWindow.cpp.o -c "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/MainWindow.cpp"
+
+CMakeFiles/Test.dir/MainWindow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Test.dir/MainWindow.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/MainWindow.cpp" > CMakeFiles/Test.dir/MainWindow.cpp.i
+
+CMakeFiles/Test.dir/MainWindow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Test.dir/MainWindow.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/MainWindow.cpp" -o CMakeFiles/Test.dir/MainWindow.cpp.s
+
+CMakeFiles/Test.dir/MainWindow.cpp.o.requires:
+
+.PHONY : CMakeFiles/Test.dir/MainWindow.cpp.o.requires
+
+CMakeFiles/Test.dir/MainWindow.cpp.o.provides: CMakeFiles/Test.dir/MainWindow.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/MainWindow.cpp.o.provides.build
+.PHONY : CMakeFiles/Test.dir/MainWindow.cpp.o.provides
+
+CMakeFiles/Test.dir/MainWindow.cpp.o.provides.build: CMakeFiles/Test.dir/MainWindow.cpp.o
+
+
+CMakeFiles/Test.dir/MyDateItemDelegate.cpp.o: CMakeFiles/Test.dir/flags.make
+CMakeFiles/Test.dir/MyDateItemDelegate.cpp.o: ../MyDateItemDelegate.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Test.dir/MyDateItemDelegate.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/MyDateItemDelegate.cpp.o -c "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/MyDateItemDelegate.cpp"
+
+CMakeFiles/Test.dir/MyDateItemDelegate.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Test.dir/MyDateItemDelegate.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/MyDateItemDelegate.cpp" > CMakeFiles/Test.dir/MyDateItemDelegate.cpp.i
+
+CMakeFiles/Test.dir/MyDateItemDelegate.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Test.dir/MyDateItemDelegate.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/MyDateItemDelegate.cpp" -o CMakeFiles/Test.dir/MyDateItemDelegate.cpp.s
+
+CMakeFiles/Test.dir/MyDateItemDelegate.cpp.o.requires:
+
+.PHONY : CMakeFiles/Test.dir/MyDateItemDelegate.cpp.o.requires
+
+CMakeFiles/Test.dir/MyDateItemDelegate.cpp.o.provides: CMakeFiles/Test.dir/MyDateItemDelegate.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/MyDateItemDelegate.cpp.o.provides.build
+.PHONY : CMakeFiles/Test.dir/MyDateItemDelegate.cpp.o.provides
+
+CMakeFiles/Test.dir/MyDateItemDelegate.cpp.o.provides.build: CMakeFiles/Test.dir/MyDateItemDelegate.cpp.o
+
+
+CMakeFiles/Test.dir/MySqlTableModel.cpp.o: CMakeFiles/Test.dir/flags.make
+CMakeFiles/Test.dir/MySqlTableModel.cpp.o: ../MySqlTableModel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Test.dir/MySqlTableModel.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/MySqlTableModel.cpp.o -c "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/MySqlTableModel.cpp"
+
+CMakeFiles/Test.dir/MySqlTableModel.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Test.dir/MySqlTableModel.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/MySqlTableModel.cpp" > CMakeFiles/Test.dir/MySqlTableModel.cpp.i
+
+CMakeFiles/Test.dir/MySqlTableModel.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Test.dir/MySqlTableModel.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/MySqlTableModel.cpp" -o CMakeFiles/Test.dir/MySqlTableModel.cpp.s
+
+CMakeFiles/Test.dir/MySqlTableModel.cpp.o.requires:
+
+.PHONY : CMakeFiles/Test.dir/MySqlTableModel.cpp.o.requires
+
+CMakeFiles/Test.dir/MySqlTableModel.cpp.o.provides: CMakeFiles/Test.dir/MySqlTableModel.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/MySqlTableModel.cpp.o.provides.build
+.PHONY : CMakeFiles/Test.dir/MySqlTableModel.cpp.o.provides
+
+CMakeFiles/Test.dir/MySqlTableModel.cpp.o.provides.build: CMakeFiles/Test.dir/MySqlTableModel.cpp.o
+
+
+CMakeFiles/Test.dir/NewCustomerDialog.cpp.o: CMakeFiles/Test.dir/flags.make
+CMakeFiles/Test.dir/NewCustomerDialog.cpp.o: ../NewCustomerDialog.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Test.dir/NewCustomerDialog.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/NewCustomerDialog.cpp.o -c "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/NewCustomerDialog.cpp"
+
+CMakeFiles/Test.dir/NewCustomerDialog.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Test.dir/NewCustomerDialog.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/NewCustomerDialog.cpp" > CMakeFiles/Test.dir/NewCustomerDialog.cpp.i
+
+CMakeFiles/Test.dir/NewCustomerDialog.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Test.dir/NewCustomerDialog.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/NewCustomerDialog.cpp" -o CMakeFiles/Test.dir/NewCustomerDialog.cpp.s
+
+CMakeFiles/Test.dir/NewCustomerDialog.cpp.o.requires:
+
+.PHONY : CMakeFiles/Test.dir/NewCustomerDialog.cpp.o.requires
+
+CMakeFiles/Test.dir/NewCustomerDialog.cpp.o.provides: CMakeFiles/Test.dir/NewCustomerDialog.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/NewCustomerDialog.cpp.o.provides.build
+.PHONY : CMakeFiles/Test.dir/NewCustomerDialog.cpp.o.provides
+
+CMakeFiles/Test.dir/NewCustomerDialog.cpp.o.provides.build: CMakeFiles/Test.dir/NewCustomerDialog.cpp.o
+
+
+CMakeFiles/Test.dir/NewStaffDialog.cpp.o: CMakeFiles/Test.dir/flags.make
+CMakeFiles/Test.dir/NewStaffDialog.cpp.o: ../NewStaffDialog.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Test.dir/NewStaffDialog.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/NewStaffDialog.cpp.o -c "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/NewStaffDialog.cpp"
+
+CMakeFiles/Test.dir/NewStaffDialog.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Test.dir/NewStaffDialog.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/NewStaffDialog.cpp" > CMakeFiles/Test.dir/NewStaffDialog.cpp.i
+
+CMakeFiles/Test.dir/NewStaffDialog.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Test.dir/NewStaffDialog.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/NewStaffDialog.cpp" -o CMakeFiles/Test.dir/NewStaffDialog.cpp.s
+
+CMakeFiles/Test.dir/NewStaffDialog.cpp.o.requires:
+
+.PHONY : CMakeFiles/Test.dir/NewStaffDialog.cpp.o.requires
+
+CMakeFiles/Test.dir/NewStaffDialog.cpp.o.provides: CMakeFiles/Test.dir/NewStaffDialog.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/NewStaffDialog.cpp.o.provides.build
+.PHONY : CMakeFiles/Test.dir/NewStaffDialog.cpp.o.provides
+
+CMakeFiles/Test.dir/NewStaffDialog.cpp.o.provides.build: CMakeFiles/Test.dir/NewStaffDialog.cpp.o
 
 
 CMakeFiles/Test.dir/c_init_bd.cpp.o: CMakeFiles/Test.dir/flags.make
 CMakeFiles/Test.dir/c_init_bd.cpp.o: ../c_init_bd.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Test.dir/c_init_bd.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Test.dir/c_init_bd.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/c_init_bd.cpp.o -c "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/c_init_bd.cpp"
 
 CMakeFiles/Test.dir/c_init_bd.cpp.i: cmake_force
@@ -105,33 +249,9 @@ CMakeFiles/Test.dir/c_init_bd.cpp.o.provides: CMakeFiles/Test.dir/c_init_bd.cpp.
 CMakeFiles/Test.dir/c_init_bd.cpp.o.provides.build: CMakeFiles/Test.dir/c_init_bd.cpp.o
 
 
-CMakeFiles/Test.dir/dbconnect.cpp.o: CMakeFiles/Test.dir/flags.make
-CMakeFiles/Test.dir/dbconnect.cpp.o: ../dbconnect.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Test.dir/dbconnect.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/dbconnect.cpp.o -c "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/dbconnect.cpp"
-
-CMakeFiles/Test.dir/dbconnect.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Test.dir/dbconnect.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/dbconnect.cpp" > CMakeFiles/Test.dir/dbconnect.cpp.i
-
-CMakeFiles/Test.dir/dbconnect.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Test.dir/dbconnect.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/dbconnect.cpp" -o CMakeFiles/Test.dir/dbconnect.cpp.s
-
-CMakeFiles/Test.dir/dbconnect.cpp.o.requires:
-
-.PHONY : CMakeFiles/Test.dir/dbconnect.cpp.o.requires
-
-CMakeFiles/Test.dir/dbconnect.cpp.o.provides: CMakeFiles/Test.dir/dbconnect.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/dbconnect.cpp.o.provides.build
-.PHONY : CMakeFiles/Test.dir/dbconnect.cpp.o.provides
-
-CMakeFiles/Test.dir/dbconnect.cpp.o.provides.build: CMakeFiles/Test.dir/dbconnect.cpp.o
-
-
 CMakeFiles/Test.dir/login.cpp.o: CMakeFiles/Test.dir/flags.make
 CMakeFiles/Test.dir/login.cpp.o: ../login.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Test.dir/login.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Test.dir/login.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/login.cpp.o -c "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/login.cpp"
 
 CMakeFiles/Test.dir/login.cpp.i: cmake_force
@@ -155,7 +275,7 @@ CMakeFiles/Test.dir/login.cpp.o.provides.build: CMakeFiles/Test.dir/login.cpp.o
 
 CMakeFiles/Test.dir/main.cpp.o: CMakeFiles/Test.dir/flags.make
 CMakeFiles/Test.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Test.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Test.dir/main.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/main.cpp.o -c "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/main.cpp"
 
 CMakeFiles/Test.dir/main.cpp.i: cmake_force
@@ -175,126 +295,6 @@ CMakeFiles/Test.dir/main.cpp.o.provides: CMakeFiles/Test.dir/main.cpp.o.requires
 .PHONY : CMakeFiles/Test.dir/main.cpp.o.provides
 
 CMakeFiles/Test.dir/main.cpp.o.provides.build: CMakeFiles/Test.dir/main.cpp.o
-
-
-CMakeFiles/Test.dir/mainwindow.cpp.o: CMakeFiles/Test.dir/flags.make
-CMakeFiles/Test.dir/mainwindow.cpp.o: ../mainwindow.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Test.dir/mainwindow.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/mainwindow.cpp.o -c "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/mainwindow.cpp"
-
-CMakeFiles/Test.dir/mainwindow.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Test.dir/mainwindow.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/mainwindow.cpp" > CMakeFiles/Test.dir/mainwindow.cpp.i
-
-CMakeFiles/Test.dir/mainwindow.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Test.dir/mainwindow.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/mainwindow.cpp" -o CMakeFiles/Test.dir/mainwindow.cpp.s
-
-CMakeFiles/Test.dir/mainwindow.cpp.o.requires:
-
-.PHONY : CMakeFiles/Test.dir/mainwindow.cpp.o.requires
-
-CMakeFiles/Test.dir/mainwindow.cpp.o.provides: CMakeFiles/Test.dir/mainwindow.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/mainwindow.cpp.o.provides.build
-.PHONY : CMakeFiles/Test.dir/mainwindow.cpp.o.provides
-
-CMakeFiles/Test.dir/mainwindow.cpp.o.provides.build: CMakeFiles/Test.dir/mainwindow.cpp.o
-
-
-CMakeFiles/Test.dir/mydateitemdelegate.cpp.o: CMakeFiles/Test.dir/flags.make
-CMakeFiles/Test.dir/mydateitemdelegate.cpp.o: ../mydateitemdelegate.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Test.dir/mydateitemdelegate.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/mydateitemdelegate.cpp.o -c "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/mydateitemdelegate.cpp"
-
-CMakeFiles/Test.dir/mydateitemdelegate.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Test.dir/mydateitemdelegate.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/mydateitemdelegate.cpp" > CMakeFiles/Test.dir/mydateitemdelegate.cpp.i
-
-CMakeFiles/Test.dir/mydateitemdelegate.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Test.dir/mydateitemdelegate.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/mydateitemdelegate.cpp" -o CMakeFiles/Test.dir/mydateitemdelegate.cpp.s
-
-CMakeFiles/Test.dir/mydateitemdelegate.cpp.o.requires:
-
-.PHONY : CMakeFiles/Test.dir/mydateitemdelegate.cpp.o.requires
-
-CMakeFiles/Test.dir/mydateitemdelegate.cpp.o.provides: CMakeFiles/Test.dir/mydateitemdelegate.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/mydateitemdelegate.cpp.o.provides.build
-.PHONY : CMakeFiles/Test.dir/mydateitemdelegate.cpp.o.provides
-
-CMakeFiles/Test.dir/mydateitemdelegate.cpp.o.provides.build: CMakeFiles/Test.dir/mydateitemdelegate.cpp.o
-
-
-CMakeFiles/Test.dir/mysqltablemodel.cpp.o: CMakeFiles/Test.dir/flags.make
-CMakeFiles/Test.dir/mysqltablemodel.cpp.o: ../mysqltablemodel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Test.dir/mysqltablemodel.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/mysqltablemodel.cpp.o -c "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/mysqltablemodel.cpp"
-
-CMakeFiles/Test.dir/mysqltablemodel.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Test.dir/mysqltablemodel.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/mysqltablemodel.cpp" > CMakeFiles/Test.dir/mysqltablemodel.cpp.i
-
-CMakeFiles/Test.dir/mysqltablemodel.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Test.dir/mysqltablemodel.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/mysqltablemodel.cpp" -o CMakeFiles/Test.dir/mysqltablemodel.cpp.s
-
-CMakeFiles/Test.dir/mysqltablemodel.cpp.o.requires:
-
-.PHONY : CMakeFiles/Test.dir/mysqltablemodel.cpp.o.requires
-
-CMakeFiles/Test.dir/mysqltablemodel.cpp.o.provides: CMakeFiles/Test.dir/mysqltablemodel.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/mysqltablemodel.cpp.o.provides.build
-.PHONY : CMakeFiles/Test.dir/mysqltablemodel.cpp.o.provides
-
-CMakeFiles/Test.dir/mysqltablemodel.cpp.o.provides.build: CMakeFiles/Test.dir/mysqltablemodel.cpp.o
-
-
-CMakeFiles/Test.dir/newpatientdialog.cpp.o: CMakeFiles/Test.dir/flags.make
-CMakeFiles/Test.dir/newpatientdialog.cpp.o: ../newpatientdialog.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Test.dir/newpatientdialog.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/newpatientdialog.cpp.o -c "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/newpatientdialog.cpp"
-
-CMakeFiles/Test.dir/newpatientdialog.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Test.dir/newpatientdialog.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/newpatientdialog.cpp" > CMakeFiles/Test.dir/newpatientdialog.cpp.i
-
-CMakeFiles/Test.dir/newpatientdialog.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Test.dir/newpatientdialog.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/newpatientdialog.cpp" -o CMakeFiles/Test.dir/newpatientdialog.cpp.s
-
-CMakeFiles/Test.dir/newpatientdialog.cpp.o.requires:
-
-.PHONY : CMakeFiles/Test.dir/newpatientdialog.cpp.o.requires
-
-CMakeFiles/Test.dir/newpatientdialog.cpp.o.provides: CMakeFiles/Test.dir/newpatientdialog.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/newpatientdialog.cpp.o.provides.build
-.PHONY : CMakeFiles/Test.dir/newpatientdialog.cpp.o.provides
-
-CMakeFiles/Test.dir/newpatientdialog.cpp.o.provides.build: CMakeFiles/Test.dir/newpatientdialog.cpp.o
-
-
-CMakeFiles/Test.dir/newstaffdialog.cpp.o: CMakeFiles/Test.dir/flags.make
-CMakeFiles/Test.dir/newstaffdialog.cpp.o: ../newstaffdialog.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Test.dir/newstaffdialog.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/newstaffdialog.cpp.o -c "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/newstaffdialog.cpp"
-
-CMakeFiles/Test.dir/newstaffdialog.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Test.dir/newstaffdialog.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/newstaffdialog.cpp" > CMakeFiles/Test.dir/newstaffdialog.cpp.i
-
-CMakeFiles/Test.dir/newstaffdialog.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Test.dir/newstaffdialog.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/newstaffdialog.cpp" -o CMakeFiles/Test.dir/newstaffdialog.cpp.s
-
-CMakeFiles/Test.dir/newstaffdialog.cpp.o.requires:
-
-.PHONY : CMakeFiles/Test.dir/newstaffdialog.cpp.o.requires
-
-CMakeFiles/Test.dir/newstaffdialog.cpp.o.provides: CMakeFiles/Test.dir/newstaffdialog.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/newstaffdialog.cpp.o.provides.build
-.PHONY : CMakeFiles/Test.dir/newstaffdialog.cpp.o.provides
-
-CMakeFiles/Test.dir/newstaffdialog.cpp.o.provides.build: CMakeFiles/Test.dir/newstaffdialog.cpp.o
 
 
 CMakeFiles/Test.dir/patient.cpp.o: CMakeFiles/Test.dir/flags.make
@@ -515,16 +515,16 @@ CMakeFiles/Test.dir/Test_autogen/EWIEGA46WW/qrc_resources.cpp.o.provides.build: 
 
 # Object files for target Test
 Test_OBJECTS = \
-"CMakeFiles/Test.dir/aproposdialog.cpp.o" \
+"CMakeFiles/Test.dir/AboutDialog.cpp.o" \
+"CMakeFiles/Test.dir/DBConnect.cpp.o" \
+"CMakeFiles/Test.dir/MainWindow.cpp.o" \
+"CMakeFiles/Test.dir/MyDateItemDelegate.cpp.o" \
+"CMakeFiles/Test.dir/MySqlTableModel.cpp.o" \
+"CMakeFiles/Test.dir/NewCustomerDialog.cpp.o" \
+"CMakeFiles/Test.dir/NewStaffDialog.cpp.o" \
 "CMakeFiles/Test.dir/c_init_bd.cpp.o" \
-"CMakeFiles/Test.dir/dbconnect.cpp.o" \
 "CMakeFiles/Test.dir/login.cpp.o" \
 "CMakeFiles/Test.dir/main.cpp.o" \
-"CMakeFiles/Test.dir/mainwindow.cpp.o" \
-"CMakeFiles/Test.dir/mydateitemdelegate.cpp.o" \
-"CMakeFiles/Test.dir/mysqltablemodel.cpp.o" \
-"CMakeFiles/Test.dir/newpatientdialog.cpp.o" \
-"CMakeFiles/Test.dir/newstaffdialog.cpp.o" \
 "CMakeFiles/Test.dir/patient.cpp.o" \
 "CMakeFiles/Test.dir/ressourceitem.cpp.o" \
 "CMakeFiles/Test.dir/ressourcetype.cpp.o" \
@@ -538,16 +538,16 @@ Test_OBJECTS = \
 # External object files for target Test
 Test_EXTERNAL_OBJECTS =
 
-Test: CMakeFiles/Test.dir/aproposdialog.cpp.o
+Test: CMakeFiles/Test.dir/AboutDialog.cpp.o
+Test: CMakeFiles/Test.dir/DBConnect.cpp.o
+Test: CMakeFiles/Test.dir/MainWindow.cpp.o
+Test: CMakeFiles/Test.dir/MyDateItemDelegate.cpp.o
+Test: CMakeFiles/Test.dir/MySqlTableModel.cpp.o
+Test: CMakeFiles/Test.dir/NewCustomerDialog.cpp.o
+Test: CMakeFiles/Test.dir/NewStaffDialog.cpp.o
 Test: CMakeFiles/Test.dir/c_init_bd.cpp.o
-Test: CMakeFiles/Test.dir/dbconnect.cpp.o
 Test: CMakeFiles/Test.dir/login.cpp.o
 Test: CMakeFiles/Test.dir/main.cpp.o
-Test: CMakeFiles/Test.dir/mainwindow.cpp.o
-Test: CMakeFiles/Test.dir/mydateitemdelegate.cpp.o
-Test: CMakeFiles/Test.dir/mysqltablemodel.cpp.o
-Test: CMakeFiles/Test.dir/newpatientdialog.cpp.o
-Test: CMakeFiles/Test.dir/newstaffdialog.cpp.o
 Test: CMakeFiles/Test.dir/patient.cpp.o
 Test: CMakeFiles/Test.dir/ressourceitem.cpp.o
 Test: CMakeFiles/Test.dir/ressourcetype.cpp.o
@@ -571,16 +571,16 @@ CMakeFiles/Test.dir/build: Test
 
 .PHONY : CMakeFiles/Test.dir/build
 
-CMakeFiles/Test.dir/requires: CMakeFiles/Test.dir/aproposdialog.cpp.o.requires
+CMakeFiles/Test.dir/requires: CMakeFiles/Test.dir/AboutDialog.cpp.o.requires
+CMakeFiles/Test.dir/requires: CMakeFiles/Test.dir/DBConnect.cpp.o.requires
+CMakeFiles/Test.dir/requires: CMakeFiles/Test.dir/MainWindow.cpp.o.requires
+CMakeFiles/Test.dir/requires: CMakeFiles/Test.dir/MyDateItemDelegate.cpp.o.requires
+CMakeFiles/Test.dir/requires: CMakeFiles/Test.dir/MySqlTableModel.cpp.o.requires
+CMakeFiles/Test.dir/requires: CMakeFiles/Test.dir/NewCustomerDialog.cpp.o.requires
+CMakeFiles/Test.dir/requires: CMakeFiles/Test.dir/NewStaffDialog.cpp.o.requires
 CMakeFiles/Test.dir/requires: CMakeFiles/Test.dir/c_init_bd.cpp.o.requires
-CMakeFiles/Test.dir/requires: CMakeFiles/Test.dir/dbconnect.cpp.o.requires
 CMakeFiles/Test.dir/requires: CMakeFiles/Test.dir/login.cpp.o.requires
 CMakeFiles/Test.dir/requires: CMakeFiles/Test.dir/main.cpp.o.requires
-CMakeFiles/Test.dir/requires: CMakeFiles/Test.dir/mainwindow.cpp.o.requires
-CMakeFiles/Test.dir/requires: CMakeFiles/Test.dir/mydateitemdelegate.cpp.o.requires
-CMakeFiles/Test.dir/requires: CMakeFiles/Test.dir/mysqltablemodel.cpp.o.requires
-CMakeFiles/Test.dir/requires: CMakeFiles/Test.dir/newpatientdialog.cpp.o.requires
-CMakeFiles/Test.dir/requires: CMakeFiles/Test.dir/newstaffdialog.cpp.o.requires
 CMakeFiles/Test.dir/requires: CMakeFiles/Test.dir/patient.cpp.o.requires
 CMakeFiles/Test.dir/requires: CMakeFiles/Test.dir/ressourceitem.cpp.o.requires
 CMakeFiles/Test.dir/requires: CMakeFiles/Test.dir/ressourcetype.cpp.o.requires

@@ -1,7 +1,7 @@
 #include "MainWindow.h"
 #include "ui_mainwindow.h"
-#include "newpatientdialog.h"
-#include "newstaffdialog.h"
+#include "NewCustomerDialog.h"
+#include "NewDtaffDialog.h"
 #include "AboutDialog.h"
 
 extern DBConnect * db;
@@ -96,7 +96,7 @@ void MainWindow::on_actionCustomer_triggered()
 	NewCustomerDialog newCustomer;
 	if(newCustomer.exec() == QDialog::Accepted)
 	{
-		if(db->addCustomer(newCustomer.getPatient()))
+		if(db->addCustomer(newCustomer.getCustomer()))
 		{
 			setStatusText("A new customer was added", 5000);
 			model->select(); //Refresh view

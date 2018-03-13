@@ -1,4 +1,4 @@
-#include "ressourcetype.h"
+#include "RessourceType.h"
 
 ResourceType::ResourceType(int id, QString name) : id(id), name(name)
 {
@@ -6,11 +6,11 @@ ResourceType::ResourceType(int id, QString name) : id(id), name(name)
 
 int ResourceType::getId()
 {
-    return id;
+	return id;
 }
 
 QString ResourceType::getName()
 {
-    return name;
+	return name;
 }
 

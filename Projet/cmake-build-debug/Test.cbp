@@ -126,13 +126,64 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/aproposdialog.cpp">
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/AboutDialog.cpp">
 			<Option target="Test"/>
 		</Unit>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/aproposdialog.h">
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/AboutDialog.h">
 			<Option target="Test"/>
 		</Unit>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/aproposdialog.ui">
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/AboutDialog.ui">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/DBConnect.cpp">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/DBConnect.h">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/Login.h">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/Login.ui">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/MainWindow.cpp">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/MainWindow.h">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/MainWindow.ui">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/MyDateItemDelegate.cpp">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/MyDateItemDelegate.h">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/MySqlTableModel.cpp">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/MySqlTableModel.h">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/NewCustomerDialog.cpp">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/NewCustomerDialog.h">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/NewCustomerDialog.ui">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/NewDtaffDialog.h">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/NewStaffDialog.cpp">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/NewStaffDialog.ui">
 			<Option target="Test"/>
 		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/c_init_bd.cpp">
@@ -147,61 +198,13 @@
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/Test_autogen/mocs_compilation.cpp">
 			<Option target="Test"/>
 		</Unit>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/dbconnect.cpp">
-			<Option target="Test"/>
-		</Unit>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/dbconnect.h">
-			<Option target="Test"/>
-		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/login.cpp">
 			<Option target="Test"/>
 		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/login.h">
 			<Option target="Test"/>
 		</Unit>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/login.ui">
-			<Option target="Test"/>
-		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/main.cpp">
-			<Option target="Test"/>
-		</Unit>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/mainwindow.cpp">
-			<Option target="Test"/>
-		</Unit>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/mainwindow.h">
-			<Option target="Test"/>
-		</Unit>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/mainwindow.ui">
-			<Option target="Test"/>
-		</Unit>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/mydateitemdelegate.cpp">
-			<Option target="Test"/>
-		</Unit>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/mydateitemdelegate.h">
-			<Option target="Test"/>
-		</Unit>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/mysqltablemodel.cpp">
-			<Option target="Test"/>
-		</Unit>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/mysqltablemodel.h">
-			<Option target="Test"/>
-		</Unit>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/newpatientdialog.cpp">
-			<Option target="Test"/>
-		</Unit>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/newpatientdialog.h">
-			<Option target="Test"/>
-		</Unit>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/newpatientdialog.ui">
-			<Option target="Test"/>
-		</Unit>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/newstaffdialog.cpp">
-			<Option target="Test"/>
-		</Unit>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/newstaffdialog.h">
-			<Option target="Test"/>
-		</Unit>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/newstaffdialog.ui">
 			<Option target="Test"/>
 		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/patient.cpp">

@@ -136,6 +136,195 @@ Test_autogen/fast:
 	$(MAKE) -f CMakeFiles/Test_autogen.dir/build.make CMakeFiles/Test_autogen.dir/build
 .PHONY : Test_autogen/fast
 
+AboutDialog.o: AboutDialog.cpp.o
+
+.PHONY : AboutDialog.o
+
+# target to build an object file
+AboutDialog.cpp.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/AboutDialog.cpp.o
+.PHONY : AboutDialog.cpp.o
+
+AboutDialog.i: AboutDialog.cpp.i
+
+.PHONY : AboutDialog.i
+
+# target to preprocess a source file
+AboutDialog.cpp.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/AboutDialog.cpp.i
+.PHONY : AboutDialog.cpp.i
+
+AboutDialog.s: AboutDialog.cpp.s
+
+.PHONY : AboutDialog.s
+
+# target to generate assembly for a file
+AboutDialog.cpp.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/AboutDialog.cpp.s
+.PHONY : AboutDialog.cpp.s
+
+DBConnect.o: DBConnect.cpp.o
+
+.PHONY : DBConnect.o
+
+# target to build an object file
+DBConnect.cpp.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/DBConnect.cpp.o
+.PHONY : DBConnect.cpp.o
+
+DBConnect.i: DBConnect.cpp.i
+
+.PHONY : DBConnect.i
+
+# target to preprocess a source file
+DBConnect.cpp.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/DBConnect.cpp.i
+.PHONY : DBConnect.cpp.i
+
+DBConnect.s: DBConnect.cpp.s
+
+.PHONY : DBConnect.s
+
+# target to generate assembly for a file
+DBConnect.cpp.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/DBConnect.cpp.s
+.PHONY : DBConnect.cpp.s
+
+MainWindow.o: MainWindow.cpp.o
+
+.PHONY : MainWindow.o
+
+# target to build an object file
+MainWindow.cpp.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/MainWindow.cpp.o
+.PHONY : MainWindow.cpp.o
+
+MainWindow.i: MainWindow.cpp.i
+
+.PHONY : MainWindow.i
+
+# target to preprocess a source file
+MainWindow.cpp.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/MainWindow.cpp.i
+.PHONY : MainWindow.cpp.i
+
+MainWindow.s: MainWindow.cpp.s
+
+.PHONY : MainWindow.s
+
+# target to generate assembly for a file
+MainWindow.cpp.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/MainWindow.cpp.s
+.PHONY : MainWindow.cpp.s
+
+MyDateItemDelegate.o: MyDateItemDelegate.cpp.o
+
+.PHONY : MyDateItemDelegate.o
+
+# target to build an object file
+MyDateItemDelegate.cpp.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/MyDateItemDelegate.cpp.o
+.PHONY : MyDateItemDelegate.cpp.o
+
+MyDateItemDelegate.i: MyDateItemDelegate.cpp.i
+
+.PHONY : MyDateItemDelegate.i
+
+# target to preprocess a source file
+MyDateItemDelegate.cpp.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/MyDateItemDelegate.cpp.i
+.PHONY : MyDateItemDelegate.cpp.i
+
+MyDateItemDelegate.s: MyDateItemDelegate.cpp.s
+
+.PHONY : MyDateItemDelegate.s
+
+# target to generate assembly for a file
+MyDateItemDelegate.cpp.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/MyDateItemDelegate.cpp.s
+.PHONY : MyDateItemDelegate.cpp.s
+
+MySqlTableModel.o: MySqlTableModel.cpp.o
+
+.PHONY : MySqlTableModel.o
+
+# target to build an object file
+MySqlTableModel.cpp.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/MySqlTableModel.cpp.o
+.PHONY : MySqlTableModel.cpp.o
+
+MySqlTableModel.i: MySqlTableModel.cpp.i
+
+.PHONY : MySqlTableModel.i
+
+# target to preprocess a source file
+MySqlTableModel.cpp.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/MySqlTableModel.cpp.i
+.PHONY : MySqlTableModel.cpp.i
+
+MySqlTableModel.s: MySqlTableModel.cpp.s
+
+.PHONY : MySqlTableModel.s
+
+# target to generate assembly for a file
+MySqlTableModel.cpp.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/MySqlTableModel.cpp.s
+.PHONY : MySqlTableModel.cpp.s
+
+NewCustomerDialog.o: NewCustomerDialog.cpp.o
+
+.PHONY : NewCustomerDialog.o
+
+# target to build an object file
+NewCustomerDialog.cpp.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/NewCustomerDialog.cpp.o
+.PHONY : NewCustomerDialog.cpp.o
+
+NewCustomerDialog.i: NewCustomerDialog.cpp.i
+
+.PHONY : NewCustomerDialog.i
+
+# target to preprocess a source file
+NewCustomerDialog.cpp.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/NewCustomerDialog.cpp.i
+.PHONY : NewCustomerDialog.cpp.i
+
+NewCustomerDialog.s: NewCustomerDialog.cpp.s
+
+.PHONY : NewCustomerDialog.s
+
+# target to generate assembly for a file
+NewCustomerDialog.cpp.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/NewCustomerDialog.cpp.s
+.PHONY : NewCustomerDialog.cpp.s
+
+NewStaffDialog.o: NewStaffDialog.cpp.o
+
+.PHONY : NewStaffDialog.o
+
+# target to build an object file
+NewStaffDialog.cpp.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/NewStaffDialog.cpp.o
+.PHONY : NewStaffDialog.cpp.o
+
+NewStaffDialog.i: NewStaffDialog.cpp.i
+
+.PHONY : NewStaffDialog.i
+
+# target to preprocess a source file
+NewStaffDialog.cpp.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/NewStaffDialog.cpp.i
+.PHONY : NewStaffDialog.cpp.i
+
+NewStaffDialog.s: NewStaffDialog.cpp.s
+
+.PHONY : NewStaffDialog.s
+
+# target to generate assembly for a file
+NewStaffDialog.cpp.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/NewStaffDialog.cpp.s
+.PHONY : NewStaffDialog.cpp.s
+
 Test_autogen/EWIEGA46WW/qrc_resources.o: Test_autogen/EWIEGA46WW/qrc_resources.cpp.o
 
 .PHONY : Test_autogen/EWIEGA46WW/qrc_resources.o
@@ -190,33 +379,6 @@ Test_autogen/mocs_compilation.cpp.s:
 	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Test_autogen/mocs_compilation.cpp.s
 .PHONY : Test_autogen/mocs_compilation.cpp.s
 
-aproposdialog.o: aproposdialog.cpp.o
-
-.PHONY : aproposdialog.o
-
-# target to build an object file
-aproposdialog.cpp.o:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/aproposdialog.cpp.o
-.PHONY : aproposdialog.cpp.o
-
-aproposdialog.i: aproposdialog.cpp.i
-
-.PHONY : aproposdialog.i
-
-# target to preprocess a source file
-aproposdialog.cpp.i:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/aproposdialog.cpp.i
-.PHONY : aproposdialog.cpp.i
-
-aproposdialog.s: aproposdialog.cpp.s
-
-.PHONY : aproposdialog.s
-
-# target to generate assembly for a file
-aproposdialog.cpp.s:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/aproposdialog.cpp.s
-.PHONY : aproposdialog.cpp.s
-
 c_init_bd.o: c_init_bd.cpp.o
 
 .PHONY : c_init_bd.o
@@ -243,33 +405,6 @@ c_init_bd.s: c_init_bd.cpp.s
 c_init_bd.cpp.s:
 	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/c_init_bd.cpp.s
 .PHONY : c_init_bd.cpp.s
-
-dbconnect.o: dbconnect.cpp.o
-
-.PHONY : dbconnect.o
-
-# target to build an object file
-dbconnect.cpp.o:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/dbconnect.cpp.o
-.PHONY : dbconnect.cpp.o
-
-dbconnect.i: dbconnect.cpp.i
-
-.PHONY : dbconnect.i
-
-# target to preprocess a source file
-dbconnect.cpp.i:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/dbconnect.cpp.i
-.PHONY : dbconnect.cpp.i
-
-dbconnect.s: dbconnect.cpp.s
-
-.PHONY : dbconnect.s
-
-# target to generate assembly for a file
-dbconnect.cpp.s:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/dbconnect.cpp.s
-.PHONY : dbconnect.cpp.s
 
 login.o: login.cpp.o
 
@@ -324,141 +459,6 @@ main.s: main.cpp.s
 main.cpp.s:
 	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/main.cpp.s
 .PHONY : main.cpp.s
-
-mainwindow.o: mainwindow.cpp.o
-
-.PHONY : mainwindow.o
-
-# target to build an object file
-mainwindow.cpp.o:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/mainwindow.cpp.o
-.PHONY : mainwindow.cpp.o
-
-mainwindow.i: mainwindow.cpp.i
-
-.PHONY : mainwindow.i
-
-# target to preprocess a source file
-mainwindow.cpp.i:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/mainwindow.cpp.i
-.PHONY : mainwindow.cpp.i
-
-mainwindow.s: mainwindow.cpp.s
-
-.PHONY : mainwindow.s
-
-# target to generate assembly for a file
-mainwindow.cpp.s:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/mainwindow.cpp.s
-.PHONY : mainwindow.cpp.s
-
-mydateitemdelegate.o: mydateitemdelegate.cpp.o
-
-.PHONY : mydateitemdelegate.o
-
-# target to build an object file
-mydateitemdelegate.cpp.o:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/mydateitemdelegate.cpp.o
-.PHONY : mydateitemdelegate.cpp.o
-
-mydateitemdelegate.i: mydateitemdelegate.cpp.i
-
-.PHONY : mydateitemdelegate.i
-
-# target to preprocess a source file
-mydateitemdelegate.cpp.i:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/mydateitemdelegate.cpp.i
-.PHONY : mydateitemdelegate.cpp.i
-
-mydateitemdelegate.s: mydateitemdelegate.cpp.s
-
-.PHONY : mydateitemdelegate.s
-
-# target to generate assembly for a file
-mydateitemdelegate.cpp.s:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/mydateitemdelegate.cpp.s
-.PHONY : mydateitemdelegate.cpp.s
-
-mysqltablemodel.o: mysqltablemodel.cpp.o
-
-.PHONY : mysqltablemodel.o
-
-# target to build an object file
-mysqltablemodel.cpp.o:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/mysqltablemodel.cpp.o
-.PHONY : mysqltablemodel.cpp.o
-
-mysqltablemodel.i: mysqltablemodel.cpp.i
-
-.PHONY : mysqltablemodel.i
-
-# target to preprocess a source file
-mysqltablemodel.cpp.i:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/mysqltablemodel.cpp.i
-.PHONY : mysqltablemodel.cpp.i
-
-mysqltablemodel.s: mysqltablemodel.cpp.s
-
-.PHONY : mysqltablemodel.s
-
-# target to generate assembly for a file
-mysqltablemodel.cpp.s:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/mysqltablemodel.cpp.s
-.PHONY : mysqltablemodel.cpp.s
-
-newpatientdialog.o: newpatientdialog.cpp.o
-
-.PHONY : newpatientdialog.o
-
-# target to build an object file
-newpatientdialog.cpp.o:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/newpatientdialog.cpp.o
-.PHONY : newpatientdialog.cpp.o
-
-newpatientdialog.i: newpatientdialog.cpp.i
-
-.PHONY : newpatientdialog.i
-
-# target to preprocess a source file
-newpatientdialog.cpp.i:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/newpatientdialog.cpp.i
-.PHONY : newpatientdialog.cpp.i
-
-newpatientdialog.s: newpatientdialog.cpp.s
-
-.PHONY : newpatientdialog.s
-
-# target to generate assembly for a file
-newpatientdialog.cpp.s:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/newpatientdialog.cpp.s
-.PHONY : newpatientdialog.cpp.s
-
-newstaffdialog.o: newstaffdialog.cpp.o
-
-.PHONY : newstaffdialog.o
-
-# target to build an object file
-newstaffdialog.cpp.o:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/newstaffdialog.cpp.o
-.PHONY : newstaffdialog.cpp.o
-
-newstaffdialog.i: newstaffdialog.cpp.i
-
-.PHONY : newstaffdialog.i
-
-# target to preprocess a source file
-newstaffdialog.cpp.i:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/newstaffdialog.cpp.i
-.PHONY : newstaffdialog.cpp.i
-
-newstaffdialog.s: newstaffdialog.cpp.s
-
-.PHONY : newstaffdialog.s
-
-# target to generate assembly for a file
-newstaffdialog.cpp.s:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/newstaffdialog.cpp.s
-.PHONY : newstaffdialog.cpp.s
 
 patient.o: patient.cpp.o
 
@@ -659,42 +659,42 @@ help:
 	@echo "... edit_cache"
 	@echo "... Test"
 	@echo "... Test_autogen"
+	@echo "... AboutDialog.o"
+	@echo "... AboutDialog.i"
+	@echo "... AboutDialog.s"
+	@echo "... DBConnect.o"
+	@echo "... DBConnect.i"
+	@echo "... DBConnect.s"
+	@echo "... MainWindow.o"
+	@echo "... MainWindow.i"
+	@echo "... MainWindow.s"
+	@echo "... MyDateItemDelegate.o"
+	@echo "... MyDateItemDelegate.i"
+	@echo "... MyDateItemDelegate.s"
+	@echo "... MySqlTableModel.o"
+	@echo "... MySqlTableModel.i"
+	@echo "... MySqlTableModel.s"
+	@echo "... NewCustomerDialog.o"
+	@echo "... NewCustomerDialog.i"
+	@echo "... NewCustomerDialog.s"
+	@echo "... NewStaffDialog.o"
+	@echo "... NewStaffDialog.i"
+	@echo "... NewStaffDialog.s"
 	@echo "... Test_autogen/EWIEGA46WW/qrc_resources.o"
 	@echo "... Test_autogen/EWIEGA46WW/qrc_resources.i"
 	@echo "... Test_autogen/EWIEGA46WW/qrc_resources.s"
 	@echo "... Test_autogen/mocs_compilation.o"
 	@echo "... Test_autogen/mocs_compilation.i"
 	@echo "... Test_autogen/mocs_compilation.s"
-	@echo "... aproposdialog.o"
-	@echo "... aproposdialog.i"
-	@echo "... aproposdialog.s"
 	@echo "... c_init_bd.o"
 	@echo "... c_init_bd.i"
 	@echo "... c_init_bd.s"
-	@echo "... dbconnect.o"
-	@echo "... dbconnect.i"
-	@echo "... dbconnect.s"
 	@echo "... login.o"
 	@echo "... login.i"
 	@echo "... login.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... mainwindow.o"
-	@echo "... mainwindow.i"
-	@echo "... mainwindow.s"
-	@echo "... mydateitemdelegate.o"
-	@echo "... mydateitemdelegate.i"
-	@echo "... mydateitemdelegate.s"
-	@echo "... mysqltablemodel.o"
-	@echo "... mysqltablemodel.i"
-	@echo "... mysqltablemodel.s"
-	@echo "... newpatientdialog.o"
-	@echo "... newpatientdialog.i"
-	@echo "... newpatientdialog.s"
-	@echo "... newstaffdialog.o"
-	@echo "... newstaffdialog.i"
-	@echo "... newstaffdialog.s"
 	@echo "... patient.o"
 	@echo "... patient.i"
 	@echo "... patient.s"

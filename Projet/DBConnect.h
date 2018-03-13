@@ -10,9 +10,9 @@
 #include <QFile>
 #include <exception>
 
-#include "patient.h"
-#include "staff.h"
-#include "ressourcetype.h"
+#include "Customer.h"
+#include "Staff.h"
+#include "RessourceType.h"
 
 /**
  * Class to handle database queries.

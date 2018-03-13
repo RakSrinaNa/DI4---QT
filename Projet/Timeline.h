@@ -4,7 +4,7 @@
 class TimeLine
 {
 public:
-    TimeLine();
+	TimeLine();
 };
 
 #endif // TIMELINE_H

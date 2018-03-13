@@ -3,18 +3,18 @@
 
 #include <QList>
 
-#include "staff.h"
-#include "patient.h"
+#include "Staff.h"
+#include "Customer.h"
 #include "timeline.h"
 
 class Schedule
 {
 private:
-    QList<Staff *> * listStaff;
-    QList<TimeLine *> * listTimeLine;
+	QList<Staff *> * listStaff;
+	QList<TimeLine *> * listTimeLine;
 
 public:
-    Schedule();
+	Schedule();
 };
 
 #endif // SCHEDULE_H
