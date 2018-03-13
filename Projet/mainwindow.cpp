@@ -234,5 +234,5 @@ void MainWindow::on_actionExit_triggered()
 
 void MainWindow::on_table_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
 {
-    std::cout << "TEST";
+    std::cout << "TEST" << std::endl;
 }
