@@ -5,3 +5,4 @@ STL/.idea/
 *.pro.user.*
 QT/TP1/build-*
 Projet/build-*
+build-*
