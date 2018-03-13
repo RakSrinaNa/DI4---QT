@@ -30,5 +30,6 @@ void MyDateItemDelegate::setModelData(QWidget *editor, QAbstractItemModel *model
 
 void MyDateItemDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    (void)index;
     editor->setGeometry(option.rect);
 }
