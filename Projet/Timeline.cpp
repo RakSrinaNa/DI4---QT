@@ -2,25 +2,53 @@
 
 TimeLine::TimeLine(Staff *staff) : staff(staff)
 {
-    hours = QList<Customer *>;
+    hours = QList<QPair<Customer *, int>>();
 }
 
 int TimeLine::getNextHour()
 {
     int time = 0;
 
-    for(int i = 0; i < hours.size(); i++)
-        time += (hours.at(i)->getDurationInMin() / 15 + (hours.at(i)->getDurationInMin() % 15 == 0 ? 0 : 15));
+    if(hours.size() > 0){
+        QPair<Customer *, int> lastCustomer = (hours.at(hours.size() -1));
+        time += lastCustomer.second + lastCustomer.first->getDurationInMin() / 15 + (lastCustomer.first->getDurationInMin() % 15 == 0 ? 0 : 15);
+    }
 
     return time;
 }
 
 int TimeLine::getTypeId()
 {
-    return staff->getRessourceType().getId();
+    return getStaff()->getRessourceType().getId();
 }
 
-void TimeLine::addCustomer(Customer * customer)
+Staff * TimeLine::getStaff()
 {
-    hours << customer;
+    return staff;
+}
+
+Customer * TimeLine::getCustomer(int index)
+{
+    return hours.at(index).first;
+}
+
+int TimeLine::getStartHour(int index)
+{
+    return hours.at(index).second;
+}
+
+int TimeLine::getEndHour(int index)
+{
+    return hours.at(index).second + getCustomer(index)->getDurationInMin();
+}
+
+int TimeLine::size()
+{
+    return hours.size();
+}
+
+int TimeLine::addCustomer(Customer * customer, int duration)
+{
+    hours << QPair<Customer *, int>(customer, duration);
+    return getNextHour();
 }

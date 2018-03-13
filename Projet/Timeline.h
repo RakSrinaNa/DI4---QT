@@ -1,23 +1,26 @@
 #ifndef TIMELINE_H
 #define TIMELINE_H
 
-#include "staff.h"
+#include "Staff.h"
 #include "Customer.h"
 
 class TimeLine
 {
 private :
 	Staff * staff;
-	QList<Customer *> hours;
+    QList<QPair<Customer *, int>> hours;
 
 public:
 	TimeLine(Staff * staff);
-	
+
 	int getNextHour();
-	
 	int getTypeId();
-	
-	void addCustomer(Customer * customer);
+    Staff * getStaff();
+    Customer * getCustomer(int index);
+    int getStartHour(int index);
+    int getEndHour(int index);
+    int size();
+    int addCustomer(Customer * customer, int duration);
 };
 
 #endif // TIMELINE_H

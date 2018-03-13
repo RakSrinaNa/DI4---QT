@@ -1,6 +1,6 @@
 #include <QDialog>
 #include "NewCustomerDialog.h"
-#include "ui_newpatientdialog.h"
+#include "ui_NewCustomerDialog.h"
 
 extern DBConnect * db;
 
