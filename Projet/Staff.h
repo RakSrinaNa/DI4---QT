@@ -37,8 +37,8 @@ public:
 	/**
 	 * Get the resource type.
 	 * @return The resource type.
-	 */
-	ResourceType getResourceType();
+     */
+    ResourceType getResourceType();
 	
 	/**
 	 * Get the login of the staff memeber.
@@ -52,6 +52,10 @@ public:
 	 */
 	QString getPassword(); //TODO save the password in the database
 	
+    /**
+     * Get a short description of the staff member (name and type)
+     * @return  The description
+     */
 	QString getDescription();
 
 signals:
