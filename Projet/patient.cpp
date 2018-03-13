@@ -70,3 +70,8 @@ QString Patient::getPhone()
 {
     return phone;
 }
+
+QString Patient::toString()
+{
+    return (id == 0 ? "" : id + " ") + (firstName == NULL) + " " + (lastName == NULL) + " / Comment : " + (comment == NULL);
+}

@@ -9,6 +9,7 @@
 #include <QDir>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QKeyEvent>
 
 #include "dbconnect.h"
 

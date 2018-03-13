@@ -32,6 +32,8 @@ public:
     QString getComment();
     QString getPhone();
 
+    QString toString();
+
 signals:
 
 public slots:

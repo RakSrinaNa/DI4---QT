@@ -157,7 +157,10 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
     }
 
     case Qt::Key_0:
-        db->test();
+        QList<Patient *> * list = db->getClientsFromDate(ui->planDateEdit->date());
+        for(int i = 0; i < list->size(); i++){
+            std::cout << list->at(i)->toString().toStdString() << std::endl;
+        }
         break;
     }
     event->accept();

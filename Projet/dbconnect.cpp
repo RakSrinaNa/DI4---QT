@@ -215,13 +215,19 @@ bool DBConnect::addStaff(Staff * staff)
     return query.exec();
 }
 
-void DBConnect::test()
+QList<Patient *> * DBConnect::getClientsFromDate(QDate date)
 {
-    QSqlQuery query;
-    query.prepare("SELECT * FROM TClient ORDER BY Priorite *100 + (SELECT count(*) FROM TRdv WHERE IdClient = TClient.id) *10 + Duree;");
-    query.exec();
+    QList<Patient *> * listClient = new QList<Patient *>();
 
-    while(query.next())
-        std::cout << query.value("Nom").toString().toStdString() << " / " << query.value("Priorite").toString().toStdString() << std::endl;
-    std::cout << "----------------" << std::endl;
+    QSqlQuery query;
+    query.prepare("SELECT * FROM TClient WHERE DateRdv = :date ORDER BY Priorite *100 + (SELECT count(*) FROM TRdv WHERE IdClient = TClient.id) *10 + DureeRdv;");
+    query.bindValue(":date", date.toString("yyyy-MM-dd"));
+
+    if(!query.exec())
+        std::cout << "Error" << std::endl;
+    else
+        while(query.next())
+            listClient->append(getPatient(query.value("Id").toInt()));
+
+    return listClient;
 }

@@ -33,7 +33,7 @@ public:
     bool addPatient(Patient * patient);
     bool addStaff(Staff * staff);
 
-    void test();
+    QList<Patient *> *getClientsFromDate(QDate date);
 
 
 private:
