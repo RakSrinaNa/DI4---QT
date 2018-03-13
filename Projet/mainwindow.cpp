@@ -53,7 +53,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tableView->setColumnHidden(9, true);
     ui->tableView->setColumnHidden(10, true);
 
-
+    ui->tableView->setItemDelegateForColumn(8, new MyDateItemDelegate());
     ui->tableView->resizeColumnsToContents();
     for (int c = 0; c < ui->tableView->horizontalHeader()->count(); ++c)
     {

@@ -14,6 +14,7 @@
 
 #include "dbconnect.h"
 #include "mysqltablemodel.h"
+#include "mydateitemdelegate.h"
 
 namespace Ui {
 class MainWindow;
