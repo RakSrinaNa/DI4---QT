@@ -7,23 +7,23 @@
 #include "patient.h"
 #include "staff.h"
 #include "staffitem.h"
-#include "dbconnect.h"
+#include "DBConnect.h"
 #include "ressourcetype.h"
 #include "ressourceitem.h"
 
 using namespace std;
 
 namespace Ui {
-class NewPatientDialog;
+class NewCustomerDialog;
 }
 
-class NewPatientDialog : public QDialog
+class NewCustomerDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    NewPatientDialog(QWidget *parent = 0);
-    ~NewPatientDialog();
+    NewCustomerDialog(QWidget *parent = 0);
+    ~NewCustomerDialog();
     QList<ResourceType *> * getResources();
     Customer * getPatient();
 
@@ -38,7 +38,7 @@ private slots:
     void on_cancelButton_clicked();
 
 private:
-    Ui::NewPatientDialog *ui;
+    Ui::NewCustomerDialog *ui;
 };
 
 #endif // NEWPATIENTDIALOG_H

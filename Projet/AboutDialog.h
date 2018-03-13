@@ -5,23 +5,23 @@
 
 namespace Ui
 {
-	class AProposDialog;
+    class AboutDialog;
 }
 
 /**
  * About window.
  */
-class AProposDialog : public QDialog
+class AboutDialog : public QDialog
 {
 	Q_OBJECT
 
 public:
-	explicit AProposDialog(QWidget * parent = 0);
+	explicit AboutDialog(QWidget * parent = 0);
 	
-	~AProposDialog();
+	~AboutDialog();
 
 private:
-	Ui::AProposDialog * ui;
+    Ui::AboutDialog * ui;
 };
 
 #endif // APROPOSDIALOG_H

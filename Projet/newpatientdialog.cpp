@@ -3,9 +3,9 @@
 
 extern DBConnect * db;
 
-NewPatientDialog::NewPatientDialog(QWidget *parent) :
+NewCustomerDialog::NewCustomerDialog(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::NewPatientDialog)
+    ui(new Ui::NewCustomerDialog)
 {
     ui->setupUi(this);
 
@@ -20,17 +20,17 @@ NewPatientDialog::NewPatientDialog(QWidget *parent) :
 
 }
 
-NewPatientDialog::~NewPatientDialog()
+NewCustomerDialog::~NewCustomerDialog()
 {
     delete ui;
 }
 
-Customer * NewPatientDialog::getPatient()
+Customer * NewCustomerDialog::getPatient()
 {
     return new Customer(ui->lastNameLineEdit->text(), ui->firstNameLineEdit->text(), ui->addressLineEdit->text(), ui->cityLineEdit->text(), ui->postalCodeLineEdit->text(), ui->dayOfConsultationDateEdit->date(), ui->durationTimeEdit->time(), ui->priorityComboBox->currentText(), getResources(), ui->commentLineEdit->text(), ui->phoneLineEdit->text());
 }
 
-QList<ResourceType *> * NewPatientDialog::getResources()
+QList<ResourceType *> * NewCustomerDialog::getResources()
 {
     QList<ResourceType *> * list = new QList<ResourceType *>;
     for(QListWidgetItem * item : ui->resourcesListWidget->selectedItems())
@@ -38,7 +38,7 @@ QList<ResourceType *> * NewPatientDialog::getResources()
     return list;
 }
 
-void NewPatientDialog::upperCase_textEdited(const QString &arg1)
+void NewCustomerDialog::upperCase_textEdited(const QString &arg1)
 {
     QString s = arg1;
     QString cap = s.left(1).toUpper();
@@ -46,22 +46,22 @@ void NewPatientDialog::upperCase_textEdited(const QString &arg1)
     qobject_cast<QLineEdit *>(sender())->setText(cap + text);
 }
 
-void NewPatientDialog::on_lastNameLineEdit_textEdited(const QString &arg1)
+void NewCustomerDialog::on_lastNameLineEdit_textEdited(const QString &arg1)
 {
     upperCase_textEdited(arg1);
 }
 
-void NewPatientDialog::on_firstNameLineEdit_textEdited(const QString &arg1)
+void NewCustomerDialog::on_firstNameLineEdit_textEdited(const QString &arg1)
 {
     upperCase_textEdited(arg1);
 }
 
-void NewPatientDialog::on_cityLineEdit_textEdited(const QString &arg1)
+void NewCustomerDialog::on_cityLineEdit_textEdited(const QString &arg1)
 {
     upperCase_textEdited(arg1);
 }
 
-void NewPatientDialog::on_okButton_clicked()
+void NewCustomerDialog::on_okButton_clicked()
 {
     bool valid = true;
     if(ui->lastNameLineEdit->text().isEmpty())
@@ -147,7 +147,7 @@ void NewPatientDialog::on_okButton_clicked()
         accept();
 }
 
-void NewPatientDialog::on_cancelButton_clicked()
+void NewCustomerDialog::on_cancelButton_clicked()
 {
     reject();
 }

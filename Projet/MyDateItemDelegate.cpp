@@ -1,4 +1,5 @@
-#include "mydateitemdelegate.h"
+#include <QtWidgets>
+#include "MyDateItemDelegate.h"
 
 MyDateItemDelegate::MyDateItemDelegate(QObject *parent) : QItemDelegate(parent)
 {
