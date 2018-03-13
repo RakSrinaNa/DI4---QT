@@ -8,7 +8,6 @@ NewPatientDialog::NewPatientDialog(QWidget *parent) :
     ui(new Ui::NewPatientDialog)
 {
     ui->setupUi(this);
-    this->setWindowTitle("Add a patient");
 
     ui->dayOfConsultationDateEdit->setDate(QDate::currentDate());
     ui->priorityComboBox->addItems({"1", "2", "3", "4", "5"});
