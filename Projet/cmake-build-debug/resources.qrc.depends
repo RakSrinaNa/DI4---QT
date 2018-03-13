@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>Ressources/PolyLogo.png</file>
+    </qresource>
+</RCC>

@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "Test_autogen"
+  "CMakeFiles/Test_autogen.dir/AutogenOldSettings.cmake"
   "CMakeFiles/Test.dir/aproposdialog.cpp.o"
   "CMakeFiles/Test.dir/c_init_bd.cpp.o"
   "CMakeFiles/Test.dir/dbconnect.cpp.o"
@@ -12,8 +14,12 @@ file(REMOVE_RECURSE
   "CMakeFiles/Test.dir/patient.cpp.o"
   "CMakeFiles/Test.dir/ressourceitem.cpp.o"
   "CMakeFiles/Test.dir/ressourcetype.cpp.o"
+  "CMakeFiles/Test.dir/schedule.cpp.o"
   "CMakeFiles/Test.dir/staff.cpp.o"
   "CMakeFiles/Test.dir/staffitem.cpp.o"
+  "CMakeFiles/Test.dir/timeline.cpp.o"
+  "CMakeFiles/Test.dir/Test_autogen/mocs_compilation.cpp.o"
+  "CMakeFiles/Test.dir/Test_autogen/EWIEGA46WW/qrc_resources.cpp.o"
   "Test.pdb"
   "Test"
 )

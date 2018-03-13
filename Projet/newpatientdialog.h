@@ -17,13 +17,13 @@ namespace Ui {
 class NewPatientDialog;
 }
 
-class NewPatientDialog : public QDialog
+class NewCustomerDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    NewPatientDialog(QWidget *parent = 0);
-    ~NewPatientDialog();
+    NewCustomerDialog(QWidget *parent = 0);
+    ~NewCustomerDialog();
     QList<ResourceType *> * getResources();
     Customer * getPatient();
 

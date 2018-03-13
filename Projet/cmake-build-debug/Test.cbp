@@ -5,7 +5,7 @@
 		<Option title="Test"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\cmake\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\cmake\Qt5Core\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\cmake\Qt5Widgets\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\cmake\Qt5Gui\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\cmake\Qt5Sql\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\cmake\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\cmake\Qt5Core\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\cmake\Qt5Gui\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\cmake\Qt5Widgets\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\cmake\Qt5Sql\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug"/>
@@ -44,6 +44,23 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DQT_SQL_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add directory="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug"/>
+					<Add directory="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet"/>
+					<Add directory="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/Test_autogen/include"/>
+					<Add directory="/usr/local/opt/qt@5.5/lib/QtSql.framework"/>
+					<Add directory="/usr/local/opt/qt@5.5/lib/QtSql.framework/Headers"/>
+					<Add directory="/usr/local/opt/qt@5.5/lib/QtCore.framework"/>
+					<Add directory="/usr/local/opt/qt@5.5/lib/QtCore.framework/Headers"/>
+					<Add directory="/usr/local/opt/qt@5.5/./mkspecs/macx-clang"/>
+					<Add directory="/usr/local/opt/qt@5.5/lib/QtWidgets.framework"/>
+					<Add directory="/usr/local/opt/qt@5.5/lib/QtWidgets.framework/Headers"/>
+					<Add directory="/usr/local/opt/qt@5.5/lib/QtGui.framework"/>
+					<Add directory="/usr/local/opt/qt@5.5/lib/QtGui.framework/Headers"/>
+					<Add directory="/System/Library/Frameworks/OpenGL.framework/Headers"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
@@ -66,6 +83,23 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DQT_SQL_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add directory="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug"/>
+					<Add directory="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet"/>
+					<Add directory="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/Test_autogen/include"/>
+					<Add directory="/usr/local/opt/qt@5.5/lib/QtSql.framework"/>
+					<Add directory="/usr/local/opt/qt@5.5/lib/QtSql.framework/Headers"/>
+					<Add directory="/usr/local/opt/qt@5.5/lib/QtCore.framework"/>
+					<Add directory="/usr/local/opt/qt@5.5/lib/QtCore.framework/Headers"/>
+					<Add directory="/usr/local/opt/qt@5.5/./mkspecs/macx-clang"/>
+					<Add directory="/usr/local/opt/qt@5.5/lib/QtWidgets.framework"/>
+					<Add directory="/usr/local/opt/qt@5.5/lib/QtWidgets.framework/Headers"/>
+					<Add directory="/usr/local/opt/qt@5.5/lib/QtGui.framework"/>
+					<Add directory="/usr/local/opt/qt@5.5/lib/QtGui.framework/Headers"/>
+					<Add directory="/System/Library/Frameworks/OpenGL.framework/Headers"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
@@ -81,6 +115,16 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes\ logicielles\ C++/TP/Projet/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="Test_autogen">
+				<Option working_dir="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes\ logicielles\ C++/TP/Projet/cmake-build-debug/Makefile&quot;  VERBOSE=1 Test_autogen"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes\ logicielles\ C++/TP/Projet/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes\ logicielles\ C++/TP/Projet/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes\ logicielles\ C++/TP/Projet/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/aproposdialog.cpp">
 			<Option target="Test"/>
@@ -88,10 +132,19 @@
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/aproposdialog.h">
 			<Option target="Test"/>
 		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/aproposdialog.ui">
+			<Option target="Test"/>
+		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/c_init_bd.cpp">
 			<Option target="Test"/>
 		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/c_init_bd.h">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/Test_autogen/EWIEGA46WW/qrc_resources.cpp">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/Test_autogen/mocs_compilation.cpp">
 			<Option target="Test"/>
 		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/dbconnect.cpp">
@@ -106,6 +159,9 @@
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/login.h">
 			<Option target="Test"/>
 		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/login.ui">
+			<Option target="Test"/>
+		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/main.cpp">
 			<Option target="Test"/>
 		</Unit>
@@ -113,6 +169,9 @@
 			<Option target="Test"/>
 		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/mainwindow.h">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/mainwindow.ui">
 			<Option target="Test"/>
 		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/mydateitemdelegate.cpp">
@@ -133,16 +192,25 @@
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/newpatientdialog.h">
 			<Option target="Test"/>
 		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/newpatientdialog.ui">
+			<Option target="Test"/>
+		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/newstaffdialog.cpp">
 			<Option target="Test"/>
 		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/newstaffdialog.h">
 			<Option target="Test"/>
 		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/newstaffdialog.ui">
+			<Option target="Test"/>
+		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/patient.cpp">
 			<Option target="Test"/>
 		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/patient.h">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/resources.qrc">
 			<Option target="Test"/>
 		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/ressourceitem.cpp">
@@ -157,6 +225,12 @@
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/ressourcetype.h">
 			<Option target="Test"/>
 		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/schedule.cpp">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/schedule.h">
+			<Option target="Test"/>
+		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/staff.cpp">
 			<Option target="Test"/>
 		</Unit>
@@ -169,7 +243,16 @@
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/staffitem.h">
 			<Option target="Test"/>
 		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/timeline.cpp">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/timeline.h">
+			<Option target="Test"/>
+		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/resources.qrc">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/../../../../../../../../../../../usr/local/opt/qt@5.5/lib/cmake/Qt5Core/Qt5CoreConfig.cmake">
@@ -186,18 +269,6 @@
 		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/../../../../../../../../../../../usr/local/opt/qt@5.5/lib/cmake/Qt5Core/Qt5CoreMacros.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\cmake\Qt5Core\"/>
-		</Unit>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/../../../../../../../../../../../usr/local/opt/qt@5.5/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\cmake\Qt5Widgets\"/>
-		</Unit>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/../../../../../../../../../../../usr/local/opt/qt@5.5/lib/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\cmake\Qt5Widgets\"/>
-		</Unit>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/../../../../../../../../../../../usr/local/opt/qt@5.5/lib/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\cmake\Qt5Widgets\"/>
-		</Unit>
-		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/../../../../../../../../../../../usr/local/opt/qt@5.5/lib/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\cmake\Qt5Widgets\"/>
 		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/../../../../../../../../../../../usr/local/opt/qt@5.5/lib/cmake/Qt5Gui/Qt5GuiConfig.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\cmake\Qt5Gui\"/>
@@ -252,6 +323,18 @@
 		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/../../../../../../../../../../../usr/local/opt/qt@5.5/lib/cmake/Qt5Gui/Qt5Gui_QWebpPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/../../../../../../../../../../../usr/local/opt/qt@5.5/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/../../../../../../../../../../../usr/local/opt/qt@5.5/lib/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/../../../../../../../../../../../usr/local/opt/qt@5.5/lib/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/../../../../../../../../../../../usr/local/opt/qt@5.5/lib/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\cmake\Qt5Widgets\"/>
 		</Unit>
 		<Unit filename="/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/../../../../../../../../../../../usr/local/opt/qt@5.5/lib/cmake/Qt5Sql/Qt5SqlConfig.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\usr\local\opt\qt@5.5\lib\cmake\Qt5Sql\"/>

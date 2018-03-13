@@ -11,6 +11,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.10.2/CMakeCCompiler.cmake"
   "CMakeFiles/3.10.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.10.2/CMakeSystem.cmake"
+  "../resources.qrc"
+  "/Users/mrcraftcod/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/181.4096.19/CLion 2018.1 EAP.app/Contents/bin/cmake/share/cmake-3.10/Modules/AutogenInfo.cmake.in"
   "/Users/mrcraftcod/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/181.4096.19/CLion 2018.1 EAP.app/Contents/bin/cmake/share/cmake-3.10/Modules/CMakeCInformation.cmake"
   "/Users/mrcraftcod/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/181.4096.19/CLion 2018.1 EAP.app/Contents/bin/cmake/share/cmake-3.10/Modules/CMakeCXXInformation.cmake"
   "/Users/mrcraftcod/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/181.4096.19/CLion 2018.1 EAP.app/Contents/bin/cmake/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake"
@@ -75,10 +77,12 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
+  "CMakeFiles/Test_autogen.dir/AutogenInfo.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/Test.dir/DependInfo.cmake"
+  "CMakeFiles/Test_autogen.dir/DependInfo.cmake"
   )
