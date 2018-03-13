@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //Initialize tab 1
     model = new QSqlTableModel(this, db->getDb());
-    //QObject::connect(&model, SIGNAL(dataChanged(const QModelIndex, const QModelIndex, const QVector<int>)), this, SLOT(on_table_data_changed(const QModelIndex, const QModelIndex, const QVector<int>)));
+    QObject::connect(model, SIGNAL(dataChanged(const QModelIndex, const QModelIndex, const QVector<int>)), this, SLOT(on_table_data_changed(const QModelIndex, const QModelIndex, const QVector<int>)));
     model->setTable("TClient");
     model->setEditStrategy(QSqlTableModel::OnFieldChange);
     model->select();
@@ -232,7 +232,7 @@ void MainWindow::on_actionExit_triggered()
     close();
 }
 
-//void on_table_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
-//{
-//    std::cout << "TEST";
-//}
+void MainWindow::on_table_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
+{
+    std::cout << "TEST";
+}
