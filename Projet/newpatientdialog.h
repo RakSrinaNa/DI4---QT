@@ -24,8 +24,8 @@ class NewPatientDialog : public QDialog
 public:
     NewPatientDialog(QWidget *parent = 0);
     ~NewPatientDialog();
-    QList<RessourceType *> * getResources();
-    Patient * getPatient();
+    QList<ResourceType *> * getResources();
+    Customer * getPatient();
 
 private slots:
     void upperCase_textEdited(const QString &arg1);

@@ -1,6 +1,6 @@
 #include "staff.h"
 
-Staff::Staff(QString lastName, QString firstName, int typeId, QString typeName, QObject *parent) : QObject(parent), lastName(lastName), firstName(firstName), type(RessourceType(typeId, typeName)), login(""), password("")
+Staff::Staff(QString lastName, QString firstName, int typeId, QString typeName, QObject *parent) : QObject(parent), lastName(lastName), firstName(firstName), type(ResourceType(typeId, typeName)), login(""), password("")
 {}
 
 Staff::Staff(QString lastName, QString firstName, int typeId, QString typeName, QString login, QString password, QObject *parent) : Staff(lastName, firstName, typeId, typeName, parent)
@@ -9,7 +9,7 @@ Staff::Staff(QString lastName, QString firstName, int typeId, QString typeName, 
     this->password = password;
 }
 
-Staff::Staff(int id, QString lastName, QString firstName, int typeId, QString typeName, QObject *parent) : QObject(parent), id(id), lastName(lastName), firstName(firstName), type(RessourceType(typeId, typeName)), login(""), password("")
+Staff::Staff(int id, QString lastName, QString firstName, int typeId, QString typeName, QObject *parent) : QObject(parent), id(id), lastName(lastName), firstName(firstName), type(ResourceType(typeId, typeName)), login(""), password("")
 {}
 
 Staff::Staff(int id, QString lastName, QString firstName, int typeId, QString typeName, QString login, QString password, QObject *parent) : Staff(id, lastName, firstName, typeId, typeName, parent)
@@ -28,7 +28,7 @@ QString Staff::getFirstName()
     return firstName;
 }
 
-RessourceType Staff::getRessourceType()
+ResourceType Staff::getRessourceType()
 {
     return type;
 }

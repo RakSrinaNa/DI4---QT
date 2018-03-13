@@ -1,15 +1,15 @@
 #include "ressourcetype.h"
 
-RessourceType::RessourceType(int id, QString name) : id(id), name(name)
+ResourceType::ResourceType(int id, QString name) : id(id), name(name)
 {
 }
 
-int RessourceType::getId()
+int ResourceType::getId()
 {
     return id;
 }
 
-QString RessourceType::getName()
+QString ResourceType::getName()
 {
     return name;
 }

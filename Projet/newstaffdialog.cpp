@@ -9,7 +9,7 @@ NewStaffDialog::NewStaffDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     QList<RessourceType *> * ressources = db->getTypes();
-    for(RessourceType * r : *ressources)
+    for(ResourceType * r : *ressources)
     {
         ui->typeComboBox->addItem(r->getName(), QVariant::fromValue(static_cast<void *>(r)));
     }
@@ -23,7 +23,7 @@ NewStaffDialog::~NewStaffDialog()
 Staff * NewStaffDialog::getStaff()
 {
     int index = ui->typeComboBox->currentIndex();
-    RessourceType * type = static_cast<RessourceType *>(ui->typeComboBox->currentData().value<void *>());
+    ResourceType * type = static_cast<ResourceType *>(ui->typeComboBox->currentData().value<void *>());
 
     if(type->getName() == "Informaticien")
         return new Staff(ui->lastNameLineEdit->text(), ui->firstNameLineEdit->text(), type->getId(), type->getName(), ui->loginLineEdit->text(), ui->passwordLineEdit->text());

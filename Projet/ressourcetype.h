@@ -3,10 +3,10 @@
 
 #include <QString>
 
-class RessourceType
+class ResourceType
 {
 public:
-    RessourceType(int id, QString name);
+    ResourceType(int id, QString name);
     int getId();
     QString getName();
 

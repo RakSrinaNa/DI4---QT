@@ -9,12 +9,12 @@ class RessourceItem : public QListWidgetItem
 {
 
 public:
-    RessourceItem(RessourceType * ressource, QListWidget *parent = 0);
+    RessourceItem(ResourceType * ressource, QListWidget *parent = 0);
     ~RessourceItem();
-    RessourceType * getRessource();
+    ResourceType * getRessource();
 
 private:
-    RessourceType * ressource;
+    ResourceType * ressource;
 
 signals:
 

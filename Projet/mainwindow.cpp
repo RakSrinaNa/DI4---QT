@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tabWidget->tabBar()->setExpanding(true);
 
     //Initialize tab 1
-    model = new MySqlTableModel(this, db->getDb());
+    model = new MySqlTableModel(this, db->getDB());
     QObject::connect(model, SIGNAL(dataChanged(const QModelIndex, const QModelIndex, const QVector<int>)), this, SLOT(on_table_data_changed(const QModelIndex, const QModelIndex, const QVector<int>)));
     model->setTable("TClient");
     model->setEditStrategy(QSqlTableModel::OnRowChange);
@@ -84,7 +84,7 @@ void MainWindow::on_actionCustomer_triggered()
 {
     NewPatientDialog newPatient;
     if(newPatient.exec() == QDialog::Accepted){
-        if(db->addPatient(newPatient.getPatient()))
+        if(db->addCustomer(newPatient.getPatient()))
         {
             setStatusText("A new patient was added", 5000);
             model->select();

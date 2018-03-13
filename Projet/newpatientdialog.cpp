@@ -15,7 +15,7 @@ NewPatientDialog::NewPatientDialog(QWidget *parent) :
     ui->phoneLineEdit->setValidator(new QIntValidator(0, 999999999, this));
 
     QList<RessourceType *> * ressources = db->getTypes();
-    for(RessourceType * r : *ressources)
+    for(ResourceType * r : *ressources)
         ui->resourcesListWidget->addItem(new RessourceItem(r, ui->resourcesListWidget));
 
 }
@@ -25,14 +25,14 @@ NewPatientDialog::~NewPatientDialog()
     delete ui;
 }
 
-Patient * NewPatientDialog::getPatient()
+Customer * NewPatientDialog::getPatient()
 {
-    return new Patient(ui->lastNameLineEdit->text(), ui->firstNameLineEdit->text(), ui->addressLineEdit->text(), ui->cityLineEdit->text(), ui->postalCodeLineEdit->text(), ui->dayOfConsultationDateEdit->date(), ui->durationTimeEdit->time(), ui->priorityComboBox->currentText(), getResources(), ui->commentLineEdit->text(), ui->phoneLineEdit->text());
+    return new Customer(ui->lastNameLineEdit->text(), ui->firstNameLineEdit->text(), ui->addressLineEdit->text(), ui->cityLineEdit->text(), ui->postalCodeLineEdit->text(), ui->dayOfConsultationDateEdit->date(), ui->durationTimeEdit->time(), ui->priorityComboBox->currentText(), getResources(), ui->commentLineEdit->text(), ui->phoneLineEdit->text());
 }
 
-QList<RessourceType *> * NewPatientDialog::getResources()
+QList<ResourceType *> * NewPatientDialog::getResources()
 {
-    QList<RessourceType *> * list = new QList<RessourceType *>;
+    QList<RessourceType *> * list = new QList<ResourceType *>;
     for(QListWidgetItem * item : ui->resourcesListWidget->selectedItems())
         *(list) << dynamic_cast<RessourceItem *>(item)->getRessource();
     return list;

@@ -11,12 +11,12 @@
 
 using namespace std;
 
-class Patient : public QObject
+class Customer : public QObject
 {
     Q_OBJECT
 public:
-    Patient(QString lastName, QString firstName, QString address, QString city, QString postalCode, QDate dayOfConsultation, QTime duration, QString priority, QList<RessourceType *> * resources, QString comment, QString phone, QObject *parent = 0);
-    Patient(int id, QString lastName, QString firstName, QString address, QString city, QString postalCode, QDate dayOfConsultation, QTime duration, QString priority, QList<RessourceType *> * resources, QString comment, QString phone, QObject *parent = 0);
+    Customer(QString lastName, QString firstName, QString address, QString city, QString postalCode, QDate dayOfConsultation, QTime duration, QString priority, QList<ResourceType *> * resources, QString comment, QString phone, QObject *parent = 0);
+    Customer(int id, QString lastName, QString firstName, QString address, QString city, QString postalCode, QDate dayOfConsultation, QTime duration, QString priority, QList<ResourceType *> * resources, QString comment, QString phone, QObject *parent = 0);
 
 
     QString getLastName();
@@ -28,7 +28,7 @@ public:
     QTime getDuration();
     int getDurationInMin();
     QString getPriority();
-    QList<RessourceType *> * getResources();
+    QList<ResourceType *> * getResources();
     QString getComment();
     QString getPhone();
 
@@ -48,7 +48,7 @@ private:
     QDate dayOfConsultation;
     QTime duration;
     QString priority;
-    QList<RessourceType *> * resources;
+    QList<ResourceType *> * resources;
     QString comment;
     QString phone;
 };

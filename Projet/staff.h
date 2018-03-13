@@ -18,7 +18,7 @@ public:
 
     QString getLastName();
     QString getFirstName();
-    RessourceType getRessourceType();
+    ResourceType getRessourceType();
     QString getType();
     QString getLogin();
     QString getPassword();
@@ -33,7 +33,7 @@ private:
     int id = 0;
     QString lastName;
     QString firstName;
-    RessourceType type;
+    ResourceType type;
     QString login;
     QString password;
 
