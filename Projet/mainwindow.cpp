@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
     {
     ui->setupUi(this);
+    setFocusPolicy(Qt::StrongFocus); //Catch all the keyboard event
     setWindowTitle("Application");
     setStatusText("You are connected");
     ui->tabWidget->tabBar()->setExpanding(true);
@@ -132,8 +133,14 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 {
     switch (event->key())
     {
+    case Qt::Key_Backspace:
     case Qt::Key_Delete:
     {
+        if(event->key() == Qt::Key_Y && !(QApplication::keyboardModifiers() & Qt::ControlModifier))
+        {
+            break;
+        }
+
         int current = ui->tableView->selectionModel()->currentIndex().row();
         if(current != -1){
             model->removeRow(current);
