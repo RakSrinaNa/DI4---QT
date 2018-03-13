@@ -55,6 +55,8 @@ private slots:
 
     void on_actionAbout_triggered();
 
+    void on_table_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles);
+
 signals:
     void statusChanged(QString &status);
 

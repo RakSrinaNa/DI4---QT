@@ -18,13 +18,14 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //Initialize tab 1
     model = new QSqlTableModel(this, db->getDb());
+    QObject::connect(&model, SIGNAL(dataChanged(const QModelIndex, const QModelIndex, const QVector<int>)), this, SLOT(on_table_data_changed(const QModelIndex, const QModelIndex, const QVector<int>)));
     model->setTable("TClient");
     model->setEditStrategy(QSqlTableModel::OnFieldChange);
     model->select();
     model->setHeaderData(0, Qt::Horizontal, tr("Id"));
     model->setHeaderData(1, Qt::Horizontal, tr("First Name"));
     model->setHeaderData(2, Qt::Horizontal, tr("Last name"));
-    model->setHeaderData(3, Qt::Horizontal, tr("Adsress"));
+    model->setHeaderData(3, Qt::Horizontal, tr("Address"));
     model->setHeaderData(4, Qt::Horizontal, tr("City"));
     model->setHeaderData(5, Qt::Horizontal, tr("Postal Code"));
     model->setHeaderData(6, Qt::Horizontal, tr("Comment"));
@@ -40,7 +41,18 @@ MainWindow::MainWindow(QWidget *parent) :
     firstNameModel->setFilterKeyColumn(1);
     lastNameModel->setSourceModel(firstNameModel);
     lastNameModel->setFilterKeyColumn(2);
-    ui->tableView->setColumnHidden(0, true);
+    ui->tableView->setColumnHidden(0, false);
+    ui->tableView->setColumnHidden(1, false);
+    ui->tableView->setColumnHidden(2, false);
+    ui->tableView->setColumnHidden(3, true);
+    ui->tableView->setColumnHidden(4, true);
+    ui->tableView->setColumnHidden(5, true);
+    ui->tableView->setColumnHidden(6, true);
+    ui->tableView->setColumnHidden(7, true);
+    ui->tableView->setColumnHidden(8, false);
+    ui->tableView->setColumnHidden(9, true);
+    ui->tableView->setColumnHidden(10, true);
+
 
     ui->tableView->resizeColumnsToContents();
 
@@ -215,4 +227,9 @@ void MainWindow::on_savePushButton_clicked()
 void MainWindow::on_actionExit_triggered()
 {
     close();
+}
+
+void on_table_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
+{
+    std::cout << "TEST";
 }
