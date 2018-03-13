@@ -1,4 +1,4 @@
-#include "dbconnect.h"
+#include "DBConnect.h"
 
 #include <iostream>
 

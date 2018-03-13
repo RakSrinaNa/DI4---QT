@@ -5,7 +5,7 @@
 
 namespace Ui
 {
-	class AProposDialog;
+    class AboutDialog;
 }
 
 /**
@@ -21,7 +21,7 @@ public:
 	~AboutDialog();
 
 private:
-	Ui::AProposDialog * ui;
+    Ui::AboutDialog * ui;
 };
 
 #endif // APROPOSDIALOG_H

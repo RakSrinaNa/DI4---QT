@@ -4,7 +4,7 @@
 #include <QDialog>
 #include <QMessageBox>
 
-#include "dbconnect.h"
+#include "DBConnect.h"
 
 namespace Ui
 {

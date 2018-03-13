@@ -3,9 +3,9 @@
 
 extern DBConnect * db;
 
-NewCustomerDialog::NewPatientDialog(QWidget *parent) :
+NewCustomerDialog::NewCustomerDialog(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::NewPatientDialog)
+    ui(new Ui::NewCustomerDialog)
 {
     ui->setupUi(this);
 

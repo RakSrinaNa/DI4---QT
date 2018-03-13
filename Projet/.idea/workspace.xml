@@ -13,34 +13,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b502bb7-465d-4b74-96fb-e6680e1d0520" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aproposdialog.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/aproposdialog.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aproposdialog.h" beforeDir="false" afterPath="$PROJECT_DIR$/aproposdialog.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aproposdialog.ui" beforeDir="false" afterPath="$PROJECT_DIR$/aproposdialog.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Test.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Test.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbconnect.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/dbconnect.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/login.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.h" beforeDir="false" afterPath="$PROJECT_DIR$/login.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainwindow.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mainwindow.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainwindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/mainwindow.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newpatientdialog.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/newpatientdialog.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newpatientdialog.h" beforeDir="false" afterPath="$PROJECT_DIR$/newpatientdialog.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newpatientdialog.ui" beforeDir="false" afterPath="$PROJECT_DIR$/newpatientdialog.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainwindow.ui" beforeDir="false" afterPath="$PROJECT_DIR$/mainwindow.ui" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -96,7 +71,7 @@
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="23" lean-forward="true" selection-start-column="23" selection-end-column="23" />
+              <caret column="23" selection-start-column="23" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -125,8 +100,8 @@
       <file leaf-file-name="mainwindow.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mainwindow.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="150" column="31" lean-forward="true" selection-start-line="150" selection-start-column="31" selection-end-line="151" selection-end-column="81" />
+            <state relative-caret-position="194">
+              <caret line="284" column="66" selection-start-line="284" selection-start-column="66" selection-end-line="284" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -256,12 +231,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1520947445692</updated>
-      <workItem from="1520947447266" duration="4021000" />
+      <workItem from="1520947447266" duration="4521000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4021000" />
+    <option name="totallyTimeSpent" value="4521000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="739" extended-state="0" />
@@ -389,14 +364,14 @@
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="23" lean-forward="true" selection-start-column="23" selection-end-column="23" />
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mainwindow.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="150" column="31" lean-forward="true" selection-start-line="150" selection-start-column="31" selection-end-line="151" selection-end-column="81" />
+        <state relative-caret-position="194">
+          <caret line="284" column="66" selection-start-line="284" selection-start-column="66" selection-end-line="284" selection-end-column="66" />
         </state>
       </provider>
     </entry>

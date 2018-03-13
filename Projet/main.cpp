@@ -1,6 +1,6 @@
 #include <QApplication>
-#include "mainwindow.h"
-#include "login.h"
+#include "MainWindow.h"
+#include "Login.h"
 #include "c_init_bd.h"
 
 DBConnect * db;

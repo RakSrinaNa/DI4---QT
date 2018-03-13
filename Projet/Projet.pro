@@ -14,45 +14,47 @@ TEMPLATE = app
 CONFIG += c++11
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    login.cpp \
     newpatientdialog.cpp \
     patient.cpp \
-    aproposdialog.cpp \
     newstaffdialog.cpp \
     staff.cpp \
     staffitem.cpp \
     c_init_bd.cpp \
-    dbconnect.cpp \
     ressourcetype.cpp \
     ressourceitem.cpp \
     mysqltablemodel.cpp \
     mydateitemdelegate.cpp \
     schedule.cpp \
-    timeline.cpp
+    timeline.cpp \
+    AboutDialog.cpp \
+    DBConnect.cpp \
+    Login.cpp \
+    MainWindow.cpp
 
-HEADERS  += mainwindow.h \
-    login.h \
+HEADERS  += \
     newpatientdialog.h \
     patient.h \
-    aproposdialog.h \
     newstaffdialog.h \
     staff.h \
     staffitem.h \
     c_init_bd.h \
-    dbconnect.h \
     ressourcetype.h \
     ressourceitem.h \
     mysqltablemodel.h \
     mydateitemdelegate.h \
     schedule.h \
-    timeline.h
+    timeline.h \
+    AboutDialog.h \
+    DBConnect.h \
+    Login.h \
+    MainWindow.h
 
-FORMS    += mainwindow.ui \
-    login.ui \
+FORMS    += \
     newpatientdialog.ui \
-    aproposdialog.ui \
-    newstaffdialog.ui
+    newstaffdialog.ui \
+    AboutDialog.ui \
+    Login.ui \
+    MainWindow.ui
 
 RESOURCES += \
     resources.qrc

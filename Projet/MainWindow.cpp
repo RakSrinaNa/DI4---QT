@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include "newpatientdialog.h"
 #include "newstaffdialog.h"
-#include "aproposdialog.h"
+#include "AboutDialog.h"
 
 extern DBConnect * db;
 
@@ -162,16 +162,17 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 {
 	switch(event->key())
 	{
+		//If deleting element in the sql table
 		case Qt::Key_Backspace:
 		case Qt::Key_Delete:
 		{
-			if(event->key() == Qt::Key_Y && !(QApplication::keyboardModifiers() & Qt::ControlModifier))
+			if(event->key() == Qt::Key_Backspace && !(QApplication::keyboardModifiers() & Qt::ControlModifier)) //If backspace for mac, verify the CMD key was pressed
 			{
 				break;
 			}
 			
 			int current = ui->tableView->selectionModel()->currentIndex().row();
-			if(current != -1)
+			if(current != -1) //If a row is selected
 			{
 				model->removeRow(current);
 				model->submitAll();
@@ -180,11 +181,12 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 				int total = ui->tableView->model()->rowCount();
 				if(current >= total - 1)
 					current = total - 1;
-				ui->tableView->selectRow(current);
+				ui->tableView->selectRow(current); //Select closest row
 			}
 			break;
 		}
 		
+		//TODO delete
 		case Qt::Key_0:
 			QList<Customer *> * list = db->getClientsFromDate(ui->planDateEdit->date());
 			for(int i = 0; i < list->size(); i++)
@@ -234,15 +236,15 @@ void MainWindow::on_savePushButton_clicked()
 	
 	bool ok = true;
 	
-	if(!(ok = !ui->saveLineEdit->text().isEmpty()))
+	if(!(ok = !ui->saveLineEdit->text().isEmpty())) //If the file mane is empty
 		ui->saveLineEdit->setStyleSheet("background-color:red;");
-	if(!(ok = !ui->planTextBrowser->toPlainText().isEmpty()))
+	if(!(ok = !ui->planTextBrowser->toPlainText().isEmpty())) //If no scheduling info is present.
 		ui->planTextBrowser->setStyleSheet("background-color:red;");
 	
-	if(ok)
+	if(ok) //If everything needed is present
 	{
 		QFile file(ui->pathLineEdit->text() + "/" + ui->saveLineEdit->text());
-		if(file.open(QIODevice::WriteOnly))
+		if(file.open(QIODevice::WriteOnly)) //Write into file
 		{
 			QTextStream stream(&file);
 			stream << ui->planTextBrowser->toPlainText();
@@ -265,11 +267,12 @@ void MainWindow::on_actionExit_triggered()
 void MainWindow::on_table_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
 {
 	(void) roles; //Unused warning taken down
-	if(topLeft.column() == bottomRight.column() && topLeft.row() == bottomRight.row())
+	if(topLeft.column() == bottomRight.column() && topLeft.row() == bottomRight.row()) //If we edited only one cell
 	{
 		QVariant q = model->data(topLeft);
 		switch(topLeft.column())
 		{
+			//If columns related to the name, capitalize the first letter
 			case 1:
 			case 2:
 			{
@@ -279,6 +282,7 @@ void MainWindow::on_table_data_changed(const QModelIndex &topLeft, const QModelI
 				model->setData(topLeft, (cap + text));
 				break;
 			}
+			//If date column, verify format and if not in the past
 			case 8:
 			{
 				QDate date = QDate::fromString(q.toString(), "yyyy-MM-dd");
@@ -291,4 +295,9 @@ void MainWindow::on_table_data_changed(const QModelIndex &topLeft, const QModelI
 			}
 		}
 	}
+}
+
+void MainWindow::on_idLineEdit_textEdited(const QString &arg1)
+{
+    idModel->setFilterRegExp(arg1);
 }

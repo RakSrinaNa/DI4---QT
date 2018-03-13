@@ -1,5 +1,5 @@
-#include "login.h"
-//#include "ui_login.h"
+#include "Login.h"
+#include "ui_login.h"
 
 extern DBConnect * db;
 

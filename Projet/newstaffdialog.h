@@ -4,7 +4,7 @@
 #include <QDialog>
 
 #include "staff.h"
-#include "dbconnect.h"
+#include "DBConnect.h"
 #include "ressourcetype.h"
 #include "ressourceitem.h"
 

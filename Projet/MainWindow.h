@@ -12,7 +12,7 @@
 #include <QKeyEvent>
 #include <QDate>
 
-#include "dbconnect.h"
+#include "DBConnect.h"
 #include "mysqltablemodel.h"
 #include "mydateitemdelegate.h"
 
@@ -124,6 +124,8 @@ private slots:
 	 * @param roles The roles.
 	 */
 	void on_table_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles);
+
+    void on_idLineEdit_textEdited(const QString &arg1);
 
 signals:
 	
