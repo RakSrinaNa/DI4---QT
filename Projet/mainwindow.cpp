@@ -64,7 +64,7 @@ void MainWindow::setStatusText(QString status, int time)
     ui->statusBar->showMessage(status, time);
 }
 
-void MainWindow::on_actionPatient_triggered()
+void MainWindow::on_actionCustomer_triggered()
 {
     NewPatientDialog newPatient;
     if(newPatient.exec() == QDialog::Accepted){
@@ -78,7 +78,7 @@ void MainWindow::on_actionPatient_triggered()
     }
 }
 
-void MainWindow::on_actionPersonnel_de_soin_triggered()
+void MainWindow::on_actionStaff_triggered()
 {
     NewStaffDialog newStaff;
     if(newStaff.exec() == QDialog::Accepted){
@@ -89,7 +89,7 @@ void MainWindow::on_actionPersonnel_de_soin_triggered()
     }
 }
 
-void MainWindow::on_actionA_propos_triggered()
+void MainWindow::on_actionAbout_triggered()
 {
     AProposDialog APropos;
     APropos.exec();

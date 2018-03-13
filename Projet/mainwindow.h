@@ -34,11 +34,6 @@ private:
     void textExtension_textEdited(const QString &arg1);
 
 private slots:
-    void on_actionPatient_triggered();
-    void on_actionPersonnel_de_soin_triggered();
-
-    void on_actionA_propos_triggered();
-
     void on_firstNameEdit_textEdited(const QString &arg1);
     void on_lastNameEdit_textEdited(const QString &arg1);
 
@@ -53,6 +48,12 @@ private slots:
     void on_savePushButton_clicked();
 
     void on_actionExit_triggered();
+
+    void on_actionCustomer_triggered();
+
+    void on_actionStaff_triggered();
+
+    void on_actionAbout_triggered();
 
 signals:
     void statusChanged(QString &status);
