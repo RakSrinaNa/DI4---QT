@@ -27,7 +27,9 @@ SOURCES += main.cpp\
     ressourcetype.cpp \
     ressourceitem.cpp \
     mysqltablemodel.cpp \
-    mydateitemdelegate.cpp
+    mydateitemdelegate.cpp \
+    schedule.cpp \
+    timeline.cpp
 
 HEADERS  += mainwindow.h \
     login.h \
@@ -42,7 +44,9 @@ HEADERS  += mainwindow.h \
     ressourcetype.h \
     ressourceitem.h \
     mysqltablemodel.h \
-    mydateitemdelegate.h
+    mydateitemdelegate.h \
+    schedule.h \
+    timeline.h
 
 FORMS    += mainwindow.ui \
     login.ui \
