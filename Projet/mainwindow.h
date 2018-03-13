@@ -13,6 +13,7 @@
 #include <QDate>
 
 #include "dbconnect.h"
+#include "mysqltablemodel.h"
 
 namespace Ui {
 class MainWindow;

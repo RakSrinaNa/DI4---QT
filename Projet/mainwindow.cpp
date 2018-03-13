@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tabWidget->tabBar()->setExpanding(true);
 
     //Initialize tab 1
-    model = new QSqlTableModel(this, db->getDb());
+    model = new MySqlTableModel(this, db->getDb());
     QObject::connect(model, SIGNAL(dataChanged(const QModelIndex, const QModelIndex, const QVector<int>)), this, SLOT(on_table_data_changed(const QModelIndex, const QModelIndex, const QVector<int>)));
     model->setTable("TClient");
     model->setEditStrategy(QSqlTableModel::OnRowChange);

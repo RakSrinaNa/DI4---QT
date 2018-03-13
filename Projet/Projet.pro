@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     c_init_bd.cpp \
     dbconnect.cpp \
     ressourcetype.cpp \
-    ressourceitem.cpp
+    ressourceitem.cpp \
+    mysqltablemodel.cpp
 
 HEADERS  += mainwindow.h \
     login.h \
@@ -38,7 +39,8 @@ HEADERS  += mainwindow.h \
     c_init_bd.h \
     dbconnect.h \
     ressourcetype.h \
-    ressourceitem.h
+    ressourceitem.h \
+    mysqltablemodel.h
 
 FORMS    += mainwindow.ui \
     login.ui \
