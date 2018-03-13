@@ -52,6 +52,8 @@ private slots:
 
     void on_savePushButton_clicked();
 
+    void on_actionExit_triggered();
+
 signals:
     void statusChanged(QString &status);
 
