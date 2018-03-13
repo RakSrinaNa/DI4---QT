@@ -52,7 +52,7 @@ Patient * DBConnect::getPatient(int id)
     query.prepare("SELECT TRessource.Id "
                   "FROM TClient "
                   "INNER JOIN TRdv ON TClient.Id = TRdv.IdClient "
-                  "INNER JOIN TRessource ON TRessource.id = TRdv.TRdv.IdRessource "
+                  "INNER JOIN TRessource ON TRessource.id = TRdv.IdRessource "
                   "WHERE TClient.Id = :id");
     query.bindValue(":id", id);
     if(!query.exec())
@@ -192,7 +192,7 @@ bool DBConnect::addPatient(Patient * patient)
         QSqlQuery query2;
         query2.prepare("INSERT INTO TRdv (Id, IdClient, IdRessource) "
                        "VALUES ((SELECT max(Id) +1 FROM TRdv), (SELECT max(Id) FROM TClient), :idressources)");
-        query2.bindValue(":idressource", "" + resources->at(i)->getId());
+        query2.bindValue(":idressource", QString(resources->at(i)->getId()));
         if(!query2.exec())
             return false;
     }
