@@ -22,7 +22,6 @@ NewStaffDialog::~NewStaffDialog()
 
 Staff * NewStaffDialog::getStaff()
 {
-    int index = ui->typeComboBox->currentIndex();
     ResourceType * type = static_cast<ResourceType *>(ui->typeComboBox->currentData().value<void *>());
 
     if(type->getName() == "Informaticien")

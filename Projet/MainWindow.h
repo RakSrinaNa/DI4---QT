@@ -13,14 +13,17 @@
 #include <QDate>
 
 #include "DBConnect.h"
-#include "mysqltablemodel.h"
-#include "mydateitemdelegate.h"
+#include "MySqlTableModel.h"
+#include "MyDateItemDelegate.h"
 
 namespace Ui
 {
 	class MainWindow;
 }
 
+/**
+ * Main window.
+ */
 class MainWindow : public QMainWindow
 {
 Q_OBJECT

@@ -22,14 +22,14 @@ SOURCES += main.cpp\
     c_init_bd.cpp \
     ressourcetype.cpp \
     ressourceitem.cpp \
-    mysqltablemodel.cpp \
-    mydateitemdelegate.cpp \
     schedule.cpp \
     timeline.cpp \
     AboutDialog.cpp \
     DBConnect.cpp \
     Login.cpp \
-    MainWindow.cpp
+    MainWindow.cpp \
+    MyDateItemDelegate.cpp \
+    MySqlTableModel.cpp
 
 HEADERS  += \
     newpatientdialog.h \
@@ -40,14 +40,14 @@ HEADERS  += \
     c_init_bd.h \
     ressourcetype.h \
     ressourceitem.h \
-    mysqltablemodel.h \
-    mydateitemdelegate.h \
     schedule.h \
     timeline.h \
     AboutDialog.h \
     DBConnect.h \
     Login.h \
-    MainWindow.h
+    MainWindow.h \
+    MyDateItemDelegate.h \
+    MySqlTableModel.h
 
 FORMS    += \
     newpatientdialog.ui \
