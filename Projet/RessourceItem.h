@@ -3,7 +3,7 @@
 
 #include <QListWidgetItem>
 
-#include "ressourcetype.h"
+#include "RessourceType.h"
 
 /**
  * Class to display a resource type in a widget.

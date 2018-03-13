@@ -13,37 +13,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b502bb7-465d-4b74-96fb-e6680e1d0520" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBConnect.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/DBConnect.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBConnect.h" beforeDir="false" afterPath="$PROJECT_DIR$/DBConnect.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MainWindow.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projet.pro" beforeDir="false" afterPath="$PROJECT_DIR$/Projet.pro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test_autogen.dir/AutogenInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test_autogen.dir/AutogenInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Test.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Test.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newpatientdialog.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/NewCustomerDialog.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newpatientdialog.h" beforeDir="false" afterPath="$PROJECT_DIR$/NewCustomerDialog.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newpatientdialog.ui" beforeDir="false" afterPath="$PROJECT_DIR$/NewCustomerDialog.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newstaffdialog.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/NewStaffDialog.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newstaffdialog.h" beforeDir="false" afterPath="$PROJECT_DIR$/NewDtaffDialog.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newstaffdialog.ui" beforeDir="false" afterPath="$PROJECT_DIR$/NewStaffDialog.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Customer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient.h" beforeDir="false" afterPath="$PROJECT_DIR$/Customer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressourceitem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/RessourceItem.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressourceitem.h" beforeDir="false" afterPath="$PROJECT_DIR$/RessourceItem.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressourcetype.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/RessourceType.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressourcetype.h" beforeDir="false" afterPath="$PROJECT_DIR$/RessourceType.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schedule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Schedule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schedule.h" beforeDir="false" afterPath="$PROJECT_DIR$/Schedule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staff.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Staff.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staff.h" beforeDir="false" afterPath="$PROJECT_DIR$/Staff.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staffitem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/StaffItem.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staffitem.h" beforeDir="false" afterPath="$PROJECT_DIR$/StaffItem.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/timeline.h" beforeDir="false" afterPath="$PROJECT_DIR$/timeline.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Schedule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Schedule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Schedule.h" beforeDir="false" afterPath="$PROJECT_DIR$/Schedule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Timeline.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Timeline.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Timeline.h" beforeDir="false" afterPath="$PROJECT_DIR$/Timeline.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,39 +35,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="StaffItem.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/StaffItem.h">
+      <file leaf-file-name="Schedule.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Schedule.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="25" column="2" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="2" />
+            <state relative-caret-position="272">
+              <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="timeline.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/timeline.cpp">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="timeline.h" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/timeline.h">
+      <file leaf-file-name="Timeline.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Timeline.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StaffItem.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/StaffItem.cpp">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="Staff.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Staff.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
+            <state relative-caret-position="64">
+              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -149,6 +103,8 @@
         <option value="$PROJECT_DIR$/Staff.h" />
         <option value="$PROJECT_DIR$/staffitem.h" />
         <option value="$PROJECT_DIR$/timeline.h" />
+        <option value="$PROJECT_DIR$/Schedule.h" />
+        <option value="$PROJECT_DIR$/Timeline.h" />
       </list>
     </option>
   </component>
@@ -159,7 +115,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="y" value="22" />
     <option name="width" value="1280" />
     <option name="height" value="739" />
@@ -224,12 +180,12 @@
       <option name="presentableId" value="Default" />
       <updated>1520947445692</updated>
       <workItem from="1520947447266" duration="5247000" />
-      <workItem from="1520954531018" duration="1968000" />
+      <workItem from="1520954531018" duration="2085000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7215000" />
+    <option name="totallyTimeSpent" value="7332000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="739" extended-state="0" />
@@ -544,13 +500,6 @@
     <entry file="file://$PROJECT_DIR$/Schedule.cpp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/schedule.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/schedule.cpp.autosave">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -578,13 +527,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/timeline.cpp">
+    <entry file="file://$PROJECT_DIR$/Timeline.cpp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/timeline.h">
+    <entry file="file://$PROJECT_DIR$/Schedule.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="272">
+          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Timeline.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
         </state>
       </provider>
     </entry>
