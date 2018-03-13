@@ -55,6 +55,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     ui->tableView->resizeColumnsToContents();
+    for (int c = 0; c < ui->tableView->horizontalHeader()->count(); ++c)
+    {
+        ui->tableView->horizontalHeader()->setSectionResizeMode(c, QHeaderView::Stretch);
+    }
 
     //connect(ui->submitButton, SIGNAL(clicked()), this, SLOT(submit()));
     //connect(ui->revertButton, SIGNAL(clicked()), model, SLOT(revertAll()));
