@@ -181,8 +181,18 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 void MainWindow::on_planPushButton_clicked()
 {
     QDate date = ui->planDateEdit->date();
+    QString s("");
+
+    QList<Patient *> * listPatient = db->getClientsFromDate(date);
+
+    if(listPatient->size() == 0)
+        s += "No client for " + date.toString("dd MMMM yyyy");
+
+    for(int i = 0; i < listPatient->size(); i++)
+        s += listPatient->at(i)->toString() + "<br />";
+
     ui->planTextBrowser->setStyleSheet("background-color:white;");
-    ui->planTextBrowser->setText("<b>Test de text html</b>");
+    ui->planTextBrowser->setText(s);
 
 }
 

@@ -75,7 +75,7 @@ Patient * DBConnect::getPatient(int id)
     }
 
     if(query.next())
-        patient = new Patient(id, query.value("Nom").toString(), query.value("Prénom").toString(), query.value("Adresse").toString(), query.value("Ville").toString(), query.value("CP").toString(), QDate::fromString(query.value("DateRdv").toString(), "yyyy-MM-dd"), QTime::fromString(query.value("DureeRdv").toString()), query.value("Priorite").toString(), resources, query.value("Commentaire").toString(), query.value("Tel").toString());
+        patient = new Patient(id, query.value("Nom").toString(), query.value("Prenom").toString(), query.value("Adresse").toString(), query.value("Ville").toString(), query.value("CP").toString(), QDate::fromString(query.value("DateRdv").toString(), "yyyy-MM-dd"), QTime::fromString(query.value("DureeRdv").toString()), query.value("Priorite").toString(), resources, query.value("Commentaire").toString(), query.value("Tel").toString());
 
     return patient;
 }

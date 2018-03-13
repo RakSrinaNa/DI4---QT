@@ -73,5 +73,5 @@ QString Patient::getPhone()
 
 QString Patient::toString()
 {
-   return QString("");
+   return firstName + " " + lastName;
 }
