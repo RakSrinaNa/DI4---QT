@@ -165,6 +165,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 
 void MainWindow::on_planPushButton_clicked()
 {
+    QDate date = ui->planDateEdit->date();
     ui->planTextBrowser->setStyleSheet("background-color:white;");
     ui->planTextBrowser->setText("<b>Test de text html</b>");
 
