@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     model = new QSqlTableModel(this, db->getDb());
     QObject::connect(model, SIGNAL(dataChanged(const QModelIndex, const QModelIndex, const QVector<int>)), this, SLOT(on_table_data_changed(const QModelIndex, const QModelIndex, const QVector<int>)));
     model->setTable("TClient");
-    model->setEditStrategy(QSqlTableModel::OnFieldChange);
+    model->setEditStrategy(QSqlTableModel::OnRowChange);
     model->select();
     model->setHeaderData(0, Qt::Horizontal, tr("Id"));
     model->setHeaderData(1, Qt::Horizontal, tr("First Name"));
@@ -244,5 +244,30 @@ void MainWindow::on_actionExit_triggered()
 
 void MainWindow::on_table_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
 {
-    std::cout << "TEST" << std::endl;
+    if(topLeft.column() == bottomRight.column() && topLeft.row() == bottomRight.row())
+    {
+        QVariant q = model->data(topLeft);
+        switch(topLeft.column())
+        {
+            case 1:
+            case 2:
+            {
+            QString s = q.toString();
+            QString cap = s.left(1).toUpper();
+            QString text = s.length() > 1 ? s.right(s.length() -1).toLower() : "";
+            model->setData(topLeft, (cap + text));
+            break;
+            }
+        case 8:
+        {
+            QDate date = QDate::fromString(q.toString(), "yyyy-MM-dd");
+            if(date < QDate::currentDate())
+            {
+                model->revertRow(topLeft.row());
+                setStatusText("Wrong date format or date in the past");
+            }
+            break;
+        }
+        }
+    }
 }
