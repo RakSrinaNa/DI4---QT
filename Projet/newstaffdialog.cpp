@@ -8,7 +8,7 @@ NewStaffDialog::NewStaffDialog(QWidget *parent) :
     ui(new Ui::NewStaffDialog)
 {
     ui->setupUi(this);
-    QList<RessourceType *> * ressources = db->getTypes();
+    QList<ResourceType *> * ressources = db->getTypes();
     for(ResourceType * r : *ressources)
     {
         ui->typeComboBox->addItem(r->getName(), QVariant::fromValue(static_cast<void *>(r)));

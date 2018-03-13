@@ -45,7 +45,7 @@ Customer * DBConnect::getCustomer(int id)
 {
 	QSqlQuery query;
 	Customer * patient = nullptr;
-	QList < RessourceType * > *resources = new QList<ResourceType *>();
+    QList < ResourceType * > *resources = new QList<ResourceType *>();
 	
 	//Get the resources of the patient
 	query.prepare("SELECT TRessource.Id "
@@ -118,7 +118,7 @@ Staff * DBConnect::getStaff(int id, bool logPass)
 
 QList<ResourceType *> * DBConnect::getTypes()
 {
-	QList < RessourceType * > *list = new QList<ResourceType *>();
+    QList < ResourceType * > *list = new QList<ResourceType *>();
 	QSqlQuery query;
 	if(!query.exec("SELECT Id, Label FROM TType ORDER BY Label;"))
 	{
@@ -188,7 +188,7 @@ bool DBConnect::addCustomer(Customer * customer)
 	if(!query.exec())
 		return false;
 	
-	QList < RessourceType * > *resources = customer->getResources();
+    QList < ResourceType * > *resources = customer->getResources();
 	for(int i = 0; i < resources->size(); i++)
 	{
 		QSqlQuery query2;
@@ -219,7 +219,7 @@ bool DBConnect::addStaff(Staff * staff)
 
 QList<Customer *> * DBConnect::getClientsFromDate(QDate date)
 {
-	QList < Patient * > *listClient = new QList<Customer *>();
+    QList < Customer * > *listClient = new QList<Customer *>();
 	
 	QSqlQuery query;
 	query.prepare("SELECT * FROM TClient WHERE DateRdv = :date ORDER BY Priorite *100 + (SELECT count(*) FROM TRdv WHERE IdClient = TClient.id) *10 + DureeRdv;");

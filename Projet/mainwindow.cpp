@@ -173,7 +173,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
     }
 
     case Qt::Key_0:
-        QList<Patient *> * list = db->getClientsFromDate(ui->planDateEdit->date());
+        QList<Customer *> * list = db->getClientsFromDate(ui->planDateEdit->date());
         for(int i = 0; i < list->size(); i++){
             std::cout << list->at(i)->toString().toStdString() << std::endl;
         }
@@ -187,7 +187,7 @@ void MainWindow::on_planPushButton_clicked()
     QDate date = ui->planDateEdit->date();
     QString s("");
 
-    QList<Patient *> * listPatient = db->getClientsFromDate(date);
+    QList<Customer *> * listPatient = db->getClientsFromDate(date);
 
     if(listPatient->size() == 0)
         s += "No client for " + date.toString("dd MMMM yyyy");

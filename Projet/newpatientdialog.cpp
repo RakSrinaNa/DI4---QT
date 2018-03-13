@@ -14,7 +14,7 @@ NewPatientDialog::NewPatientDialog(QWidget *parent) :
     ui->postalCodeLineEdit->setValidator(new QIntValidator(1, 99999, this));
     ui->phoneLineEdit->setValidator(new QIntValidator(0, 999999999, this));
 
-    QList<RessourceType *> * ressources = db->getTypes();
+    QList<ResourceType *> * ressources = db->getTypes();
     for(ResourceType * r : *ressources)
         ui->resourcesListWidget->addItem(new RessourceItem(r, ui->resourcesListWidget));
 
@@ -32,7 +32,7 @@ Customer * NewPatientDialog::getPatient()
 
 QList<ResourceType *> * NewPatientDialog::getResources()
 {
-    QList<RessourceType *> * list = new QList<ResourceType *>;
+    QList<ResourceType *> * list = new QList<ResourceType *>;
     for(QListWidgetItem * item : ui->resourcesListWidget->selectedItems())
         *(list) << dynamic_cast<RessourceItem *>(item)->getRessource();
     return list;
