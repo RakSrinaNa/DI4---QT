@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>381</height>
+    <height>430</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>New customer</string>
   </property>
   <widget class="QWidget" name="formLayoutWidget">
    <property name="geometry">
@@ -19,7 +19,7 @@
      <x>9</x>
      <y>9</y>
      <width>381</width>
-     <height>364</height>
+     <height>407</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
