@@ -3,9 +3,9 @@
 
 #include <QList>
 
-#include "Staff.h"
-#include "Customer.h"
-#include "timeline.h"
+#include "staff/Staff.h"
+#include "customer/Customer.h"
+#include "Timeline.h"
 
 class Schedule
 {

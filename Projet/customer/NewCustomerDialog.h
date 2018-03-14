@@ -5,11 +5,11 @@
 #include <QList>
 
 #include "Customer.h"
-#include "Staff.h"
+#include "staff/Staff.h"
 #include "StaffItem.h"
-#include "DBConnect.h"
-#include "RessourceType.h"
-#include "RessourceItem.h"
+#include "database/DBConnect.h"
+#include "staff/RessourceType.h"
+#include "staff/ressourceitem.h"
 
 using namespace std;
 

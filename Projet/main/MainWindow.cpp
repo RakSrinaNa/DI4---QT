@@ -1,8 +1,8 @@
 #include "MainWindow.h"
 #include "ui_mainwindow.h"
-#include "NewCustomerDialog.h"
-#include "NewDtaffDialog.h"
-#include "AboutDialog.h"
+#include "customer/NewCustomerDialog.h"
+#include "staff/NewDtaffDialog.h"
+#include "about/AboutDialog.h"
 
 extern DBConnect * db;
 

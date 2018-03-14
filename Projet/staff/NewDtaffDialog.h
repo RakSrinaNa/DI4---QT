@@ -4,9 +4,9 @@
 #include <QDialog>
 
 #include "Staff.h"
-#include "DBConnect.h"
+#include "database/DBConnect.h"
 #include "RessourceType.h"
-#include "RessourceItem.h"
+#include "ressourceitem.h"
 
 namespace Ui
 {

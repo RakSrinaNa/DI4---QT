@@ -13,48 +13,29 @@ TARGET = Introduction
 TEMPLATE = app
 CONFIG += c++11
 
-SOURCES += main.cpp\
-    c_init_bd.cpp \
-    AboutDialog.cpp \
-    DBConnect.cpp \
-    Login.cpp \
-    MainWindow.cpp \
-    MyDateItemDelegate.cpp \
-    MySqlTableModel.cpp \
-    NewCustomerDialog.cpp \
-    NewStaffDialog.cpp \
-    Customer.cpp \
-    RessourceItem.cpp \
-    RessourceType.cpp \
-    Schedule.cpp \
-    Staff.cpp \
-    StaffItem.cpp \
-    Timeline.cpp
+SOURCES += about/*.cpp \
+	customer/*.cpp \
+	database/*.cpp \
+	login/*.cpp \
+	main/*.cpp \
+	scheduler/*.cpp \
+	staff/*.cpp \
+	main.cpp
 
-HEADERS  += \
-    c_init_bd.h \
-    AboutDialog.h \
-    DBConnect.h \
-    Login.h \
-    MainWindow.h \
-    MyDateItemDelegate.h \
-    MySqlTableModel.h \
-    NewCustomerDialog.h \
-    NewDtaffDialog.h \
-    Customer.h \
-    RessourceItem.h \
-    RessourceType.h \
-    Schedule.h \
-    Staff.h \
-    StaffItem.h \
-    Timeline.h
+HEADERS  += about/*.h \
+	customer/*.h \
+	database/*.h \
+	login/*.h \
+	main/*.cpp \
+	scheduler/*.h \
+	staff/*.h
 
-FORMS    += \
-    AboutDialog.ui \
-    Login.ui \
-    MainWindow.ui \
-    NewCustomerDialog.ui \
-    NewStaffDialog.ui
+FORMS    += about/*.ui \
+	customer/*.ui \
+	database/*.ui \
+	login/*.ui \
+	main/*.ui \
+	scheduler/*.ui \
+	staff/*.ui
 
-RESOURCES += \
-    resources.qrc
+RESOURCES += resources.qrc

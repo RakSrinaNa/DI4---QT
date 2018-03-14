@@ -1,4 +1,4 @@
-#include "RessourceItem.h"
+#include "ressourceitem.h"
 
 ResourceItem::ResourceItem(ResourceType * ressource, QListWidget * parent) : QListWidgetItem(parent), ressource(ressource)
 {

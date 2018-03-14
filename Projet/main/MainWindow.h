@@ -12,7 +12,7 @@
 #include <QKeyEvent>
 #include <QDate>
 
-#include "DBConnect.h"
+#include "database/DBConnect.h"
 #include "MySqlTableModel.h"
 #include "MyDateItemDelegate.h"
 

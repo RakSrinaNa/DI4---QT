@@ -6,8 +6,8 @@
 #include <QTime>
 #include <QList>
 
-#include "Staff.h"
-#include "RessourceType.h"
+#include "staff/Staff.h"
+#include "staff/RessourceType.h"
 
 using namespace std;
 

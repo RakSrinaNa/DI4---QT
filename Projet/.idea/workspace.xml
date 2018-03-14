@@ -13,10 +13,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b502bb7-465d-4b74-96fb-e6680e1d0520" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Schedule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Schedule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Schedule.h" beforeDir="false" afterPath="$PROJECT_DIR$/Schedule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Timeline.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Timeline.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Timeline.h" beforeDir="false" afterPath="$PROJECT_DIR$/Timeline.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login/login.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff/ressourceitem.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AboutDialog.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/about/AboutDialog.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AboutDialog.h" beforeDir="false" afterPath="$PROJECT_DIR$/about/AboutDialog.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AboutDialog.ui" beforeDir="false" afterPath="$PROJECT_DIR$/about/AboutDialog.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Customer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/customer/Customer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Customer.h" beforeDir="false" afterPath="$PROJECT_DIR$/customer/Customer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBConnect.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBConnect.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Login.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Login.h" beforeDir="false" afterPath="$PROJECT_DIR$/login/Login.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Login.ui" beforeDir="false" afterPath="$PROJECT_DIR$/login/Login.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainWindow.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main/MainWindow.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainWindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/main/MainWindow.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainWindow.ui" beforeDir="false" afterPath="$PROJECT_DIR$/main/MainWindow.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyDateItemDelegate.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main/MyDateItemDelegate.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyDateItemDelegate.h" beforeDir="false" afterPath="$PROJECT_DIR$/main/MyDateItemDelegate.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySqlTableModel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main/MySqlTableModel.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySqlTableModel.h" beforeDir="false" afterPath="$PROJECT_DIR$/main/MySqlTableModel.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewCustomerDialog.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/customer/NewCustomerDialog.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewCustomerDialog.h" beforeDir="false" afterPath="$PROJECT_DIR$/customer/NewCustomerDialog.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewCustomerDialog.ui" beforeDir="false" afterPath="$PROJECT_DIR$/customer/NewCustomerDialog.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewDtaffDialog.h" beforeDir="false" afterPath="$PROJECT_DIR$/staff/NewDtaffDialog.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewStaffDialog.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/staff/NewStaffDialog.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewStaffDialog.ui" beforeDir="false" afterPath="$PROJECT_DIR$/staff/NewStaffDialog.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projet.pro" beforeDir="false" afterPath="$PROJECT_DIR$/Projet.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RessourceItem.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RessourceItem.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RessourceType.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/staff/RessourceType.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RessourceType.h" beforeDir="false" afterPath="$PROJECT_DIR$/staff/RessourceType.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Schedule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/Schedule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Schedule.h" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/Schedule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Staff.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/staff/Staff.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Staff.h" beforeDir="false" afterPath="$PROJECT_DIR$/staff/Staff.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StaffItem.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/StaffItem.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Timeline.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/Timeline.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Timeline.h" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/Timeline.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/c_init_bd.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/c_init_bd.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,20 +73,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Schedule.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Schedule.h">
+      <file leaf-file-name="Projet.pro" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Projet.pro">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+            <state relative-caret-position="505">
+              <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Timeline.h" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Timeline.h">
+      <file leaf-file-name="ressourceitem.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/staff/ressourceitem.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+            <state relative-caret-position="160">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RessourceItem.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/staff/RessourceItem.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -105,6 +152,7 @@
         <option value="$PROJECT_DIR$/timeline.h" />
         <option value="$PROJECT_DIR$/Schedule.h" />
         <option value="$PROJECT_DIR$/Timeline.h" />
+        <option value="$PROJECT_DIR$/Projet.pro" />
       </list>
     </option>
   </component>
@@ -147,6 +195,15 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/scheduler" />
+      <recent name="$PROJECT_DIR$/staff" />
+      <recent name="$PROJECT_DIR$/customer" />
+      <recent name="$PROJECT_DIR$/main" />
+      <recent name="$PROJECT_DIR$/login" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -180,12 +237,12 @@
       <option name="presentableId" value="Default" />
       <updated>1520947445692</updated>
       <workItem from="1520947447266" duration="5247000" />
-      <workItem from="1520954531018" duration="2085000" />
+      <workItem from="1520954531018" duration="3076000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7332000" />
+    <option name="totallyTimeSpent" value="8323000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="739" extended-state="0" />
@@ -222,7 +279,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/DBConnect.h">
+    <entry file="file://$PROJECT_DIR$/database/DBConnect.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1488">
           <caret line="93" column="20" selection-start-line="93" selection-start-column="20" selection-end-line="93" selection-end-column="20" />
@@ -232,7 +289,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Login.h">
+    <entry file="file://$PROJECT_DIR$/login/Login.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
@@ -249,7 +306,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MainWindow.h">
+    <entry file="file://$PROJECT_DIR$/main/MainWindow.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
           <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
@@ -259,14 +316,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MainWindow.cpp">
+    <entry file="file://$PROJECT_DIR$/main/MainWindow.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4544">
           <caret line="284" column="66" selection-start-line="284" selection-start-column="66" selection-end-line="284" selection-end-column="66" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MyDateItemDelegate.cpp">
+    <entry file="file://$PROJECT_DIR$/main/MyDateItemDelegate.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
           <caret line="24" column="58" selection-start-line="24" selection-start-column="58" selection-end-line="24" selection-end-column="58" />
@@ -276,14 +333,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MyDateItemDelegate.h">
+    <entry file="file://$PROJECT_DIR$/main/MyDateItemDelegate.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="7" column="69" selection-start-line="7" selection-start-column="69" selection-end-line="7" selection-end-column="69" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBConnect.cpp">
+    <entry file="file://$PROJECT_DIR$/database/DBConnect.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
           <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
@@ -293,7 +350,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MySqlTableModel.h">
+    <entry file="file://$PROJECT_DIR$/main/MySqlTableModel.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
@@ -302,21 +359,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/aproposdialog.h" />
     <entry file="file://$PROJECT_DIR$/aproposdialog.cpp" />
-    <entry file="file://$PROJECT_DIR$/c_init_bd.cpp">
+    <entry file="file://$PROJECT_DIR$/database/c_init_bd.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2656">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/c_init_bd.h">
+    <entry file="file://$PROJECT_DIR$/database/c_init_bd.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login.cpp">
+    <entry file="file://$PROJECT_DIR$/login/login.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
@@ -337,7 +394,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBConnect.cpp">
+    <entry file="file://$PROJECT_DIR$/database/DBConnect.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
           <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
@@ -347,7 +404,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBConnect.h">
+    <entry file="file://$PROJECT_DIR$/database/DBConnect.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1488">
           <caret line="93" column="20" selection-start-line="93" selection-start-column="20" selection-end-line="93" selection-end-column="20" />
@@ -357,7 +414,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Login.h">
+    <entry file="file://$PROJECT_DIR$/login/Login.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
@@ -367,21 +424,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MyDateItemDelegate.h">
+    <entry file="file://$PROJECT_DIR$/main/MyDateItemDelegate.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="7" column="69" selection-start-line="7" selection-start-column="69" selection-end-line="7" selection-end-column="69" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MainWindow.cpp">
+    <entry file="file://$PROJECT_DIR$/main/MainWindow.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="284" column="66" selection-start-line="284" selection-start-column="66" selection-end-line="284" selection-end-column="66" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MainWindow.h">
+    <entry file="file://$PROJECT_DIR$/main/MainWindow.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="52" selection-end-column="7" />
@@ -391,7 +448,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MyDateItemDelegate.cpp">
+    <entry file="file://$PROJECT_DIR$/main/MyDateItemDelegate.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="24" column="58" selection-start-line="24" selection-start-column="58" selection-end-line="24" selection-end-column="58" />
@@ -418,7 +475,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MySqlTableModel.h">
+    <entry file="file://$PROJECT_DIR$/main/MySqlTableModel.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
@@ -432,14 +489,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NewCustomerDialog.h">
+    <entry file="file://$PROJECT_DIR$/customer/NewCustomerDialog.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="71" column="4" lean-forward="true" selection-start-line="71" selection-start-column="4" selection-end-line="73" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NewCustomerDialog.cpp">
+    <entry file="file://$PROJECT_DIR$/customer/NewCustomerDialog.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="343">
           <caret line="145" column="51" lean-forward="true" selection-start-line="145" selection-start-column="13" selection-end-line="145" selection-end-column="51" />
@@ -449,7 +506,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NewStaffDialog.cpp">
+    <entry file="file://$PROJECT_DIR$/staff/NewStaffDialog.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="370">
           <caret line="112" column="51" selection-start-line="112" selection-start-column="51" selection-end-line="112" selection-end-column="51" />
@@ -473,52 +530,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RessourceType.cpp">
+    <entry file="file://$PROJECT_DIR$/staff/RessourceType.cpp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/RessourceItem.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RessourceType.h">
+    <entry file="file://$PROJECT_DIR$/staff/RessourceType.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RessourceItem.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Schedule.cpp">
+    <entry file="file://$PROJECT_DIR$/scheduler/Schedule.cpp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/schedule.cpp.autosave">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Staff.cpp">
+    <entry file="file://$PROJECT_DIR$/staff/Staff.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="33" column="1" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StaffItem.cpp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Staff.h">
+    <entry file="file://$PROJECT_DIR$/staff/Staff.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scheduler/Timeline.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scheduler/Timeline.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+          <folding>
+            <element signature="e#39#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scheduler/Schedule.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StaffItem.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/StaffItem.h">
       <provider selected="true" editor-type-id="text-editor">
@@ -527,20 +590,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Timeline.cpp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Schedule.h">
+    <entry file="file://$PROJECT_DIR$/staff/RessourceItem.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+        <state relative-caret-position="176">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Timeline.h">
+    <entry file="file://$PROJECT_DIR$/staff/ressourceitem.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        <state relative-caret-position="160">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projet.pro">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
         </state>
       </provider>
     </entry>

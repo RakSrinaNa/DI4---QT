@@ -1,8 +1,8 @@
 #ifndef TIMELINE_H
 #define TIMELINE_H
 
-#include "staff.h"
-#include "Customer.h"
+#include "staff/Staff.h"
+#include "customer/Customer.h"
 
 class TimeLine
 {
