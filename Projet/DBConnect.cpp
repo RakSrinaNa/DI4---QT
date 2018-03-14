@@ -53,7 +53,7 @@ Customer * DBConnect::getCustomer(int id)
 	              "INNER JOIN TRdv ON TClient.Id = TRdv.IdClient "
                   "INNER JOIN TRessource ON TRessource.Id = TRdv.IdRessource "
                   "INNER JOIN TType ON TType.Id = TRessource.IdType "
-                  "WHERE TClient.Id = (:id)");
+                  "WHERE TClient.Id = (:id);");
 
     //BIG PROBLEM connait pas TType.Id
 
@@ -67,7 +67,9 @@ Customer * DBConnect::getCustomer(int id)
 	
 	while(query.next())
     {
-        (*resources) << (getType(query.value("TType.Id").toInt()));
+        int fieldNo = query.record().indexOf("TType.Id");
+        std::cout << "Probleme ici : DBConnect getCustomer()" << std::endl;
+        (*resources) << (getType(query.value(fieldNo).toInt()));
 	}
 	
 	//Get the rest of the customer
