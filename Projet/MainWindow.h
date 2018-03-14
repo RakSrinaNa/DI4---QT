@@ -15,6 +15,7 @@
 #include "DBConnect.h"
 #include "MySqlTableModel.h"
 #include "MyDateItemDelegate.h"
+#include "Schedule.h"
 
 namespace Ui
 {

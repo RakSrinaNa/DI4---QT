@@ -208,8 +208,11 @@ void MainWindow::on_planPushButton_clicked()
 	if(listPatient->size() == 0)
 		s += "No client for " + date.toString("dd MMMM yyyy");
 	
+    //TODO Get all staff
+    Schedule schedule = Schedule();
+
 	for(int i = 0; i < listPatient->size(); i++)
-		s += listPatient->at(i)->toString() + "<br />";
+        schedule.addCustomer(listPatient->at(i));
 	
 	ui->planTextBrowser->setStyleSheet("background-color:white;");
 	ui->planTextBrowser->setText(s);

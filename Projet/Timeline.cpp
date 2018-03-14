@@ -19,7 +19,7 @@ int TimeLine::getNextHour()
 
 int TimeLine::getTypeId()
 {
-    return getStaff()->getRessourceType().getId();
+    return getStaff()->getResourceType().getId();
 }
 
 Staff * TimeLine::getStaff()
