@@ -47,30 +47,35 @@ Customer * DBConnect::getCustomer(int id)
 	Customer * customer = nullptr;
 	auto * resources = new QList<ResourceType *>();
 	
-	//Get the resources of the customer
-	query.prepare("SELECT TRessource.Id "
+    //Get the resources of the customer
+    query.prepare("SELECT * "
 	              "FROM TClient "
 	              "INNER JOIN TRdv ON TClient.Id = TRdv.IdClient "
-	              "INNER JOIN TRessource ON TRessource.id = TRdv.IdRessource "
-	              "WHERE TClient.Id = :id");
+                  "INNER JOIN TRessource ON TRessource.Id = TRdv.IdRessource "
+                  "INNER JOIN TType ON TType.Id = TRessource.IdType "
+                  "WHERE TClient.Id = (:id)");
+
+    //BIG PROBLEM connait pas TType.Id
+
 	query.bindValue(":id", id);
+
 	if(!query.exec())
-	{
-		printf("Error getting customer's ressources %d! %s\n", id, query.lastError().text().toStdString().c_str());
+    {
+        std::cout << "Error getting customer's ressources " << id << ", "  << query.lastError().text().toStdString() << std::endl;
 		return nullptr;
 	}
 	
 	while(query.next())
-	{
-		(*resources) << (getType(query.value("TRessource.Id").toInt()));
+    {
+        (*resources) << (getType(query.value("TType.Id").toInt()));
 	}
 	
 	//Get the rest of the customer
 	query.prepare("SELECT * FROM TClient WHERE `Id` = :id");
 	query.bindValue(":id", id);
 	if(!query.exec())
-	{
-		printf("Error getting customer %d! %s\n", id, query.lastError().text().toStdString().c_str());
+    {
+        std::cout << "Error getting customer " << id << ", "  << query.lastError().text().toStdString() << std::endl;
 		return nullptr;
 	}
 	
@@ -82,28 +87,23 @@ Customer * DBConnect::getCustomer(int id)
 
 Staff * DBConnect::getStaff(int id, bool logPass)
 {
-	QSqlQuery query;
-	Staff * staff = nullptr;
+    QSqlQuery query;
+    Staff * staff = nullptr;
 	
-	//Get the staff member
-	if(logPass)
-		query.prepare("SELECT TRessource.Id, TRessource.Nom, TRessource.Prenom, TType.Id, TType.Label, TCompte.Login, TCompte.Mdp "
-		              "FROM TRessource "
-		              "INNER JOIN TType ON TRessource.IdType = TType.Id "
-		              "INNER JOIN TCompte ON TCompte.IdRessource = TRessource.Id "
-		              "WHERE `Id` = :id");
-	else
-		query.prepare("SELECT TRessource.Id, TRessource.Nom, TRessource.Prenom, TType.id, TType.Label "
-		              "FROM TRessource "
-		              "INNER JOIN TType ON TRessource.IdType = TType.Id "
-		              "WHERE `Id` = :id");
-	
-	query.bindValue(":id", id);
+    //Get the staff member
+    query.prepare("SELECT TRessource.Id, TRessource.Nom, TRessource.Prenom, TType.Id, TType.Label, TCompte.Login, TCompte.Mdp "
+                  "FROM TRessource "
+                  "INNER JOIN TType ON TRessource.IdType = TType.Id "
+                  "INNER JOIN TCompte ON TCompte.IdRessource = TRessource.Id "
+                  "WHERE TRessource.Id = :id;");
+
+    query.bindValue(":id", id);
+
 	if(!query.exec())
 	{
-		printf("Error getting staff %d, %s! %s\n", id, logPass ? "true" : "false", query.lastError().text().toStdString().c_str());
+        std::cout << "Error getting staff " << id << ", " << (logPass ? "true" : "false") << "! " << query.lastError().text().toStdString() << std::endl;
 		return nullptr;
-	}
+    }
 	
 	if(query.next())
 	{
@@ -136,25 +136,28 @@ QList<ResourceType *> * DBConnect::getTypes()
 ResourceType * DBConnect::getType(int id)
 {
 	QSqlQuery query;
-	query.prepare("SELECT Id, Label FROM TType WHERE Id = :id;");
+    query.prepare("SELECT Id, Label FROM TType WHERE Id = (:id);");
 	query.bindValue(":id", id);
 	if(!query.exec())
 	{
-		printf("Error getting types! %s\n", query.lastError().text().toStdString().c_str());
+        std::cout << "Error getting types! " << query.lastError().text().toStdString() << std::endl;
 		return nullptr;
 	}
 	
 	if(query.next())
 	{
-		return new ResourceType(query.value("Id").toInt(), query.value("Label").toString());
+        ResourceType * r = new ResourceType(query.value("Id").toInt(), query.value("Label").toString());
+        std::cout << r->getId() << std::endl;
+        return r;
 	}
+
 	return nullptr;
 }
 
 bool DBConnect::logUser(QString &user, QString &pass)
 {
 	QSqlQuery query;
-	query.prepare("SELECT * FROM TCompte WHERE Login = :login AND MdP = :mdp");
+    query.prepare("SELECT * FROM TCompte WHERE Login = (:login) AND MdP = (:mdp)");
 	query.bindValue(":login", user);
 	query.bindValue(":mdp", pass);
 	if(!query.exec())
@@ -219,7 +222,7 @@ bool DBConnect::addStaff(Staff * staff)
 
 QList<Customer *> * DBConnect::getClientsFromDate(QDate date)
 {
-	auto * listClient = new QList<Customer *>();
+    auto * listCustomers = new QList<Customer *>();
 	
 	QSqlQuery query;
 	query.prepare("SELECT * FROM TClient WHERE DateRdv = :date ORDER BY Priorite *100 + (SELECT count(*) FROM TRdv WHERE IdClient = TClient.id) *10 + DureeRdv;");
@@ -229,7 +232,23 @@ QList<Customer *> * DBConnect::getClientsFromDate(QDate date)
 		std::cout << "Error" << std::endl;
 	else
 		while(query.next())
-			listClient->append(getCustomer(query.value("Id").toInt()));
+            listCustomers->append(getCustomer(query.value("Id").toInt()));
 	
-	return listClient;
+    return listCustomers;
+}
+
+QList<Staff *> * DBConnect::getAllStaff()
+{
+    auto * listStaff = new QList<Staff *>();
+
+    QSqlQuery query;
+    query.prepare("SELECT Id FROM TRessource");
+    if(query.exec()){
+        while(query.next()){
+            *listStaff << getStaff(query.value("Id").toInt(), false);
+        }
+    }
+
+    return listStaff;
+
 }

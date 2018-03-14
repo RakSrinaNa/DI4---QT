@@ -23,8 +23,8 @@ public:
 	 */
 	QString getName();
 
-private:
-	int id;
+public:
+    int id = 0;
 	QString name;
 };
 

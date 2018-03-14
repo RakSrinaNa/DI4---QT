@@ -90,6 +90,12 @@ public:
 	 */
 	QList<Customer *> * getClientsFromDate(QDate date);
 
+    /**
+     * Get all the staff members
+     * @return All the staff members
+     */
+    QList<Staff *> * getAllStaff();
+
 private:
 	QSqlDatabase db;
 };

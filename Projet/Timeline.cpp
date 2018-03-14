@@ -5,6 +5,11 @@ TimeLine::TimeLine(Staff *staff) : staff(staff)
     hours = QList<QPair<Customer *, int>>();
 }
 
+TimeLine::~TimeLine()
+{
+
+}
+
 int TimeLine::getNextHour()
 {
     int time = 0;

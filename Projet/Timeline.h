@@ -7,11 +7,12 @@
 class TimeLine
 {
 private :
-	Staff * staff;
+    Staff * staff;
     QList<QPair<Customer *, int>> hours;
 
 public:
-	TimeLine(Staff * staff);
+    TimeLine(Staff * staff);
+    ~TimeLine();
 
 	int getNextHour();
 	int getTypeId();

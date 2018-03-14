@@ -203,19 +203,40 @@ void MainWindow::on_planPushButton_clicked()
 	QDate date = ui->planDateEdit->date();
 	QString s("");
 	
-	QList<Customer *> * listPatient = db->getClientsFromDate(date);
+    //Get all customers
+    QList<Customer *> * listCustomers = db->getClientsFromDate(date);
 	
-	if(listPatient->size() == 0)
+    if(listCustomers->size() == 0)
 		s += "No client for " + date.toString("dd MMMM yyyy");
 	
-    //TODO Get all staff
-    Schedule schedule = Schedule();
+    //TODO Get all staff members
+    QList<Staff *> * listStaff = db->getAllStaff();
 
-	for(int i = 0; i < listPatient->size(); i++)
-        schedule.addCustomer(listPatient->at(i));
-	
+    std::cout << "Step 1" << std::endl;
+
+    Schedule schedule = Schedule(listStaff);
+
+    //Schedule all the customers
+    for(int i = 0; i < listCustomers->size(); i++)
+        schedule.addCustomer(listCustomers->at(i));
+
+    s = schedule.toHtmlString();
+
 	ui->planTextBrowser->setStyleSheet("background-color:white;");
 	ui->planTextBrowser->setText(s);
+
+    std::cout << "Step 2" << std::endl;
+
+    //Free all customers
+    for(int i = 0; i < listCustomers->size(); i++)
+        delete listCustomers->at(i);
+    delete listCustomers;
+
+    //Free all staff members
+    for(int i = 0; i < listStaff->size(); i++)
+        delete listStaff->at(i);
+    delete listStaff;
+
 }
 
 void MainWindow::on_pathPushButton_clicked()
