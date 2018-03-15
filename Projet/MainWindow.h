@@ -16,7 +16,7 @@
 #include "MySqlTableModel.h"
 #include "MyDateItemDelegate.h"
 #include "Schedule.h"
-#include "Treemodel.h"
+#include "TreeModel.h"
 
 namespace Ui
 {
@@ -44,8 +44,8 @@ public:
 
 private:
 	Ui::MainWindow * ui;
-    QSqlTableModel * model;
-    TreeModel * model2;
+	QSqlTableModel * model;
+	TreeModel * model2;
 	QSortFilterProxyModel * idModel;
 	QSortFilterProxyModel * firstNameModel;
 	QSortFilterProxyModel * lastNameModel;
@@ -130,8 +130,8 @@ private slots:
 	 * @param roles The roles.
 	 */
 	void on_table_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles);
-
-    void on_idLineEdit_textEdited(const QString &arg1);
+	
+	void on_idLineEdit_textEdited(const QString &arg1);
 
 signals:
 	

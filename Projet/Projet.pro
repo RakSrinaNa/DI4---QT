@@ -29,8 +29,8 @@ SOURCES += main.cpp\
     StaffItem.cpp \
     Timeline.cpp \
     TreeItem.cpp \
-    Treemodel.cpp \
-    ResourceType.cpp
+    ResourceType.cpp \
+    TreeModel.cpp
 
 HEADERS  += \
     c_init_bd.h \
@@ -48,8 +48,8 @@ HEADERS  += \
     StaffItem.h \
     Timeline.h \
     TreeItem.h \
-    Treemodel.h \
-    ResourceType.h
+    ResourceType.h \
+    TreeModel.h
 
 FORMS    += \
     AboutDialog.ui \

@@ -56,11 +56,11 @@ public:
 	 */
 	bool logUser(QString &user, QString &pass);
 	
-    /**
-     * Get all the available resource type.
-     * @return
-     */
-    QList<ResourceType *> * getTypes();
+	/**
+	 * Get all the available resource type.
+	 * @return
+	 */
+	QList<ResourceType *> * getTypes();
 	
 	/**
 	 * Get a ressource type by its ID.
@@ -89,18 +89,18 @@ public:
 	 * @return The customers on this date.
 	 */
 	QList<Customer *> * getClientsFromDate(QDate date);
-
-    /**
-     * Get all the staff members
-     * @return All the staff members
-     */
-    QList<Staff *> * getAllStaff();
-
-    /**
-     * Get all the staff members
-     * @return All the staff members
-     */
-    QList<Staff *> * getStaffByType(int id);
+	
+	/**
+	 * Get all the staff members
+	 * @return All the staff members
+	 */
+	QList<Staff *> * getAllStaff();
+	
+	/**
+	 * Get all the staff members
+	 * @return All the staff members
+	 */
+	QList<Staff *> * getStaffByType(int id);
 
 private:
 	QSqlDatabase db;

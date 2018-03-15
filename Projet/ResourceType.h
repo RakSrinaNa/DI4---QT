@@ -24,7 +24,7 @@ public:
 	QString getName();
 
 public:
-    int id = 0;
+	int id = 0;
 	QString name;
 };
 
