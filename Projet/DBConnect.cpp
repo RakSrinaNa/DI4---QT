@@ -54,8 +54,6 @@ Customer * DBConnect::getCustomer(int id)
                   "INNER JOIN TRessource ON TRessource.Id = TRdv.IdRessource "
                   "WHERE TClient.Id = :id;");
 
-    //BIG PROBLEM connait pas TType.Id
-
 	query.bindValue(":id", id);
 
 	if(!query.exec())
@@ -93,7 +91,7 @@ Staff * DBConnect::getStaff(int id, bool logPass)
     query.prepare("SELECT TRessource.Id, TRessource.Nom, TRessource.Prenom, TType.Id, TType.Label, TCompte.Login, TCompte.Mdp "
                   "FROM TRessource "
                   "INNER JOIN TType ON TRessource.IdType = TType.Id "
-                  "INNER JOIN TCompte ON TCompte.IdRessource = TRessource.Id "
+                  "LEFT JOIN TCompte ON TCompte.IdRessource = TRessource.Id "
                   "WHERE TRessource.Id = :id;");
 
     query.bindValue(":id", id);
@@ -105,12 +103,12 @@ Staff * DBConnect::getStaff(int id, bool logPass)
     }
 	
 	if(query.next())
-	{
+    {
 		if(logPass)
-			staff = new Staff(query.value(0).toInt(), query.value(1).toString(), query.value(2).toString(), query.value(2).toInt(), query.value(4).toString(), query.value(5).toString(), query.value(6).toString());
+            staff = new Staff(query.value(0).toInt(), query.value(1).toString(), query.value(2).toString(), query.value(3).toInt(), query.value(4).toString(), query.value(5).toString(), query.value(6).toString());
 		else
-			staff = new Staff(query.value(0).toInt(), query.value(1).toString(), query.value(2).toString(), query.value(3).toInt(), query.value(4).toString());
-	}
+            staff = new Staff(query.value(0).toInt(), query.value(1).toString(), query.value(2).toString(), query.value(3).toInt(), query.value(4).toString());
+    }
 	
 	return staff;
 }
@@ -146,7 +144,6 @@ ResourceType * DBConnect::getType(int id)
 	if(query.next())
 	{
         ResourceType * r = new ResourceType(query.value("Id").toInt(), query.value("Label").toString());
-        std::cout << r->getId() << std::endl;
         return r;
 	}
 
@@ -214,7 +211,7 @@ bool DBConnect::addStaff(Staff * staff)
 	              "VALUES ((SELECT max(Id) +1 FROM TRessource), :firstName, :lastName, :type);");
 	query.bindValue(":lastName", staff->getLastName());
 	query.bindValue(":firstName", staff->getFirstName());
-	query.bindValue(":address", staff->getResourceType().getId());
+    query.bindValue(":address", staff->getResourceType()->getId());
 	
 	return query.exec();
 }
@@ -230,8 +227,11 @@ QList<Customer *> * DBConnect::getClientsFromDate(QDate date)
 	if(!query.exec())
 		std::cout << "Error" << std::endl;
 	else
-		while(query.next())
-            listCustomers->append(getCustomer(query.value("Id").toInt()));
+        while(query.next()){
+            Customer * customer = getCustomer(query.value("Id").toInt());
+            if(customer != nullptr)
+                *listCustomers << customer;
+        }
 	
     return listCustomers;
 }
@@ -244,7 +244,9 @@ QList<Staff *> * DBConnect::getAllStaff()
     query.prepare("SELECT Id FROM TRessource");
     if(query.exec()){
         while(query.next()){
-            *listStaff << getStaff(query.value("Id").toInt(), false);
+            Staff * staff = getStaff(query.value("Id").toInt(), false);
+            if(staff != nullptr)
+                *listStaff << staff;
         }
     }
 
