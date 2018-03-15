@@ -115,7 +115,10 @@ void MainWindow::on_actionStaff_triggered()
 	if(newStaff.exec() == QDialog::Accepted)
 	{
 		if(db->addStaff(newStaff.getStaff()))
-			setStatusText("A new staff member was added", 5000);
+        {
+            setStatusText("A new staff member was added", 5000);
+            model2->reload();
+        }
 		else
 			setStatusText("Fail to add new staff member", 5000);
 	}

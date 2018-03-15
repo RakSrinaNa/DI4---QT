@@ -67,6 +67,7 @@ class TreeModel : public QAbstractItemModel
 public:
     TreeModel(QObject *parent = 0);
     ~TreeModel();
+        void reload();
 
     QVariant data(const QModelIndex &index, int role) const override;
     QVariant headerData(int section, Qt::Orientation orientation,
@@ -95,7 +96,7 @@ public:
                     const QModelIndex &parent = QModelIndex()) override;
 
 private:
-    void setupModelData(TreeItem *parent);
+    void setupModelData();
     TreeItem *getItem(const QModelIndex &index) const;
 
     TreeItem *rootItem;

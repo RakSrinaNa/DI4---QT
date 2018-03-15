@@ -59,16 +59,20 @@ extern DBConnect * db;
 
 TreeModel::TreeModel(QObject *parent) : QAbstractItemModel(parent)
 {
-    QVector<QVariant> rootData;
-    rootData << "Data";
-
-    rootItem = new TreeItem(rootData);
-    setupModelData(rootItem);
+    setupModelData();
 }
 
 TreeModel::~TreeModel()
 {
     delete rootItem;
+}
+
+void TreeModel::reload()
+{
+    beginResetModel();
+    delete rootItem;
+    setupModelData();
+    endResetModel();
 }
 
 int TreeModel::columnCount(const QModelIndex & /* parent */) const
@@ -228,12 +232,17 @@ bool TreeModel::setHeaderData(int section, Qt::Orientation orientation,
     return result;
 }
 
-void TreeModel::setupModelData(TreeItem *pparent)
+void TreeModel::setupModelData()
 {
-    QList<ResourceType *> * rawData = db->getTypes();
-    QList<TreeItem*> parents;
-    parents << pparent;
+    QVector<QVariant> rootData;
+    rootData << "Data";
 
+    rootItem = new TreeItem(rootData);
+
+    QList<TreeItem*> parents;
+    parents << rootItem;
+
+    QList<ResourceType *> * rawData = db->getTypes();
     for(int i = 0; i < rawData->count(); i++)
     {
         ResourceType * resource = rawData->at(i);
