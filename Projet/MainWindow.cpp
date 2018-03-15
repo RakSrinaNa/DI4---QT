@@ -75,6 +75,9 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	
 	//Initialize tab 2
 	//TODO
+    QStringList headers = QStringList("Data");
+    model2 = new TreeModel(this); //Model to avoid modifying column
+    ui->treeView->setModel(model2);
 	
 	//Initialize tab 3
 	ui->planDateEdit->setDate(QDate::currentDate());

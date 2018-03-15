@@ -29,7 +29,9 @@ SOURCES += main.cpp\
     Schedule.cpp \
     Staff.cpp \
     StaffItem.cpp \
-    Timeline.cpp
+    Timeline.cpp \
+    treeitem.cpp \
+    treemodel.cpp
 
 HEADERS  += \
     c_init_bd.h \
@@ -47,7 +49,9 @@ HEADERS  += \
     Schedule.h \
     Staff.h \
     StaffItem.h \
-    Timeline.h
+    Timeline.h \
+    treeitem.h \
+    treemodel.h
 
 FORMS    += \
     AboutDialog.ui \

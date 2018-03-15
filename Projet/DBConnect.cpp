@@ -251,3 +251,22 @@ QList<Staff *> * DBConnect::getAllStaff()
     return listStaff;
 
 }
+
+QList<Staff *> * DBConnect::getStaffByType(int id)
+{
+        auto * listStaff = new QList<Staff *>();
+
+        QSqlQuery query;
+        query.prepare("SELECT TRessource.Id, TRessource.IdType "
+                      "FROM TRessource "
+                      "WHERE TRessource.IdType = :id;");
+        query.bindValue(":id", id);
+        if(query.exec()){
+            while(query.next()){
+                *listStaff << getStaff(query.value("TRessource.Id").toInt(), false);
+            }
+        }
+
+        return listStaff;
+
+}

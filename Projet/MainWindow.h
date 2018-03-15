@@ -16,6 +16,7 @@
 #include "MySqlTableModel.h"
 #include "MyDateItemDelegate.h"
 #include "Schedule.h"
+#include "treemodel.h"
 
 namespace Ui
 {
@@ -43,7 +44,8 @@ public:
 
 private:
 	Ui::MainWindow * ui;
-	QSqlTableModel * model;
+    QSqlTableModel * model;
+    TreeModel * model2;
 	QSortFilterProxyModel * idModel;
 	QSortFilterProxyModel * firstNameModel;
 	QSortFilterProxyModel * lastNameModel;
