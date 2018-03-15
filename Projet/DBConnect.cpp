@@ -91,7 +91,7 @@ Staff * DBConnect::getStaff(int id, bool logPass)
     query.prepare("SELECT TRessource.Id, TRessource.Nom, TRessource.Prenom, TType.Id, TType.Label, TCompte.Login, TCompte.Mdp "
                   "FROM TRessource "
                   "INNER JOIN TType ON TRessource.IdType = TType.Id "
-                  "INNER JOIN TCompte ON TCompte.IdRessource = TRessource.Id "
+                  "LEFT JOIN TCompte ON TCompte.IdRessource = TRessource.Id "
                   "WHERE TRessource.Id = :id;");
 
     query.bindValue(":id", id);
