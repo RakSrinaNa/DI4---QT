@@ -18,6 +18,10 @@ Staff::Staff(int id, QString lastName, QString firstName, int typeId, QString ty
     this->password = password;
 }
 
+Staff::~Staff(){
+    delete type;
+}
+
 QString Staff::getLastName()
 {
     return lastName;
@@ -45,7 +49,7 @@ QString Staff::getPassword()
 
 QString Staff::getDescription()
 {
-    return lastName + " " + firstName + " [" + type->getName() + "]";
+    return firstName + " " + lastName + " [" + type->getName() + "]";
 }
 
 int Staff::getId()

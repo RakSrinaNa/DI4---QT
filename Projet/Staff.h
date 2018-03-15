@@ -22,6 +22,8 @@ public:
 
     Staff(int id, QString lastName, QString firstName, int typeId, QString typeName, QString login, QString password, QObject * parent = 0);
 
+    ~Staff();
+
     /**
      * Get the last name.
      * @return The last name.

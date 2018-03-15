@@ -184,16 +184,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 				ui->tableView->selectRow(current); //Select closest row
 			}
 			break;
-		}
-		
-		//TODO delete
-		case Qt::Key_0:
-			QList<Customer *> * list = db->getClientsFromDate(ui->planDateEdit->date());
-			for(int i = 0; i < list->size(); i++)
-			{
-				std::cout << list->at(i)->toString().toStdString() << std::endl;
-			}
-			break;
+        }
 	}
 	event->accept();
 }
@@ -209,33 +200,32 @@ void MainWindow::on_planPushButton_clicked()
     if(listCustomers->size() == 0)
 		s += "No client for " + date.toString("dd MMMM yyyy");
 	
-    //TODO Get all staff members
-    QList<Staff *> * listStaff = db->getAllStaff();
+    else{
+        //TODO Get all staff members
+        QList<Staff *> * listStaff = db->getAllStaff();
 
-    std::cout << "Step 1" << std::endl;
+        Schedule schedule = Schedule(listStaff);
 
-    Schedule schedule = Schedule(listStaff);
+        //Schedule all the customers
+        for(int i = 0; i < listCustomers->size(); i++)
+            schedule.addCustomer(listCustomers->at(i));
 
-    //Schedule all the customers
-    for(int i = 0; i < listCustomers->size(); i++)
-        schedule.addCustomer(listCustomers->at(i));
+        s = schedule.toHtmlString();
 
-    s = schedule.toHtmlString();
+        //Free all staff members
+        for(int i = 0; i < listStaff->size(); i++)
+            delete listStaff->at(i);
+        delete listStaff;
+
+    }
 
 	ui->planTextBrowser->setStyleSheet("background-color:white;");
-	ui->planTextBrowser->setText(s);
-
-    std::cout << "Step 2" << std::endl;
+    ui->planTextBrowser->setText(s);
 
     //Free all customers
     for(int i = 0; i < listCustomers->size(); i++)
         delete listCustomers->at(i);
     delete listCustomers;
-
-    //Free all staff members
-    for(int i = 0; i < listStaff->size(); i++)
-        delete listStaff->at(i);
-    delete listStaff;
 
 }
 

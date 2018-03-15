@@ -16,7 +16,7 @@ int TimeLine::getNextHour()
 
     if(hours.size() > 0){
         QPair<Customer *, int> lastCustomer = (hours.at(hours.size() -1));
-        time += lastCustomer.second + lastCustomer.first->getDurationInMin() / 15 + (lastCustomer.first->getDurationInMin() % 15 == 0 ? 0 : 15);
+        time += lastCustomer.second + (lastCustomer.first->getDurationInMin() / 15)*15 + (lastCustomer.first->getDurationInMin() % 15 == 0 ? 0 : 15);
     }
 
     return time;
@@ -44,6 +44,7 @@ int TimeLine::getStartHour(int index)
 
 int TimeLine::getEndHour(int index)
 {
+    std::cout << getCustomer(index)->getDurationInMin() << std::endl;
     return hours.at(index).second + getCustomer(index)->getDurationInMin();
 }
 

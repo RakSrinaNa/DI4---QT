@@ -1,6 +1,8 @@
 #ifndef TIMELINE_H
 #define TIMELINE_H
 
+#include <iostream>
+
 #include "Staff.h"
 #include "Customer.h"
 

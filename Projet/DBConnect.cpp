@@ -77,8 +77,8 @@ Customer * DBConnect::getCustomer(int id)
 	}
 	
 	if(query.next())
-		customer = new Customer(id, query.value("Nom").toString(), query.value("Prenom").toString(), query.value("Adresse").toString(), query.value("Ville").toString(), query.value("CP").toString(), QDate::fromString(query.value("DateRdv").toString(), "yyyy-MM-dd"), QTime::fromString(query.value("DureeRdv").toString()), query.value("Priorite").toString(), resources, query.value("Commentaire").toString(), query.value("Tel").toString());
-	
+        customer = new Customer(id, query.value("Nom").toString(), query.value("Prenom").toString(), query.value("Adresse").toString(), query.value("Ville").toString(), query.value("CP").toString(), QDate::fromString(query.value("DateRdv").toString(), "yyyy-MM-dd"), QTime(0, 0).addSecs(query.value("DureeRdv").toInt() * 60), query.value("Priorite").toString(), resources, query.value("Commentaire").toString(), query.value("Tel").toString());
+
 	return customer;
 }
 
@@ -207,13 +207,27 @@ bool DBConnect::addStaff(Staff * staff)
 		return false;
 	
 	QSqlQuery query;
-	query.prepare("INSERT INTO TRessource (Id, Nom, Prenom, Type) "
-	              "VALUES ((SELECT max(Id) +1 FROM TRessource), :firstName, :lastName, :type);");
+    query.prepare("INSERT INTO TRessource (Id, Nom, Prenom, IdType) "
+                  "VALUES ((SELECT max(Id) +1 FROM TRessource), (:lastName), (:firstName), (:type));");
 	query.bindValue(":lastName", staff->getLastName());
 	query.bindValue(":firstName", staff->getFirstName());
-    query.bindValue(":address", staff->getResourceType()->getId());
+    query.bindValue(":type", staff->getResourceType()->getId());
+
+    if(!query.exec())
+        return false;
+
+    if(staff->getResourceType()->getName() == "Informaticien"){
+        QSqlQuery query2;
+        query2.prepare("INSERT INTO TCompte (Id, IdRessource, Login, MdP) "
+                      "VALUES ((SELECT max(Id) +1 FROM TCompte), (SELECT max(Id) FROM TRessource), :log, :mdp)");
+        query2.bindValue(":log", staff->getLogin());
+        query2.bindValue(":mdp", staff->getPassword());
+
+        if(!query2.exec())
+            return false;
+    }
 	
-	return query.exec();
+    return true;
 }
 
 QList<Customer *> * DBConnect::getClientsFromDate(QDate date)

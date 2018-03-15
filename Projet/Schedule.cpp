@@ -58,7 +58,7 @@ QString Schedule::toHtmlString()
         text += timeLine.getStaff()->getDescription() + "\n";
 
         for(int j = 0; j < timeLine.size(); j++){
-            QString hour = QString("%1h%2 - %3h%4").arg(8 + timeLine.getStartHour(j) / 60).arg(timeLine.getStartHour(j) % 60).arg(8 + timeLine.getEndHour(j) / 60).arg(timeLine.getEndHour(j) % 60);
+            QString hour = QString("%1h%2 - %3h%4").arg(8 + timeLine.getStartHour(j) / 60, 2, 10, QChar('0')).arg(timeLine.getStartHour(j) % 60, 2, 10, QChar('0')).arg(8 + timeLine.getEndHour(j) / 60, 2, 10, QChar('0')).arg(timeLine.getEndHour(j) % 60, 2, 10, QChar('0'));
             text += "\t" + hour + " : " + timeLine.getCustomer(j)->getFirstName() + " " + timeLine.getCustomer(j)->getLastName() + "\n";
         }
 

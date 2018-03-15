@@ -6,6 +6,8 @@
 #include <QTime>
 #include <QList>
 
+#include <iostream>
+
 #include "Staff.h"
 #include "RessourceType.h"
 
