@@ -10,3 +10,4 @@ STL/STL_Exo5
 *.autosave
 Projet/cmake-build-debug
 workspace.xml
+Projet/cmake-build-debug-qt

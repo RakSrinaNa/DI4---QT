@@ -27,6 +27,8 @@ find_package(Qt5Gui REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Sql REQUIRED)
 
+get_target_property(Qt_Core_location Qt5::Core LOCATION)
+
 set_property(TARGET PROPERTY C_STANDARD 99)
 
 file(GLOB base_H "*.h")
@@ -39,4 +41,4 @@ add_executable(Test ${SOURCE_FILES_PROD})
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
 set_target_properties(Test PROPERTIES COMPILE_FLAGS "-std=c++11 -Wall -Wextra -Werror -W -pedantic -pedantic-errors -O2")
-target_link_libraries(Test Qt5::Sql Qt5::Widgets)
+target_link_libraries(Test Qt5::Sql Qt5::Widgets Qt5::Gui)
