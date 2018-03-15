@@ -7,7 +7,7 @@
 
 #include "Staff.h"
 #include "Customer.h"
-#include "timeline.h"
+#include "Timeline.h"
 
 class Schedule
 {

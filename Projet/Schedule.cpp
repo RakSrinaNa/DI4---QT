@@ -1,4 +1,4 @@
-#include "schedule.h"
+#include "Schedule.h"
 
 Schedule::Schedule(QList<Staff *> * list)
 {

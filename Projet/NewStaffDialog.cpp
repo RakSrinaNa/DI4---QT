@@ -1,5 +1,5 @@
 #include "NewDtaffDialog.h"
-#include "ui_newstaffdialog.h"
+#include "ui_NewStaffDialog.h"
 
 extern DBConnect * db;
 

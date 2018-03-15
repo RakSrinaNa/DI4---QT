@@ -1,5 +1,5 @@
 #include "MainWindow.h"
-#include "ui_mainwindow.h"
+#include "ui_MainWindow.h"
 #include "NewCustomerDialog.h"
 #include "NewDtaffDialog.h"
 #include "AboutDialog.h"
