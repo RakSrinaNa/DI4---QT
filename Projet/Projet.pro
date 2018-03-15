@@ -24,13 +24,13 @@ SOURCES += main.cpp\
     NewCustomerDialog.cpp \
     NewStaffDialog.cpp \
     Customer.cpp \
-    RessourceType.cpp \
     Schedule.cpp \
     Staff.cpp \
     StaffItem.cpp \
     Timeline.cpp \
-    treeitem.cpp \
-    treemodel.cpp
+    TreeItem.cpp \
+    Treemodel.cpp \
+    ResourceType.cpp
 
 HEADERS  += \
     c_init_bd.h \
@@ -43,13 +43,13 @@ HEADERS  += \
     NewCustomerDialog.h \
     NewDtaffDialog.h \
     Customer.h \
-    RessourceType.h \
     Schedule.h \
     Staff.h \
     StaffItem.h \
     Timeline.h \
-    treeitem.h \
-    treemodel.h
+    TreeItem.h \
+    Treemodel.h \
+    ResourceType.h
 
 FORMS    += \
     AboutDialog.ui \

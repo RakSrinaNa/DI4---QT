@@ -12,7 +12,7 @@
 
 #include "Customer.h"
 #include "Staff.h"
-#include "RessourceType.h"
+#include "ResourceType.h"
 
 /**
  * Class to handle database queries.

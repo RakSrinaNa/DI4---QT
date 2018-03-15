@@ -49,57 +49,118 @@
 ****************************************************************************/
 
 
-#ifndef TREEMODEL_H
-#define TREEMODEL_H
+/*
+    treeitem.cpp
 
-#include <QAbstractItemModel>
-#include <QModelIndex>
-#include <QVariant>
+    A container for items of data supplied by the simple tree model.
+*/
 
-#include "RessourceType.h"
+#include "TreeItem.h"
 
-class TreeItem;
+#include <QStringList>
 
-class TreeModel : public QAbstractItemModel
+TreeItem::TreeItem(const QVector<QVariant> &data, TreeItem *parent)
 {
-    Q_OBJECT
+    parentItem = parent;
+    itemData = data;
+}
 
-public:
-    TreeModel(QObject *parent = 0);
-    ~TreeModel();
-        void reload();
+TreeItem::~TreeItem()
+{
+    qDeleteAll(childItems);
+}
 
-    QVariant data(const QModelIndex &index, int role) const override;
-    QVariant headerData(int section, Qt::Orientation orientation,
-                        int role = Qt::DisplayRole) const override;
+TreeItem *TreeItem::child(int number)
+{
+    return childItems.value(number);
+}
 
-    QModelIndex index(int row, int column,
-                      const QModelIndex &parent = QModelIndex()) const override;
-    QModelIndex parent(const QModelIndex &index) const override;
+int TreeItem::childCount() const
+{
+    return childItems.count();
+}
 
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+int TreeItem::childNumber() const
+{
+    if (parentItem)
+        return parentItem->childItems.indexOf(const_cast<TreeItem*>(this));
 
-    Qt::ItemFlags flags(const QModelIndex &index) const override;
-    bool setData(const QModelIndex &index, const QVariant &value,
-                 int role = Qt::EditRole) override;
-    bool setHeaderData(int section, Qt::Orientation orientation,
-                       const QVariant &value, int role = Qt::EditRole) override;
+    return 0;
+}
 
-    bool insertColumns(int position, int columns,
-                       const QModelIndex &parent = QModelIndex()) override;
-    bool removeColumns(int position, int columns,
-                       const QModelIndex &parent = QModelIndex()) override;
-    bool insertRows(int position, int rows,
-                    const QModelIndex &parent = QModelIndex()) override;
-    bool removeRows(int position, int rows,
-                    const QModelIndex &parent = QModelIndex()) override;
+int TreeItem::columnCount() const
+{
+    return itemData.count();
+}
 
-private:
-    void setupModelData();
-    TreeItem *getItem(const QModelIndex &index) const;
+QVariant TreeItem::data(int column) const
+{
+    return itemData.value(column);
+}
 
-    TreeItem *rootItem;
-};
+bool TreeItem::insertChildren(int position, int count, int columns)
+{
+    if (position < 0 || position > childItems.size())
+        return false;
 
-#endif // TREEMODEL_H
+    for (int row = 0; row < count; ++row) {
+        QVector<QVariant> data(columns);
+        TreeItem *item = new TreeItem(data, this);
+        childItems.insert(position, item);
+    }
+
+    return true;
+}
+
+bool TreeItem::insertColumns(int position, int columns)
+{
+    if (position < 0 || position > itemData.size())
+        return false;
+
+    for (int column = 0; column < columns; ++column)
+        itemData.insert(position, QVariant());
+
+    foreach (TreeItem *child, childItems)
+        child->insertColumns(position, columns);
+
+    return true;
+}
+
+TreeItem *TreeItem::parent()
+{
+    return parentItem;
+}
+
+bool TreeItem::removeChildren(int position, int count)
+{
+    if (position < 0 || position + count > childItems.size())
+        return false;
+
+    for (int row = 0; row < count; ++row)
+        delete childItems.takeAt(position);
+
+    return true;
+}
+
+bool TreeItem::removeColumns(int position, int columns)
+{
+    if (position < 0 || position + columns > itemData.size())
+        return false;
+
+    for (int column = 0; column < columns; ++column)
+        itemData.remove(position);
+
+    foreach (TreeItem *child, childItems)
+        child->removeColumns(position, columns);
+
+    return true;
+}
+
+bool TreeItem::setData(int column, const QVariant &value)
+{
+    if (column < 0 || column >= itemData.size())
+        return false;
+
+    itemData[column] = value;
+    return true;
+}

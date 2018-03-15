@@ -1,4 +1,4 @@
-#include "RessourceType.h"
+#include "ResourceType.h"
 
 ResourceType::ResourceType(int id, QString name) : id(id), name(name)
 {

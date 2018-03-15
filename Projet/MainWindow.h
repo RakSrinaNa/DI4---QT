@@ -16,7 +16,7 @@
 #include "MySqlTableModel.h"
 #include "MyDateItemDelegate.h"
 #include "Schedule.h"
-#include "treemodel.h"
+#include "Treemodel.h"
 
 namespace Ui
 {

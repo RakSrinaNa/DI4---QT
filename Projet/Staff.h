@@ -5,7 +5,7 @@
 
 #include <QStringList>
 
-#include "RessourceType.h"
+#include "ResourceType.h"
 
 /**
  * Represents a staff memeber.
