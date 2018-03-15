@@ -14,41 +14,47 @@ TEMPLATE = app
 CONFIG += c++11
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    login.cpp \
-    newpatientdialog.cpp \
-    patient.cpp \
-    aproposdialog.cpp \
-    newstaffdialog.cpp \
-    staff.cpp \
-    staffitem.cpp \
     c_init_bd.cpp \
-    dbconnect.cpp \
-    ressourcetype.cpp \
-    ressourceitem.cpp \
-    mysqltablemodel.cpp \
-    mydateitemdelegate.cpp
+    AboutDialog.cpp \
+    DBConnect.cpp \
+    Login.cpp \
+    MainWindow.cpp \
+    MyDateItemDelegate.cpp \
+    MySqlTableModel.cpp \
+    NewCustomerDialog.cpp \
+    NewStaffDialog.cpp \
+    Customer.cpp \
+    RessourceItem.cpp \
+    RessourceType.cpp \
+    Schedule.cpp \
+    Staff.cpp \
+    StaffItem.cpp \
+    Timeline.cpp
 
-HEADERS  += mainwindow.h \
-    login.h \
-    newpatientdialog.h \
-    patient.h \
-    aproposdialog.h \
-    newstaffdialog.h \
-    staff.h \
-    staffitem.h \
+HEADERS  += \
     c_init_bd.h \
-    dbconnect.h \
-    ressourcetype.h \
-    ressourceitem.h \
-    mysqltablemodel.h \
-    mydateitemdelegate.h
+    AboutDialog.h \
+    DBConnect.h \
+    Login.h \
+    MainWindow.h \
+    MyDateItemDelegate.h \
+    MySqlTableModel.h \
+    NewCustomerDialog.h \
+    NewDtaffDialog.h \
+    Customer.h \
+    RessourceItem.h \
+    RessourceType.h \
+    Schedule.h \
+    Staff.h \
+    StaffItem.h \
+    Timeline.h
 
-FORMS    += mainwindow.ui \
-    login.ui \
-    newpatientdialog.ui \
-    aproposdialog.ui \
-    newstaffdialog.ui
+FORMS    += \
+    AboutDialog.ui \
+    Login.ui \
+    MainWindow.ui \
+    NewCustomerDialog.ui \
+    NewStaffDialog.ui
 
 RESOURCES += \
     resources.qrc

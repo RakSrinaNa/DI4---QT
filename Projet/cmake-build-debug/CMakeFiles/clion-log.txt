@@ -1,0 +1,4 @@
+"/Users/mrcraftcod/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/181.4096.19/CLion 2018.1 EAP.app/Contents/bin/cmake/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=$(brew --prefix qt5) -G "CodeBlocks - Unix Makefiles" "/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug

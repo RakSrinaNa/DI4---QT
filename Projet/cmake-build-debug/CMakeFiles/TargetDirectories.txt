@@ -1,0 +1,4 @@
+/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles/Test.dir
+/Users/mrcraftcod/Dropbox/Documents/Univ/Polytech/DI4/S8/Plateformes logicielles C++/TP/Projet/cmake-build-debug/CMakeFiles/Test_autogen.dir
