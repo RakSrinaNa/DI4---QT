@@ -144,7 +144,6 @@ ResourceType * DBConnect::getType(int id)
 	if(query.next())
 	{
         ResourceType * r = new ResourceType(query.value("Id").toInt(), query.value("Label").toString());
-        std::cout << r->getId() << std::endl;
         return r;
 	}
 
@@ -228,8 +227,11 @@ QList<Customer *> * DBConnect::getClientsFromDate(QDate date)
 	if(!query.exec())
 		std::cout << "Error" << std::endl;
 	else
-		while(query.next())
-            listCustomers->append(getCustomer(query.value("Id").toInt()));
+        while(query.next()){
+            Customer * customer = getCustomer(query.value("Id").toInt());
+            if(customer != nullptr)
+                *listCustomers << customer;
+        }
 	
     return listCustomers;
 }
@@ -242,7 +244,9 @@ QList<Staff *> * DBConnect::getAllStaff()
     query.prepare("SELECT Id FROM TRessource");
     if(query.exec()){
         while(query.next()){
-            *listStaff << getStaff(query.value("Id").toInt(), false);
+            Staff * staff = getStaff(query.value("Id").toInt(), false);
+            if(staff != nullptr)
+                *listStaff << staff;
         }
     }
 
