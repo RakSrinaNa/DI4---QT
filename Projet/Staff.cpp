@@ -47,3 +47,8 @@ QString Staff::getDescription()
 {
     return lastName + " " + firstName + " [" + type.getName() + "]";
 }
+
+int Staff::getId()
+{
+    return id;
+}

@@ -1,8 +1,0 @@
-# Hashes of file build rules.
-3a42e28e2112369d1f59783ff12ba11c CMakeFiles/Test_autogen
-1bc5eb5d5a801322fdba5f778597a047 qrc_resources.cpp
-a7313393bebb36523159a87947cea367 ui_aproposdialog.h
-401d5f3fbd092dc96eb6b332547f364e ui_login.h
-1a469df6135caa8a7f2faeb45eaf4f45 ui_mainwindow.h
-48f78a5f090c3fb5b4a7a1e3ccc6c39d ui_newpatientdialog.h
-89f20b8633ee161cd2b5a18cada46a33 ui_newstaffdialog.h

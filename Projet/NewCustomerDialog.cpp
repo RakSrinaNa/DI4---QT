@@ -14,9 +14,9 @@ NewCustomerDialog::NewCustomerDialog(QWidget *parent) : QDialog(parent), ui(new 
     ui->phoneLineEdit->setValidator(new QIntValidator(0, 999999999, this));
 
     //Add all available resources
-    QList<ResourceType *> * resources = db->getTypes();
-    for(ResourceType * r : *resources)
-        ui->resourcesListWidget->addItem(new ResourceItem(r, ui->resourcesListWidget));
+    QList<Staff *> * resources = db->getAllStaff();
+    for(Staff * s : *resources)
+        ui->resourcesListWidget->addItem(new StaffItem(s, ui->resourcesListWidget));
 
 }
 
@@ -30,11 +30,11 @@ Customer * NewCustomerDialog::getCustomer()
     return new Customer(ui->lastNameLineEdit->text(), ui->firstNameLineEdit->text(), ui->addressLineEdit->text(), ui->cityLineEdit->text(), ui->postalCodeLineEdit->text(), ui->dayOfConsultationDateEdit->date(), ui->durationTimeEdit->time(), ui->priorityComboBox->currentText(), getResources(), ui->commentLineEdit->text(), ui->phoneLineEdit->text());
 }
 
-QList<ResourceType *> * NewCustomerDialog::getResources()
+QList<Staff *> * NewCustomerDialog::getResources()
 {
-    auto * list = new QList<ResourceType *>;
+    auto * list = new QList<Staff *>;
     for(QListWidgetItem * item : ui->resourcesListWidget->selectedItems())
-        *(list) << dynamic_cast<ResourceItem *>(item)->getRessource();
+        *(list) << dynamic_cast<StaffItem *>(item)->getStaff();
     return list;
 }
 

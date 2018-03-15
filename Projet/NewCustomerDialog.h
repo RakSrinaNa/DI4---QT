@@ -34,7 +34,7 @@ public:
 	 * Get the resources that were selected.
 	 * @return A list of the selected resources.
 	 */
-	QList<ResourceType *> * getResources();
+    QList<Staff *> * getResources();
 	
 	/**
 	 * Get the created customer.
