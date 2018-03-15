@@ -24,7 +24,6 @@ SOURCES += main.cpp\
     NewCustomerDialog.cpp \
     NewStaffDialog.cpp \
     Customer.cpp \
-    RessourceItem.cpp \
     RessourceType.cpp \
     Schedule.cpp \
     Staff.cpp \
@@ -42,7 +41,6 @@ HEADERS  += \
     NewCustomerDialog.h \
     NewDtaffDialog.h \
     Customer.h \
-    RessourceItem.h \
     RessourceType.h \
     Schedule.h \
     Staff.h \
