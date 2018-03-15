@@ -54,8 +54,6 @@ Customer * DBConnect::getCustomer(int id)
                   "INNER JOIN TRessource ON TRessource.Id = TRdv.IdRessource "
                   "WHERE TClient.Id = :id;");
 
-    //BIG PROBLEM connait pas TType.Id
-
 	query.bindValue(":id", id);
 
 	if(!query.exec())
@@ -105,12 +103,12 @@ Staff * DBConnect::getStaff(int id, bool logPass)
     }
 	
 	if(query.next())
-	{
+    {
 		if(logPass)
-			staff = new Staff(query.value(0).toInt(), query.value(1).toString(), query.value(2).toString(), query.value(2).toInt(), query.value(4).toString(), query.value(5).toString(), query.value(6).toString());
+            staff = new Staff(query.value(0).toInt(), query.value(1).toString(), query.value(2).toString(), query.value(3).toInt(), query.value(4).toString(), query.value(5).toString(), query.value(6).toString());
 		else
-			staff = new Staff(query.value(0).toInt(), query.value(1).toString(), query.value(2).toString(), query.value(3).toInt(), query.value(4).toString());
-	}
+            staff = new Staff(query.value(0).toInt(), query.value(1).toString(), query.value(2).toString(), query.value(3).toInt(), query.value(4).toString());
+    }
 	
 	return staff;
 }
@@ -214,7 +212,7 @@ bool DBConnect::addStaff(Staff * staff)
 	              "VALUES ((SELECT max(Id) +1 FROM TRessource), :firstName, :lastName, :type);");
 	query.bindValue(":lastName", staff->getLastName());
 	query.bindValue(":firstName", staff->getFirstName());
-	query.bindValue(":address", staff->getResourceType().getId());
+    query.bindValue(":address", staff->getResourceType()->getId());
 	
 	return query.exec();
 }
