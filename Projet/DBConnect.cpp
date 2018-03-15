@@ -207,11 +207,11 @@ bool DBConnect::addStaff(Staff * staff)
 		return false;
 	
 	QSqlQuery query;
-	query.prepare("INSERT INTO TRessource (Id, Nom, Prenom, Type) "
+    query.prepare("INSERT INTO TRessource (Id, Nom, Prenom, IdType) "
 	              "VALUES ((SELECT max(Id) +1 FROM TRessource), :firstName, :lastName, :type);");
 	query.bindValue(":lastName", staff->getLastName());
 	query.bindValue(":firstName", staff->getFirstName());
-    query.bindValue(":address", staff->getResourceType()->getId());
+    query.bindValue(":type", staff->getResourceType()->getId());
 	
 	return query.exec();
 }
