@@ -45,7 +45,7 @@ Customer * DBConnect::getCustomer(int id)
 {
 	QSqlQuery query;
 	Customer * customer = nullptr;
-	auto * resources = new QList<ResourceType *>();
+    auto * resources = new QList<Staff *>();
 	
     //Get the resources of the customer
     query.prepare("SELECT * "
@@ -66,7 +66,7 @@ Customer * DBConnect::getCustomer(int id)
 	
 	while(query.next())
     {
-        (*resources) << (getType(query.value("IdType").toLongLong()));
+        (*resources) << (getStaff(query.value("IdType").toLongLong()));
 	}
 	
 	//Get the rest of the customer
@@ -190,7 +190,7 @@ bool DBConnect::addCustomer(Customer * customer)
 	if(!query.exec())
 		return false;
 	
-	QList<ResourceType *> * resources = customer->getResources();
+    QList<Staff *> * resources = customer->getResources();
 	for(auto resource : *resources)
 	{
 		QSqlQuery query2;

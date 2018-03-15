@@ -323,5 +323,9 @@ void MainWindow::on_table_data_changed(const QModelIndex &topLeft, const QModelI
 
 void MainWindow::on_idLineEdit_textEdited(const QString &arg1)
 {
-    idModel->setFilterRegExp(arg1);
+    QRegExp re("\\d*");
+    if (re.exactMatch(arg1))
+        idModel->setFilterRegExp(arg1);
+    else
+        qobject_cast<QLineEdit *>(sender())->setText(arg1.left(arg1.length() - 1));
 }

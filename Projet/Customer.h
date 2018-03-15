@@ -18,9 +18,9 @@ class Customer : public QObject
 {
 Q_OBJECT
 public:
-	Customer(QString lastName, QString firstName, QString address, QString city, QString postalCode, QDate dayOfConsultation, QTime duration, QString priority, QList<ResourceType *> * resources, QString comment, QString phone, QObject * parent = 0);
+    Customer(QString lastName, QString firstName, QString address, QString city, QString postalCode, QDate dayOfConsultation, QTime duration, QString priority, QList<Staff *> * resources, QString comment, QString phone, QObject * parent = 0);
 	
-	Customer(int id, QString lastName, QString firstName, QString address, QString city, QString postalCode, QDate dayOfConsultation, QTime duration, QString priority, QList<ResourceType *> * resources, QString comment, QString phone, QObject * parent = 0);
+    Customer(int id, QString lastName, QString firstName, QString address, QString city, QString postalCode, QDate dayOfConsultation, QTime duration, QString priority, QList<Staff *> * resources, QString comment, QString phone, QObject * parent = 0);
 	
 	/**
 	 * Get the last name.
@@ -80,7 +80,7 @@ public:
 	 * Get the resources the appointment will use.
 	 * @return The resources.
 	 */
-	QList<ResourceType *> * getResources();
+    QList<Staff *> * getResources();
 	
 	/**
 	 * Get the comment.
@@ -114,7 +114,7 @@ private:
 	QDate dayOfConsultation;
 	QTime duration;
 	QString priority;
-	QList<ResourceType *> * resources;
+    QList<Staff *> * resources;
 	QString comment;
 	QString phone;
 };

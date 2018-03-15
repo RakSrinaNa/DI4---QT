@@ -56,7 +56,13 @@ public:
      * Get a short description of the staff member (name and type)
      * @return  The description
      */
-	QString getDescription();
+    QString getDescription();
+
+    /**
+     * Get the ID of the staff member.
+     * @return Iits ID.
+     */
+    int getId();
 
 signals:
 
