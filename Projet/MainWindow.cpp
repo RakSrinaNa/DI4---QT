@@ -79,6 +79,11 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	model2 = new TreeModel(this); //Model to avoid modifying column
     QObject::connect(model2, SIGNAL(dataChanged(const QModelIndex, const QModelIndex, const QVector<int>)), this, SLOT(on_tree_data_changed(const QModelIndex, const QModelIndex, const QVector<int>)));
 	ui->treeView->setModel(model2);
+
+    for(int c = 0; c < ui->treeView->header()->count(); ++c)
+    {
+        ui->treeView->header()->setSectionResizeMode(c, QHeaderView::Stretch);
+    }
 	
 	//Initialize tab 3
 	ui->planDateEdit->setDate(QDate::currentDate());
