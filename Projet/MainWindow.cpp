@@ -311,7 +311,13 @@ void MainWindow::on_table_data_changed(const QModelIndex &topLeft, const QModelI
 				QString s = q.toString();
 				QString cap = s.left(1).toUpper();
 				QString text = s.length() > 1 ? s.right(s.length() - 1).toLower() : "";
-				model->setData(topLeft, (cap + text));
+                if(cap.length() == 0)
+                {
+                    setStatusText("Invalid name, change it!");
+                    model->revertRow(topLeft.row());
+                }
+                else
+                    model->setData(topLeft, (cap + text));
 				break;
 			}
 				//If date column, verify format and if not in the past
@@ -354,7 +360,11 @@ void MainWindow::on_tree_data_changed(const QModelIndex &topLeft, const QModelIn
         {
             TreeItem * item = model2->getItem(topLeft);
             int resID = item->data(2).toInt();
-            if(db->changeResourceName(resID, item->data(0).toString()))
+            if(item->data(0).toString().length() == 0)
+            {
+                setStatusText("Invalid resource name, change it!");
+            }
+            else if(db->changeResourceName(resID, item->data(0).toString()))
             {
                 setStatusText("Resource name changed", 2000);
             }
@@ -367,7 +377,22 @@ void MainWindow::on_tree_data_changed(const QModelIndex &topLeft, const QModelIn
         {
             TreeItem * item = model2->getItem(topLeft);
             int resID = item->data(2).toInt();
-            if(db->changeStaffName(resID, item->data(0).toString(), item->data(1).toString()))
+
+            QString s1 = item->data(0).toString();
+            QString cap1 = s1.left(1).toUpper();
+            QString text1 = s1.length() > 1 ? s1.right(s1.length() - 1).toLower() : "";
+            item->setData(0, cap1 + text1);
+
+            QString s2 = item->data(1).toString();
+            QString cap2 = s2.left(1).toUpper();
+            QString text2 = s2.length() > 1 ? s2.right(s2.length() - 1).toLower() : "";
+            item->setData(1, cap2 + text2);
+
+            if(cap1.length() == 0 || cap2.length() == 0)
+            {
+                setStatusText("Invalid staff name, change it!");
+            }
+            else if(db->changeStaffName(resID, (cap1 + text1), (cap2 + text2)))
             {
                 setStatusText("Staff name changed", 2000);
             }
