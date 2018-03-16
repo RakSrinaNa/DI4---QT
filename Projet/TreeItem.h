@@ -78,6 +78,8 @@ public:
 	TreeItem * parent();
 	
 	bool removeChildren(int position, int count);
+
+    bool removeChildren(TreeItem * item);
 	
 	bool removeColumns(int position, int columns);
 	

@@ -132,13 +132,18 @@ TreeItem * TreeItem::parent()
 
 bool TreeItem::removeChildren(int position, int count)
 {
-	if(position < 0 || position + count > childItems.size())
-		return false;
-	
-	for(int row = 0; row < count; ++row)
-		delete childItems.takeAt(position);
-	
-	return true;
+    if(position < 0 || position + count > childItems.size())
+        return false;
+
+    for(int row = 0; row < count; ++row)
+        delete childItems.takeAt(position);
+
+    return true;
+}
+
+bool TreeItem::removeChildren(TreeItem * item)
+{
+    return removeChildren(childItems.indexOf(item), 1);
 }
 
 bool TreeItem::removeColumns(int position, int columns)

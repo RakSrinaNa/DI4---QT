@@ -197,6 +197,41 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
                     ui->tableView->selectRow(current); //Select closest row
                 }
             }
+            else if(ui->tabWidget->currentIndex() == 1)
+            {
+                QModelIndex current = ui->treeView->selectionModel()->currentIndex();
+                if(current.row() != -1) //If a row is selected
+                {
+                    TreeItem * item = model2->getItem(ui->treeView->selectionModel()->currentIndex());
+
+                    bool result = true;
+                    QModelIndex index = current;
+                    int depth = 0;
+                    while ( index.parent().isValid() )
+                    {
+                      index = index.parent();
+                      depth++;
+                    }
+                    if(depth == 0) //Removing type
+                    {
+                        result = db->removeResourceType(item->data(2).toInt());
+                    }
+                    else if(depth == 1) //Removing staff
+                    {
+                        result = db->removeStaff(item->data(2).toInt());
+                    }
+
+                    if(result)
+                    {
+                        item->parent()->removeChildren(item);
+                        setStatusText("Element deleted", 2000);
+                    }
+                    else
+                    {
+                        setStatusText("Error deleting datas");
+                    }
+                }
+            }
 			break;
 		}
 			

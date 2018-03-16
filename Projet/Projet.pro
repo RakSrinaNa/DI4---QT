@@ -60,3 +60,11 @@ FORMS    += \
 
 RESOURCES += \
     resources.qrc
+
+DISTFILES += \
+    app.rc \
+    app.ico \
+    app.icns
+
+RC_FILE = app.rc
+ICON = app.icns

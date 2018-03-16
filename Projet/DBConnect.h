@@ -106,6 +106,10 @@ public:
 
     bool changeStaffName(int ID, QString firstName, QString lastName);
 
+    bool removeStaff(int ID);
+
+    bool removeResourceType(int ID);
+
 private:
 	QSqlDatabase db;
 };
