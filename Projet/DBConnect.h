@@ -102,6 +102,10 @@ public:
 	 */
 	QList<Staff *> * getStaffByType(int id);
 
+    bool changeResourceName(int ID, QString name);
+
+    bool changeStaffName(int ID, QString firstName, QString lastName);
+
 private:
 	QSqlDatabase db;
 };

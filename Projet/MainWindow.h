@@ -129,7 +129,9 @@ private slots:
 	 * @param bottomRight The bottom right coordinate of the edit area.
 	 * @param roles The roles.
 	 */
-	void on_table_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles);
+    void on_table_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles);
+
+    void on_table2_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles);
 	
 	void on_idLineEdit_textEdited(const QString &arg1);
 

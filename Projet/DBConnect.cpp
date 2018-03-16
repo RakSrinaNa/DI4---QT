@@ -275,3 +275,26 @@ QList<Staff *> * DBConnect::getStaffByType(int id)
 	
 	return listStaff;
 }
+
+bool DBConnect::changeResourceName(int ID, QString name)
+{
+    QSqlQuery query;
+    query.prepare("UPDATE TType "
+                  "SET Label = :name "
+                  "WHERE Id = :id;");
+    query.bindValue(":id", ID);
+    query.bindValue(":name", name);
+    return query.exec();
+}
+
+bool DBConnect::changeStaffName(int ID, QString firstName, QString lastName)
+{
+    QSqlQuery query;
+    query.prepare("UPDATE TRessource "
+                  "SET Nom = :lastName, Prenom = :firstName "
+                  "WHERE Id = :id;");
+    query.bindValue(":id", ID);
+    query.bindValue(":firstName", firstName);
+    query.bindValue(":lastName", lastName);
+    return query.exec();
+}

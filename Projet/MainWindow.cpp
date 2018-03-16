@@ -3,6 +3,7 @@
 #include "NewCustomerDialog.h"
 #include "NewDtaffDialog.h"
 #include "AboutDialog.h"
+#include "TreeItem.h"
 
 extern DBConnect * db;
 
@@ -16,9 +17,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	
 	//Initialize tab 1 || SQLTable
 	model = new MySqlTableModel(this, db->getDB()); //Model to avoid modifying column 0
-	QObject::connect(model, SIGNAL(dataChanged(
-			                               const QModelIndex, const QModelIndex, const QVector<int>)), this, SLOT(on_table_data_changed(
-					                                                                                                      const QModelIndex, const QModelIndex, const QVector<int>)));
+    QObject::connect(model, SIGNAL(dataChanged(const QModelIndex&, const QModelIndex&, const QVector<int>&)), this, SLOT(on_table_data_changed(const QModelIndex&, const QModelIndex&, const QVector<int>&)));
 	
 	model->setTable("TClient");
 	model->setEditStrategy(QSqlTableModel::OnRowChange); //Commit edits when a line is changed
@@ -79,6 +78,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	//TODO
 	QStringList headers = QStringList("Data");
 	model2 = new TreeModel(this); //Model to avoid modifying column
+    QObject::connect(model2, SIGNAL(dataChanged(const QModelIndex, const QModelIndex, const QVector<int>)), this, SLOT(on_table2_data_changed(const QModelIndex, const QModelIndex, const QVector<int>)));
 	ui->treeView->setModel(model2);
 	
 	//Initialize tab 3
@@ -335,4 +335,45 @@ void MainWindow::on_idLineEdit_textEdited(const QString &arg1)
 		idModel->setFilterRegExp(arg1);
 	else
 		qobject_cast<QLineEdit *>(sender())->setText(arg1.left(arg1.length() - 1));
+}
+
+void MainWindow::on_table2_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
+{
+    (void) roles; //Unused warning taken down
+    if(topLeft.column() == bottomRight.column() && topLeft.row() == bottomRight.row()) //If we edited only one cell
+    {
+        QModelIndex index = topLeft;
+        int depth = 0;
+        while ( index.parent().isValid() )
+        {
+          index = index.parent();
+          depth++;
+        }
+        if(depth == 0) //Type changed
+        {
+            TreeItem * item = model2->getItem(topLeft);
+            int resID = item->data(2).toInt();
+            if(db->changeResourceName(resID, item->data(0).toString()))
+            {
+                setStatusText("Resource name changed", 2000);
+            }
+            else
+            {
+                setStatusText("The resource name failed to be changed, try again later ;)");
+            }
+        }
+        else if(depth == 1) //Staff changed
+        {
+            TreeItem * item = model2->getItem(topLeft);
+            int resID = item->data(2).toInt();
+            if(db->changeStaffName(resID, item->data(0).toString(), item->data(1).toString()))
+            {
+                setStatusText("Staff name changed", 2000);
+            }
+            else
+            {
+                setStatusText("The staff name failed to be changed, try again later ;)");
+            }
+        }
+    }
 }
