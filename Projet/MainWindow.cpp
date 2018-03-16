@@ -178,19 +178,21 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 			{
 				break;
 			}
-			
-			int current = ui->tableView->selectionModel()->currentIndex().row();
-			if(current != -1) //If a row is selected
-			{
-				model->removeRow(current);
-				model->submitAll();
-				model->select();
-				
-				int total = ui->tableView->model()->rowCount();
-				if(current >= total - 1)
-					current = total - 1;
-				ui->tableView->selectRow(current); //Select closest row
-			}
+            if(ui->tabWidget->currentIndex() == 0)
+            {
+                int current = ui->tableView->selectionModel()->currentIndex().row();
+                if(current != -1) //If a row is selected
+                {
+                    model->removeRow(current);
+                    model->submitAll();
+                    model->select();
+
+                    int total = ui->tableView->model()->rowCount();
+                    if(current >= total - 1)
+                        current = total - 1;
+                    ui->tableView->selectRow(current); //Select closest row
+                }
+            }
 			break;
 		}
 			
