@@ -11,7 +11,6 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 {
 	ui->setupUi(this);
 	setFocusPolicy(Qt::StrongFocus); //Catch all the keyboard event
-	setWindowTitle("Application");
 	setStatusText("You are connected");
 	ui->tabWidget->tabBar()->setExpanding(true); //Tabs fill all width
 	
@@ -78,7 +77,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	//TODO
 	QStringList headers = QStringList("Data");
 	model2 = new TreeModel(this); //Model to avoid modifying column
-    QObject::connect(model2, SIGNAL(dataChanged(const QModelIndex, const QModelIndex, const QVector<int>)), this, SLOT(on_table2_data_changed(const QModelIndex, const QModelIndex, const QVector<int>)));
+    QObject::connect(model2, SIGNAL(dataChanged(const QModelIndex, const QModelIndex, const QVector<int>)), this, SLOT(on_tree_data_changed(const QModelIndex, const QModelIndex, const QVector<int>)));
 	ui->treeView->setModel(model2);
 	
 	//Initialize tab 3
@@ -339,7 +338,7 @@ void MainWindow::on_idLineEdit_textEdited(const QString &arg1)
 		qobject_cast<QLineEdit *>(sender())->setText(arg1.left(arg1.length() - 1));
 }
 
-void MainWindow::on_table2_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
+void MainWindow::on_tree_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
 {
     (void) roles; //Unused warning taken down
     if(topLeft.column() == bottomRight.column() && topLeft.row() == bottomRight.row()) //If we edited only one cell
