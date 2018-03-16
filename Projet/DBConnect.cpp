@@ -119,7 +119,7 @@ QList<ResourceType *> * DBConnect::getTypes()
 	QSqlQuery query;
 	if(!query.exec("SELECT Id, Label FROM TType ORDER BY Label;"))
 	{
-		printf("Error getting types! %s\n", query.lastError().text().toStdString().c_str());
+		std::cout << "Error getting types! " << query.lastError().text().toStdString().c_str() << std::endl;
 		return nullptr;
 	}
 	
@@ -158,7 +158,7 @@ bool DBConnect::logUser(QString &user, QString &pass)
 	query.bindValue(":mdp", pass);
 	if(!query.exec())
 	{
-		printf("Error getting login state! %s\n", query.lastError().text().toStdString().c_str());
+		std::cout << "Error getting login state! " << query.lastError().text().toStdString().c_str() << std::endl;
 		return false;
 	}
 	
