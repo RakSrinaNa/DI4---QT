@@ -65,13 +65,13 @@ private:
 private slots:
 	
 	/**
-	 * When the first name is edited.
+     * When the first name filter is edited.
 	 * @param arg1 The cell content.
 	 */
 	void on_firstNameEdit_textEdited(const QString &arg1);
 	
 	/**
-	 * When the last name is edited.
+     * When the last name filter is edited.
 	 * @param arg1 The cell content.
 	 */
 	void on_lastNameEdit_textEdited(const QString &arg1);
@@ -124,13 +124,25 @@ private slots:
 	void on_actionAbout_triggered();
 	
 	/**
-	 * Called then an element in the customer table is modified.
+     * Called when an element in the customer table is modified.
 	 * @param topLeft The top left coordinate of the edit area.
 	 * @param bottomRight The bottom right coordinate of the edit area.
 	 * @param roles The roles.
 	 */
-	void on_table_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles);
+    void on_table_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles);
+
+    /**
+     * Called when an element in the staff tree is modified.
+     * @param topLeft The top left coordinate of the edit area.
+     * @param bottomRight The bottom right coordinate of the edit area.
+     * @param roles The roles.
+     */
+    void on_tree_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles);
 	
+    /**
+     * When the id filter is edited.
+     * @param arg1 The cell content.
+     */
 	void on_idLineEdit_textEdited(const QString &arg1);
 
 signals:

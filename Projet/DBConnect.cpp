@@ -289,3 +289,76 @@ QList<Staff *> * DBConnect::getStaffByType(int id)
 	
 	return listStaff;
 }
+
+bool DBConnect::changeResourceName(int ID, QString name)
+{
+    QSqlQuery query;
+    query.prepare("UPDATE TType "
+                  "SET Label = :name "
+                  "WHERE Id = :id;");
+    query.bindValue(":id", ID);
+    query.bindValue(":name", name);
+    return query.exec();
+}
+
+bool DBConnect::changeStaffName(int ID, QString firstName, QString lastName)
+{
+    QSqlQuery query;
+    query.prepare("UPDATE TRessource "
+                  "SET Nom = :lastName, Prenom = :firstName "
+                  "WHERE Id = :id;");
+    query.bindValue(":id", ID);
+    query.bindValue(":firstName", firstName);
+    query.bindValue(":lastName", lastName);
+    return query.exec();
+}
+
+bool DBConnect::removeStaff(int ID)
+{
+    QSqlQuery query;
+    query.prepare("DELETE FROM TRdv "
+                  "WHERE IdRessource = :id;");
+    query.bindValue(":id", ID);
+    query.exec();
+
+    QSqlQuery query2;
+    query2.prepare("DELETE FROM TRessource "
+                  "WHERE Id = :id;");
+    query2.bindValue(":id", ID);
+    return query2.exec();
+}
+
+bool DBConnect::removeResourceType(int ID)
+{
+    bool result = true;
+    QList<Staff *> * staffs = this->getStaffByType(ID);
+
+    QSqlDatabase::database().transaction();
+    for(int i = 0; i < staffs->count(); i++)
+    {
+        Staff * staff = staffs->at(i);
+        result &= this->removeStaff(staff->getId());
+        delete staff;
+    }
+    delete staffs;
+
+    if(result)
+    {
+        QSqlQuery query;
+        query.prepare("DELETE FROM TRessource "
+                      "WHERE Id = :id;");
+        query.bindValue(":id", ID);
+        result &= query.exec();
+    }
+
+    if(!result)
+    {
+        QSqlDatabase::database().rollback();
+    }
+    else
+    {
+        QSqlDatabase::database().commit();
+    }
+
+    return result;
+}

@@ -9,7 +9,7 @@ QT       += core gui \
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = Introduction
+TARGET = SoMuchWoWApp
 TEMPLATE = app
 CONFIG += c++11
 
@@ -60,3 +60,11 @@ FORMS    += \
 
 RESOURCES += \
     resources.qrc
+
+DISTFILES += \
+    app.rc \
+    app.ico \
+    app.icns
+
+RC_FILE = app.rc
+ICON = app.icns

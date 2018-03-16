@@ -14,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>SoMuchWoWApp</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -274,11 +274,19 @@
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionCustomer">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Ressources/customer.png</normaloff>:/Ressources/customer.png</iconset>
+   </property>
    <property name="text">
     <string>Customer</string>
    </property>
   </action>
   <action name="actionStaff">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Ressources/staff.png</normaloff>:/Ressources/staff.png</iconset>
+   </property>
    <property name="text">
     <string>Staff</string>
    </property>
@@ -287,6 +295,10 @@
    </property>
   </action>
   <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Ressources/about.png</normaloff>:/Ressources/about.png</iconset>
+   </property>
    <property name="text">
     <string>About</string>
    </property>
@@ -295,12 +307,18 @@
    </property>
   </action>
   <action name="actionExit">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Ressources/exit.png</normaloff>:/Ressources/exit.png</iconset>
+   </property>
    <property name="text">
     <string>Exit</string>
    </property>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

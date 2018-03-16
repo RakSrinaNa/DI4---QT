@@ -3,6 +3,7 @@
 #include "NewCustomerDialog.h"
 #include "NewDtaffDialog.h"
 #include "AboutDialog.h"
+#include "TreeItem.h"
 
 extern DBConnect * db;
 
@@ -10,15 +11,12 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 {
 	ui->setupUi(this);
 	setFocusPolicy(Qt::StrongFocus); //Catch all the keyboard event
-	setWindowTitle("Application");
 	setStatusText("You are connected");
 	ui->tabWidget->tabBar()->setExpanding(true); //Tabs fill all width
 	
 	//Initialize tab 1 || SQLTable
 	model = new MySqlTableModel(this, db->getDB()); //Model to avoid modifying column 0
-	QObject::connect(model, SIGNAL(dataChanged(
-			                               const QModelIndex, const QModelIndex, const QVector<int>)), this, SLOT(on_table_data_changed(
-					                                                                                                      const QModelIndex, const QModelIndex, const QVector<int>)));
+    QObject::connect(model, SIGNAL(dataChanged(const QModelIndex&, const QModelIndex&, const QVector<int>&)), this, SLOT(on_table_data_changed(const QModelIndex&, const QModelIndex&, const QVector<int>&)));
 	
 	model->setTable("TClient");
 	model->setEditStrategy(QSqlTableModel::OnRowChange); //Commit edits when a line is changed
@@ -79,7 +77,13 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	//TODO
 	QStringList headers = QStringList("Data");
 	model2 = new TreeModel(this); //Model to avoid modifying column
+    QObject::connect(model2, SIGNAL(dataChanged(const QModelIndex, const QModelIndex, const QVector<int>)), this, SLOT(on_tree_data_changed(const QModelIndex, const QModelIndex, const QVector<int>)));
 	ui->treeView->setModel(model2);
+
+    for(int c = 0; c < ui->treeView->header()->count(); ++c)
+    {
+        ui->treeView->header()->setSectionResizeMode(c, QHeaderView::Stretch);
+    }
 	
 	//Initialize tab 3
 	ui->planDateEdit->setDate(QDate::currentDate());
@@ -178,19 +182,56 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 			{
 				break;
 			}
-			
-			int current = ui->tableView->selectionModel()->currentIndex().row();
-			if(current != -1) //If a row is selected
-			{
-				model->removeRow(current);
-				model->submitAll();
-				model->select();
-				
-				int total = ui->tableView->model()->rowCount();
-				if(current >= total - 1)
-					current = total - 1;
-				ui->tableView->selectRow(current); //Select closest row
-			}
+            if(ui->tabWidget->currentIndex() == 0)
+            {
+                int current = ui->tableView->selectionModel()->currentIndex().row();
+                if(current != -1) //If a row is selected
+                {
+                    model->removeRow(current);
+                    model->submitAll();
+                    model->select();
+
+                    int total = ui->tableView->model()->rowCount();
+                    if(current >= total - 1)
+                        current = total - 1;
+                    ui->tableView->selectRow(current); //Select closest row
+                }
+            }
+            else if(ui->tabWidget->currentIndex() == 1)
+            {
+                QModelIndex current = ui->treeView->selectionModel()->currentIndex();
+                if(current.row() != -1) //If a row is selected
+                {
+                    TreeItem * item = model2->getItem(ui->treeView->selectionModel()->currentIndex());
+
+                    bool result = true;
+                    QModelIndex index = current;
+                    int depth = 0;
+                    while ( index.parent().isValid() )
+                    {
+                      index = index.parent();
+                      depth++;
+                    }
+                    if(depth == 0) //Removing type
+                    {
+                        result = db->removeResourceType(item->data(2).toInt());
+                    }
+                    else if(depth == 1) //Removing staff
+                    {
+                        result = db->removeStaff(item->data(2).toInt());
+                    }
+
+                    if(result)
+                    {
+                        item->parent()->removeChildren(item);
+                        setStatusText("Element deleted", 2000);
+                    }
+                    else
+                    {
+                        setStatusText("Error deleting datas");
+                    }
+                }
+            }
 			break;
         }
 	}
@@ -301,7 +342,13 @@ void MainWindow::on_table_data_changed(const QModelIndex &topLeft, const QModelI
 				QString s = q.toString();
 				QString cap = s.left(1).toUpper();
 				QString text = s.length() > 1 ? s.right(s.length() - 1).toLower() : "";
-				model->setData(topLeft, (cap + text));
+                if(cap.length() == 0)
+                {
+                    setStatusText("Invalid name, change it!");
+                    model->revertRow(topLeft.row());
+                }
+                else
+                    model->setData(topLeft, (cap + text));
 				break;
 			}
 				//If date column, verify format and if not in the past
@@ -326,4 +373,64 @@ void MainWindow::on_idLineEdit_textEdited(const QString &arg1)
 		idModel->setFilterRegExp(arg1);
 	else
 		qobject_cast<QLineEdit *>(sender())->setText(arg1.left(arg1.length() - 1));
+}
+
+void MainWindow::on_tree_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
+{
+    (void) roles; //Unused warning taken down
+    if(topLeft.column() == bottomRight.column() && topLeft.row() == bottomRight.row()) //If we edited only one cell
+    {
+        QModelIndex index = topLeft;
+        int depth = 0;
+        while ( index.parent().isValid() )
+        {
+          index = index.parent();
+          depth++;
+        }
+        if(depth == 0) //Type changed
+        {
+            TreeItem * item = model2->getItem(topLeft);
+            int resID = item->data(2).toInt();
+            if(item->data(0).toString().length() == 0)
+            {
+                setStatusText("Invalid resource name, change it!");
+            }
+            else if(db->changeResourceName(resID, item->data(0).toString()))
+            {
+                setStatusText("Resource name changed", 2000);
+            }
+            else
+            {
+                setStatusText("The resource name failed to be changed, try again later ;)");
+            }
+        }
+        else if(depth == 1) //Staff changed
+        {
+            TreeItem * item = model2->getItem(topLeft);
+            int resID = item->data(2).toInt();
+
+            QString s1 = item->data(0).toString();
+            QString cap1 = s1.left(1).toUpper();
+            QString text1 = s1.length() > 1 ? s1.right(s1.length() - 1).toLower() : "";
+            item->setData(0, cap1 + text1);
+
+            QString s2 = item->data(1).toString();
+            QString cap2 = s2.left(1).toUpper();
+            QString text2 = s2.length() > 1 ? s2.right(s2.length() - 1).toLower() : "";
+            item->setData(1, cap2 + text2);
+
+            if(cap1.length() == 0 || cap2.length() == 0)
+            {
+                setStatusText("Invalid staff name, change it!");
+            }
+            else if(db->changeStaffName(resID, (cap1 + text1), (cap2 + text2)))
+            {
+                setStatusText("Staff name changed", 2000);
+            }
+            else
+            {
+                setStatusText("The staff name failed to be changed, try again later ;)");
+            }
+        }
+    }
 }

@@ -97,10 +97,10 @@ public:
 	
 	bool removeRows(int position, int rows, const QModelIndex &parent = QModelIndex()) override;
 
+    TreeItem * getItem(const QModelIndex &index) const;
+
 private:
 	void setupModelData();
-	
-	TreeItem * getItem(const QModelIndex &index) const;
 	
 	TreeItem * rootItem;
 };

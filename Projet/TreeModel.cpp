@@ -75,8 +75,9 @@ void TreeModel::reload()
 	endResetModel();
 }
 
-int TreeModel::columnCount(const QModelIndex & /* parent */) const
+int TreeModel::columnCount(const QModelIndex & parent) const
 {
+    (void)parent;
 	return rootItem->columnCount();
 }
 
@@ -95,10 +96,10 @@ QVariant TreeModel::data(const QModelIndex &index, int role) const
 
 Qt::ItemFlags TreeModel::flags(const QModelIndex &index) const
 {
-	if(!index.isValid())
+    if(!index.isValid() || index.column() == 2)
 		return 0;
 	
-	return /*Qt::ItemIsEditable |*/ QAbstractItemModel::flags(index);
+    return Qt::ItemIsEditable | QAbstractItemModel::flags(index);
 }
 
 TreeItem * TreeModel::getItem(const QModelIndex &index) const
@@ -234,7 +235,9 @@ bool TreeModel::setHeaderData(int section, Qt::Orientation orientation, const QV
 void TreeModel::setupModelData()
 {
 	QVector<QVariant> rootData;
-	rootData << "Data";
+    rootData << "First name";
+    rootData << "Last name";
+    rootData << "Id";
 	
 	rootItem = new TreeItem(rootData);
 	
@@ -246,7 +249,9 @@ void TreeModel::setupModelData()
 	{
 		ResourceType * resource = resources->at(i);
 		QVector<QVariant> columnDataResources;
-		columnDataResources << resource->getName();
+        columnDataResources << resource->getName();
+        columnDataResources << "";
+        columnDataResources << resource->getId();
 		
 		TreeItem * parent = parents.last();
 		parent->insertChildren(parent->childCount(), 1, rootItem->columnCount());
@@ -260,8 +265,10 @@ void TreeModel::setupModelData()
 			Staff * staff = staffs->at(j);
 			
 			QVector<QVariant> columnDataStaff;
-			
-			columnDataStaff << staff->getDescription();
+
+            columnDataStaff << staff->getFirstName();
+            columnDataStaff << staff->getLastName();
+            columnDataStaff << staff->getId();
 			
 			resItem->insertChildren(resItem->childCount(), 1, rootItem->columnCount());
 			for(int column = 0; column < columnDataStaff.size(); ++column)
