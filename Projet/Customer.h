@@ -9,7 +9,7 @@
 #include <iostream>
 
 #include "Staff.h"
-#include "RessourceType.h"
+#include "ResourceType.h"
 
 using namespace std;
 

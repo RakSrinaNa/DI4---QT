@@ -12,16 +12,18 @@
 class Schedule
 {
 private:
-    QList<TimeLine *> listTimeLine;
+	QList<TimeLine *> listTimeLine;
 
 public:
-    Schedule(QList<Staff *> * list);
+	Schedule(QList<Staff *> * list);
+	
 	~Schedule();
 	
 	bool addCustomer(Customer * customer);
-    TimeLine * getNextTimeLine(int idResource);
-
-    QString toHtmlString();
+	
+	TimeLine * getNextTimeLine(int idResource);
+	
+	QString toHtmlString();
 };
 
 #endif // SCHEDULE_H

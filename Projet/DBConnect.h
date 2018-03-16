@@ -12,7 +12,7 @@
 
 #include "Customer.h"
 #include "Staff.h"
-#include "RessourceType.h"
+#include "ResourceType.h"
 
 /**
  * Class to handle database queries.
@@ -89,12 +89,18 @@ public:
 	 * @return The customers on this date.
 	 */
 	QList<Customer *> * getClientsFromDate(QDate date);
-
-    /**
-     * Get all the staff members
-     * @return All the staff members
-     */
-    QList<Staff *> * getAllStaff();
+	
+	/**
+	 * Get all the staff members
+	 * @return All the staff members
+	 */
+	QList<Staff *> * getAllStaff();
+	
+	/**
+	 * Get all the staff members
+	 * @return All the staff members
+	 */
+	QList<Staff *> * getStaffByType(int id);
 
 private:
 	QSqlDatabase db;

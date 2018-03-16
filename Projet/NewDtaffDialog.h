@@ -5,7 +5,7 @@
 
 #include "Staff.h"
 #include "DBConnect.h"
-#include "RessourceType.h"
+#include "ResourceType.h"
 
 namespace Ui
 {

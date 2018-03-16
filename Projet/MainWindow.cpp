@@ -16,7 +16,9 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	
 	//Initialize tab 1 || SQLTable
 	model = new MySqlTableModel(this, db->getDB()); //Model to avoid modifying column 0
-	QObject::connect(model, SIGNAL(dataChanged(const QModelIndex, const QModelIndex, const QVector<int>)), this, SLOT(on_table_data_changed(const QModelIndex, const QModelIndex, const QVector<int>)));
+	QObject::connect(model, SIGNAL(dataChanged(
+			                               const QModelIndex, const QModelIndex, const QVector<int>)), this, SLOT(on_table_data_changed(
+					                                                                                                      const QModelIndex, const QModelIndex, const QVector<int>)));
 	
 	model->setTable("TClient");
 	model->setEditStrategy(QSqlTableModel::OnRowChange); //Commit edits when a line is changed
@@ -75,6 +77,9 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	
 	//Initialize tab 2
 	//TODO
+	QStringList headers = QStringList("Data");
+	model2 = new TreeModel(this); //Model to avoid modifying column
+	ui->treeView->setModel(model2);
 	
 	//Initialize tab 3
 	ui->planDateEdit->setDate(QDate::currentDate());
@@ -112,7 +117,10 @@ void MainWindow::on_actionStaff_triggered()
 	if(newStaff.exec() == QDialog::Accepted)
 	{
 		if(db->addStaff(newStaff.getStaff()))
+		{
 			setStatusText("A new staff member was added", 5000);
+			model2->reload();
+		}
 		else
 			setStatusText("Fail to add new staff member", 5000);
 	}
@@ -194,24 +202,24 @@ void MainWindow::on_planPushButton_clicked()
 	QDate date = ui->planDateEdit->date();
 	QString s("");
 	
-    //Get all customers
-    QList<Customer *> * listCustomers = db->getClientsFromDate(date);
+	//Get all customers
+	QList<Customer *> * listCustomers = db->getClientsFromDate(date);
 	
-    if(listCustomers->size() == 0)
+	if(listCustomers->size() == 0)
 		s += "No client for " + date.toString("dd MMMM yyyy");
 	
     else{
         //TODO Get all staff members
         QList<Staff *> * listStaff = db->getAllStaff();
-
+	
         Schedule schedule = Schedule(listStaff);
-
+	
         //Schedule all the customers
         for(int i = 0; i < listCustomers->size(); i++)
             schedule.addCustomer(listCustomers->at(i));
-
+	
         s = schedule.toHtmlString();
-
+	
         //Free all staff members
         for(int i = 0; i < listStaff->size(); i++)
             delete listStaff->at(i);
@@ -221,12 +229,12 @@ void MainWindow::on_planPushButton_clicked()
 
 	ui->planTextBrowser->setStyleSheet("background-color:white;");
     ui->planTextBrowser->setText(s);
-
-    //Free all customers
-    for(int i = 0; i < listCustomers->size(); i++)
-        delete listCustomers->at(i);
-    delete listCustomers;
-
+	
+	//Free all customers
+	for(int i = 0; i < listCustomers->size(); i++)
+		delete listCustomers->at(i);
+	delete listCustomers;
+	
 }
 
 void MainWindow::on_pathPushButton_clicked()
@@ -263,7 +271,7 @@ void MainWindow::on_savePushButton_clicked()
 			QTextStream stream(&file);
 			stream << ui->planTextBrowser->toPlainText();
 			file.close();
-			message.setText("Wrote succesfully into file.");
+			message.setText("Wrote successfully into file.");
 		}
 		else
 		{
@@ -296,7 +304,7 @@ void MainWindow::on_table_data_changed(const QModelIndex &topLeft, const QModelI
 				model->setData(topLeft, (cap + text));
 				break;
 			}
-			//If date column, verify format and if not in the past
+				//If date column, verify format and if not in the past
 			case 8:
 			{
 				QDate date = QDate::fromString(q.toString(), "yyyy-MM-dd");
@@ -313,9 +321,9 @@ void MainWindow::on_table_data_changed(const QModelIndex &topLeft, const QModelI
 
 void MainWindow::on_idLineEdit_textEdited(const QString &arg1)
 {
-    QRegExp re("\\d*");
-    if (re.exactMatch(arg1))
-        idModel->setFilterRegExp(arg1);
-    else
-        qobject_cast<QLineEdit *>(sender())->setText(arg1.left(arg1.length() - 1));
+	QRegExp re("\\d*");
+	if(re.exactMatch(arg1))
+		idModel->setFilterRegExp(arg1);
+	else
+		qobject_cast<QLineEdit *>(sender())->setText(arg1.left(arg1.length() - 1));
 }
