@@ -187,13 +187,16 @@ bool DBConnect::addCustomer(Customer * customer)
 	if(!query.exec())
 		return false;
 	
+    int lastId = query.lastInsertId().toInt();
+
 	QList<Staff *> * resources = customer->getResources();
 	for(auto resource : *resources)
 	{
 		QSqlQuery query2;
 		query2.prepare("INSERT INTO TRdv (Id, IdClient, IdRessource) "
-		               "VALUES ((SELECT max(Id) +1 FROM TRdv), (SELECT max(Id) FROM TClient), :idressources)");
-		query2.bindValue(":idressource", QString(resource->getId()));
+                       "VALUES ((SELECT max(Id) +1 FROM TRdv), :lastid, :idressource)");
+        query2.bindValue(":lastid", lastId);
+        query2.bindValue(":idressource", resource->getId());
 		if(!query2.exec())
 			return false;
 	}
@@ -281,9 +284,14 @@ QList<Staff *> * DBConnect::getStaffByType(int id)
 	query.bindValue(":id", id);
 	if(query.exec())
 	{
+        std::cout << "ID source : " << id << std::endl;
+        std::cout << "Query size : " << query.size() << std::endl;
+
 		while(query.next())
-		{
-			*listStaff << getStaff(query.value("TRessource.Id").toInt(), false);
+        {
+            Staff * staff = getStaff(query.value("TRessource.Id").toInt(), false);
+            if(staff != nullptr)
+                *listStaff << staff;
 		}
 	}
 	

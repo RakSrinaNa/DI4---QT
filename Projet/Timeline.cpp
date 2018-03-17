@@ -44,7 +44,6 @@ int TimeLine::getStartHour(int index)
 
 int TimeLine::getEndHour(int index)
 {
-    std::cout << getCustomer(index)->getDurationInMin() << std::endl;
 	return hours.at(index).second + getCustomer(index)->getDurationInMin();
 }
 
