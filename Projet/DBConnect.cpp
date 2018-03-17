@@ -238,7 +238,7 @@ QList<Customer *> * DBConnect::getClientsFromDate(QDate date)
 	auto * listCustomers = new QList<Customer *>();
 	
 	QSqlQuery query;
-	query.prepare("SELECT * FROM TClient WHERE DateRdv = :date ORDER BY Priorite *100 + (SELECT count(*) FROM TRdv WHERE IdClient = TClient.id) *10 + DureeRdv;");
+    query.prepare("SELECT * FROM TClient WHERE DateRdv = :date ORDER BY (Priorite *100 + (SELECT count(*) FROM TRdv WHERE IdClient = TClient.Id) *10 + DureeRdv);");
 	query.bindValue(":date", date.toString("yyyy-MM-dd"));
 	
 	if(!query.exec())
@@ -278,18 +278,15 @@ QList<Staff *> * DBConnect::getStaffByType(int id)
 	auto * listStaff = new QList<Staff *>();
 	
 	QSqlQuery query;
-	query.prepare("SELECT TRessource.Id, TRessource.IdType "
+    query.prepare("SELECT TRessource.Id, TRessource.IdType "
 	              "FROM TRessource "
 	              "WHERE TRessource.IdType = :id;");
 	query.bindValue(":id", id);
 	if(query.exec())
-	{
-        std::cout << "ID source : " << id << std::endl;
-        std::cout << "Query size : " << query.size() << std::endl;
-
+    {
 		while(query.next())
         {
-            Staff * staff = getStaff(query.value("TRessource.Id").toInt(), false);
+            Staff * staff = getStaff(query.value(0).toLongLong(), false);
             if(staff != nullptr)
                 *listStaff << staff;
 		}

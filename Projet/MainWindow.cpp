@@ -307,11 +307,11 @@ void MainWindow::on_savePushButton_clicked()
 	if(ok) //If everything needed is present
 	{
 		QFile file(ui->pathLineEdit->text() + "/" + ui->saveLineEdit->text());
-		if(file.open(QIODevice::WriteOnly)) //Write into file
+        if(file.open(QIODevice::WriteOnly | QIODevice::Text)) //Write into file
 		{
-			QTextStream stream(&file);
-			stream << ui->planTextBrowser->toPlainText();
-			file.close();
+            QTextStream stream(&file);
+            stream << ui->planTextBrowser->toPlainText();
+            file.close();
 			message.setText("Wrote successfully into file.");
 		}
 		else

@@ -60,7 +60,7 @@ QString Schedule::toHtmlString()
 		TimeLine timeLine = *listTimeLine.at(i);
 		if(timeLine.size() == 0)
 			continue;
-		text += timeLine.getStaff()->getDescription() + "\n";
+        text += timeLine.getStaff()->getDescription() + "\n";
 		
 		for(int j = 0; j < timeLine.size(); j++)
 		{
