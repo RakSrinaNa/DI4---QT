@@ -174,7 +174,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 {
 	switch(event->key())
 	{
-		//If deleting element in the sql table
+        //If delate is pressed
 		case Qt::Key_Backspace:
 		case Qt::Key_Delete:
 		{
@@ -182,7 +182,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 			{
 				break;
 			}
-            if(ui->tabWidget->currentIndex() == 0)
+            if(ui->tabWidget->currentIndex() == 0) //If in the first tab (sql table)
             {
                 int current = ui->tableView->selectionModel()->currentIndex().row();
                 if(current != -1) //If a row is selected
@@ -197,7 +197,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
                     ui->tableView->selectRow(current); //Select closest row
                 }
             }
-            else if(ui->tabWidget->currentIndex() == 1)
+            else if(ui->tabWidget->currentIndex() == 1) //If in the second tab (tree)
             {
                 QModelIndex current = ui->treeView->selectionModel()->currentIndex();
                 if(current.row() != -1) //If a row is selected
