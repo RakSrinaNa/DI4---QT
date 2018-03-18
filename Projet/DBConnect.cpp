@@ -124,6 +124,7 @@ QList<ResourceType *> * DBConnect::getTypes()
 	if(!query.exec("SELECT Id, Label FROM TType ORDER BY Label;"))
 	{
 		std::cout << "Error getting types! " << query.lastError().text().toStdString().c_str() << std::endl;
+        delete resourceList;
 		return nullptr;
 	}
 
