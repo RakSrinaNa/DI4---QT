@@ -1,8 +1,6 @@
 #include "c_init_bd.h"
 
-C_INIT_BD::C_INIT_BD()
-{
-}
+C_INIT_BD::C_INIT_BD() = default;
 
 bool C_INIT_BD::Creation_BD()
 {
@@ -25,7 +23,7 @@ bool C_INIT_BD::Creation_BD()
 		if(!db.isOpen())
 		{
 			qDebug() << db.lastError().text();
-			qDebug() << "Erreur à louverture de la base !\n";
+			qDebug() << "Error opening DB!\n";
 			return false;
 		}
 		
@@ -37,7 +35,7 @@ bool C_INIT_BD::Creation_BD()
 		if(!b_test)
 		{
 			qDebug() << query.lastError().text();
-			qDebug() << "Table TCompte non crée !\n";
+			qDebug() << "Table TCompte not created!\n";
 			return false;
 		}
 		
@@ -48,7 +46,7 @@ bool C_INIT_BD::Creation_BD()
 		if(!b_test)
 		{
 			qDebug() << query.lastError().text();
-			qDebug() << "Table TRdv non crée !\n";
+			qDebug() << "Table TRdv not created!\n";
 			return false;
 		}
 		
@@ -67,7 +65,7 @@ bool C_INIT_BD::Creation_BD()
 		if(!b_test)
 		{
 			qDebug() << query.lastError().text();
-			qDebug() << "Table TClient non crée !\n";
+			qDebug() << "Table TClient not created!\n";
 			return false;
 		}
 		
@@ -79,7 +77,7 @@ bool C_INIT_BD::Creation_BD()
 		if(!b_test)
 		{
 			qDebug() << query.lastError().text();
-			qDebug() << "Table TRessource non crée !\n";
+			qDebug() << "Table TRessource not created!\n";
 			return false;
 		}
 		
@@ -89,7 +87,7 @@ bool C_INIT_BD::Creation_BD()
 		if(!b_test)
 		{
 			qDebug() << query.lastError().text();
-			qDebug() << "Table TType non crée !\n";
+			qDebug() << "Table TType not created!\n";
 			return false;
 		}
 		
@@ -98,7 +96,7 @@ bool C_INIT_BD::Creation_BD()
 		if(!b_test)
 		{
 			qDebug() << query.lastError().text();
-			qDebug() << "Insertion de données dans TCompte impossible !\n";
+			qDebug() << "Couldn't insert data into TCompte!\n";
 			return false;
 		}
 		
@@ -116,7 +114,7 @@ bool C_INIT_BD::Creation_BD()
 		if(!b_test)
 		{
 			qDebug() << query.lastError().text();
-			qDebug() << "Insertion de données dans TRdv impossible !\n";
+			qDebug() << "Couldn't insert data into TRdv!\n";
 			return false;
 		}
 		
@@ -130,7 +128,7 @@ bool C_INIT_BD::Creation_BD()
 		if(!b_test)
 		{
 			qDebug() << query.lastError().text();
-			qDebug() << "Insertion de données dans TClient impossible !\n";
+			qDebug() << "Couldn't insert data into TClient!\n";
 			return false;
 		}
 		
@@ -150,7 +148,7 @@ bool C_INIT_BD::Creation_BD()
 		if(!b_test)
 		{
 			qDebug() << query.lastError().text();
-			qDebug() << "Insertion de données dans TRessource impossible !\n";
+			qDebug() << "Couldn't insert data into TRessource!\n";
 			return false;
 		}
 		
@@ -165,18 +163,18 @@ bool C_INIT_BD::Creation_BD()
 		if(!b_test)
 		{
 			qDebug() << query.lastError().text();
-			qDebug() << "Insertion de données dans TType impossible !\n";
+			qDebug() << "Couldn't insert data into TType!\n";
 			return false;
 		}
 		
 		db.close();
-		db.removeDatabase("QSQLITE");
+		QSqlDatabase::removeDatabase("QSQLITE");
 		return true;
 	}
 	else
 	{
 		qDebug() << db.lastError().text();
-		qDebug() << "Erreur à création de la base !\n";
+		qDebug() << "Error creating database!\n";
 		return false;
 	}
 }
