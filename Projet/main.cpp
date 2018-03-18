@@ -9,7 +9,7 @@ int main(int argc, char * argv[])
 {
 	QApplication a(argc, argv);
 
-	std::cout << "Création de la DBB: " << (C_INIT_BD::Creation_BD() ? "true" : "false") << std::endl;
+	std::cout << "Creating DB: " << (C_INIT_BD::Creation_BD() ? "true" : "false") << std::endl;
 	db = new DBConnect();
 
 	MainWindow w;

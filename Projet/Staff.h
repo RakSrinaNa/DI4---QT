@@ -62,7 +62,7 @@ public:
 	
 	/**
 	 * Get the ID of the staff member.
-	 * @return Iits ID.
+	 * @return Its ID.
 	 */
 	int getId();
 
