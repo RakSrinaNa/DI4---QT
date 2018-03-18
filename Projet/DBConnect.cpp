@@ -48,7 +48,7 @@ Customer * DBConnect::getCustomer(int id)
 	auto * resources = new QList<Staff *>();
 
 	//Get the resources of the customer
-	query.prepare("SELECT * "
+    query.prepare("SELECT TRessource.Id "
 				  "FROM TClient "
 				  "INNER JOIN TRdv ON TClient.Id = TRdv.IdClient "
 				  "INNER JOIN TRessource ON TRessource.Id = TRdv.IdRessource "
@@ -64,7 +64,7 @@ Customer * DBConnect::getCustomer(int id)
 
 	while(query.next())
 	{
-		(*resources) << (getStaff(query.value("IdType").toLongLong()));
+        (*resources) << (getStaff(query.value(0).toInt()));
 	}
 
 	//Get the rest of the customer
