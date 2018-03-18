@@ -250,8 +250,7 @@ void MainWindow::on_planPushButton_clicked()
 	if(listCustomers->size() == 0)
 		s += "No client for " + date.toString("dd MMMM yyyy");
 
-	else{
-		//TODO Get all staff members
+    else{
 		QList<Staff *> * listStaff = db->getAllStaff();
 
 		Schedule schedule = Schedule(listStaff);

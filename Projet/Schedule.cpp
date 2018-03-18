@@ -15,23 +15,37 @@ Schedule::~Schedule()
 
 bool Schedule::addCustomer(Customer * customer)
 {
-	QList<TimeLine *> timeLines = QList<TimeLine *>();
-	for(int i = 0; i < customer->getResources()->size(); i++)
-	{
-		TimeLine * timeLine = getNextTimeLine(customer->getResources()->at(i)->getId());
-		if(timeLine == nullptr)
-			return false;
-		timeLines << timeLine;
-	}
-	
-	int endHour = 0;
-	for(int i = 0; i < timeLines.size(); i++)
-	{
-		endHour = timeLines.at(i)->addCustomer(customer, std::max(endHour, timeLines.at(i)->getNextHour()));
-	}
-	
+    if(customer == nullptr)
+        return false;
+
+    QList<TimeLine *> * appropriatedTimeLines = getAppropriatedTimeLines(customer);
+
+    int endHour = 0;
+
+    for(int i = 0; i < appropriatedTimeLines->size(); i++){
+        endHour = appropriatedTimeLines->at(i)->addCustomer(customer, std::max(endHour, appropriatedTimeLines->at(i)->getNextHour()));
+    }
+
+    delete appropriatedTimeLines;
+
 	return true;
 }
+
+QList<TimeLine *> * Schedule::getAppropriatedTimeLines(Customer * customer)
+{
+    QList<TimeLine *> * appropriatedTimeLines = new QList<TimeLine *>();
+    auto resources = customer->getResources();
+
+    for(int i = 0; i < listTimeLine.size(); i++)
+        for(int j = 0; j < resources->size(); j++)
+            if(listTimeLine.at(i)->getStaff()->getId() == resources->at(j)->getId())
+                appropriatedTimeLines->append(listTimeLine.at(i));
+
+    //TODO order appropriatedTimeLines by end hour
+
+    return appropriatedTimeLines;
+}
+
 
 TimeLine * Schedule::getNextTimeLine(int idResource)
 {
@@ -39,7 +53,7 @@ TimeLine * Schedule::getNextTimeLine(int idResource)
 	
 	for(int i = 0; i < listTimeLine.size(); i++)
 	{
-		if(listTimeLine.at(i)->getTypeId() == idResource)
+        if(listTimeLine.at(i)->getStaff()->getId() == idResource)
 		{
 			if(timeLine == nullptr)
 				timeLine = listTimeLine.at(i);

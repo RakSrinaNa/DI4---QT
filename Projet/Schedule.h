@@ -16,12 +16,11 @@ private:
 
 public:
 	Schedule(QList<Staff *> * list);
-	
 	~Schedule();
 	
 	bool addCustomer(Customer * customer);
-	
 	TimeLine * getNextTimeLine(int idResource);
+    QList<TimeLine *> * getAppropriatedTimeLines(Customer * customer);
 	
 	QString toHtmlString();
 };
