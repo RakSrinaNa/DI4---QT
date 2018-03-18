@@ -5,16 +5,16 @@
 DBConnect::DBConnect()
 {
 	db = QSqlDatabase::addDatabase("QSQLITE");
-	
+
 	if(db.isValid())
 	{
 		db.setHostName("localhost");
 		db.setUserName("root");
 		db.setPassword("password");
-		
+
 		db.setDatabaseName("base_tmp.sqli");
 		db.open();
-		
+
 		if(!db.isOpen())
 		{
 			qDebug() << db.lastError().text();
@@ -46,27 +46,27 @@ Customer * DBConnect::getCustomer(int id)
 	QSqlQuery query;
 	Customer * customer = nullptr;
 	auto * resources = new QList<Staff *>();
-	
+
 	//Get the resources of the customer
 	query.prepare("SELECT * "
-	              "FROM TClient "
-	              "INNER JOIN TRdv ON TClient.Id = TRdv.IdClient "
-	              "INNER JOIN TRessource ON TRessource.Id = TRdv.IdRessource "
-	              "WHERE TClient.Id = :id;");
-	
+				  "FROM TClient "
+				  "INNER JOIN TRdv ON TClient.Id = TRdv.IdClient "
+				  "INNER JOIN TRessource ON TRessource.Id = TRdv.IdRessource "
+				  "WHERE TClient.Id = :id;");
+
 	query.bindValue(":id", id);
-	
+
 	if(!query.exec())
 	{
 		std::cout << "Error getting customer's ressources " << id << ", " << query.lastError().text().toStdString() << std::endl;
 		return nullptr;
 	}
-	
+
 	while(query.next())
 	{
 		(*resources) << (getStaff(query.value("IdType").toLongLong()));
 	}
-	
+
 	//Get the rest of the customer
 	query.prepare("SELECT * FROM TClient WHERE `Id` = :id");
 	query.bindValue(":id", id);
@@ -75,9 +75,9 @@ Customer * DBConnect::getCustomer(int id)
 		std::cout << "Error getting customer " << id << ", " << query.lastError().text().toStdString() << std::endl;
 		return nullptr;
 	}
-	
+
 	if(query.next())
-        customer = new Customer(id, query.value("Nom").toString(), query.value("Prenom").toString(), query.value("Adresse").toString(), query.value("Ville").toString(), query.value("CP").toString(), QDate::fromString(query.value("DateRdv").toString(), "yyyy-MM-dd"), QTime(0, 0).addSecs(query.value("DureeRdv").toInt() * 60), query.value("Priorite").toString(), resources, query.value("Commentaire").toString(), query.value("Tel").toString());
+		customer = new Customer(id, query.value("Nom").toString(), query.value("Prenom").toString(), query.value("Adresse").toString(), query.value("Ville").toString(), query.value("CP").toString(), QDate::fromString(query.value("DateRdv").toString(), "yyyy-MM-dd"), QTime(0, 0).addSecs(query.value("DureeRdv").toInt() * 60), query.value("Priorite").toString(), resources, query.value("Commentaire").toString(), query.value("Tel").toString());
 
 	return customer;
 }
@@ -86,22 +86,22 @@ Staff * DBConnect::getStaff(int id, bool logPass)
 {
 	QSqlQuery query;
 	Staff * staff = nullptr;
-	
+
 	//Get the staff member
 	query.prepare("SELECT TRessource.Id, TRessource.Nom, TRessource.Prenom, TType.Id, TType.Label, TCompte.Login, TCompte.Mdp "
-	              "FROM TRessource "
-	              "INNER JOIN TType ON TRessource.IdType = TType.Id "
-	              "LEFT JOIN TCompte ON TCompte.IdRessource = TRessource.Id "
-	              "WHERE TRessource.Id = :id;");
-	
+				  "FROM TRessource "
+				  "INNER JOIN TType ON TRessource.IdType = TType.Id "
+				  "LEFT JOIN TCompte ON TCompte.IdRessource = TRessource.Id "
+				  "WHERE TRessource.Id = :id;");
+
 	query.bindValue(":id", id);
-	
+
 	if(!query.exec())
 	{
 		std::cout << "Error getting staff " << id << ", " << (logPass ? "true" : "false") << "! " << query.lastError().text().toStdString() << std::endl;
 		return nullptr;
 	}
-	
+
 	if(query.next())
 	{
 		if(logPass)
@@ -109,7 +109,7 @@ Staff * DBConnect::getStaff(int id, bool logPass)
 		else
 			staff = new Staff(query.value(0).toInt(), query.value(1).toString(), query.value(2).toString(), query.value(3).toInt(), query.value(4).toString());
 	}
-	
+
 	return staff;
 }
 
@@ -122,7 +122,7 @@ QList<ResourceType *> * DBConnect::getTypes()
 		std::cout << "Error getting types! " << query.lastError().text().toStdString().c_str() << std::endl;
 		return nullptr;
 	}
-	
+
 	while(query.next())
 	{
 		(*resourceList) << new ResourceType(query.value("Id").toInt(), query.value("Label").toString());
@@ -140,13 +140,13 @@ ResourceType * DBConnect::getType(int id)
 		std::cout << "Error getting types! " << query.lastError().text().toStdString() << std::endl;
 		return nullptr;
 	}
-	
+
 	if(query.next())
 	{
 		ResourceType * r = new ResourceType(query.value("Id").toInt(), query.value("Label").toString());
 		return r;
 	}
-	
+
 	return nullptr;
 }
 
@@ -161,7 +161,7 @@ bool DBConnect::logUser(QString &user, QString &pass)
 		std::cout << "Error getting login state! " << query.lastError().text().toStdString().c_str() << std::endl;
 		return false;
 	}
-	
+
 	return query.next();
 }
 
@@ -169,10 +169,10 @@ bool DBConnect::addCustomer(Customer * customer)
 {
 	if(customer == nullptr)
 		return false;
-	
+
 	QSqlQuery query;
 	query.prepare("INSERT INTO TClient (Id, Nom, Prenom, Adresse, Ville, CP, Commentaire, Tel, DateRdv, DureeRdv, Priorite) "
-	              "VALUES ((SELECT max(Id) +1 FROM TClient), :firstName, :lastName, :address, :city, :postal, :comm, :tel, :date, :dura, :prio);");
+				  "VALUES ((SELECT max(Id) +1 FROM TClient), :firstName, :lastName, :address, :city, :postal, :comm, :tel, :date, :dura, :prio);");
 	query.bindValue(":lastName", customer->getLastName());
 	query.bindValue(":firstName", customer->getFirstName());
 	query.bindValue(":address", customer->getAddress());
@@ -183,24 +183,24 @@ bool DBConnect::addCustomer(Customer * customer)
 	query.bindValue(":date", customer->getDayOfConsultation().toString("yyyy-MM-dd"));
 	query.bindValue(":dura", customer->getDurationInMin());
 	query.bindValue(":prio", customer->getPriority());
-	
+
 	if(!query.exec())
 		return false;
-	
-    int lastId = query.lastInsertId().toInt();
+
+	int lastId = query.lastInsertId().toInt();
 
 	QList<Staff *> * resources = customer->getResources();
 	for(auto resource : *resources)
 	{
 		QSqlQuery query2;
 		query2.prepare("INSERT INTO TRdv (Id, IdClient, IdRessource) "
-                       "VALUES ((SELECT max(Id) +1 FROM TRdv), :lastid, :idressource)");
-        query2.bindValue(":lastid", lastId);
-        query2.bindValue(":idressource", resource->getId());
+					   "VALUES ((SELECT max(Id) +1 FROM TRdv), :lastid, :idressource)");
+		query2.bindValue(":lastid", lastId);
+		query2.bindValue(":idressource", resource->getId());
 		if(!query2.exec())
 			return false;
 	}
-	
+
 	return true;
 }
 
@@ -208,39 +208,39 @@ bool DBConnect::addStaff(Staff * staff)
 {
 	if(staff == nullptr)
 		return false;
-	
+
 	QSqlQuery query;
 	query.prepare("INSERT INTO TRessource (Id, Nom, Prenom, IdType) "
-                  "VALUES ((SELECT max(Id) +1 FROM TRessource), (:lastName), (:firstName), (:type));");
+				  "VALUES ((SELECT max(Id) +1 FROM TRessource), (:lastName), (:firstName), (:type));");
 	query.bindValue(":lastName", staff->getLastName());
 	query.bindValue(":firstName", staff->getFirstName());
 	query.bindValue(":type", staff->getResourceType()->getId());
 
-    if(!query.exec())
-        return false;
+	if(!query.exec())
+		return false;
 
-    if(staff->getResourceType()->getName() == "Informaticien"){
-        QSqlQuery query2;
-        query2.prepare("INSERT INTO TCompte (Id, IdRessource, Login, MdP) "
-                      "VALUES ((SELECT max(Id) +1 FROM TCompte), (SELECT max(Id) FROM TRessource), :log, :mdp)");
-        query2.bindValue(":log", staff->getLogin());
-        query2.bindValue(":mdp", staff->getPassword());
+	if(staff->getResourceType()->getName() == "Informaticien"){
+		QSqlQuery query2;
+		query2.prepare("INSERT INTO TCompte (Id, IdRessource, Login, MdP) "
+					  "VALUES ((SELECT max(Id) +1 FROM TCompte), (SELECT max(Id) FROM TRessource), :log, :mdp)");
+		query2.bindValue(":log", staff->getLogin());
+		query2.bindValue(":mdp", staff->getPassword());
 
-        if(!query2.exec())
-            return false;
-    }
-	
-    return true;
+		if(!query2.exec())
+			return false;
+	}
+
+	return true;
 }
 
 QList<Customer *> * DBConnect::getClientsFromDate(QDate date)
 {
 	auto * listCustomers = new QList<Customer *>();
-	
+
 	QSqlQuery query;
-    query.prepare("SELECT * FROM TClient WHERE DateRdv = :date ORDER BY (Priorite *100 + (SELECT count(*) FROM TRdv WHERE IdClient = TClient.Id) *10 + DureeRdv);");
+	query.prepare("SELECT * FROM TClient WHERE DateRdv = :date ORDER BY (Priorite *100 + (SELECT count(*) FROM TRdv WHERE IdClient = TClient.Id) *10 + DureeRdv);");
 	query.bindValue(":date", date.toString("yyyy-MM-dd"));
-	
+
 	if(!query.exec())
 		std::cout << "Error" << std::endl;
 	else
@@ -250,14 +250,14 @@ QList<Customer *> * DBConnect::getClientsFromDate(QDate date)
 			if(customer != nullptr)
 				*listCustomers << customer;
 		}
-	
+
 	return listCustomers;
 }
 
 QList<Staff *> * DBConnect::getAllStaff()
 {
 	auto * listStaff = new QList<Staff *>();
-	
+
 	QSqlQuery query;
 	query.prepare("SELECT Id FROM TRessource");
 	if(query.exec())
@@ -269,101 +269,101 @@ QList<Staff *> * DBConnect::getAllStaff()
 				*listStaff << staff;
 		}
 	}
-	
+
 	return listStaff;
 }
 
 QList<Staff *> * DBConnect::getStaffByType(int id)
 {
 	auto * listStaff = new QList<Staff *>();
-	
+
 	QSqlQuery query;
-    query.prepare("SELECT TRessource.Id, TRessource.IdType "
-	              "FROM TRessource "
-	              "WHERE TRessource.IdType = :id;");
+	query.prepare("SELECT TRessource.Id, TRessource.IdType "
+				  "FROM TRessource "
+				  "WHERE TRessource.IdType = :id;");
 	query.bindValue(":id", id);
 	if(query.exec())
-    {
+	{
 		while(query.next())
-        {
-            Staff * staff = getStaff(query.value(0).toLongLong(), false);
-            if(staff != nullptr)
-                *listStaff << staff;
+		{
+			Staff * staff = getStaff(query.value(0).toLongLong(), false);
+			if(staff != nullptr)
+				*listStaff << staff;
 		}
 	}
-	
+
 	return listStaff;
 }
 
 bool DBConnect::changeResourceName(int ID, QString name)
 {
-    QSqlQuery query;
-    query.prepare("UPDATE TType "
-                  "SET Label = :name "
-                  "WHERE Id = :id;");
-    query.bindValue(":id", ID);
-    query.bindValue(":name", name);
-    return query.exec();
+	QSqlQuery query;
+	query.prepare("UPDATE TType "
+				  "SET Label = :name "
+				  "WHERE Id = :id;");
+	query.bindValue(":id", ID);
+	query.bindValue(":name", name);
+	return query.exec();
 }
 
 bool DBConnect::changeStaffName(int ID, QString firstName, QString lastName)
 {
-    QSqlQuery query;
-    query.prepare("UPDATE TRessource "
-                  "SET Nom = :lastName, Prenom = :firstName "
-                  "WHERE Id = :id;");
-    query.bindValue(":id", ID);
-    query.bindValue(":firstName", firstName);
-    query.bindValue(":lastName", lastName);
-    return query.exec();
+	QSqlQuery query;
+	query.prepare("UPDATE TRessource "
+				  "SET Nom = :lastName, Prenom = :firstName "
+				  "WHERE Id = :id;");
+	query.bindValue(":id", ID);
+	query.bindValue(":firstName", firstName);
+	query.bindValue(":lastName", lastName);
+	return query.exec();
 }
 
 bool DBConnect::removeStaff(int ID)
 {
-    QSqlQuery query;
-    query.prepare("DELETE FROM TRdv "
-                  "WHERE IdRessource = :id;");
-    query.bindValue(":id", ID);
-    query.exec();
+	QSqlQuery query;
+	query.prepare("DELETE FROM TRdv "
+				  "WHERE IdRessource = :id;");
+	query.bindValue(":id", ID);
+	query.exec();
 
-    QSqlQuery query2;
-    query2.prepare("DELETE FROM TRessource "
-                  "WHERE Id = :id;");
-    query2.bindValue(":id", ID);
-    return query2.exec();
+	QSqlQuery query2;
+	query2.prepare("DELETE FROM TRessource "
+				  "WHERE Id = :id;");
+	query2.bindValue(":id", ID);
+	return query2.exec();
 }
 
 bool DBConnect::removeResourceType(int ID)
 {
-    bool result = true;
-    QList<Staff *> * staffs = this->getStaffByType(ID);
+	bool result = true;
+	QList<Staff *> * staffs = this->getStaffByType(ID);
 
-    QSqlDatabase::database().transaction();
-    for(int i = 0; i < staffs->count(); i++)
-    {
-        Staff * staff = staffs->at(i);
-        result &= this->removeStaff(staff->getId());
-        delete staff;
-    }
-    delete staffs;
+	QSqlDatabase::database().transaction();
+	for(int i = 0; i < staffs->count(); i++)
+	{
+		Staff * staff = staffs->at(i);
+		result &= this->removeStaff(staff->getId());
+		delete staff;
+	}
+	delete staffs;
 
-    if(result)
-    {
-        QSqlQuery query;
-        query.prepare("DELETE FROM TRessource "
-                      "WHERE Id = :id;");
-        query.bindValue(":id", ID);
-        result &= query.exec();
-    }
+	if(result)
+	{
+		QSqlQuery query;
+		query.prepare("DELETE FROM TRessource "
+					  "WHERE Id = :id;");
+		query.bindValue(":id", ID);
+		result &= query.exec();
+	}
 
-    if(!result)
-    {
-        QSqlDatabase::database().rollback();
-    }
-    else
-    {
-        QSqlDatabase::database().commit();
-    }
+	if(!result)
+	{
+		QSqlDatabase::database().rollback();
+	}
+	else
+	{
+		QSqlDatabase::database().commit();
+	}
 
-    return result;
+	return result;
 }
