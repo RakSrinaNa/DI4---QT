@@ -1,5 +1,5 @@
-#ifndef RESSOURCETYPE_H
-#define RESSOURCETYPE_H
+#ifndef RESOURCETYPE_H
+#define RESOURCETYPE_H
 
 #include <QString>
 #include <QDebug>
@@ -31,4 +31,4 @@ public:
 	QString name;
 };
 
-#endif // RESSOURCETYPE_H
+#endif // RESOURCETYPE_H

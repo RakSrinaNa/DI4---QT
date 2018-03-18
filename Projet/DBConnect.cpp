@@ -19,14 +19,14 @@ DBConnect::DBConnect()
 		if(!db.isOpen())
 		{
 			qDebug() << db.lastError().text();
-			qDebug() << "Erreur à l'ouverture de la base !\n";
+			qDebug() << "Error opening DB!\n";
 			throw std::exception();
 		}
 	}
 	else
 	{
 		qDebug() << db.lastError().text();
-		qDebug() << "Erreur à création de la base !\n";
+		qDebug() << "Error getting DB!\n";
 		throw std::exception();
 	}
 }
@@ -62,7 +62,7 @@ Customer * DBConnect::getCustomer(int id)
 	if(!query.exec())
 	{
         delete resources;
-        qWarning() << "Error getting customer's ressources " << id << ", " << query.lastError().text();
+        qWarning() << "Error getting customer's resources " << id << ", " << query.lastError().text();
 		return nullptr;
 	}
 

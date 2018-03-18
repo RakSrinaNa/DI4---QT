@@ -234,7 +234,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 					}
 					else
 					{
-						setStatusText("Error deleting datas");
+						setStatusText("Error deleting data");
 					}
 				}
 			}
@@ -390,7 +390,7 @@ void MainWindow::on_idLineEdit_textEdited(const QString &arg1)
 
 void MainWindow::myon_treeView_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
 {
-    qInfo() << "Tree view data chanegd";
+    qInfo() << "Tree view data changed";
 	(void) roles; //Unused warning taken down
 	if(topLeft.column() == bottomRight.column() && topLeft.row() == bottomRight.row()) //If we edited only one cell
 	{
