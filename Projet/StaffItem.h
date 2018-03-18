@@ -14,6 +14,8 @@ public:
 	StaffItem(QString text, Staff * staff, QListWidget * parent = 0);
 	
 	StaffItem(Staff * staff, QListWidget * parent = 0);
+
+    ~StaffItem();
 	
 	/**
 	 * Get the staff memeber.

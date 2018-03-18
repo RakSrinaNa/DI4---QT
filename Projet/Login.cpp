@@ -5,12 +5,14 @@ extern DBConnect * db;
 
 Login::Login(QWidget * parent) : QDialog (parent), ui(new Ui::Login)
 {
+    qInfo() << "Opening login dialog";
 	ui->setupUi(this);
 	this->setWindowTitle("Connection");
 }
 
 Login::~Login()
 {
+    qInfo() << "Destroying login dialog";
 	delete ui;
 }
 

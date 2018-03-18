@@ -2,6 +2,7 @@
 #define APROPOSDIALOG_H
 
 #include <QDialog>
+#include <QDebug>
 
 namespace Ui
 {

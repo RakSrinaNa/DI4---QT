@@ -2,6 +2,7 @@
 #define RESSOURCETYPE_H
 
 #include <QString>
+#include <QDebug>
 
 /**
  * Represent a type of resource.
@@ -10,6 +11,8 @@ class ResourceType
 {
 public:
 	ResourceType(int id, QString name);
+
+    ~ResourceType();
 	
 	/**
 	 * Get the resource ID.

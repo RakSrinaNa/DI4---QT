@@ -9,7 +9,7 @@ int main(int argc, char * argv[])
 {
 	QApplication a(argc, argv);
 
-	std::cout << "Creating DB: " << (C_INIT_BD::Creation_BD() ? "true" : "false") << std::endl;
+    qInfo() << "Creating DB: " << (C_INIT_BD::Creation_BD() ? "true" : "false");
 	db = new DBConnect();
 
 	MainWindow w;
@@ -17,6 +17,7 @@ int main(int argc, char * argv[])
 	int result = 0;
 	if(login.exec() == QDialog::Accepted) //If user is successfully logged in
 	{
+        qInfo() << "User logged in";
 		w.show();
 		result = a.exec();
 	}

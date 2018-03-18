@@ -55,6 +55,7 @@
 #include <QList>
 #include <QVariant>
 #include <QVector>
+#include <QDebug>
 
 class TreeItem
 {

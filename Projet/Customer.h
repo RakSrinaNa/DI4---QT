@@ -5,6 +5,7 @@
 #include <QDate>
 #include <QTime>
 #include <QList>
+#include <QDebug>
 
 #include <iostream>
 
@@ -24,6 +25,8 @@ public:
 	
     Customer(int id, QString lastName, QString firstName, QString address, QString city, QString postalCode, QDate dayOfConsultation, QTime duration, QString priority, QList<Staff *> * resources, QString comment, QString phone, QObject * parent = 0);
 	
+    ~Customer();
+
 	/**
 	 * Get the last name.
 	 * @return The last name.
