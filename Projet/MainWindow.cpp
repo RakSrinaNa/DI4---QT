@@ -74,8 +74,6 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	//connect(ui->revertButton, SIGNAL(clicked()), model, SLOT(revertAll()));
 
 	//Initialize tab 2
-	//TODO
-	QStringList headers = QStringList("Data");
 	model2 = new TreeModel(this); //Model to avoid modifying column
 	QObject::connect(model2, SIGNAL(dataChanged(const QModelIndex, const QModelIndex, const QVector<int>)), this, SLOT(myon_treeView_data_changed(const QModelIndex, const QModelIndex, const QVector<int>)));
 	ui->treeView->setModel(model2);
@@ -250,7 +248,7 @@ void MainWindow::on_planPushButton_clicked()
 	if(listCustomers->size() == 0)
 		s += "No client for " + date.toString("dd MMMM yyyy");
 
-    else{
+	else{
 		QList<Staff *> * listStaff = db->getAllStaff();
 
 		Schedule schedule = Schedule(listStaff);
