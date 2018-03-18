@@ -4,7 +4,7 @@
 
 DBConnect::DBConnect()
 {
-	db = QSqlDatabase::addDatabase("QSQLITE");
+	db = QSqlDatabase::database();
 
 	if(db.isValid())
 	{
