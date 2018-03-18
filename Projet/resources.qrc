@@ -1,11 +1,9 @@
 <RCC>
-    <qresource prefix="/images">
-        <file>Ressources/PolyLogo.png</file>
-    </qresource>
     <qresource prefix="/">
-        <file>Ressources/customer.png</file>
-        <file>Ressources/staff.png</file>
-        <file>Ressources/exit.png</file>
-        <file>Ressources/about.png</file>
+        <file>Resources/PolyLogo.png</file>
+        <file>Resources/customer.png</file>
+        <file>Resources/staff.png</file>
+        <file>Resources/exit.png</file>
+        <file>Resources/about.png</file>
     </qresource>
 </RCC>

@@ -276,7 +276,7 @@
   <action name="actionCustomer">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/Ressources/customer.png</normaloff>:/Ressources/customer.png</iconset>
+     <normaloff>:/Resources/customer.png</normaloff>:/Resources/customer.png</iconset>
    </property>
    <property name="text">
     <string>Customer</string>
@@ -285,7 +285,7 @@
   <action name="actionStaff">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/Ressources/staff.png</normaloff>:/Ressources/staff.png</iconset>
+     <normaloff>:/Resources/staff.png</normaloff>:/Resources/staff.png</iconset>
    </property>
    <property name="text">
     <string>Staff</string>
@@ -297,7 +297,7 @@
   <action name="actionAbout">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/Ressources/about.png</normaloff>:/Ressources/about.png</iconset>
+     <normaloff>:/Resources/about.png</normaloff>:/Resources/about.png</iconset>
    </property>
    <property name="text">
     <string>About</string>
@@ -309,7 +309,7 @@
   <action name="actionExit">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/Ressources/exit.png</normaloff>:/Ressources/exit.png</iconset>
+     <normaloff>:/Resources/exit.png</normaloff>:/Resources/exit.png</iconset>
    </property>
    <property name="text">
     <string>Exit</string>
