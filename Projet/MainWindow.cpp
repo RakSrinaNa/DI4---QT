@@ -264,6 +264,9 @@ void MainWindow::on_planPushButton_clicked()
 			delete listStaff->at(i);
 		delete listStaff;
 
+        ui->saveLineEdit->setText("Schedule " + date.toString("dd MMMM yyyy") + ".txt");
+        ui->saveLineEdit->setStyleSheet("background-color:white;");
+
 	}
 
 	ui->planTextBrowser->setStyleSheet("background-color:white;");

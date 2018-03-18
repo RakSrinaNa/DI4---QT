@@ -59,6 +59,7 @@ Customer * DBConnect::getCustomer(int id)
 	if(!query.exec())
 	{
 		std::cout << "Error getting customer's ressources " << id << ", " << query.lastError().text().toStdString() << std::endl;
+        delete resources;
 		return nullptr;
 	}
 
@@ -73,6 +74,9 @@ Customer * DBConnect::getCustomer(int id)
 	if(!query.exec())
 	{
 		std::cout << "Error getting customer " << id << ", " << query.lastError().text().toStdString() << std::endl;
+        for(int i = 0; i < resources->size(); i++)
+            delete resources->at(i);
+        delete resources;
 		return nullptr;
 	}
 
