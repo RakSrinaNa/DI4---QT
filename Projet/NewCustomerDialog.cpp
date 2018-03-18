@@ -1,4 +1,3 @@
-#include <QDialog>
 #include "NewCustomerDialog.h"
 #include "ui_NewCustomerDialog.h"
 

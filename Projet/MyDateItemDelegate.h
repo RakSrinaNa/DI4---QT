@@ -3,6 +3,7 @@
 
 #include <QItemDelegate>
 #include <QDateEdit>
+#include <QtWidgets>
 
 /**
  * Item delegate to show a date edit when changing date in the table.

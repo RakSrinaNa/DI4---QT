@@ -55,7 +55,10 @@
 #include <QAbstractItemModel>
 #include <QModelIndex>
 #include <QVariant>
+#include <QtWidgets>
 
+#include "TreeItem.h"
+#include "DBConnect.h"
 #include "ResourceType.h"
 
 class TreeItem;

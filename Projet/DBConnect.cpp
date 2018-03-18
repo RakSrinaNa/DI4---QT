@@ -1,7 +1,5 @@
 #include "DBConnect.h"
 
-#include <iostream>
-
 DBConnect::DBConnect()
 {
     qInfo() << "Creating DBConnect";

@@ -17,6 +17,10 @@
 #include "MyDateItemDelegate.h"
 #include "Schedule.h"
 #include "TreeModel.h"
+#include "NewCustomerDialog.h"
+#include "NewStaffDialog.h"
+#include "AboutDialog.h"
+#include "TreeItem.h"
 
 namespace Ui
 {

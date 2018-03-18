@@ -48,12 +48,7 @@
 **
 ****************************************************************************/
 
-
-#include <QtWidgets>
-
-#include "TreeItem.h"
 #include "TreeModel.h"
-#include "DBConnect.h"
 
 extern DBConnect * db;
 

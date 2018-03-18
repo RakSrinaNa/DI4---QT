@@ -1,9 +1,5 @@
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
-#include "NewCustomerDialog.h"
-#include "NewStaffDialog.h"
-#include "AboutDialog.h"
-#include "TreeItem.h"
 
 extern DBConnect * db;
 
