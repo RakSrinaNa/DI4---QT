@@ -9,7 +9,7 @@ int main(int argc, char * argv[])
 {
 	QApplication a(argc, argv);
 
-    qInfo() << "Création de la DBB: " << (C_INIT_BD::Creation_BD() ? "true" : "false");
+    qInfo() << "Creating DB: " << (C_INIT_BD::Creation_BD() ? "true" : "false");
 	db = new DBConnect();
 
 	MainWindow w;

@@ -41,7 +41,7 @@ HEADERS  += \
     MyDateItemDelegate.h \
     MySqlTableModel.h \
     NewCustomerDialog.h \
-    NewDtaffDialog.h \
+    NewStaffDialog.h \
     Customer.h \
     Schedule.h \
     Staff.h \

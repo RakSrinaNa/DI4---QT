@@ -61,6 +61,7 @@ Customer * DBConnect::getCustomer(int id)
 
 	if(!query.exec())
 	{
+        delete resources;
         qWarning() << "Error getting customer's ressources " << id << ", " << query.lastError().text();
 		return nullptr;
 	}
@@ -75,6 +76,9 @@ Customer * DBConnect::getCustomer(int id)
 	query.bindValue(":id", id);
 	if(!query.exec())
 	{
+        for(int i = 0; i < resources->size(); i++)
+            delete resources->at(i);
+        delete resources;
         qWarning() << "Error getting customer " << id << ", " << query.lastError().text();
 		return nullptr;
 	}
@@ -124,6 +128,7 @@ QList<ResourceType *> * DBConnect::getTypes()
 	QSqlQuery query;
 	if(!query.exec("SELECT Id, Label FROM TType ORDER BY Label;"))
 	{
+        delete resourceList;
         qWarning() << "Error getting types! " << query.lastError().text();
 		return nullptr;
 	}

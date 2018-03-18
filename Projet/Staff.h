@@ -52,7 +52,7 @@ public:
 	 * Get the password d of the staff memeber.
 	 * @return The password.
 	 */
-	QString getPassword(); //TODO save the password in the database
+    QString getPassword();
 	
 	/**
 	 * Get a short description of the staff member (name and type)
@@ -62,7 +62,7 @@ public:
 	
 	/**
 	 * Get the ID of the staff member.
-	 * @return Iits ID.
+	 * @return Its ID.
 	 */
 	int getId();
 
