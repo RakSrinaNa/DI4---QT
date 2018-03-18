@@ -2,6 +2,7 @@
 
 Schedule::Schedule(QList<Staff *> * list)
 {
+    qInfo() << "Creating schedule";
 	listTimeLine = QList<TimeLine *>();
 	for(int i = 0; i < list->size(); i++)
 		listTimeLine.append(new TimeLine(list->at(i)));
@@ -9,6 +10,7 @@ Schedule::Schedule(QList<Staff *> * list)
 
 Schedule::~Schedule()
 {
+    qInfo() << "Destroying schedule";
 	for(int i = 0; i < listTimeLine.size(); i++)
 		delete listTimeLine.at(i);
 }

@@ -2,7 +2,7 @@
 #define STAFF_H
 
 #include <QObject>
-
+#include <QDebug>
 #include <QStringList>
 
 #include "ResourceType.h"

@@ -6,6 +6,7 @@ extern DBConnect * db;
 
 NewCustomerDialog::NewCustomerDialog(QWidget *parent) : QDialog(parent), ui(new Ui::NewCustomerDialog)
 {
+    qInfo() << "Opening new customer dialog";
     ui->setupUi(this);
 
     ui->dayOfConsultationDateEdit->setDate(QDate::currentDate());
@@ -22,6 +23,7 @@ NewCustomerDialog::NewCustomerDialog(QWidget *parent) : QDialog(parent), ui(new 
 
 NewCustomerDialog::~NewCustomerDialog()
 {
+    qInfo() << "Destroying new customer dialog";
     delete ui;
 }
 

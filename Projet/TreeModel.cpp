@@ -59,11 +59,13 @@ extern DBConnect * db;
 
 TreeModel::TreeModel(QObject * parent) : QAbstractItemModel(parent)
 {
+    qInfo() << "Creating tree model";
     setupModelData();
 }
 
 TreeModel::~TreeModel()
 {
+    qInfo() << "Destroying tree item";
     delete rootItem;
 }
 

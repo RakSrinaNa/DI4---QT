@@ -5,6 +5,7 @@ extern DBConnect * db;
 
 NewStaffDialog::NewStaffDialog(QWidget * parent) : QDialog (parent), ui(new Ui::NewStaffDialog)
 {
+    qInfo() << "Opening new staff dialog";
 	ui->setupUi(this);
 	QList<ResourceType *> * resources = db->getTypes();
 	for(ResourceType * r : *resources)
@@ -15,6 +16,7 @@ NewStaffDialog::NewStaffDialog(QWidget * parent) : QDialog (parent), ui(new Ui::
 
 NewStaffDialog::~NewStaffDialog()
 {
+    qInfo() << "Destroying new staff dialog";
 	delete ui;
 }
 
