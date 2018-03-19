@@ -269,7 +269,7 @@ void MainWindow::on_planPushButton_clicked()
 	QList<Customer *> * listCustomers = db->getClientsFromDate(date);
 
 	if(listCustomers->size() == 0)
-		s += "No client for " + date.toString("dd MMMM yyyy");
+		s += "No customer for " + date.toString("dd MMMM yyyy");
 
 	else{
 		QList<Staff *> * listStaff = db->getAllStaff();
