@@ -92,6 +92,13 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	//Initialize tab 3
 	ui->planDateEdit->setDate(QDate::currentDate());
 	ui->pathLineEdit->setText(QDir::currentPath());
+
+
+    //Shortcuts
+    ui->actionCustomer->setShortcut(Qt::ALT + Qt::Key_C);
+    ui->actionStaff->setShortcut(Qt::ALT + Qt::Key_S);
+    ui->actionAbout->setShortcut(Qt::Key_Question);
+    ui->actionExit->setShortcut(Qt::ALT + Qt::Key_Q);
 }
 
 MainWindow::~MainWindow()
