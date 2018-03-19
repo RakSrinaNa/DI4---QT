@@ -5,7 +5,7 @@ extern DBConnect * db;
 
 MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::MainWindow)
 {
-    qInfo() << "Opening main window";
+	qInfo() << "Opening main window";
 	ui->setupUi(this);
 	setFocusPolicy(Qt::StrongFocus); //Catch all the keyboard event
 	setStatusText("You are connected");
@@ -87,19 +87,19 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 
 MainWindow::~MainWindow()
 {
-    qInfo() << "Destroying main window";
+	qInfo() << "Destroying main window";
 	delete ui;
 }
 
 void MainWindow::setStatusText(QString status, int time)
 {
-    qInfo() << "Status text changed to '" << status << " for " << time;
+	qInfo() << "Status text changed to '" << status << " for " << time;
 	ui->statusBar->showMessage(status, time);
 }
 
 void MainWindow::on_actionCustomer_triggered()
 {
-    qInfo() << "New customer button clicked";
+	qInfo() << "New customer button clicked";
 	NewCustomerDialog newCustomer;
 	if(newCustomer.exec() == QDialog::Accepted)
 	{
@@ -115,7 +115,7 @@ void MainWindow::on_actionCustomer_triggered()
 
 void MainWindow::on_actionStaff_triggered()
 {
-    qInfo() << "New staff button clicked";
+	qInfo() << "New staff button clicked";
 	NewStaffDialog newStaff;
 	if(newStaff.exec() == QDialog::Accepted)
 	{
@@ -131,7 +131,7 @@ void MainWindow::on_actionStaff_triggered()
 
 void MainWindow::on_actionAbout_triggered()
 {
-    qInfo() << "About button clicked";
+	qInfo() << "About button clicked";
 	AboutDialog aboutDialog;
 	aboutDialog.exec();
 }
@@ -178,7 +178,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 		case Qt::Key_Backspace:
 		case Qt::Key_Delete:
 		{
-            qInfo() << "New delete key event";
+			qInfo() << "New delete key event";
 			if(event->key() == Qt::Key_Backspace && !(QApplication::keyboardModifiers() & Qt::ControlModifier)) //If backspace for mac, verify the CMD key was pressed
 			{
 				break;
@@ -215,16 +215,35 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 					}
 					if(depth == 0) //Removing type
 					{
-						if((result = db->removeResourceType(item->data(2).toInt())))
-							std::cout << "Deleted type" << std::endl;
+						if(0)
+						{ //Du coup on m'a dit faut pas tout cramer
+							if((result = db->removeResourceType(item->data(2).toInt())))
+							{
+								result &= model2->removeRow(current.row(), current.parent());
+								qInfo() << "Deleted type";
+							}
+						}
+						else
+						{
+							if((result = db->removeAllStaffOfType(item->data(2).toInt())))
+							{
+								while(item->childCount() > 0)
+									result &= model2->removeRow(0, current);
+								qInfo() << "Deleted type";
+							}
+						}
+
 					}
 					else if(depth == 1) //Removing staff
 					{
 						if((result = db->removeStaff(item->data(2).toInt())))
+						{
+							result &= model2->removeRow(current.row(), current.parent());
 							std::cout << "Deleted staff" << std::endl;
+						}
 					}
 
-					if(result && model2->removeRow(current.row(), current.parent()))
+					if(result)
 					{
 						setStatusText("Element deleted", 2000);
 					}
@@ -242,7 +261,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 
 void MainWindow::on_planPushButton_clicked()
 {
-    qInfo() << "Plan button clicked";
+	qInfo() << "Plan button clicked";
 	QDate date = ui->planDateEdit->date();
 	QString s("");
 
@@ -268,8 +287,8 @@ void MainWindow::on_planPushButton_clicked()
 			delete listStaff->at(i);
 		delete listStaff;
 
-        ui->saveLineEdit->setText("Schedule " + date.toString("dd MMMM yyyy") + ".txt");
-        ui->saveLineEdit->setStyleSheet("background-color:white;");
+		ui->saveLineEdit->setText("Schedule " + date.toString("dd MMMM yyyy") + ".txt");
+		ui->saveLineEdit->setStyleSheet("background-color:white;");
 
 	}
 
@@ -285,7 +304,7 @@ void MainWindow::on_planPushButton_clicked()
 
 void MainWindow::on_pathPushButton_clicked()
 {
-    qInfo() << "Browser button clicked";
+	qInfo() << "Browser button clicked";
 	QString oldDir = ui->pathLineEdit->text();
 	QString dir = QFileDialog::getExistingDirectory(this, tr("Open Directory"), oldDir);
 	ui->pathLineEdit->setText(dir);
@@ -300,7 +319,7 @@ void MainWindow::on_saveLineEdit_textEdited(const QString &arg1)
 
 void MainWindow::on_savePushButton_clicked()
 {
-    qInfo() << "Save button clicked";
+	qInfo() << "Save button clicked";
 	QMessageBox message(this);
 	message.setWindowTitle("Informations");
 
@@ -331,13 +350,13 @@ void MainWindow::on_savePushButton_clicked()
 
 void MainWindow::on_actionExit_triggered()
 {
-    qInfo() << "Exit button clicked";
+	qInfo() << "Exit button clicked";
 	close();
 }
 
 void MainWindow::myon_tableView_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
 {
-    qInfo() << "Table view data changed";
+	qInfo() << "Table view data changed";
 	(void) roles; //Unused warning taken down
 	if(topLeft.column() == bottomRight.column() && topLeft.row() == bottomRight.row()) //If we edited only one cell
 	{
@@ -386,7 +405,7 @@ void MainWindow::on_idLineEdit_textEdited(const QString &arg1)
 
 void MainWindow::myon_treeView_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
 {
-    qInfo() << "Tree view data changed";
+	qInfo() << "Tree view data changed";
 	(void) roles; //Unused warning taken down
 	if(topLeft.column() == bottomRight.column() && topLeft.row() == bottomRight.row()) //If we edited only one cell
 	{
