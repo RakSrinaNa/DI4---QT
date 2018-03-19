@@ -21,6 +21,7 @@
 #include "NewStaffDialog.h"
 #include "AboutDialog.h"
 #include "TreeItem.h"
+#include "MyDateSortFilterProxyModel.h"
 
 namespace Ui
 {
@@ -53,6 +54,7 @@ private:
 	QSortFilterProxyModel * idModel;
 	QSortFilterProxyModel * firstNameModel;
 	QSortFilterProxyModel * lastNameModel;
+	MyDateSortFilterProxyModel * dateFilterModel;
 
 	/**
 	 * Used to transform a string into one that start uppercase and the rest is lowercase. (used by slots from textedit)
@@ -148,6 +150,10 @@ private slots:
 	 * @param arg1 The cell content.
 	 */
 	void on_idLineEdit_textEdited(const QString &arg1);
+
+	void on_startDate_userDateChanged(const QDate &date);
+
+	void on_endDate_userDateChanged(const QDate &date);
 
 signals:
 

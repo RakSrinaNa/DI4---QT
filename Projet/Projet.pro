@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     Timeline.cpp \
     TreeItem.cpp \
     ResourceType.cpp \
-    TreeModel.cpp
+    TreeModel.cpp \
+    MyDateSortFilterProxyModel.cpp
 
 HEADERS  += \
     c_init_bd.h \
@@ -49,7 +50,8 @@ HEADERS  += \
     Timeline.h \
     TreeItem.h \
     ResourceType.h \
-    TreeModel.h
+    TreeModel.h \
+    MyDateSortFilterProxyModel.h
 
 FORMS    += \
     AboutDialog.ui \

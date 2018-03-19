@@ -12,6 +12,8 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	ui->tabWidget->tabBar()->setExpanding(true); //Tabs fill all width
 
 	//Initialize tab 1 || SQLTable
+	ui->startDate->setDate(QDate::currentDate());
+	ui->endDate->setDate(QDate::currentDate());
 	model = new MySqlTableModel(this, db->getDB()); //Model to avoid modifying column 0
 	QObject::connect(model, SIGNAL(dataChanged(const QModelIndex&, const QModelIndex&, const QVector<int>&)), this, SLOT(myon_tableView_data_changed(const QModelIndex&, const QModelIndex&, const QVector<int>&)));
 
@@ -36,8 +38,9 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	idModel = new QSortFilterProxyModel(this);
 	firstNameModel = new QSortFilterProxyModel(this);
 	lastNameModel = new QSortFilterProxyModel(this);
+	dateFilterModel = new MyDateSortFilterProxyModel(this);
 
-	ui->tableView->setModel(lastNameModel);
+	ui->tableView->setModel(dateFilterModel);
 
 	idModel->setSourceModel(model);
 	idModel->setFilterKeyColumn(0);
@@ -45,6 +48,8 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	firstNameModel->setFilterKeyColumn(1);
 	lastNameModel->setSourceModel(firstNameModel);
 	lastNameModel->setFilterKeyColumn(2);
+	dateFilterModel->setSourceModel(lastNameModel);
+	dateFilterModel->setFilterKeyColumn(8);
 
 	//Hide unwanted columns
 	ui->tableView->setColumnHidden(0, false);
@@ -58,6 +63,8 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	ui->tableView->setColumnHidden(8, false);
 	ui->tableView->setColumnHidden(9, true);
 	ui->tableView->setColumnHidden(10, true);
+
+	ui->tableView->setAlternatingRowColors(true);
 
 	//Make columns resize to the window's width
 	//ui->tableView->setItemDelegateForColumn(8, new MyDateItemDelegate());
@@ -74,6 +81,8 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	model2 = new TreeModel(this); //Model to avoid modifying column
 	QObject::connect(model2, SIGNAL(dataChanged(const QModelIndex, const QModelIndex, const QVector<int>)), this, SLOT(myon_treeView_data_changed(const QModelIndex, const QModelIndex, const QVector<int>)));
 	ui->treeView->setModel(model2);
+
+	ui->treeView->setAlternatingRowColors(true);
 
 	for(int c = 0; c < ui->treeView->header()->count(); ++c)
 	{
@@ -462,4 +471,14 @@ void MainWindow::myon_treeView_data_changed(const QModelIndex &topLeft, const QM
 			}
 		}
 	}
+}
+
+void MainWindow::on_startDate_userDateChanged(const QDate &date)
+{
+	dateFilterModel->setFilterMinimumDate(date);
+}
+
+void MainWindow::on_endDate_userDateChanged(const QDate &date)
+{
+	dateFilterModel->setFilterMaximumDate(date);
 }

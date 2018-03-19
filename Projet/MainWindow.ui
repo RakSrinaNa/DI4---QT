@@ -113,18 +113,32 @@
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="firstNameEdit">
-               <property name="placeholderText">
-                <string>First name</string>
-               </property>
-              </widget>
+              <layout class="QVBoxLayout" name="verticalLayout_7">
+               <item>
+                <widget class="QLineEdit" name="firstNameEdit">
+                 <property name="placeholderText">
+                  <string>First name</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lastNameEdit">
+                 <property name="placeholderText">
+                  <string>Last name</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </item>
              <item>
-              <widget class="QLineEdit" name="lastNameEdit">
-               <property name="placeholderText">
-                <string>Last name</string>
-               </property>
-              </widget>
+              <layout class="QVBoxLayout" name="verticalLayout_8">
+               <item>
+                <widget class="QDateEdit" name="startDate"/>
+               </item>
+               <item>
+                <widget class="QDateEdit" name="endDate"/>
+               </item>
+              </layout>
              </item>
             </layout>
            </item>
