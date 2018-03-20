@@ -98,7 +98,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	//Shortcuts
 	ui->actionCustomer->setShortcut(Qt::ALT + Qt::Key_C);
 	ui->actionStaff->setShortcut(Qt::ALT + Qt::Key_S);
-	ui->actionAbout->setShortcut(Qt::Key_Question);
+	ui->actionAbout->setShortcut(Qt::ALT + Qt::Key_A);
 	ui->actionExit->setShortcut(Qt::ALT + Qt::Key_Q);
 }
 
