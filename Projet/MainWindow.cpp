@@ -75,9 +75,6 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 		ui->tableView->horizontalHeader()->setSectionResizeMode(c, QHeaderView::Stretch);
 	}
 
-	//connect(ui->submitButton, SIGNAL(clicked()), this, SLOT(submit()));
-	//connect(ui->revertButton, SIGNAL(clicked()), model, SLOT(revertAll()));
-
 	//Initialize tab 2
 	model2 = new TreeModel(this); //Model to avoid modifying column
 	QObject::connect(model2, SIGNAL(dataChanged(const QModelIndex, const QModelIndex, const QVector<int>)), this, SLOT(myon_treeView_data_changed(const QModelIndex, const QModelIndex, const QVector<int>)));
