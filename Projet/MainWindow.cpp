@@ -12,8 +12,8 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	ui->tabWidget->tabBar()->setExpanding(true); //Tabs fill all width
 
 	//Initialize tab 1 || SQLTable
-	ui->startDate->setDate(QDate::currentDate());
-	ui->endDate->setDate(QDate::currentDate());
+	//ui->startDate->setDate(QDate::currentDate()); //TODO: Fix
+	//ui->endDate->setDate(QDate::currentDate());
 	model = new MySqlTableModel(this, db->getDB()); //Model to avoid modifying column 0
 	QObject::connect(model, SIGNAL(dataChanged(const QModelIndex&, const QModelIndex&, const QVector<int>&)), this, SLOT(myon_tableView_data_changed(const QModelIndex&, const QModelIndex&, const QVector<int>&)));
 
@@ -94,11 +94,11 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	ui->pathLineEdit->setText(QDir::currentPath());
 
 
-    //Shortcuts
-    ui->actionCustomer->setShortcut(Qt::ALT + Qt::Key_C);
-    ui->actionStaff->setShortcut(Qt::ALT + Qt::Key_S);
-    ui->actionAbout->setShortcut(Qt::Key_Question);
-    ui->actionExit->setShortcut(Qt::ALT + Qt::Key_Q);
+	//Shortcuts
+	ui->actionCustomer->setShortcut(Qt::ALT + Qt::Key_C);
+	ui->actionStaff->setShortcut(Qt::ALT + Qt::Key_S);
+	ui->actionAbout->setShortcut(Qt::Key_Question);
+	ui->actionExit->setShortcut(Qt::ALT + Qt::Key_Q);
 }
 
 MainWindow::~MainWindow()

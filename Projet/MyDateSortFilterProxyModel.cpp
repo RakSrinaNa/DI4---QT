@@ -26,11 +26,11 @@ bool MyDateSortFilterProxyModel::dateInRange(const QDate &date) const
 void MyDateSortFilterProxyModel::setFilterMinimumDate(const QDate &date)
 {
 	minDate = date;
-    //invalidateFilter();
+	invalidateFilter();
 }
 
 void MyDateSortFilterProxyModel::setFilterMaximumDate(const QDate &date)
 {
 	maxDate = date;
-    //invalidateFilter();
+	invalidateFilter();
 }
