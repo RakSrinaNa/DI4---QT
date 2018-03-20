@@ -12,8 +12,6 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	ui->tabWidget->tabBar()->setExpanding(true); //Tabs fill all width
 
 	//Initialize tab 1 || SQLTable
-	//ui->startDate->setDate(QDate::currentDate()); //TODO: Fix
-	//ui->endDate->setDate(QDate::currentDate());
 	model = new MySqlTableModel(this, db->getDB()); //Model to avoid modifying column 0
 	QObject::connect(model, SIGNAL(dataChanged(const QModelIndex&, const QModelIndex&, const QVector<int>&)), this, SLOT(myon_tableView_data_changed(const QModelIndex&, const QModelIndex&, const QVector<int>&)));
 
@@ -50,6 +48,9 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	lastNameModel->setFilterKeyColumn(2);
 	dateFilterModel->setSourceModel(lastNameModel);
 	dateFilterModel->setFilterKeyColumn(8);
+
+	dateFilterModel->setFilterMinimumDate(ui->startDate->date());
+	dateFilterModel->setFilterMaximumDate(ui->endDate->date());
 
 	//Hide unwanted columns
 	ui->tableView->setColumnHidden(0, false);
