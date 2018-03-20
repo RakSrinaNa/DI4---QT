@@ -16,7 +16,16 @@
   <property name="windowTitle">
    <string>SoMuchWoWApp</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <property name="spacing">
      <number>0</number>
@@ -106,11 +115,37 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout">
              <item>
-              <widget class="QLineEdit" name="idLineEdit">
-               <property name="placeholderText">
-                <string>Id</string>
-               </property>
-              </widget>
+              <layout class="QVBoxLayout" name="verticalLayout_6">
+               <item>
+                <widget class="QLineEdit" name="lineEdit">
+                 <property name="text">
+                  <string>Search filters</string>
+                 </property>
+                 <property name="maxLength">
+                  <number>14</number>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                 <property name="clearButtonEnabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="idLineEdit">
+                 <property name="placeholderText">
+                  <string>Id</string>
+                 </property>
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </item>
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -119,12 +154,18 @@
                  <property name="placeholderText">
                   <string>First name</string>
                  </property>
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
+                 </property>
                 </widget>
                </item>
                <item>
                 <widget class="QLineEdit" name="lastNameEdit">
                  <property name="placeholderText">
                   <string>Last name</string>
+                 </property>
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>

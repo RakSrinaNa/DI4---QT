@@ -20,7 +20,7 @@ bool MyDateSortFilterProxyModel::filterAcceptsRow(int sourceRow, const QModelInd
 
 bool MyDateSortFilterProxyModel::dateInRange(const QDate &date) const
 {
-	return (!minDate.isValid() || date > minDate) && (!maxDate.isValid() || date < maxDate);
+	return (!minDate.isValid() || date >= minDate) && (!maxDate.isValid() || date <= maxDate);
 }
 
 void MyDateSortFilterProxyModel::setFilterMinimumDate(const QDate &date)

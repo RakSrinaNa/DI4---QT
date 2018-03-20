@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	model->select();
 
 	//Set columns names
-	model->setHeaderData(0, Qt::Horizontal, tr("Id"));
+	model->setHeaderData(0, Qt::Horizontal, tr("ID"));
 	model->setHeaderData(1, Qt::Horizontal, tr("First Name"));
 	model->setHeaderData(2, Qt::Horizontal, tr("Last name"));
 	model->setHeaderData(3, Qt::Horizontal, tr("Address"));
@@ -49,8 +49,11 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	dateFilterModel->setSourceModel(lastNameModel);
 	dateFilterModel->setFilterKeyColumn(8);
 
-	dateFilterModel->setFilterMinimumDate(ui->startDate->date());
-	dateFilterModel->setFilterMaximumDate(ui->endDate->date());
+	ui->startDate->setDate(QDate::currentDate());
+	ui->endDate->setDate(QDate::currentDate());
+
+	//dateFilterModel->setFilterMinimumDate(ui->startDate->date());
+	//dateFilterModel->setFilterMaximumDate(ui->endDate->date());
 
 	//Hide unwanted columns
 	ui->tableView->setColumnHidden(0, false);
