@@ -143,7 +143,7 @@ void MainWindow::on_actionStaff_triggered()
 		if(db->addStaff(newStaff.getStaff()))
 		{
 			setStatusText("A new staff member was added", 5000);
-			model2->reload();
+			model2->reload(ui->treeView);
 		}
 		else
 			setStatusText("Fail to add new staff member", 5000);
@@ -474,18 +474,25 @@ void MainWindow::myon_treeView_data_changed(const QModelIndex &topLeft, const QM
 		}
 		if(depth == 0) //Type changed
 		{
-			if(item->data(0).toString().length() == 0)
+			if(topLeft.column() == 0)
 			{
-				setStatusText("Invalid resource name, change it!");
-			}
-			else if(db->changeResourceName(resID, item->data(0).toString()))
-			{
-				setStatusText("Resource name changed", 2000);
-				model2->reload();
+				if(item->data(topLeft.column()).toString().length() == 0)
+				{
+					setStatusText("Invalid resource name, change it!");
+				}
+				else if(db->changeResourceName(resID, item->data(topLeft.column()).toString()))
+				{
+					setStatusText("Resource name changed", 2000);
+					model2->reload(ui->treeView);
+				}
+				else
+				{
+					setStatusText("The resource name failed to be changed, try again later ;)");
+				}
 			}
 			else
 			{
-				setStatusText("The resource name failed to be changed, try again later ;)");
+				item->setData(topLeft.column(), "");
 			}
 		}
 		else if(depth == 1) //Staff changed
@@ -527,7 +534,7 @@ void MainWindow::myon_treeView_data_changed(const QModelIndex &topLeft, const QM
 						if(db->changeStaffResource(resID, type->getId()))
 						{
 							setStatusText("Value changed", 2000);
-							model2->reload();
+							model2->reload(ui->treeView);
 						}
 						else
 						{
