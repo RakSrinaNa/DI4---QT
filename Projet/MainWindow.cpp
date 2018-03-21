@@ -547,11 +547,16 @@ void MainWindow::showEditTable()
 	if(editTable)
 		ui->editTablePushButton->setText("Hide additional columns");
 	else
-		ui->editTablePushButton->setText("Edit table");
+		ui->editTablePushButton->setText("Show hidden columns");
 
 }
 
 void MainWindow::on_editTreePushButton_clicked()
 {
-	//TODO
+	//Todo
+
+	if(editTable)
+		ui->editTreePushButton->setText("Hide additional columns");
+	else
+		ui->editTreePushButton->setText("Show hidden columns");
 }
