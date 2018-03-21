@@ -83,6 +83,10 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	QObject::connect(model2, SIGNAL(dataChanged(const QModelIndex, const QModelIndex, const QVector<int>)), this, SLOT(myon_treeView_data_changed(const QModelIndex, const QModelIndex, const QVector<int>)));
 	ui->treeView->setModel(model2);
 
+	ui->treeView->setColumnHidden(0, false);
+	ui->treeView->setColumnHidden(1, false);
+	ui->treeView->setColumnHidden(2, true);
+	ui->treeView->setColumnHidden(3, true);
 	ui->treeView->setAlternatingRowColors(true);
 
 	for(int c = 0; c < ui->treeView->header()->count(); ++c)
@@ -110,7 +114,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::setStatusText(QString status, int time)
 {
-	qInfo() << "Status text changed to '" << status << " for " << time;
+	qInfo() << "Status text changed to '" << status << " for " << time << "ms";
 	ui->statusBar->showMessage(status, time);
 }
 
@@ -460,6 +464,8 @@ void MainWindow::myon_treeView_data_changed(const QModelIndex &topLeft, const QM
 	if(topLeft.column() == bottomRight.column() && topLeft.row() == bottomRight.row()) //If we edited only one cell
 	{
 		QModelIndex index = topLeft;
+		TreeItem * item = model2->getItem(topLeft);
+		int resID = item->data(3).toInt();
 		int depth = 0;
 		while ( index.parent().isValid() )
 		{
@@ -468,8 +474,6 @@ void MainWindow::myon_treeView_data_changed(const QModelIndex &topLeft, const QM
 		}
 		if(depth == 0) //Type changed
 		{
-			TreeItem * item = model2->getItem(topLeft);
-			int resID = item->data(2).toInt();
 			if(item->data(0).toString().length() == 0)
 			{
 				setStatusText("Invalid resource name, change it!");
@@ -485,30 +489,51 @@ void MainWindow::myon_treeView_data_changed(const QModelIndex &topLeft, const QM
 		}
 		else if(depth == 1) //Staff changed
 		{
-			TreeItem * item = model2->getItem(topLeft);
-			int resID = item->data(2).toInt();
-
-			QString s1 = item->data(0).toString();
-			QString cap1 = s1.left(1).toUpper();
-			QString text1 = s1.length() > 1 ? s1.right(s1.length() - 1).toLower() : "";
-			item->setData(0, cap1 + text1);
-
-			QString s2 = item->data(1).toString();
-			QString cap2 = s2.left(1).toUpper();
-			QString text2 = s2.length() > 1 ? s2.right(s2.length() - 1).toLower() : "";
-			item->setData(1, cap2 + text2);
-
-			if(cap1.length() == 0 || cap2.length() == 0)
+			switch(topLeft.column())
 			{
-				setStatusText("Invalid staff name, change it!");
-			}
-			else if(db->changeStaffName(resID, (cap1 + text1), (cap2 + text2)))
-			{
-				setStatusText("Staff name changed", 2000);
-			}
-			else
-			{
-				setStatusText("The staff name failed to be changed, try again later ;)");
+				//Capitalize element
+				case 0: //First name
+				case 1: //Last name
+				{
+					QString s = item->data(topLeft.column()).toString();
+					QString cap = s.left(1).toUpper();
+					QString text = s.length() > 1 ? s.right(s.length() - 1).toLower() : "";
+					item->setData(topLeft.column(), cap + text);
+					if(cap.length() < 1)
+					{
+						setStatusText("Invalid staff name, change it!");
+					}
+					else if(db->changeStaffName(resID, item->data(0).toString(), item->data(1).toString()))
+					{
+						setStatusText("Value changed", 2000);
+					}
+					else
+					{
+						setStatusText("Failed to execute query, try again later ;)");
+					}
+					break;
+				}
+
+				case 2: //Resource type
+				{
+					ResourceType * type = db->getType(item->data(topLeft.column()).toString());
+					if(type == nullptr)
+					{
+						setStatusText("Invalid resource name, change it!");
+					}
+					else
+					{
+						if(db->changeStaffResource(resID, type->getId()))
+						{
+							setStatusText("Value changed", 2000);
+						}
+						else
+						{
+							setStatusText("Failed to execute query, try again later ;)");
+						}
+						delete type;
+					}
+				}
 			}
 		}
 	}
@@ -532,15 +557,11 @@ void MainWindow::on_editTablePushButton_clicked()
 
 void MainWindow::showEditTable()
 {
-	ui->tableView->setColumnHidden(0, false);
-	ui->tableView->setColumnHidden(1, false);
-	ui->tableView->setColumnHidden(2, false);
 	ui->tableView->setColumnHidden(3, !editTable);
 	ui->tableView->setColumnHidden(4, !editTable);
 	ui->tableView->setColumnHidden(5, !editTable);
 	ui->tableView->setColumnHidden(6, !editTable);
 	ui->tableView->setColumnHidden(7, !editTable);
-	ui->tableView->setColumnHidden(8, false);
 	ui->tableView->setColumnHidden(9, !editTable);
 	ui->tableView->setColumnHidden(10, !editTable);
 
@@ -553,10 +574,18 @@ void MainWindow::showEditTable()
 
 void MainWindow::on_editTreePushButton_clicked()
 {
-	//Todo
+	editTree = !editTree;
+	showEditTree();
+}
 
-	if(editTable)
+void MainWindow::showEditTree()
+{
+	ui->treeView->setColumnHidden(2, !editTree);
+	ui->treeView->setColumnHidden(3, !editTree);
+
+	if(editTree)
 		ui->editTreePushButton->setText("Hide additional columns");
 	else
 		ui->editTreePushButton->setText("Show hidden columns");
+
 }

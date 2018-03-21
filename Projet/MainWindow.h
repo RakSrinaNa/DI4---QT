@@ -54,9 +54,9 @@ private:
 	QSortFilterProxyModel * idModel;
 	QSortFilterProxyModel * firstNameModel;
 	QSortFilterProxyModel * lastNameModel;
-    MyDateSortFilterProxyModel * dateFilterModel;
-    bool editTable = false;
-    bool editTree = false;
+	MyDateSortFilterProxyModel * dateFilterModel;
+	bool editTable = false;
+	bool editTree = false;
 
 	/**
 	 * Used to transform a string into one that start uppercase and the rest is lowercase. (used by slots from textedit)
@@ -153,41 +153,37 @@ private slots:
 	 */
 	void on_idLineEdit_textEdited(const QString &arg1);
 
-    /**
-     * When the first date filter is edited.
-     * @param date The new date.
-     */
+	/**
+	 * When the first date filter is edited.
+	 * @param date The new date.
+	 */
 	void on_startDate_userDateChanged(const QDate &date);
 
-    /**
-     * When the second date filter is edited.
-     * @param date The new date.
-     */
+	/**
+	 * When the second date filter is edited.
+	 * @param date The new date.
+	 */
 	void on_endDate_userDateChanged(const QDate &date);
 
-    /**
-     * When the button to show more columns in the table is clicked.
-     */
-    void on_editTablePushButton_clicked();
-
-    /**
-     * Show/hide the appropriated columns in the table.
-     */
-    void showEditTable();
-
-    /**
-     * When the button to show more columns in the tree is clicked.
-     */
-    void on_editTreePushButton_clicked();
-
-signals:
+	/**
+	 * When the button to show more columns in the table is clicked.
+	 */
+	void on_editTablePushButton_clicked();
 
 	/**
-	 * Signal to change the status bar text.
-	 * @param status The text to set.
-	 * //TODO Verify is useful.
+	 * Show/hide the appropriated columns in the table.
 	 */
-    //void statusChanged(QString &status);
+	void showEditTable();
+
+	/**
+	 * When the button to show more columns in the tree is clicked.
+	 */
+	void on_editTreePushButton_clicked();
+
+	/**
+	 * Show/hide the appropriated columns in the tree.
+	 */
+	void showEditTree();
 };
 
 #endif // MAINWINDOW_H

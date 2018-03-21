@@ -70,6 +70,13 @@ public:
 	ResourceType * getType(int id);
 
 	/**
+	 * Get a ressource type by its name.
+	 * @param name The name to find.
+	 * @return A ressource type or null if not found.
+	 */
+	ResourceType * getType(QString name);
+
+	/**
 	 * Add a customer to the database.
 	 * @param customer The customer to add.
 	 * @return True if added, false otherwise.
@@ -105,6 +112,10 @@ public:
 	bool changeResourceName(int ID, QString name);
 
 	bool changeStaffName(int ID, QString firstName, QString lastName);
+
+	bool changeStaffResource(int ID, int rID);
+
+	bool resourceExists(int ID);
 
 	bool removeStaff(int ID);
 

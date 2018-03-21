@@ -159,6 +159,27 @@ ResourceType * DBConnect::getType(int id)
 	return nullptr;
 }
 
+ResourceType * DBConnect::getType(QString name)
+{
+	qInfo() << "Getting resource type with name " << name;
+	QSqlQuery query;
+	query.prepare("SELECT Id, Label FROM TType WHERE Label = (:name);");
+	query.bindValue(":name", name);
+	if(!query.exec())
+	{
+		qWarning() << "Error getting types! " << query.lastError().text();
+		return nullptr;
+	}
+
+	if(query.next())
+	{
+		ResourceType * r = new ResourceType(query.value("Id").toInt(), query.value("Label").toString());
+		return r;
+	}
+
+	return nullptr;
+}
+
 bool DBConnect::logUser(QString &user, QString &pass)
 {
 	qInfo() << "Trying to log user " << user;
@@ -332,6 +353,21 @@ bool DBConnect::changeStaffName(int ID, QString firstName, QString lastName)
 	query.bindValue(":id", ID);
 	query.bindValue(":firstName", firstName);
 	query.bindValue(":lastName", lastName);
+	return query.exec();
+}
+
+bool DBConnect::changeStaffResource(int ID, int rID)
+{
+	ResourceType * type = getType(rID);
+	if(type == nullptr)
+		return false;
+	delete type;
+	QSqlQuery query;
+	query.prepare("UPDATE TRessource "
+				  "SET IdType = :rid "
+				  "WHERE Id = :id;");
+	query.bindValue(":id", ID);
+	query.bindValue(":rid", rID);
 	return query.exec();
 }
 

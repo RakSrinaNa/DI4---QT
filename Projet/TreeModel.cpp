@@ -54,228 +54,231 @@ extern DBConnect * db;
 
 TreeModel::TreeModel(QObject * parent) : QAbstractItemModel(parent)
 {
-    qInfo() << "Creating tree model";
-    setupModelData();
+	qInfo() << "Creating tree model";
+	setupModelData();
 }
 
 TreeModel::~TreeModel()
 {
-    qInfo() << "Destroying tree item";
-    delete rootItem;
+	qInfo() << "Destroying tree item";
+	delete rootItem;
 }
 
 void TreeModel::reload()
 {
-    beginResetModel();
-    delete rootItem;
-    setupModelData();
-    endResetModel();
+	beginResetModel();
+	delete rootItem;
+	setupModelData();
+	endResetModel();
 }
 
 int TreeModel::columnCount(const QModelIndex & parent) const
 {
-    (void)parent;
-    return rootItem->columnCount();
+	(void)parent;
+	return rootItem->columnCount();
 }
 
 QVariant TreeModel::data(const QModelIndex &index, int role) const
 {
-    if(!index.isValid())
-        return QVariant();
+	if(!index.isValid())
+		return QVariant();
 
-    if(role != Qt::DisplayRole && role != Qt::EditRole)
-        return QVariant();
+	if(role != Qt::DisplayRole && role != Qt::EditRole)
+		return QVariant();
 
-    TreeItem * item = getItem(index);
+	TreeItem * item = getItem(index);
 
-    return item->data(index.column());
+	return item->data(index.column());
 }
 
 Qt::ItemFlags TreeModel::flags(const QModelIndex &index) const
 {
-    if(!index.isValid() || index.column() == 2)
-        return 0;
+	if(!index.isValid() || index.column() == 3)
+		return 0;
 
-    return Qt::ItemIsEditable | QAbstractItemModel::flags(index);
+	return Qt::ItemIsEditable | QAbstractItemModel::flags(index);
 }
 
 TreeItem * TreeModel::getItem(const QModelIndex &index) const
 {
-    if(index.isValid())
-    {
-        TreeItem * item = static_cast<TreeItem *>(index.internalPointer());
-        if(item)
-            return item;
-    }
-    return rootItem;
+	if(index.isValid())
+	{
+		TreeItem * item = static_cast<TreeItem *>(index.internalPointer());
+		if(item)
+			return item;
+	}
+	return rootItem;
 }
 
 QVariant TreeModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-    if(orientation == Qt::Horizontal && role == Qt::DisplayRole)
-        return rootItem->data(section);
+	if(orientation == Qt::Horizontal && role == Qt::DisplayRole)
+		return rootItem->data(section);
 
-    return QVariant();
+	return QVariant();
 }
 
 QModelIndex TreeModel::index(int row, int column, const QModelIndex &parent) const
 {
-    if(parent.isValid() && parent.column() != 0)
-        return QModelIndex();
+	if(parent.isValid() && parent.column() != 0)
+		return QModelIndex();
 
-    TreeItem * parentItem = getItem(parent);
+	TreeItem * parentItem = getItem(parent);
 
-    TreeItem * childItem = parentItem->child(row);
-    if(childItem)
-        return createIndex(row, column, childItem);
-    else
-        return QModelIndex();
+	TreeItem * childItem = parentItem->child(row);
+	if(childItem)
+		return createIndex(row, column, childItem);
+	else
+		return QModelIndex();
 }
 
 bool TreeModel::insertColumns(int position, int columns, const QModelIndex &parent)
 {
-    bool success;
+	bool success;
 
-    beginInsertColumns(parent, position, position + columns - 1);
-    success = rootItem->insertColumns(position, columns);
-    endInsertColumns();
+	beginInsertColumns(parent, position, position + columns - 1);
+	success = rootItem->insertColumns(position, columns);
+	endInsertColumns();
 
-    return success;
+	return success;
 }
 
 bool TreeModel::insertRows(int position, int rows, const QModelIndex &parent)
 {
-    TreeItem * parentItem = getItem(parent);
-    bool success;
+	TreeItem * parentItem = getItem(parent);
+	bool success;
 
-    beginInsertRows(parent, position, position + rows - 1);
-    success = parentItem->insertChildren(position, rows, rootItem->columnCount());
-    endInsertRows();
+	beginInsertRows(parent, position, position + rows - 1);
+	success = parentItem->insertChildren(position, rows, rootItem->columnCount());
+	endInsertRows();
 
-    return success;
+	return success;
 }
 
 QModelIndex TreeModel::parent(const QModelIndex &index) const
 {
-    if(!index.isValid())
-        return QModelIndex();
+	if(!index.isValid())
+		return QModelIndex();
 
-    TreeItem * childItem = getItem(index);
-    TreeItem * parentItem = childItem->parent();
+	TreeItem * childItem = getItem(index);
+	TreeItem * parentItem = childItem->parent();
 
-    if(parentItem == rootItem)
-        return QModelIndex();
+	if(parentItem == rootItem)
+		return QModelIndex();
 
-    return createIndex(parentItem->childNumber(), 0, parentItem);
+	return createIndex(parentItem->childNumber(), 0, parentItem);
 }
 
 bool TreeModel::removeColumns(int position, int columns, const QModelIndex &parent)
 {
-    bool success;
+	bool success;
 
-    beginRemoveColumns(parent, position, position + columns - 1);
-    success = rootItem->removeColumns(position, columns);
-    endRemoveColumns();
+	beginRemoveColumns(parent, position, position + columns - 1);
+	success = rootItem->removeColumns(position, columns);
+	endRemoveColumns();
 
-    if(rootItem->columnCount() == 0)
-        removeRows(0, rowCount());
+	if(rootItem->columnCount() == 0)
+		removeRows(0, rowCount());
 
-    return success;
+	return success;
 }
 
 bool TreeModel::removeRows(int position, int rows, const QModelIndex &parent)
 {
-    TreeItem * parentItem = getItem(parent);
-    bool success = true;
+	TreeItem * parentItem = getItem(parent);
+	bool success = true;
 
-    beginRemoveRows(parent, position, position + rows - 1);
-    success = parentItem->removeChildren(position, rows);
-    endRemoveRows();
+	beginRemoveRows(parent, position, position + rows - 1);
+	success = parentItem->removeChildren(position, rows);
+	endRemoveRows();
 
-    return success;
+	return success;
 }
 
 int TreeModel::rowCount(const QModelIndex &parent) const
 {
-    TreeItem * parentItem = getItem(parent);
+	TreeItem * parentItem = getItem(parent);
 
-    return parentItem->childCount();
+	return parentItem->childCount();
 }
 
 bool TreeModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
-    if(role != Qt::EditRole)
-        return false;
+	if(role != Qt::EditRole)
+		return false;
 
-    TreeItem * item = getItem(index);
-    bool result = item->setData(index.column(), value);
+	TreeItem * item = getItem(index);
+	bool result = item->setData(index.column(), value);
 
-    if(result)
-            emit dataChanged(index, index);
+	if(result)
+			emit dataChanged(index, index);
 
-    return result;
+	return result;
 }
 
 bool TreeModel::setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role)
 {
-    if(role != Qt::EditRole || orientation != Qt::Horizontal)
-        return false;
+	if(role != Qt::EditRole || orientation != Qt::Horizontal)
+		return false;
 
-    bool result = rootItem->setData(section, value);
+	bool result = rootItem->setData(section, value);
 
-    if(result)
-            emit headerDataChanged(orientation, section, section);
+	if(result)
+			emit headerDataChanged(orientation, section, section);
 
-    return result;
+	return result;
 }
 
 void TreeModel::setupModelData()
 {
-    QVector<QVariant> rootData;
-    rootData << "First name";
-    rootData << "Last name";
-    rootData << "Id";
+	QVector<QVariant> rootData;
+	rootData << "First name";
+	rootData << "Last name";
+	rootData << "Category";
+	rootData << "Id";
 
-    rootItem = new TreeItem(rootData);
+	rootItem = new TreeItem(rootData);
 
-    QList<TreeItem *> parents;
-    parents << rootItem;
+	QList<TreeItem *> parents;
+	parents << rootItem;
 
-    QList<ResourceType *> * resources = db->getTypes();
-    for(int i = 0; i < resources->count(); i++)
-    {
-        ResourceType * resource = resources->at(i);
-        QVector<QVariant> columnDataResources;
-        columnDataResources << resource->getName();
-        columnDataResources << "";
-        columnDataResources << resource->getId();
+	QList<ResourceType *> * resources = db->getTypes();
+	for(int i = 0; i < resources->count(); i++)
+	{
+		ResourceType * resource = resources->at(i);
+		QVector<QVariant> columnDataResources;
+		columnDataResources << resource->getName();
+		columnDataResources << "";
+		columnDataResources << "";
+		columnDataResources << resource->getId();
 
-        TreeItem * parent = parents.last();
-        parent->insertChildren(parent->childCount(), 1, rootItem->columnCount());
-        TreeItem * resItem = parent->child(parent->childCount() - 1);
-        for(int column = 0; column < columnDataResources.size(); ++column)
-            resItem->setData(column, columnDataResources[column]);
+		TreeItem * parent = parents.last();
+		parent->insertChildren(parent->childCount(), 1, rootItem->columnCount());
+		TreeItem * resItem = parent->child(parent->childCount() - 1);
+		for(int column = 0; column < columnDataResources.size(); ++column)
+			resItem->setData(column, columnDataResources[column]);
 
-        QList<Staff *> * staffs = db->getStaffByType(resource->getId());
-        for(int j = 0; j < staffs->count(); j++)
-        {
-            Staff * staff = staffs->at(j);
+		QList<Staff *> * staffs = db->getStaffByType(resource->getId());
+		for(int j = 0; j < staffs->count(); j++)
+		{
+			Staff * staff = staffs->at(j);
 
-            QVector<QVariant> columnDataStaff;
+			QVector<QVariant> columnDataStaff;
 
-            columnDataStaff << staff->getFirstName();
-            columnDataStaff << staff->getLastName();
-            columnDataStaff << staff->getId();
+			columnDataStaff << staff->getFirstName();
+			columnDataStaff << staff->getLastName();
+			columnDataStaff << staff->getResourceType()->getName();
+			columnDataStaff << staff->getId();
 
-            resItem->insertChildren(resItem->childCount(), 1, rootItem->columnCount());
-            for(int column = 0; column < columnDataStaff.size(); ++column)
-                resItem->child(resItem->childCount() - 1)->setData(column, columnDataStaff[column]);
+			resItem->insertChildren(resItem->childCount(), 1, rootItem->columnCount());
+			for(int column = 0; column < columnDataStaff.size(); ++column)
+				resItem->child(resItem->childCount() - 1)->setData(column, columnDataStaff[column]);
 
-            delete staff;
-        }
+			delete staff;
+		}
 
-        delete staffs;
-        delete resource;
-    }
-    delete resources;
+		delete staffs;
+		delete resource;
+	}
+	delete resources;
 }
