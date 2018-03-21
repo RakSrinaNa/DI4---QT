@@ -490,3 +490,45 @@ void MainWindow::on_endDate_userDateChanged(const QDate &date)
 {
 	dateFilterModel->setFilterMaximumDate(date);
 }
+
+void MainWindow::on_editTablePushButton_clicked()
+{
+    editTable = !editTable;
+    showEditTable();
+}
+
+void MainWindow::showEditTable()
+{
+    ui->tableView->setColumnHidden(0, false);
+    ui->tableView->setColumnHidden(1, false);
+    ui->tableView->setColumnHidden(2, false);
+    ui->tableView->setColumnHidden(3, !editTable);
+    ui->tableView->setColumnHidden(4, !editTable);
+    ui->tableView->setColumnHidden(5, !editTable);
+    ui->tableView->setColumnHidden(6, !editTable);
+    ui->tableView->setColumnHidden(7, !editTable);
+    ui->tableView->setColumnHidden(8, false);
+    ui->tableView->setColumnHidden(9, !editTable);
+    ui->tableView->setColumnHidden(10, !editTable);
+
+    //Make columns resize to the window's width
+    //ui->tableView->setItemDelegateForColumn(8, new MyDateItemDelegate());
+    ui->tableView->resizeColumnsToContents();
+
+    if(!editTable)
+        for(int c = 0; c < ui->tableView->horizontalHeader()->count(); ++c)
+        {
+            ui->tableView->horizontalHeader()->setSectionResizeMode(c, QHeaderView::Stretch);
+        }
+
+    if(editTable)
+        ui->editTablePushButton->setText("Hide additional columns");
+    else
+        ui->editTablePushButton->setText("Edit table");
+
+}
+
+void MainWindow::on_editTreePushButton_clicked()
+{
+    //TODO
+}

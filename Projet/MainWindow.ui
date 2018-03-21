@@ -63,7 +63,7 @@
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <property name="sizePolicy">
@@ -227,6 +227,13 @@
              </property>
             </widget>
            </item>
+           <item>
+            <widget class="QPushButton" name="editTablePushButton">
+             <property name="text">
+              <string>Edit Table</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
@@ -239,6 +246,13 @@
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
          <widget class="QTreeView" name="treeView"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="editTreePushButton">
+          <property name="text">
+           <string>Edit tree</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -321,7 +335,7 @@
      <x>0</x>
      <y>0</y>
      <width>686</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
