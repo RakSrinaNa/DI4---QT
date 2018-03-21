@@ -391,7 +391,7 @@ void MainWindow::myon_tableView_data_changed(const QModelIndex &topLeft, const Q
 				QString s = q.toString();
 				QString cap = s.left(1).toUpper();
 				QString text = s.length() > 1 ? s.right(s.length() - 1).toLower() : "";
-				if(!QRegularExpression("[A-Za-zéè '-]+").match(cap + text).hasMatch())
+				if(!QRegularExpression("^[A-Za-zéè '-]+$").match(cap + text).hasMatch())
 				{
 					setStatusText("Invalid name, change it!");
 					model->revertRow(topLeft.row());
@@ -406,7 +406,7 @@ void MainWindow::myon_tableView_data_changed(const QModelIndex &topLeft, const Q
 				QString s = q.toString();
 				QString cap = s.left(1).toUpper();
 				QString text = s.length() > 1 ? s.right(s.length() - 1).toLower() : "";
-				if(!QRegularExpression("[A-Za-zéèà '-/]+").match(cap + text).hasMatch())
+				if(!QRegularExpression("^[A-Za-zéèà '-/]+$").match(cap + text).hasMatch())
 				{
 					setStatusText("Invalid name, change it!");
 					model->revertRow(topLeft.row());
@@ -419,8 +419,7 @@ void MainWindow::myon_tableView_data_changed(const QModelIndex &topLeft, const Q
 			case 3: //Address
 			{
 				QString s = q.toString();
-				std::cout << s.toStdString() << std::endl;
-				if(!QRegularExpression("[1-9]\\d* [A-Za-zéè '-]+").match(s).hasMatch())
+				if(!QRegularExpression("^[1-9]\\d* [A-Za-zéè '-]+$").match(s).hasMatch())
 				{
 					setStatusText("Invalid address, change it!");
 					model->revertRow(topLeft.row());
@@ -434,7 +433,7 @@ void MainWindow::myon_tableView_data_changed(const QModelIndex &topLeft, const Q
 			case 5: //Postal code
 			{
 				QString s = q.toString();
-				if(!QRegularExpression("\\d{5}").match(s).hasMatch())
+				if(!QRegularExpression("^\\d{5}$").match(s).hasMatch())
 				{
 					setStatusText("Invalid postal code, change it!");
 					model->revertRow(topLeft.row());
@@ -448,7 +447,7 @@ void MainWindow::myon_tableView_data_changed(const QModelIndex &topLeft, const Q
 			case 7: //Phone
 			{
 			QString s = q.toString();
-			if(!QRegularExpression("\\d{10}").match(s).hasMatch())
+			if(!QRegularExpression("^\\d{10}$").match(s).hasMatch())
 			{
 				setStatusText("Invalid phone number, change it!");
 				model->revertRow(topLeft.row());
@@ -461,7 +460,7 @@ void MainWindow::myon_tableView_data_changed(const QModelIndex &topLeft, const Q
 
 			case 9: //Duration
 			{
-				if(!QRegularExpression("[1-9]+\\d*").match(q.toString()).hasMatch() || q.toInt() <= 0)
+				if(!QRegularExpression("^[1-9]+\\d*$").match(q.toString()).hasMatch() || q.toInt() <= 0)
 				{
 					setStatusText("Invalid duration, change it!");
 					model->revertRow(topLeft.row());
@@ -474,7 +473,7 @@ void MainWindow::myon_tableView_data_changed(const QModelIndex &topLeft, const Q
 
 			case 10: //Priority
 			{
-			if(!QRegularExpression("[1-5]{1}").match(q.toString()).hasMatch())
+			if(!QRegularExpression("^[1-5]{1}$").match(q.toString()).hasMatch())
 			{
 				setStatusText("Invalid priority, change it!");
 				model->revertRow(topLeft.row());
@@ -502,7 +501,7 @@ void MainWindow::myon_tableView_data_changed(const QModelIndex &topLeft, const Q
 
 void MainWindow::on_idLineEdit_textEdited(const QString &arg1)
 {
-	QRegExp re("\\d*");
+	QRegExp re("^\\d*$");
 	if(re.exactMatch(arg1))
 		idModel->setFilterRegExp(arg1);
 	else
@@ -558,7 +557,7 @@ void MainWindow::myon_treeView_data_changed(const QModelIndex &topLeft, const QM
 					QString s = item->data(topLeft.column()).toString();
 					QString cap = s.left(1).toUpper();
 					QString text = s.length() > 1 ? s.right(s.length() - 1).toLower() : "";
-					if(!QRegularExpression("[A-Za-zéèà '-]+").match(cap + text).hasMatch())
+					if(!QRegularExpression("^[A-Za-zéèà '-]+$").match(cap + text).hasMatch())
 					{
 						setStatusText("Invalid staff name, change it!");
 					}

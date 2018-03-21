@@ -12,8 +12,8 @@ NewStaffDialog::NewStaffDialog(QWidget * parent) : QDialog (parent), ui(new Ui::
 	{
 		ui->typeComboBox->addItem(r->getName(), QVariant::fromValue(static_cast<void *>(r)));
 	}
-	ui->firstNameLineEdit->setValidator(new QRegularExpressionValidator(QRegularExpression("[A-Za-zéè '-]+"), this));
-	ui->lastNameLineEdit->setValidator(new QRegularExpressionValidator(QRegularExpression("[A-Za-zéè '-]+"), this));
+	ui->firstNameLineEdit->setValidator(new QRegularExpressionValidator(QRegularExpression("^[A-Za-zéè '-]+$"), this));
+	ui->lastNameLineEdit->setValidator(new QRegularExpressionValidator(QRegularExpression("^[A-Za-zéè '-]+$"), this));
 }
 
 NewStaffDialog::~NewStaffDialog()
