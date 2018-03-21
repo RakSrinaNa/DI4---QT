@@ -478,7 +478,7 @@ void MainWindow::myon_treeView_data_changed(const QModelIndex &topLeft, const QM
 				setStatusText("The staff name failed to be changed, try again later ;)");
 			}
 		}
-	}
+    }
 }
 
 void MainWindow::on_startDate_userDateChanged(const QDate &date)
