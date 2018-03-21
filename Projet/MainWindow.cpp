@@ -558,8 +558,7 @@ void MainWindow::myon_treeView_data_changed(const QModelIndex &topLeft, const QM
 					QString s = item->data(topLeft.column()).toString();
 					QString cap = s.left(1).toUpper();
 					QString text = s.length() > 1 ? s.right(s.length() - 1).toLower() : "";
-					item->setData(topLeft.column(), cap + text);
-					if(cap.length() < 1)
+					if(!QRegularExpression("[A-Za-zéèà '-]+").match(cap + text).hasMatch())
 					{
 						setStatusText("Invalid staff name, change it!");
 					}
