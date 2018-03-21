@@ -399,31 +399,31 @@ void MainWindow::myon_tableView_data_changed(const QModelIndex &topLeft, const Q
 			}
 
 
-			case 4: //Address
+			case 3: //Address
 			{
 
 				break;
 			}
 
-			case 6: //Postal code
+			case 5: //Postal code
 			{
 
 				break;
 			}
 
-			case 8: //Phone
+			case 7: //Phone
 			{
 
 				break;
 			}
 
-			case 10: //Duration
+			case 9: //Duration
 			{
 
 				break;
 			}
 
-			case 11: //Priority
+			case 10: //Priority
 			{
 
 				break;
