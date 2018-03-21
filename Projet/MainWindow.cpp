@@ -380,9 +380,10 @@ void MainWindow::myon_tableView_data_changed(const QModelIndex &topLeft, const Q
 		QVariant q = model->data(topLeft);
 		switch(topLeft.column())
 		{
-			//If columns related to the name, capitalize the first letter
-			case 1:
-			case 2:
+			//Capitalize the first letter
+			case 1: //First name
+			case 2: //Last name
+			case 5: //City
 			{
 				QString s = q.toString();
 				QString cap = s.left(1).toUpper();
@@ -396,8 +397,40 @@ void MainWindow::myon_tableView_data_changed(const QModelIndex &topLeft, const Q
 					model->setData(topLeft, (cap + text));
 				break;
 			}
-				//If date column, verify format and if not in the past
-			case 8:
+
+
+			case 4: //Address
+			{
+
+				break;
+			}
+
+			case 6: //Postal code
+			{
+
+				break;
+			}
+
+			case 8: //Phone
+			{
+
+				break;
+			}
+
+			case 10: //Duration
+			{
+
+				break;
+			}
+
+			case 11: //Priority
+			{
+
+				break;
+			}
+
+			//Verify format and if not in the past
+			case 8: //Date
 			{
 				QDate date = QDate::fromString(q.toString(), "yyyy-MM-dd");
 				if(date < QDate::currentDate())
@@ -478,7 +511,7 @@ void MainWindow::myon_treeView_data_changed(const QModelIndex &topLeft, const QM
 				setStatusText("The staff name failed to be changed, try again later ;)");
 			}
 		}
-    }
+	}
 }
 
 void MainWindow::on_startDate_userDateChanged(const QDate &date)
@@ -493,42 +526,32 @@ void MainWindow::on_endDate_userDateChanged(const QDate &date)
 
 void MainWindow::on_editTablePushButton_clicked()
 {
-    editTable = !editTable;
-    showEditTable();
+	editTable = !editTable;
+	showEditTable();
 }
 
 void MainWindow::showEditTable()
 {
-    ui->tableView->setColumnHidden(0, false);
-    ui->tableView->setColumnHidden(1, false);
-    ui->tableView->setColumnHidden(2, false);
-    ui->tableView->setColumnHidden(3, !editTable);
-    ui->tableView->setColumnHidden(4, !editTable);
-    ui->tableView->setColumnHidden(5, !editTable);
-    ui->tableView->setColumnHidden(6, !editTable);
-    ui->tableView->setColumnHidden(7, !editTable);
-    ui->tableView->setColumnHidden(8, false);
-    ui->tableView->setColumnHidden(9, !editTable);
-    ui->tableView->setColumnHidden(10, !editTable);
+	ui->tableView->setColumnHidden(0, false);
+	ui->tableView->setColumnHidden(1, false);
+	ui->tableView->setColumnHidden(2, false);
+	ui->tableView->setColumnHidden(3, !editTable);
+	ui->tableView->setColumnHidden(4, !editTable);
+	ui->tableView->setColumnHidden(5, !editTable);
+	ui->tableView->setColumnHidden(6, !editTable);
+	ui->tableView->setColumnHidden(7, !editTable);
+	ui->tableView->setColumnHidden(8, false);
+	ui->tableView->setColumnHidden(9, !editTable);
+	ui->tableView->setColumnHidden(10, !editTable);
 
-    //Make columns resize to the window's width
-    //ui->tableView->setItemDelegateForColumn(8, new MyDateItemDelegate());
-    ui->tableView->resizeColumnsToContents();
-
-    if(!editTable)
-        for(int c = 0; c < ui->tableView->horizontalHeader()->count(); ++c)
-        {
-            ui->tableView->horizontalHeader()->setSectionResizeMode(c, QHeaderView::Stretch);
-        }
-
-    if(editTable)
-        ui->editTablePushButton->setText("Hide additional columns");
-    else
-        ui->editTablePushButton->setText("Edit table");
+	if(editTable)
+		ui->editTablePushButton->setText("Hide additional columns");
+	else
+		ui->editTablePushButton->setText("Edit table");
 
 }
 
 void MainWindow::on_editTreePushButton_clicked()
 {
-    //TODO
+	//TODO
 }
