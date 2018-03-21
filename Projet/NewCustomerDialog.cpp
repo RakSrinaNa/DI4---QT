@@ -11,10 +11,10 @@ NewCustomerDialog::NewCustomerDialog(QWidget *parent) : QDialog(parent), ui(new 
 	ui->dayOfConsultationDateEdit->setDate(QDate::currentDate());
 	ui->priorityComboBox->addItems({"1", "2", "3", "4", "5"});
 
-	ui->firstNameLineEdit->setValidator(new QRegularExpressionValidator(QRegularExpression("[\\wéè '-]+"), this));
-	ui->lastNameLineEdit->setValidator(new QRegularExpressionValidator(QRegularExpression("[\\wéè '-]+"), this));
-	ui->addressLineEdit->setValidator(new QRegularExpressionValidator(QRegularExpression("[1-9]\\d* [\\wéè '-]+"), this));
-	ui->cityLineEdit->setValidator(new QRegularExpressionValidator(QRegularExpression("[\\wéèà '-/]+"), this));
+	ui->firstNameLineEdit->setValidator(new QRegularExpressionValidator(QRegularExpression("[A-Za-zéè '-]+"), this));
+	ui->lastNameLineEdit->setValidator(new QRegularExpressionValidator(QRegularExpression("[A-Za-zéè '-]+"), this));
+	ui->addressLineEdit->setValidator(new QRegularExpressionValidator(QRegularExpression("[1-9]\\d* [A-Za-zéè '-]+"), this));
+	ui->cityLineEdit->setValidator(new QRegularExpressionValidator(QRegularExpression("[A-Za-zéèà '-/]+"), this));
 	ui->postalCodeLineEdit->setValidator(new QIntValidator(1, 99999, this));
 	ui->phoneLineEdit->setValidator(new QIntValidator(0, 999999999, this));
 

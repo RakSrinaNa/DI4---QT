@@ -391,7 +391,7 @@ void MainWindow::myon_tableView_data_changed(const QModelIndex &topLeft, const Q
 				QString s = q.toString();
 				QString cap = s.left(1).toUpper();
 				QString text = s.length() > 1 ? s.right(s.length() - 1).toLower() : "";
-				if(!QRegularExpression("[\\wéè '-]+").match(cap + text).hasMatch())
+				if(!QRegularExpression("[A-Za-zéè '-]+").match(cap + text).hasMatch())
 				{
 					setStatusText("Invalid name, change it!");
 					model->revertRow(topLeft.row());
@@ -406,7 +406,7 @@ void MainWindow::myon_tableView_data_changed(const QModelIndex &topLeft, const Q
 				QString s = q.toString();
 				QString cap = s.left(1).toUpper();
 				QString text = s.length() > 1 ? s.right(s.length() - 1).toLower() : "";
-				if(!QRegularExpression("[\\wéèà '-/]+").match(cap + text).hasMatch())
+				if(!QRegularExpression("[A-Za-zéèà '-/]+").match(cap + text).hasMatch())
 				{
 					setStatusText("Invalid name, change it!");
 					model->revertRow(topLeft.row());
@@ -420,7 +420,7 @@ void MainWindow::myon_tableView_data_changed(const QModelIndex &topLeft, const Q
 			{
 				QString s = q.toString();
 				std::cout << s.toStdString() << std::endl;
-				if(!QRegularExpression("[1-9]\\d* [\\wéè '-]+").match(s).hasMatch())
+				if(!QRegularExpression("[1-9]\\d* [A-Za-zéè '-]+").match(s).hasMatch())
 				{
 					setStatusText("Invalid address, change it!");
 					model->revertRow(topLeft.row());
