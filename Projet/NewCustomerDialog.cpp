@@ -13,7 +13,7 @@ NewCustomerDialog::NewCustomerDialog(QWidget *parent) : QDialog(parent), ui(new 
 
     ui->firstNameLineEdit->setValidator(new QRegularExpressionValidator(QRegularExpression("[a-zA-Z][a-zA-zéè '-]*"), this));
     ui->lastNameLineEdit->setValidator(new QRegularExpressionValidator(QRegularExpression("[a-zA-Z][a-zA-zéè '-]*"), this));
-    ui->addressLineEdit->setValidator(new QRegularExpressionValidator(QRegularExpression("[1-9]+[0-9]* [a-zA-zéè '-]+"), this));
+    ui->addressLineEdit->setValidator(new QRegularExpressionValidator(QRegularExpression("[1-9][0-9]* [a-zA-zéè '-]+"), this));
     ui->cityLineEdit->setValidator(new QRegularExpressionValidator(QRegularExpression("[a-zA-zéèà '-]*"), this));
     ui->postalCodeLineEdit->setValidator(new QIntValidator(1, 99999, this));
     ui->phoneLineEdit->setValidator(new QIntValidator(0, 999999999, this));

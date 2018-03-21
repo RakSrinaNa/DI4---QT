@@ -405,30 +405,69 @@ void MainWindow::myon_tableView_data_changed(const QModelIndex &topLeft, const Q
 
 			case 3: //Address
 			{
+                QString s = q.toString();
+                std::cout << s.toStdString() << std::endl;
+                if(!QRegularExpression("[1-9][0-9]* [a-zA-zéè '-]+").match(s).hasMatch())
+                {
+                    setStatusText("Invalid address, change it!");
+                    model->revertRow(topLeft.row());
+                }
+                else
+                    model->setData(topLeft, s);
 
 				break;
 			}
 
 			case 5: //Postal code
 			{
+                QString s = q.toString();
+                if(!QRegularExpression("[1-9][0-9]{4}").match(s).hasMatch())
+                {
+                    setStatusText("Invalid postal code, change it!");
+                    model->revertRow(topLeft.row());
+                }
+                else
+                    model->setData(topLeft, q.toInt());
 
 				break;
 			}
 
 			case 7: //Phone
 			{
+            QString s = q.toString();
+            if(!QRegularExpression("[0-9]{10}").match(s).hasMatch())
+            {
+                setStatusText("Invalid phone number, change it!");
+                model->revertRow(topLeft.row());
+            }
+            else
+                model->setData(topLeft, q.toInt());
 
 				break;
 			}
 
 			case 9: //Duration
 			{
+                if(!QRegularExpression("[1-9]+[0-9]+").match(q.toString()).hasMatch() || q.toInt() <= 0)
+                {
+                    setStatusText("Invalid duration, change it!");
+                    model->revertRow(topLeft.row());
+                }
+                else
+                    model->setData(topLeft, q.toInt());
 
 				break;
 			}
 
 			case 10: //Priority
 			{
+            if(!QRegularExpression("[1-5]").match(q.toString()).hasMatch())
+            {
+                setStatusText("Invalid priority, change it!");
+                model->revertRow(topLeft.row());
+            }
+            else
+                model->setData(topLeft, q.toInt());
 
 				break;
 			}
