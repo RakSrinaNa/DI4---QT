@@ -383,7 +383,7 @@ void MainWindow::myon_tableView_data_changed(const QModelIndex &topLeft, const Q
 			//Capitalize the first letter
 			case 1: //First name
 			case 2: //Last name
-			case 5: //City
+			case 4: //City
 			{
 				QString s = q.toString();
 				QString cap = s.left(1).toUpper();
