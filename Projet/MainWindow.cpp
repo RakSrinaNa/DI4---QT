@@ -461,7 +461,7 @@ void MainWindow::myon_tableView_data_changed(const QModelIndex &topLeft, const Q
 
 			case 10: //Priority
 			{
-			if(!QRegularExpression("[1-5]").match(q.toString()).hasMatch())
+			if(!QRegularExpression("[1-5]{1}").match(q.toString()).hasMatch())
 			{
 				setStatusText("Invalid priority, change it!");
 				model->revertRow(topLeft.row());
