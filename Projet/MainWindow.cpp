@@ -448,7 +448,7 @@ void MainWindow::myon_tableView_data_changed(const QModelIndex &topLeft, const Q
 
 			case 9: //Duration
 			{
-				if(!QRegularExpression("[1-9]+[0-9]+").match(q.toString()).hasMatch() || q.toInt() <= 0)
+				if(!QRegularExpression("[1-9]+[0-9]*").match(q.toString()).hasMatch() || q.toInt() <= 0)
 				{
 					setStatusText("Invalid duration, change it!");
 					model->revertRow(topLeft.row());
