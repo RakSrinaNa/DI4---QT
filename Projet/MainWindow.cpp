@@ -481,6 +481,7 @@ void MainWindow::myon_treeView_data_changed(const QModelIndex &topLeft, const QM
 			else if(db->changeResourceName(resID, item->data(0).toString()))
 			{
 				setStatusText("Resource name changed", 2000);
+				model2->reload();
 			}
 			else
 			{
@@ -526,6 +527,7 @@ void MainWindow::myon_treeView_data_changed(const QModelIndex &topLeft, const QM
 						if(db->changeStaffResource(resID, type->getId()))
 						{
 							setStatusText("Value changed", 2000);
+							model2->reload();
 						}
 						else
 						{
