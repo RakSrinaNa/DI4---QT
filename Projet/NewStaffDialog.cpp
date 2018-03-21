@@ -5,25 +5,27 @@ extern DBConnect * db;
 
 NewStaffDialog::NewStaffDialog(QWidget * parent) : QDialog (parent), ui(new Ui::NewStaffDialog)
 {
-    qInfo() << "Opening new staff dialog";
+	qInfo() << "Opening new staff dialog";
 	ui->setupUi(this);
 	QList<ResourceType *> * resources = db->getTypes();
 	for(ResourceType * r : *resources)
 	{
 		ui->typeComboBox->addItem(r->getName(), QVariant::fromValue(static_cast<void *>(r)));
 	}
+	ui->firstNameLineEdit->setValidator(new QRegularExpressionValidator(QRegularExpression("[\\wéè '-]+"), this));
+	ui->lastNameLineEdit->setValidator(new QRegularExpressionValidator(QRegularExpression("[\\wéè '-]+"), this));
 }
 
 NewStaffDialog::~NewStaffDialog()
 {
-    qInfo() << "Destroying new staff dialog";
+	qInfo() << "Destroying new staff dialog";
 	delete ui;
 }
 
 Staff * NewStaffDialog::getStaff()
 {
 	ResourceType * type = static_cast<ResourceType *>(ui->typeComboBox->currentData().value<void *>());
-	
+
 	if(type->getName() == "Informaticien")
 		return new Staff(ui->lastNameLineEdit->text(), ui->firstNameLineEdit->text(), type->getId(), type->getName(), ui->loginLineEdit->text(), ui->passwordLineEdit->text());
 	else
@@ -80,7 +82,7 @@ void NewStaffDialog::on_okButton_clicked()
 	{
 		ui->lastNameLineEdit->setStyleSheet("background-color:white;");
 	}
-	
+
 	if(ui->firstNameLineEdit->text().isEmpty())
 	{
 		valid = false;
@@ -90,7 +92,7 @@ void NewStaffDialog::on_okButton_clicked()
 	{
 		ui->firstNameLineEdit->setStyleSheet("background-color:white;");
 	}
-	
+
 	if(ui->typeComboBox->currentText() == "Informaticien")
 	{
 		if(ui->loginLineEdit->text().isEmpty())
@@ -102,7 +104,7 @@ void NewStaffDialog::on_okButton_clicked()
 		{
 			ui->loginLineEdit->setStyleSheet("background-color:white;");
 		}
-		
+
 		if(ui->passwordLineEdit->text().isEmpty())
 		{
 			valid = false;
@@ -113,7 +115,7 @@ void NewStaffDialog::on_okButton_clicked()
 			ui->passwordLineEdit->setStyleSheet("background-color:white;");
 		}
 	}
-	
+
 	if(valid) //If all was ok, we valid the closing
 		accept();
 }
