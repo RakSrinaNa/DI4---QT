@@ -43,8 +43,6 @@ QList<TimeLine *> * Schedule::getAppropriatedTimeLines(Customer * customer)
             if(listTimeLine.at(i)->getStaff()->getId() == resources->at(j)->getId())
                 appropriatedTimeLines->append(listTimeLine.at(i));
 
-    //TODO order appropriatedTimeLines by end hour
-
     return appropriatedTimeLines;
 }
 

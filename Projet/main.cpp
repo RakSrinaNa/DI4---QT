@@ -16,7 +16,6 @@ int main(int argc, char * argv[])
 	int result = 0;
 	if(login.exec() == QDialog::Accepted) //If user is successfully logged in
 	{
-
         MainWindow w;
         qInfo() << "User logged in";
 		w.show();
