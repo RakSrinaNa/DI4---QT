@@ -392,7 +392,6 @@ void MainWindow::myon_tableView_data_changed(const QModelIndex &topLeft, const Q
 				QString s = q.toString();
 				QString cap = s.left(1).toUpper();
 				QString text = s.length() > 1 ? s.right(s.length() - 1).toLower() : "";
-				if(!QRegularExpression(topLeft.column() == 4 ? "[a-zA-zéèà '-/]*" : "[A-Z][a-zA-zéè '-]*").match(cap + text).hasMatch())
 				{
 					setStatusText("Invalid name, change it!");
 					model->revertRow(topLeft.row());
