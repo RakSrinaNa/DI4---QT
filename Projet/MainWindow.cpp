@@ -52,9 +52,6 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	ui->startDate->setDate(QDate::currentDate());
 	ui->endDate->setDate(QDate::currentDate());
 
-	//dateFilterModel->setFilterMinimumDate(ui->startDate->date());
-	//dateFilterModel->setFilterMaximumDate(ui->endDate->date());
-
 	//Hide unwanted columns
 	ui->tableView->setColumnHidden(0, false);
 	ui->tableView->setColumnHidden(1, false);
@@ -71,7 +68,6 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	ui->tableView->setAlternatingRowColors(true);
 
 	//Make columns resize to the window's width
-	//ui->tableView->setItemDelegateForColumn(8, new MyDateItemDelegate());
 	ui->tableView->resizeColumnsToContents();
 	for(int c = 0; c < ui->tableView->horizontalHeader()->count(); ++c)
 	{
@@ -127,7 +123,7 @@ void MainWindow::on_actionCustomer_triggered()
 		if(db->addCustomer(newCustomer.getCustomer()))
 		{
 			setStatusText("A new customer was added", 5000);
-			model->select(); //Refresh view
+			model->select(); //Refresh table view
 		}
 		else
 			setStatusText("Failed to add a new customer", 5000);
@@ -143,7 +139,7 @@ void MainWindow::on_actionStaff_triggered()
 		if(db->addStaff(newStaff.getStaff()))
 		{
 			setStatusText("A new staff member was added", 5000);
-			model2->reload(ui->treeView);
+			model2->reload(ui->treeView); //Refresh tree view
 		}
 		else
 			setStatusText("Fail to add new staff member", 5000);
@@ -237,7 +233,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 					if(depth == 0) //Removing type
 					{
 						if(0)
-						{ //Du coup on m'a dit faut pas tout cramer
+						{ //So we told me we have to not delete everything, I was apparently too brutal @MrCraftCod
 							if((result = db->removeResourceType(item->data(2).toInt())))
 							{
 								result &= model2->removeRow(current.row(), current.parent());
@@ -245,7 +241,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 							}
 						}
 						else
-						{
+						{ //Remove all staff of this type
 							if((result = db->removeAllStaffOfType(item->data(2).toInt())))
 							{
 								while(item->childCount() > 0)

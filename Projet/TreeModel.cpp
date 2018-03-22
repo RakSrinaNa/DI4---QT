@@ -66,33 +66,39 @@ TreeModel::~TreeModel()
 
 void TreeModel::reload(QTreeView * view)
 {
-	/*QList<int> expended = QList<int>();
+	QList<int> expended = QList<int>();
 	if(view != nullptr)
 	{
-		foreach (QModelIndex index, persistentIndexList())
+		for(int i = 0; i < rootItem->childCount(); i++)
 		{
-			if (view->isExpanded(index))
+			QModelIndex index = this->index(i, 0, view->rootIndex());
+			if(view->isExpanded(index))
 			{
-				expended << getItem(index)->data(3).toInt();
+				TreeItem * item = getItem(index);
+				expended << item->data(3).toInt();
 			}
 		}
-	}*/
+	}
+
+	qDebug() << expended;
 
 	beginResetModel();
 	delete rootItem;
 	setupModelData();
 	endResetModel();
 
-	/*if(view != nullptr)
+	if(view != nullptr)
 	{
-		foreach (QModelIndex index, persistentIndexList())
+		for(int i = 0; i < rootItem->childCount(); i++)
 		{
-			if (expended.contains(getItem(index)->data(3).toInt()))
+			QModelIndex index = this->index(i, 0, view->rootIndex());
+			TreeItem * item = getItem(index);
+			if(expended.contains(item->data(3).toInt()))
 			{
 				view->setExpanded(index, true);
 			}
 		}
-	}*/
+	}
 }
 
 int TreeModel::columnCount(const QModelIndex & parent) const

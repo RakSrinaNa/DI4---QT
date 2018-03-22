@@ -58,7 +58,7 @@ public:
 
 	/**
 	 * Get all the available resource type.
-	 * @return
+	 * @return The available types.
 	 */
 	QList<ResourceType *> * getTypes();
 
@@ -109,18 +109,57 @@ public:
 	 */
 	QList<Staff *> * getStaffByType(int id);
 
+	/**
+	 * Change the resource name.
+	 * @param ID The resource ID.
+	 * @param name The new name.
+	 * @return True if successful, false otherwise.
+	 */
 	bool changeResourceName(int ID, QString name);
 
+	/**
+	 * Change the name of a staff.
+	 * @param ID The staff ID.
+	 * @param firstName The new firstName.
+	 * @param lastName The new lastName.
+	 * @return True if successful, false otherwise.
+	 */
 	bool changeStaffName(int ID, QString firstName, QString lastName);
 
+	/**
+	 * Change the resource type of a staff.
+	 * @param ID The staff ID.
+	 * @param rID The new resource ID.
+	 * @return True if successful, false otherwise.
+	 */
 	bool changeStaffResource(int ID, int rID);
 
+	/**
+	 * Tell if a resource exists.
+	 * @param ID The ID of the resource to check.
+	 * @return True if exists, false otherwise.
+	 */
 	bool resourceExists(int ID);
 
+	/**
+	 * Delete a staff.
+	 * @param ID The ID of the staff to remove.
+	 * @return True if successful, false otherwise.
+	 */
 	bool removeStaff(int ID);
 
+	/**
+	 * Remove a resource type. All the staff of this kind will be deleted too. All the customers needing this resource, won't need it anymore.
+	 * @param ID The ID of the resource to delete.
+	 * @return True if successful, false otherwise.
+	 */
 	bool removeResourceType(int ID);
 
+	/**
+	 * Remove all the staff of this resource.
+	 * @param ID The ID of the resource the staff have.
+	 * @return True if successful, false otherwise.
+	 */
 	bool removeAllStaffOfType(int ID);
 
 private:
