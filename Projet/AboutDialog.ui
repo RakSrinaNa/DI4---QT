@@ -42,7 +42,7 @@
        <number>1</number>
       </property>
       <property name="text">
-       <string>Version 1.0</string>
+       <string>Version 195.27</string>
       </property>
       <property name="textFormat">
        <enum>Qt::AutoText</enum>
