@@ -596,11 +596,15 @@ void MainWindow::myon_treeView_data_changed(const QModelIndex &topLeft, const QM
 
 void MainWindow::on_startDate_userDateChanged(const QDate &date)
 {
+	if(date > ui->endDate->date())
+		ui->endDate->setDate(date);
 	dateFilterModel->setFilterMinimumDate(date);
 }
 
 void MainWindow::on_endDate_userDateChanged(const QDate &date)
 {
+	if(date < ui->startDate->date())
+		ui->startDate->setDate(date);
 	dateFilterModel->setFilterMaximumDate(date);
 }
 
