@@ -5,5 +5,7 @@
         <file>Resources/staff.png</file>
         <file>Resources/exit.png</file>
         <file>Resources/about.png</file>
+        <file>Resources/mohand.png</file>
+        <file>Resources/neron.png</file>
     </qresource>
 </RCC>
