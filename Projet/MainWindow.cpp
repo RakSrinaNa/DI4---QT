@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	setStatusText("You are connected");
 	ui->tabWidget->tabBar()->setExpanding(true); //Tabs fill all width
 
-    QObject::connect(db, SIGNAL(IWANTTOSAYIT(QString text, int d)), this, SLOT(setStatusText(QString text, int d)));
+    QObject::connect(db, SIGNAL(IWANTTOSAYIT(QString, int)), this, SLOT(setStatusText(QString, int)));
 
 	//Initialize tab 1 || SQLTable
 	model = new MySqlTableModel(this, db->getDB()); //Model to avoid modifying column 0
@@ -37,6 +37,7 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	//Filters to
 	idModel = new QSortFilterProxyModel(this);
 	firstNameModel = new QSortFilterProxyModel(this);
+    firstNameModel->setFilterRegExp(ui->firstNameEdit->text());
 	lastNameModel = new QSortFilterProxyModel(this);
 	dateFilterModel = new MyDateSortFilterProxyModel(this);
 
