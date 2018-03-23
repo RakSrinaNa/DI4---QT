@@ -32,7 +32,8 @@ SOURCES += main.cpp\
     ResourceType.cpp \
     TreeModel.cpp \
     MyDateSortFilterProxyModel.cpp \
-    NewOtherDialog.cpp
+    NewOtherDialog.cpp \
+    lol.cpp
 
 HEADERS  += \
     c_init_bd.h \
@@ -53,7 +54,8 @@ HEADERS  += \
     ResourceType.h \
     TreeModel.h \
     MyDateSortFilterProxyModel.h \
-    NewOtherDialog.h
+    NewOtherDialog.h \
+    lol.h
 
 FORMS    += \
     AboutDialog.ui \

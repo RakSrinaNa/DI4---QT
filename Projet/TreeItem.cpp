@@ -59,14 +59,14 @@
 
 TreeItem::TreeItem(const QVector<QVariant> &data, TreeItem * parent)
 {
-    qInfo() << "Creating tree item";
+    qDebug() << "Creating tree item";
 	parentItem = parent;
 	itemData = data;
 }
 
 TreeItem::~TreeItem()
 {
-    qInfo() << "Destroying tree item";
+    qDebug() << "Destroying tree item";
 	qDeleteAll(childItems);
 }
 

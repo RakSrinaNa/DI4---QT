@@ -5,13 +5,13 @@ extern DBConnect * db;
 
 MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::MainWindow)
 {
-	qInfo() << "Opening main window";
+    qDebug() << "Opening main window";
 	ui->setupUi(this);
 	setFocusPolicy(Qt::StrongFocus); //Catch all the keyboard event
 	setStatusText("You are connected");
 	ui->tabWidget->tabBar()->setExpanding(true); //Tabs fill all width
 
-	QObject::connect(db, SIGNAL(IWANTTOSAYIT(QString, int)), this, SLOT(setStatusText(QString, int)));
+    QObject::connect(db, SIGNAL(IWANTTOSAYIT(QString text, int d)), this, SLOT(setStatusText(QString text, int d)));
 
 	//Initialize tab 1 || SQLTable
 	model = new MySqlTableModel(this, db->getDB()); //Model to avoid modifying column 0
@@ -110,19 +110,19 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 
 MainWindow::~MainWindow()
 {
-	qInfo() << "Destroying main window";
+    qDebug() << "Destroying main window";
 	delete ui;
 }
 
 void MainWindow::setStatusText(QString status, int time)
 {
-	qInfo() << "Status text changed to '" << status << " for " << time << "ms";
+    qDebug() << "Status text changed to '" << status << " for " << time << "ms";
 	ui->statusBar->showMessage(status, time);
 }
 
 void MainWindow::on_actionCustomer_triggered()
 {
-	qInfo() << "New customer button clicked";
+    qDebug() << "New customer button clicked";
 	NewCustomerDialog newCustomer;
 	if(newCustomer.exec() == QDialog::Accepted)
 	{
@@ -138,7 +138,7 @@ void MainWindow::on_actionCustomer_triggered()
 
 void MainWindow::on_actionStaff_triggered()
 {
-	qInfo() << "New staff button clicked";
+    qDebug() << "New staff button clicked";
 	NewStaffDialog newStaff;
 	if(newStaff.exec() == QDialog::Accepted)
 	{
@@ -154,7 +154,7 @@ void MainWindow::on_actionStaff_triggered()
 
 void MainWindow::on_actionAbout_triggered()
 {
-	qInfo() << "About button clicked";
+    qDebug() << "About button clicked";
 	AboutDialog aboutDialog;
 	aboutDialog.exec();
 }
@@ -201,7 +201,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 		case Qt::Key_Backspace:
 		case Qt::Key_Delete:
 		{
-			qInfo() << "New delete key event";
+            qDebug() << "New delete key event";
 			if(event->key() == Qt::Key_Backspace && !(QApplication::keyboardModifiers() & Qt::ControlModifier)) //If backspace for mac, verify the CMD key was pressed
 			{
 				break;
@@ -243,7 +243,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 							if((result = db->removeResourceType(item->data(2).toInt())))
 							{
 								result &= model2->removeRow(current.row(), current.parent());
-								qInfo() << "Deleted type";
+                                qDebug() << "Deleted type";
 							}
 						}
 						else
@@ -252,7 +252,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 							{
 								while(item->childCount() > 0)
 									result &= model2->removeRow(0, current);
-								qInfo() << "Deleted type";
+                                qDebug() << "Deleted type";
 							}
 						}
 
@@ -284,7 +284,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 
 void MainWindow::on_planPushButton_clicked()
 {
-	qInfo() << "Plan button clicked";
+    qDebug() << "Plan button clicked";
 	QDate date = ui->planDateEdit->date();
 	QString s("");
 
@@ -327,7 +327,7 @@ void MainWindow::on_planPushButton_clicked()
 
 void MainWindow::on_pathPushButton_clicked()
 {
-	qInfo() << "Browser button clicked";
+    qDebug() << "Browser button clicked";
 	QString oldDir = ui->pathLineEdit->text();
 	QString dir = QFileDialog::getExistingDirectory(this, tr("Open Directory"), oldDir);
 	if(!dir.isEmpty())
@@ -343,7 +343,7 @@ void MainWindow::on_saveLineEdit_textEdited(const QString &arg1)
 
 void MainWindow::on_savePushButton_clicked()
 {
-	qInfo() << "Save button clicked";
+    qDebug() << "Save button clicked";
 	QMessageBox message(this);
 	message.setWindowTitle("Informations");
 
@@ -374,13 +374,13 @@ void MainWindow::on_savePushButton_clicked()
 
 void MainWindow::on_actionExit_triggered()
 {
-	qInfo() << "Exit button clicked";
+    qDebug() << "Exit button clicked";
 	close();
 }
 
 void MainWindow::myon_tableView_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
 {
-	qInfo() << "Table view data changed";
+    qDebug() << "Table view data changed";
 	(void) roles; //Unused warning taken down
 	if(topLeft.column() == bottomRight.column() && topLeft.row() == bottomRight.row()) //If we edited only one cell
 	{
@@ -513,7 +513,7 @@ void MainWindow::on_idLineEdit_textEdited(const QString &arg1)
 
 void MainWindow::myon_treeView_data_changed(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
 {
-	qInfo() << "Tree view data changed";
+    qDebug() << "Tree view data changed";
 	(void) roles; //Unused warning taken down
 	if(topLeft.column() == bottomRight.column() && topLeft.row() == bottomRight.row()) //If we edited only one cell
 	{
@@ -658,7 +658,7 @@ void MainWindow::showEditTree()
 
 void MainWindow::on_actionDivers_triggered()
 {
-	qInfo() << "New other button clicked";
+    qDebug() << "New other button clicked";
 	NewOtherDialog newOther;
 	if(newOther.exec() == QDialog::Accepted)
 	{
@@ -674,14 +674,59 @@ void MainWindow::on_actionDivers_triggered()
 
 void MainWindow::on_exportXMLButton_clicked()
 {
+    qDebug() << "Save XML button clicked";
+    QMessageBox message(this);
+    message.setWindowTitle("Informations");
+
+    bool ok = true;
+
+    if(!(ok = !ui->xmlPathEdit->text().isEmpty())) //If no path is present.
+        ui->xmlPathEdit->setStyleSheet("background-color:red;");
+
+    if(ok) //If everything needed is present
+    {
+        QFile file(ui->xmlPathEdit->text() + "/XMLRessource.xml");
+        if(file.open(QIODevice::WriteOnly | QIODevice::Text)) //Write into file
+        {
+            QTextStream stream(&file);
+            QString * text = getXMLText();
+            stream << *text;
+            file.close();
+            delete text;
+            message.setText("Wrote successfully into file.");
+        }
+        else
+        {
+            message.setText("Failed to write into file.");
+        }
+        message.exec();
+    }
 
 }
 
 void MainWindow::on_browseXMLButton_clicked()
 {
-	qInfo() << "Browser XML button clicked";
+    qDebug() << "Browser XML button clicked";
 	QString oldDir = ui->xmlPathEdit->text();
 	QString dir = QFileDialog::getExistingDirectory(this, tr("Open Directory"), oldDir);
 	if(!dir.isEmpty())
 		ui->xmlPathEdit->setText(dir);
+}
+
+QString * MainWindow::getXMLText()
+{
+    QString * text = new QString();
+
+    QList<Staff *> * allStaff = db->getAllStaff();
+
+    *text = *text + QString("<TRessource>\n");
+    for(int i = 0; i < allStaff->size(); i++){
+        text->append(QString("\t<Ressource Id=\"%1\">\n").arg(allStaff->at(i)->getId()));
+        text->append(QString("\t\t<Nom>%1</Nom>\n").arg(allStaff->at(i)->getLastName()));
+        text->append(QString("\t\t<Prénom>%1</Prénom>\n").arg(allStaff->at(i)->getFirstName()));
+        text->append("\t</Ressource>\n");
+    }
+
+    text->append("</TRessource>");
+    return text;
 }

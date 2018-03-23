@@ -2,7 +2,7 @@
 
 DBConnect::DBConnect(QObject * parent) : QObject(parent)
 {
-	qInfo() << "Creating DBConnect";
+    qDebug() << "Creating DBConnect";
 	db = QSqlDatabase::database();
 	insertCount = 0;
 
@@ -32,7 +32,7 @@ DBConnect::DBConnect(QObject * parent) : QObject(parent)
 
 DBConnect::~DBConnect()
 {
-	qInfo() << "Destroying DBConnect," << insertCount << "insert(s) were done";
+    qDebug() << "Destroying DBConnect," << insertCount << "insert(s) were done";
 	db.close();
 	QSqlDatabase::removeDatabase("QSQLITE");
 }
@@ -44,7 +44,7 @@ QSqlDatabase &DBConnect::getDB()
 
 Customer * DBConnect::getCustomer(int id)
 {
-	qInfo() << "Getting customer with ID " << id;
+    qDebug() << "Getting customer with ID " << id;
 	QSqlQuery query;
 	Customer * customer = nullptr;
 	auto * resources = new QList<Staff *>();
@@ -90,7 +90,7 @@ Customer * DBConnect::getCustomer(int id)
 
 Staff * DBConnect::getStaff(int id, bool logPass)
 {
-	qInfo() << "Getting staff with ID " << id;
+    qDebug() << "Getting staff with ID " << id;
 	QSqlQuery query;
 	Staff * staff = nullptr;
 
@@ -122,7 +122,7 @@ Staff * DBConnect::getStaff(int id, bool logPass)
 
 QList<ResourceType *> * DBConnect::getTypes()
 {
-	qInfo() << "Getting resources types";
+    qDebug() << "Getting resources types";
 	auto * resourceList = new QList<ResourceType *>();
 	QSqlQuery query;
 	if(!query.exec("SELECT Id, Label FROM TType ORDER BY Label;"))
@@ -141,7 +141,7 @@ QList<ResourceType *> * DBConnect::getTypes()
 
 ResourceType * DBConnect::getType(int id)
 {
-	qInfo() << "Getting resource type with ID " << id;
+    qDebug() << "Getting resource type with ID " << id;
 	QSqlQuery query;
 	query.prepare("SELECT Id, Label FROM TType WHERE Id = (:id);");
 	query.bindValue(":id", id);
@@ -162,7 +162,7 @@ ResourceType * DBConnect::getType(int id)
 
 ResourceType * DBConnect::getType(QString name)
 {
-	qInfo() << "Getting resource type with name " << name;
+    qDebug() << "Getting resource type with name " << name;
 	QSqlQuery query;
 	query.prepare("SELECT Id, Label FROM TType WHERE Label = (:name);");
 	query.bindValue(":name", name);
@@ -183,7 +183,7 @@ ResourceType * DBConnect::getType(QString name)
 
 bool DBConnect::logUser(QString &user, QString &pass)
 {
-	qInfo() << "Trying to log user " << user;
+    qDebug() << "Trying to log user " << user;
 	QSqlQuery query;
 	query.prepare("SELECT * FROM TCompte WHERE Login = (:login) AND MdP = (:mdp)");
 	query.bindValue(":login", user);
@@ -199,7 +199,7 @@ bool DBConnect::logUser(QString &user, QString &pass)
 
 bool DBConnect::addCustomer(Customer * customer)
 {
-	qInfo() << "Adding customer";
+    qDebug() << "Adding customer";
 	if(customer == nullptr)
 		return false;
 
@@ -241,7 +241,7 @@ bool DBConnect::addCustomer(Customer * customer)
 
 bool DBConnect::addStaff(Staff * staff)
 {
-	qInfo() << "Adding staff";
+    qDebug() << "Adding staff";
 	if(staff == nullptr)
 		return false;
 
@@ -268,13 +268,13 @@ bool DBConnect::addStaff(Staff * staff)
 			return false;
 	}
 
-	//emit IWANTTOSAYIT("Ajout de personne termine", 2000);
+    emit IWANTTOSAYIT("Ajout de personne termine", 2000);
 	return true;
 }
 
 QList<Customer *> * DBConnect::getClientsFromDate(QDate date)
 {
-	qInfo() << "Getting customers for date " << date.toString();
+    qDebug() << "Getting customers for date " << date.toString();
 	auto * listCustomers = new QList<Customer *>();
 
 	QSqlQuery query;
@@ -296,7 +296,7 @@ QList<Customer *> * DBConnect::getClientsFromDate(QDate date)
 
 QList<Staff *> * DBConnect::getAllStaff()
 {
-	qInfo() << "Getting all staff";
+    qDebug() << "Getting all staff";
 	auto * listStaff = new QList<Staff *>();
 
 	QSqlQuery query;
@@ -316,7 +316,7 @@ QList<Staff *> * DBConnect::getAllStaff()
 
 QList<Staff *> * DBConnect::getStaffByType(int id)
 {
-	qInfo() << "Getting all staff of type " << id;
+    qDebug() << "Getting all staff of type " << id;
 	auto * listStaff = new QList<Staff *>();
 
 	QSqlQuery query;
@@ -339,7 +339,7 @@ QList<Staff *> * DBConnect::getStaffByType(int id)
 
 bool DBConnect::changeResourceName(int ID, QString name)
 {
-	qInfo() << "Changing name to '" << name << "' for resource " << ID;
+    qDebug() << "Changing name to '" << name << "' for resource " << ID;
 	QSqlQuery query;
 	query.prepare("UPDATE TType "
 				  "SET Label = :name "
@@ -379,7 +379,7 @@ bool DBConnect::changeStaffResource(int ID, int rID)
 
 bool DBConnect::removeStaff(int ID)
 {
-	qInfo() << "Removing staff " << ID;
+    qDebug() << "Removing staff " << ID;
 	QSqlQuery query;
 	query.prepare("DELETE FROM TRdv "
 				  "WHERE IdRessource = :id;");
@@ -417,7 +417,7 @@ bool DBConnect::removeResourceType(int ID)
 
 bool DBConnect::removeAllStaffOfType(int ID)
 {
-	qInfo() << "Removing resource type " << ID;
+    qDebug() << "Removing resource type " << ID;
 	bool result = true;
 	QList<Staff *> * staffs = this->getStaffByType(ID);
 

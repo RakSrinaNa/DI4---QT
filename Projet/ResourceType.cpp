@@ -2,12 +2,12 @@
 
 ResourceType::ResourceType(int id, QString name) : id(id), name(name)
 {
-    qInfo() << "Creating resource type " << id << "(" << name << ")";
+    qDebug() << "Creating resource type " << id << "(" << name << ")";
 }
 
 ResourceType::~ResourceType()
 {
-    qInfo() << "Destroying resource type " << id << "(" << name << ")";
+    qDebug() << "Destroying resource type " << id << "(" << name << ")";
 }
 
 int ResourceType::getId()

@@ -3,13 +3,13 @@
 
 AboutDialog::AboutDialog(QWidget * parent) : QDialog(parent), ui(new Ui::AboutDialog)
 {
-    qInfo() << "Opening About dialog" ;
+    qDebug() << "Opening About dialog" ;
 	ui->setupUi(this);
 	this->setWindowTitle("About");
 }
 
 AboutDialog::~AboutDialog()
 {
-    qInfo() << "Destroying About dialog" ;
+    qDebug() << "Destroying About dialog" ;
 	delete ui;
 }

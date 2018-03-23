@@ -9,6 +9,7 @@
 #include <QDebug>
 #include <QFile>
 #include <exception>
+#include <QObject>
 
 #include "Customer.h"
 #include "Staff.h"
@@ -19,6 +20,9 @@
  */
 class DBConnect : public QObject
 {
+
+    Q_OBJECT
+
 public:
 	DBConnect(QObject * parent = Q_NULLPTR);
 

@@ -64,6 +64,12 @@ private:
 	 */
 	void textExtension_textEdited(const QString &arg1);
 
+    /**
+     * Format all the staff in XML format
+     * @return The xml text
+     */
+    QString *getXMLText();
+
 private slots:
 
 	/**
