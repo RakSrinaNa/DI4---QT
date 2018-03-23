@@ -95,10 +95,11 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 		ui->treeView->header()->setSectionResizeMode(c, QHeaderView::Stretch);
 	}
 
+	ui->xmlPathEdit->setText(QDir::currentPath());
+
 	//Initialize tab 3
 	ui->planDateEdit->setDate(QDate::currentDate());
 	ui->pathLineEdit->setText(QDir::currentPath());
-
 
 	//Shortcuts
 	ui->actionCustomer->setShortcut(Qt::ALT + Qt::Key_C);
@@ -329,7 +330,8 @@ void MainWindow::on_pathPushButton_clicked()
 	qInfo() << "Browser button clicked";
 	QString oldDir = ui->pathLineEdit->text();
 	QString dir = QFileDialog::getExistingDirectory(this, tr("Open Directory"), oldDir);
-	ui->pathLineEdit->setText(dir);
+	if(!dir.isEmpty())
+		ui->pathLineEdit->setText(dir);
 }
 
 void MainWindow::on_saveLineEdit_textEdited(const QString &arg1)
@@ -668,4 +670,18 @@ void MainWindow::on_actionDivers_triggered()
 		else
 			setStatusText("Failed to add a new other", 5000);
 	}
+}
+
+void MainWindow::on_exportXMLButton_clicked()
+{
+
+}
+
+void MainWindow::on_browseXMLButton_clicked()
+{
+	qInfo() << "Browser XML button clicked";
+	QString oldDir = ui->xmlPathEdit->text();
+	QString dir = QFileDialog::getExistingDirectory(this, tr("Open Directory"), oldDir);
+	if(!dir.isEmpty())
+		ui->xmlPathEdit->setText(dir);
 }

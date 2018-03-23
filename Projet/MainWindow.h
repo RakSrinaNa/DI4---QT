@@ -181,6 +181,10 @@ private slots:
 
 	void on_actionDivers_triggered();
 
+	void on_exportXMLButton_clicked();
+
+	void on_browseXMLButton_clicked();
+
 public slots:
 	/**
 	 * Set the information text in the bottom bar.
