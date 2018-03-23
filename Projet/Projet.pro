@@ -31,7 +31,8 @@ SOURCES += main.cpp\
     TreeItem.cpp \
     ResourceType.cpp \
     TreeModel.cpp \
-    MyDateSortFilterProxyModel.cpp
+    MyDateSortFilterProxyModel.cpp \
+    NewOtherDialog.cpp
 
 HEADERS  += \
     c_init_bd.h \
@@ -51,14 +52,16 @@ HEADERS  += \
     TreeItem.h \
     ResourceType.h \
     TreeModel.h \
-    MyDateSortFilterProxyModel.h
+    MyDateSortFilterProxyModel.h \
+    NewOtherDialog.h
 
 FORMS    += \
     AboutDialog.ui \
     Login.ui \
     MainWindow.ui \
     NewCustomerDialog.ui \
-    NewStaffDialog.ui
+    NewStaffDialog.ui \
+    NewOtherDialog.ui
 
 RESOURCES += \
     resources.qrc

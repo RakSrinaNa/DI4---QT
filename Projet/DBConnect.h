@@ -9,6 +9,7 @@
 #include <QDebug>
 #include <QFile>
 #include <exception>
+#include <QObject>
 
 #include "Customer.h"
 #include "Staff.h"
@@ -17,10 +18,13 @@
 /**
  * Class to handle database queries.
  */
-class DBConnect
+class DBConnect : public QObject
 {
+
+    Q_OBJECT
+
 public:
-	DBConnect();
+	DBConnect(QObject * parent = Q_NULLPTR);
 
 	~DBConnect();
 
@@ -162,8 +166,12 @@ public:
 	 */
 	bool removeAllStaffOfType(int ID);
 
+signals:
+	void IWANTTOSAYIT(QString text, int duration);
+
 private:
 	QSqlDatabase db;
+	int insertCount;
 };
 
 #endif // DBCONNECT_H

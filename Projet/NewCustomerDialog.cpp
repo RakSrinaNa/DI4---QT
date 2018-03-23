@@ -5,7 +5,7 @@ extern DBConnect * db;
 
 NewCustomerDialog::NewCustomerDialog(QWidget *parent) : QDialog(parent), ui(new Ui::NewCustomerDialog)
 {
-	qInfo() << "Opening new customer dialog";
+    qDebug() << "Opening new customer dialog";
 	ui->setupUi(this);
 
 	ui->dayOfConsultationDateEdit->setDate(QDate::currentDate());
@@ -27,13 +27,13 @@ NewCustomerDialog::NewCustomerDialog(QWidget *parent) : QDialog(parent), ui(new 
 
 NewCustomerDialog::~NewCustomerDialog()
 {
-	qInfo() << "Destroying new customer dialog";
+    qDebug() << "Destroying new customer dialog";
 	delete ui;
 }
 
 Customer * NewCustomerDialog::getCustomer()
 {
-	return new Customer(ui->lastNameLineEdit->text(), ui->firstNameLineEdit->text(), ui->addressLineEdit->text(), ui->cityLineEdit->text(), ui->postalCodeLineEdit->text(), ui->dayOfConsultationDateEdit->date(), ui->durationTimeEdit->time(), ui->priorityComboBox->currentText(), getResources(), ui->commentLineEdit->text(), ui->phoneLineEdit->text());
+	return new Customer(ui->lastNameLineEdit->text(), ui->firstNameLineEdit->text(), ui->addressLineEdit->text(), ui->cityLineEdit->text(), ui->postalCodeLineEdit->text(), ui->dayOfConsultationDateEdit->date(), ui->durationTimeEdit->time(), ui->priorityComboBox->currentText(), getResources(), ui->commentLineEdit->text() + "\n" + ui->remarqueLineEdit->text(), ui->phoneLineEdit->text());
 }
 
 QList<Staff *> * NewCustomerDialog::getResources()
@@ -120,7 +120,7 @@ void NewCustomerDialog::on_okButton_clicked()
 		ui->postalCodeLineEdit->setStyleSheet("background-color:white;");
 	}
 
-	if(ui->dayOfConsultationDateEdit->date() < QDate::currentDate())
+	if(ui->dayOfConsultationDateEdit->date() < QDate::currentDate() || ui->dayOfConsultationDateEdit->date() > QDate::currentDate().addDays(30))
 	{
 		valid = false;
 		ui->dayOfConsultationDateEdit->setStyleSheet("background-color:red;");

@@ -14,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>SoMuchWoWApp</string>
+   <string>Gestion de RDV</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -63,7 +63,7 @@
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <property name="sizePolicy">
@@ -151,6 +151,9 @@
               <layout class="QVBoxLayout" name="verticalLayout_7">
                <item>
                 <widget class="QLineEdit" name="firstNameEdit">
+                 <property name="text">
+                  <string>son prénom</string>
+                 </property>
                  <property name="placeholderText">
                   <string>First name</string>
                  </property>
@@ -254,6 +257,31 @@
           </property>
          </widget>
         </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QPushButton" name="exportXMLButton">
+            <property name="text">
+             <string>Export XML</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="browseXMLButton">
+            <property name="text">
+             <string>Browse</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="xmlPathEdit">
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="tab_2">
@@ -348,6 +376,8 @@
      </property>
      <addaction name="actionCustomer"/>
      <addaction name="actionStaff"/>
+     <addaction name="separator"/>
+     <addaction name="actionDivers"/>
     </widget>
     <addaction name="menuAjouter"/>
     <addaction name="separator"/>
@@ -371,6 +401,7 @@
    </attribute>
    <addaction name="actionCustomer"/>
    <addaction name="actionStaff"/>
+   <addaction name="actionDivers"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionCustomer">
@@ -413,6 +444,15 @@
    </property>
    <property name="text">
     <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionDivers">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Resources/mohand.png</normaloff>:/Resources/mohand.png</iconset>
+   </property>
+   <property name="text">
+    <string>Divers</string>
    </property>
   </action>
  </widget>

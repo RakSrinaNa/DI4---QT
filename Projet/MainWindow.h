@@ -22,6 +22,7 @@
 #include "AboutDialog.h"
 #include "TreeItem.h"
 #include "MyDateSortFilterProxyModel.h"
+#include "NewOtherDialog.h"
 
 namespace Ui
 {
@@ -39,13 +40,6 @@ public:
 	explicit MainWindow(QWidget * parent = 0);
 
 	~MainWindow();
-
-	/**
-	 * Set the information text in the bottom bar.
-	 * @param status The text to display.
-	 * @param time The time to display time. 0 will show it until another message replaces it (default).
-	 */
-	void setStatusText(QString status, int time = 0);
 
 private:
 	Ui::MainWindow * ui;
@@ -69,6 +63,12 @@ private:
 	 * @param arg1 The current file name.
 	 */
 	void textExtension_textEdited(const QString &arg1);
+
+    /**
+     * Format all the staff in XML format
+     * @return The xml text
+     */
+    QString *getXMLText();
 
 private slots:
 
@@ -184,6 +184,20 @@ private slots:
 	 * Show/hide the appropriated columns in the tree.
 	 */
 	void showEditTree();
+
+	void on_actionDivers_triggered();
+
+	void on_exportXMLButton_clicked();
+
+	void on_browseXMLButton_clicked();
+
+public slots:
+	/**
+	 * Set the information text in the bottom bar.
+	 * @param status The text to display.
+	 * @param time The time to display time. 0 will show it until another message replaces it (default).
+	 */
+	void setStatusText(QString status, int time = 0);
 };
 
 #endif // MAINWINDOW_H

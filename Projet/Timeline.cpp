@@ -2,13 +2,13 @@
 
 TimeLine::TimeLine(Staff * staff) : staff(staff)
 {
-    qInfo() << "Creating timeline";
+    qDebug() << "Creating timeline";
 	hours = QList<QPair<Customer *, int>>();
 }
 
 TimeLine::~TimeLine()
 {
-    qInfo() << "Destroying timeline";
+    qDebug() << "Destroying timeline";
 }
 
 int TimeLine::getNextHour()
