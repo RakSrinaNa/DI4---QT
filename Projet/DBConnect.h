@@ -17,10 +17,10 @@
 /**
  * Class to handle database queries.
  */
-class DBConnect
+class DBConnect : public QObject
 {
 public:
-	DBConnect();
+	DBConnect(QObject * parent = Q_NULLPTR);
 
 	~DBConnect();
 
@@ -162,8 +162,12 @@ public:
 	 */
 	bool removeAllStaffOfType(int ID);
 
+signals:
+	void IWANTTOSAYIT(QString text, int duration);
+
 private:
 	QSqlDatabase db;
+	int insertCount;
 };
 
 #endif // DBCONNECT_H

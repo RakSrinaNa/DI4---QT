@@ -33,7 +33,7 @@ NewCustomerDialog::~NewCustomerDialog()
 
 Customer * NewCustomerDialog::getCustomer()
 {
-	return new Customer(ui->lastNameLineEdit->text(), ui->firstNameLineEdit->text(), ui->addressLineEdit->text(), ui->cityLineEdit->text(), ui->postalCodeLineEdit->text(), ui->dayOfConsultationDateEdit->date(), ui->durationTimeEdit->time(), ui->priorityComboBox->currentText(), getResources(), ui->commentLineEdit->text(), ui->phoneLineEdit->text());
+	return new Customer(ui->lastNameLineEdit->text(), ui->firstNameLineEdit->text(), ui->addressLineEdit->text(), ui->cityLineEdit->text(), ui->postalCodeLineEdit->text(), ui->dayOfConsultationDateEdit->date(), ui->durationTimeEdit->time(), ui->priorityComboBox->currentText(), getResources(), ui->commentLineEdit->text() + "\n" + ui->remarqueLineEdit->text(), ui->phoneLineEdit->text());
 }
 
 QList<Staff *> * NewCustomerDialog::getResources()
@@ -120,7 +120,7 @@ void NewCustomerDialog::on_okButton_clicked()
 		ui->postalCodeLineEdit->setStyleSheet("background-color:white;");
 	}
 
-	if(ui->dayOfConsultationDateEdit->date() < QDate::currentDate())
+	if(ui->dayOfConsultationDateEdit->date() < QDate::currentDate() || ui->dayOfConsultationDateEdit->date() > QDate::currentDate().addDays(30))
 	{
 		valid = false;
 		ui->dayOfConsultationDateEdit->setStyleSheet("background-color:red;");

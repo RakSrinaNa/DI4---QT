@@ -14,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>SoMuchWoWApp</string>
+   <string>Gestion de RDV</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -151,6 +151,9 @@
               <layout class="QVBoxLayout" name="verticalLayout_7">
                <item>
                 <widget class="QLineEdit" name="firstNameEdit">
+                 <property name="text">
+                  <string>son prénom</string>
+                 </property>
                  <property name="placeholderText">
                   <string>First name</string>
                  </property>
@@ -348,6 +351,8 @@
      </property>
      <addaction name="actionCustomer"/>
      <addaction name="actionStaff"/>
+     <addaction name="separator"/>
+     <addaction name="actionDivers"/>
     </widget>
     <addaction name="menuAjouter"/>
     <addaction name="separator"/>
@@ -371,6 +376,7 @@
    </attribute>
    <addaction name="actionCustomer"/>
    <addaction name="actionStaff"/>
+   <addaction name="actionDivers"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionCustomer">
@@ -413,6 +419,15 @@
    </property>
    <property name="text">
     <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionDivers">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Resources/mohand.png</normaloff>:/Resources/mohand.png</iconset>
+   </property>
+   <property name="text">
+    <string>Divers</string>
    </property>
   </action>
  </widget>

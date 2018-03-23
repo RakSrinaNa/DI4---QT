@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	setStatusText("You are connected");
 	ui->tabWidget->tabBar()->setExpanding(true); //Tabs fill all width
 
+	QObject::connect(db, SIGNAL(IWANTTOSAYIT(QString, int)), this, SLOT(setStatusText(QString, int)));
+
 	//Initialize tab 1 || SQLTable
 	model = new MySqlTableModel(this, db->getDB()); //Model to avoid modifying column 0
 	QObject::connect(model, SIGNAL(dataChanged(const QModelIndex&, const QModelIndex&, const QVector<int>&)), this, SLOT(myon_tableView_data_changed(const QModelIndex&, const QModelIndex&, const QVector<int>&)));
@@ -37,6 +39,9 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow (parent), ui(new Ui::Main
 	firstNameModel = new QSortFilterProxyModel(this);
 	lastNameModel = new QSortFilterProxyModel(this);
 	dateFilterModel = new MyDateSortFilterProxyModel(this);
+
+	model->setSort(2, Qt::SortOrder::AscendingOrder);
+	model->select();
 
 	ui->tableView->setModel(dateFilterModel);
 
@@ -138,7 +143,7 @@ void MainWindow::on_actionStaff_triggered()
 	{
 		if(db->addStaff(newStaff.getStaff()))
 		{
-			setStatusText("A new staff member was added", 5000);
+			//setStatusText("A new staff member was added", 5000);
 			model2->reload(ui->treeView); //Refresh tree view
 		}
 		else
@@ -484,7 +489,7 @@ void MainWindow::myon_tableView_data_changed(const QModelIndex &topLeft, const Q
 			case 8: //Date
 			{
 				QDate date = QDate::fromString(q.toString(), "yyyy-MM-dd");
-				if(date < QDate::currentDate())
+				if(date < QDate::currentDate() || date > QDate::currentDate().addDays(30))
 				{
 					model->revertRow(topLeft.row());
 					setStatusText("Wrong date format or date in the past");
@@ -647,4 +652,20 @@ void MainWindow::showEditTree()
 	else
 		ui->editTreePushButton->setText("Show hidden columns");
 
+}
+
+void MainWindow::on_actionDivers_triggered()
+{
+	qInfo() << "New other button clicked";
+	NewOtherDialog newOther;
+	if(newOther.exec() == QDialog::Accepted)
+	{
+		if(db->addStaff(newOther.getOther()))
+		{
+			setStatusText("A new other was added", 5000);
+			model2->reload(ui->treeView);
+		}
+		else
+			setStatusText("Failed to add a new other", 5000);
+	}
 }

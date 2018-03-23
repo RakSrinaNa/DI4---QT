@@ -1,9 +1,10 @@
 #include "DBConnect.h"
 
-DBConnect::DBConnect()
+DBConnect::DBConnect(QObject * parent) : QObject(parent)
 {
 	qInfo() << "Creating DBConnect";
 	db = QSqlDatabase::database();
+	insertCount = 0;
 
 	if(db.isValid())
 	{
@@ -31,7 +32,7 @@ DBConnect::DBConnect()
 
 DBConnect::~DBConnect()
 {
-	qInfo() << "Destroying DBConnect";
+	qInfo() << "Destroying DBConnect," << insertCount << "insert(s) were done";
 	db.close();
 	QSqlDatabase::removeDatabase("QSQLITE");
 }
@@ -216,6 +217,7 @@ bool DBConnect::addCustomer(Customer * customer)
 	query.bindValue(":dura", customer->getDurationInMin());
 	query.bindValue(":prio", customer->getPriority());
 
+	insertCount++;
 	if(!query.exec())
 		return false;
 
@@ -229,6 +231,7 @@ bool DBConnect::addCustomer(Customer * customer)
 					   "VALUES ((SELECT max(Id) +1 FROM TRdv), :lastid, :idressource)");
 		query2.bindValue(":lastid", lastId);
 		query2.bindValue(":idressource", resource->getId());
+		insertCount++;
 		if(!query2.exec())
 			return false;
 	}
@@ -249,6 +252,7 @@ bool DBConnect::addStaff(Staff * staff)
 	query.bindValue(":firstName", staff->getFirstName());
 	query.bindValue(":type", staff->getResourceType()->getId());
 
+		insertCount++;
 	if(!query.exec())
 		return false;
 
@@ -259,10 +263,12 @@ bool DBConnect::addStaff(Staff * staff)
 		query2.bindValue(":log", staff->getLogin());
 		query2.bindValue(":mdp", staff->getPassword());
 
+		insertCount++;
 		if(!query2.exec())
 			return false;
 	}
 
+	//emit IWANTTOSAYIT("Ajout de personne termine", 2000);
 	return true;
 }
 
